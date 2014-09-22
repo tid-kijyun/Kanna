@@ -4,9 +4,9 @@
  */
 import Foundation
 
-func ConvXmlCharToString(str: UnsafePointer<xmlChar>) -> String {
-    if str {
-        return String.fromCString(UnsafePointer<CChar>(str))
+func ConvXmlCharToString(str: UnsafePointer<xmlChar>) -> String! {
+    if str != nil {
+        return String.fromCString(UnsafeMutablePointer<CChar>(str))
     }
     return ""
 }
@@ -48,16 +48,16 @@ class HTMLParser {
             var cfenc : CFStringEncoding = CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding)
             var cfencstr : CFStringRef   = CFStringConvertEncodingToIANACharSetName(cfenc)
         
-            var cur : CChar[]? = html.cStringUsingEncoding(NSUTF8StringEncoding)
-            var url : CString = ""
-            var enc : CString = CFStringGetCStringPtr(cfencstr, 0)
+            var cur : [CChar]? = html.cStringUsingEncoding(NSUTF8StringEncoding)
+            var url : String = ""
+            var enc = CFStringGetCStringPtr(cfencstr, 0)
             let optionHtml : CInt = 1
         
             if var ucur = cur {
-                var temp : CMutablePointer<CChar> = &ucur
-                var aaa = UnsafePointer<CUnsignedChar>(temp.value)
-                _doc = htmlReadDoc(aaa, url, enc, optionHtml)
+                _doc = htmlReadDoc(UnsafePointer<CUnsignedChar>(ucur), url, enc, optionHtml)
                 rootNode  = HTMLNode(doc: _doc)
+            } else {
+                error = NSError(domain: "HTMLParserdomain", code: 1, userInfo: nil)
             }
         } else {
             error = NSError(domain: "HTMLParserdomain", code: 1, userInfo: nil)

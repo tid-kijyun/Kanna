@@ -41,8 +41,8 @@ class HTMLNode {
     * 次ノード
     */
     var next : HTMLNode? {
-        if let n : UnsafePointer<xmlNode> = node?.next {
-            if n {
+        if let n : UnsafeMutablePointer<xmlNode> = node?.next {
+            if n != nil {
                 return HTMLNode(doc: doc, node: n)
             }
         }
@@ -54,7 +54,7 @@ class HTMLNode {
      */
     var child     : HTMLNode? {
         if let c = node?.children {
-            if c {
+            if c != nil {
                 return HTMLNode(doc: doc, node: c)
             }
         }
@@ -72,7 +72,7 @@ class HTMLNode {
     * タグ名
     */
     var tagName : String {
-        if node {
+        if node != nil {
             return ConvXmlCharToString(self.node!.name)
         }
         return ""
@@ -82,9 +82,9 @@ class HTMLNode {
      * コンテンツ
      */
     var contents : String {
-        if node {
+        if node != nil {
             var n = self.node!.children
-            if n {
+            if n != nil {
                 return ConvXmlCharToString(n.memory.content)
             }
         }
@@ -98,7 +98,7 @@ class HTMLNode {
     init(doc: htmlDocPtr = nil) {
         self.doc  = doc
         var node = xmlDocGetRootElement(doc)
-        if node {
+        if node != nil {
             self.node = node.memory
         }
     }
@@ -107,7 +107,7 @@ class HTMLNode {
         self.doc  = doc
         self.node = node.memory
 
-        if let type = HTMLNodeType.fromRaw(tagName) {
+        if let type = HTMLNodeType(rawValue: tagName) {
             nodeType = type
         }
     }
@@ -118,13 +118,11 @@ class HTMLNode {
      * @return 属性名
      */
     func getAttributeNamed(name: String) -> String {
-        for var attr : xmlAttrPtr = node!.properties; attr; attr = attr.memory.next {
-            if attr {
-                var mem = attr.memory
+        for var attr : xmlAttrPtr = node!.properties; attr != nil; attr = attr.memory.next {
+            var mem = attr.memory
 
-                if name == ConvXmlCharToString(mem.name) {
-                    return ConvXmlCharToString(mem.children.memory.content)
-                }
+            if name == ConvXmlCharToString(mem.name) {
+                return ConvXmlCharToString(mem.children.memory.content)
             }
         }
         
@@ -136,20 +134,20 @@ class HTMLNode {
      * @param[in] tagName タグ名
      * @return 子ノードの配列
      */
-    func findChildTags(tagName: String) -> HTMLNode[] {
-        var nodes : HTMLNode[] = []
+    func findChildTags(tagName: String) -> [HTMLNode] {
+        var nodes : [HTMLNode] = []
         
         return findChildTags(tagName, node: self.child, retAry: &nodes)
     }
     
-    func findChildTags(tagName: String, node: HTMLNode?, inout retAry: HTMLNode[] ) -> HTMLNode[] {
-        if node {
-            for n in node! {
-                if n.tagName == tagName {
-                    retAry.append(n)
+    func findChildTags(tagName: String, node: HTMLNode?, inout retAry: [HTMLNode] ) -> [HTMLNode] {
+        if let n = node {
+            for curNode in n {
+                if curNode.tagName == tagName {
+                    retAry.append(curNode)
                 }
             
-                findChildTags(tagName, node: n.child, retAry: &retAry)
+                findChildTags(tagName, node: curNode.child, retAry: &retAry)
             }
         }
         return retAry
@@ -165,18 +163,16 @@ class HTMLNode {
     }
 
     func findChildTag(tagName: String, node: HTMLNode?) -> HTMLNode? {
-        if node == nil {
-            return nil
-        }
-        
-        for curNode in node! {
-            if tagName == curNode.tagName {
-                return curNode
-            }
+        if let nd = node {
+            for curNode in nd {
+                if tagName == curNode.tagName {
+                    return curNode
+                }
             
-            if let c = curNode.child {
-                if let n = findChildTag(tagName, node: c) {
-                    return n
+                if let c = curNode.child {
+                    if let n = findChildTag(tagName, node: c) {
+                        return n
+                    }
                 }
             }
         }
@@ -185,7 +181,7 @@ class HTMLNode {
     }
 }
 
-extension HTMLNode : Sequence {
+extension HTMLNode : SequenceType {
     func generate() -> HTMLNodeGenerator {
         return HTMLNodeGenerator(node: self)
     }
@@ -194,7 +190,7 @@ extension HTMLNode : Sequence {
 /**
 * HTMLNodeGenerator
 */
-class HTMLNodeGenerator : Generator {
+class HTMLNodeGenerator : GeneratorType {
     var node : HTMLNode?
     
     init(node: HTMLNode?) {
@@ -202,7 +198,7 @@ class HTMLNodeGenerator : Generator {
     }
     
     func next() -> HTMLNode? {
-        var temp = node?
+        var temp = node
         node = node?.next
         return temp
     }
