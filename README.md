@@ -11,7 +11,7 @@ let html = "<ul><li><input type='image' name='input1' value='string1value' class
 
 var err : NSError?
 var parser     = HTMLParser(html: html, error: &err)
-if err {
+if err != nil {
     println(err)
     exit(1)
 }
@@ -23,4 +23,12 @@ if let inputNodes = bodyNode?.findChildTags("b") {
         println(node.contents)
     }
 }
+
+if let inputNodes = bodyNode?.findChildTags("a") {
+    for node in inputNodes {
+        println(node.contents)
+        println(node.getAttributeNamed("href"))
+    }
+}
+
 ```
