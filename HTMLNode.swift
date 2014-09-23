@@ -6,8 +6,8 @@
 /**
  * HTMLNode
  */
-class HTMLNode {
-    enum HTMLNodeType : String {
+public class HTMLNode {
+    public enum HTMLNodeType : String {
         case HTMLUnkownNode     = ""
         case HTMLHrefNode       = "href"
         case HTMLTextNode       = "text"
@@ -23,14 +23,14 @@ class HTMLNode {
         case HTMLBlockQuoteNode = "blockquote"
     }
     
-    var doc       : htmlDocPtr
-    var node      : xmlNode?
-    let nodeType  : HTMLNodeType = HTMLNodeType.HTMLUnkownNode
+    private var doc       : htmlDocPtr
+    private var node      : xmlNode?
+    private let nodeType  : HTMLNodeType = HTMLNodeType.HTMLUnkownNode
     
     /**
      * 親ノード
      */
-    var parent    : HTMLNode? {
+    private var parent    : HTMLNode? {
         if let p = self.node?.parent {
             return HTMLNode(doc: self.doc, node: p)
         }
@@ -40,7 +40,7 @@ class HTMLNode {
     /**
     * 次ノード
     */
-    var next : HTMLNode? {
+    private var next : HTMLNode? {
         if let n : UnsafeMutablePointer<xmlNode> = node?.next {
             if n != nil {
                 return HTMLNode(doc: doc, node: n)
@@ -52,7 +52,7 @@ class HTMLNode {
     /**
      * 子ノード
      */
-    var child     : HTMLNode? {
+    private var child     : HTMLNode? {
         if let c = node?.children {
             if c != nil {
                 return HTMLNode(doc: doc, node: c)
@@ -64,14 +64,14 @@ class HTMLNode {
     /**
      * クラス名
      */
-    var className : String {
+    public var className : String {
         return getAttributeNamed("class")
     }
 
     /**
     * タグ名
     */
-    var tagName : String {
+    public var tagName : String {
         if node != nil {
             return ConvXmlCharToString(self.node!.name)
         }
@@ -81,7 +81,7 @@ class HTMLNode {
     /**
      * コンテンツ
      */
-    var contents : String {
+    public var contents : String {
         if node != nil {
             var n = self.node!.children
             if n != nil {
@@ -95,7 +95,7 @@ class HTMLNode {
      * Initializer
      * @param[in] doc xmlDoc
      */
-    init(doc: htmlDocPtr = nil) {
+    public init(doc: htmlDocPtr = nil) {
         self.doc  = doc
         var node = xmlDocGetRootElement(doc)
         if node != nil {
@@ -103,7 +103,7 @@ class HTMLNode {
         }
     }
     
-    init(doc: htmlDocPtr, node: UnsafePointer<xmlNode>) {
+    private init(doc: htmlDocPtr, node: UnsafePointer<xmlNode>) {
         self.doc  = doc
         self.node = node.memory
 
@@ -117,7 +117,7 @@ class HTMLNode {
      * @param[in] name 属性
      * @return 属性名
      */
-    func getAttributeNamed(name: String) -> String {
+    public func getAttributeNamed(name: String) -> String {
         for var attr : xmlAttrPtr = node!.properties; attr != nil; attr = attr.memory.next {
             var mem = attr.memory
 
@@ -134,13 +134,13 @@ class HTMLNode {
      * @param[in] tagName タグ名
      * @return 子ノードの配列
      */
-    func findChildTags(tagName: String) -> [HTMLNode] {
+    public func findChildTags(tagName: String) -> [HTMLNode] {
         var nodes : [HTMLNode] = []
         
         return findChildTags(tagName, node: self.child, retAry: &nodes)
     }
     
-    func findChildTags(tagName: String, node: HTMLNode?, inout retAry: [HTMLNode] ) -> [HTMLNode] {
+    private func findChildTags(tagName: String, node: HTMLNode?, inout retAry: [HTMLNode] ) -> [HTMLNode] {
         if let n = node {
             for curNode in n {
                 if curNode.tagName == tagName {
@@ -158,11 +158,11 @@ class HTMLNode {
      * @param[in] tagName タグ名
      * @return 子ノード。見つからなければnil
      */
-    func findChildTag(tagName: String) -> HTMLNode? {
+    public func findChildTag(tagName: String) -> HTMLNode? {
         return findChildTag(tagName, node: self)
     }
 
-    func findChildTag(tagName: String, node: HTMLNode?) -> HTMLNode? {
+    private func findChildTag(tagName: String, node: HTMLNode?) -> HTMLNode? {
         if let nd = node {
             for curNode in nd {
                 if tagName == curNode.tagName {
@@ -182,7 +182,7 @@ class HTMLNode {
 }
 
 extension HTMLNode : SequenceType {
-    func generate() -> HTMLNodeGenerator {
+    public func generate() -> HTMLNodeGenerator {
         return HTMLNodeGenerator(node: self)
     }
 }
@@ -190,17 +190,16 @@ extension HTMLNode : SequenceType {
 /**
 * HTMLNodeGenerator
 */
-class HTMLNodeGenerator : GeneratorType {
-    var node : HTMLNode?
+public class HTMLNodeGenerator : GeneratorType {
+    private var node : HTMLNode?
     
-    init(node: HTMLNode?) {
+    public init(node: HTMLNode?) {
         self.node = node
     }
     
-    func next() -> HTMLNode? {
+    public func next() -> HTMLNode? {
         var temp = node
         node = node?.next
         return temp
     }
 }
-
