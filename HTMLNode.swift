@@ -107,7 +107,7 @@ class HTMLNode {
         self.doc  = doc
         self.node = node.memory
 
-        if let type = HTMLNodeType.fromRaw(tagName) {
+        if let type = HTMLNodeType(rawValue: tagName) {
             nodeType = type
         }
     }
