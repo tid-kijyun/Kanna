@@ -4,8 +4,8 @@ A swift wrapper around libxml for parsing HTML
 
 Usage
 =================
-1. Add [Swift-HTML-Parser/HTMLParser.swift] and [Swift-HTML-Parser/HTMLNode.swift] to your project
-2. In the project settings add [Swift-HTML-Parser/Swift-HTML-Parser-Bridging-Header.h] to the "Objective-C Bridging Header" 
+1. Add [HTMLParser.swift](Swift-HTML-Parser/HTMLParser.swift), [HTMLNode.swift](Swift-HTML-Parser/HTMLNode.swift), [Swift-HTML-Parser-Bridging-Header.h](Swift-HTML-Parser/Swift-HTML-Parser-Bridging-Header.h) to your project
+2. In the project settings add "Swift-HTML-Parser-Bridging-Header.h" to the "Objective-C Bridging Header" 
 3. In the project settings add "/usr/include/libxml2" to the "header search paths" field
 4. Add libxml2.dylib to ""Link Binary With Libraries"
 
