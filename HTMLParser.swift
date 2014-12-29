@@ -14,28 +14,28 @@ func ConvXmlCharToString(str: UnsafePointer<xmlChar>) -> String! {
 /**
  * HTMLParser
  */
-class HTMLParser {
-    var _doc     : htmlDocPtr = nil
-    var rootNode : HTMLNode?
+public class HTMLParser {
+    private var _doc     : htmlDocPtr = nil
+    private var rootNode : HTMLNode?
     
     /**
      * HTML tag
      */
-    var html : HTMLNode? {
+    public var html : HTMLNode? {
         return rootNode?.findChildTag("html")
     }
     
     /**
      * HEAD tag
      */
-    var head : HTMLNode? {
+    public var head : HTMLNode? {
         return rootNode?.findChildTag("head")
     }
     
     /**
      * BODY tag
      */
-    var body : HTMLNode? {
+    public var body : HTMLNode? {
         return rootNode?.findChildTag("body")
     }
     
@@ -43,7 +43,7 @@ class HTMLParser {
      * @param[in] html  HTML文字列
      * @param[in] error エラーがあれば返します
      */
-    init(html: String, inout error: NSError?) {
+    public init(html: String, inout error: NSError?) {
         if html.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) > 0 {
             var cfenc : CFStringEncoding = CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding)
             var cfencstr : CFStringRef   = CFStringConvertEncodingToIANACharSetName(cfenc)
