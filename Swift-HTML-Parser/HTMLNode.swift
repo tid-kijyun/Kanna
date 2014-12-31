@@ -2,6 +2,7 @@
  * @brief Swift-HTML-Parser
  * @author _tid_
  */
+import Foundation
 
 /**
  * HTMLNode
@@ -178,6 +179,40 @@ public class HTMLNode {
         }
 
         return nil
+    }
+    
+    /**
+     * xpathで子ノードを探す
+     * @param[in] xpath xpath
+     * @return 子ノード。見つからなければnil
+     */
+    public func xpath(xpath: String) -> [HTMLNode]? {
+        let ctxt = xmlXPathNewContext(self.doc)
+        if ctxt == nil {
+            return nil
+        }
+        
+        let result = xmlXPathEvalExpression(xpath, ctxt)
+        xmlXPathFreeContext(ctxt)
+        if result == nil {
+            return nil
+        }
+
+        let nodeSet = result.memory.nodesetval
+        if nodeSet == nil || nodeSet.memory.nodeNr == 0 || nodeSet.memory.nodeTab == nil {
+            return nil
+        }
+        
+        var nodes : [HTMLNode] = []
+        let size = Int(nodeSet.memory.nodeNr)
+        for var i = 0; i < size; ++i {
+            let n = nodeSet.memory
+            let node = nodeSet.memory.nodeTab[i]
+            let htmlNode = HTMLNode(doc: self.doc, node: node)
+            nodes.append(htmlNode)
+        }
+
+        return nodes
     }
 }
 
