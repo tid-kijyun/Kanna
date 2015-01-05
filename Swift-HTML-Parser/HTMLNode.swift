@@ -1,12 +1,12 @@
 /**@file
- * @brief Swift-HTML-Parser
- * @author _tid_
- */
+* @brief Swift-HTML-Parser
+* @author _tid_
+*/
 import Foundation
 
 /**
- * HTMLNode
- */
+* HTMLNode
+*/
 public class HTMLNode {
     public enum HTMLNodeType : String {
         case HTMLUnkownNode     = ""
@@ -29,15 +29,15 @@ public class HTMLNode {
     private let nodeType  : HTMLNodeType = HTMLNodeType.HTMLUnkownNode
     
     /**
-     * 親ノード
-     */
+    * 親ノード
+    */
     private var parent    : HTMLNode? {
         if let p = self.node?.parent {
             return HTMLNode(doc: self.doc, node: p)
         }
         return nil
     }
-
+    
     /**
     * 次ノード
     */
@@ -49,10 +49,10 @@ public class HTMLNode {
         }
         return nil
     }
-
+    
     /**
-     * 子ノード
-     */
+    * 子ノード
+    */
     private var child     : HTMLNode? {
         if let c = node?.children {
             if c != nil {
@@ -61,14 +61,14 @@ public class HTMLNode {
         }
         return nil
     }
-
+    
     /**
-     * クラス名
-     */
+    * クラス名
+    */
     public var className : String {
         return getAttributeNamed("class")
     }
-
+    
     /**
     * タグ名
     */
@@ -80,8 +80,8 @@ public class HTMLNode {
     }
     
     /**
-     * コンテンツ
-     */
+    * コンテンツ
+    */
     public var contents : String {
         if node != nil {
             var n = self.node!.children
@@ -91,11 +91,11 @@ public class HTMLNode {
         }
         return ""
     }
-
+    
     /**
-     * Initializer
-     * @param[in] doc xmlDoc
-     */
+    * Initializer
+    * @param[in] doc xmlDoc
+    */
     public init(doc: htmlDocPtr = nil) {
         self.doc  = doc
         var node = xmlDocGetRootElement(doc)
@@ -107,21 +107,21 @@ public class HTMLNode {
     private init(doc: htmlDocPtr, node: UnsafePointer<xmlNode>) {
         self.doc  = doc
         self.node = node.memory
-
+        
         if let type = HTMLNodeType(rawValue: tagName) {
             nodeType = type
         }
     }
-
+    
     /**
-     * 属性名を取得する
-     * @param[in] name 属性
-     * @return 属性名
-     */
+    * 属性名を取得する
+    * @param[in] name 属性
+    * @return 属性名
+    */
     public func getAttributeNamed(name: String) -> String {
         for var attr : xmlAttrPtr = node!.properties; attr != nil; attr = attr.memory.next {
             var mem = attr.memory
-
+            
             if name == ConvXmlCharToString(mem.name) {
                 return ConvXmlCharToString(mem.children.memory.content)
             }
@@ -131,10 +131,10 @@ public class HTMLNode {
     }
     
     /**
-     * タグ名に一致する全ての子ノードを探す
-     * @param[in] tagName タグ名
-     * @return 子ノードの配列
-     */
+    * タグ名に一致する全ての子ノードを探す
+    * @param[in] tagName タグ名
+    * @return 子ノードの配列
+    */
     public func findChildTags(tagName: String) -> [HTMLNode] {
         var nodes : [HTMLNode] = []
         
@@ -147,7 +147,7 @@ public class HTMLNode {
                 if curNode.tagName == tagName {
                     retAry.append(curNode)
                 }
-            
+                
                 findChildTags(tagName, node: curNode.child, retAry: &retAry)
             }
         }
@@ -155,21 +155,21 @@ public class HTMLNode {
     }
     
     /**
-     * タグ名で子ノードを探す
-     * @param[in] tagName タグ名
-     * @return 子ノード。見つからなければnil
-     */
+    * タグ名で子ノードを探す
+    * @param[in] tagName タグ名
+    * @return 子ノード。見つからなければnil
+    */
     public func findChildTag(tagName: String) -> HTMLNode? {
         return findChildTag(tagName, node: self)
     }
-
+    
     private func findChildTag(tagName: String, node: HTMLNode?) -> HTMLNode? {
         if let nd = node {
             for curNode in nd {
                 if tagName == curNode.tagName {
                     return curNode
                 }
-            
+                
                 if let c = curNode.child {
                     if let n = findChildTag(tagName, node: c) {
                         return n
@@ -177,15 +177,60 @@ public class HTMLNode {
                 }
             }
         }
-
+        
+        return nil
+    }
+    
+    //------------------------------------------------------
+    
+    public func findChildTagsAttr(tagName: String, attrName : String, attrValue : String) -> [HTMLNode] {
+        var nodes : [HTMLNode] = []
+        
+        return findChildTagsAttr(tagName, attrName : attrName, attrValue : attrValue, node: self.child, retAry: &nodes)
+    }
+    
+    private func findChildTagsAttr(tagName: String, attrName : String, attrValue : String, node: HTMLNode?, inout retAry: [HTMLNode] ) -> [HTMLNode] {
+        if let n = node {
+            for curNode in n {
+                if curNode.tagName == tagName && curNode.getAttributeNamed(attrName) == attrValue {
+                    retAry.append(curNode)
+                }
+                
+                findChildTagsAttr(tagName, attrName : attrName, attrValue : attrValue, node: curNode.child, retAry: &retAry)
+            }
+        }
+        return retAry
+    }
+    
+    public func findChildTagAttr(tagName : String, attrName : String, attrValue : String) -> HTMLNode?
+    {
+        return findChildTagAttr(tagName, attrName : attrName, attrValue : attrValue, node: self)
+    }
+    
+    private func findChildTagAttr(tagName : String, attrName : String, attrValue : String, node: HTMLNode?) -> HTMLNode?
+    {
+        if let nd = node {
+            for curNode in nd {
+                if tagName == curNode.tagName && curNode.getAttributeNamed(attrName) == attrValue {
+                    return curNode
+                }
+                
+                if let c = curNode.child {
+                    if let n = findChildTagAttr(tagName,attrName: attrName,attrValue: attrValue, node: c) {
+                        return n
+                    }
+                }
+            }
+        }
+        
         return nil
     }
     
     /**
-     * xpathで子ノードを探す
-     * @param[in] xpath xpath
-     * @return 子ノード。見つからなければnil
-     */
+    * xpathで子ノードを探す
+    * @param[in] xpath xpath
+    * @return 子ノード。見つからなければnil
+    */
     public func xpath(xpath: String) -> [HTMLNode]? {
         let ctxt = xmlXPathNewContext(self.doc)
         if ctxt == nil {
@@ -197,7 +242,7 @@ public class HTMLNode {
         if result == nil {
             return nil
         }
-
+        
         let nodeSet = result.memory.nodesetval
         if nodeSet == nil || nodeSet.memory.nodeNr == 0 || nodeSet.memory.nodeTab == nil {
             return nil
@@ -211,7 +256,7 @@ public class HTMLNode {
             let htmlNode = HTMLNode(doc: self.doc, node: node)
             nodes.append(htmlNode)
         }
-
+        
         return nodes
     }
 }
