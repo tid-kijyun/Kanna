@@ -66,7 +66,7 @@ public class HTMLParser {
         }
     }
     
-    public init(html: String, inout error: NSError?, encoding : UInt) {
+    public init(html: String, encoding : UInt, inout error: NSError?) {
         if html.lengthOfBytesUsingEncoding(encoding) > 0 {
             self.htmlString = html
             var cfenc : CFStringEncoding = CFStringConvertNSStringEncodingToEncoding(encoding)
