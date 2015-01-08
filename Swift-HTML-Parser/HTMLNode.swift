@@ -225,6 +225,32 @@ public class HTMLNode {
         
         return nil
     }
+    /**
+    * Find node by id (id has to be used properly it is a uniq attribute)
+    * @param[in] id String
+    * @return HTMLNode
+    */
+    public func findNodeById(id: String) -> HTMLNode? {
+        return findNodeById(id, node: self)
+    }
+    
+    private func findNodeById(id: String, node: HTMLNode?) -> HTMLNode? {
+        if let nd = node {
+            for curNode in nd {
+                if id == curNode.getAttributeNamed("id") {
+                    return curNode
+                }
+                
+                if let c = curNode.child {
+                    if let n = findNodeById(id, node: c) {
+                        return n
+                    }
+                }
+            }
+        }
+        
+        return nil
+    }
     
     /**
     * xpathで子ノードを探す
