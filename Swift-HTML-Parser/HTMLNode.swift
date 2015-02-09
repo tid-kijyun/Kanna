@@ -26,6 +26,7 @@ public class HTMLNode {
     
     private var doc       : htmlDocPtr
     private var node      : xmlNode?
+    private var pointer : xmlNodePtr
     private let nodeType  : HTMLNodeType = HTMLNodeType.HTMLUnkownNode
     
     /**
@@ -92,6 +93,13 @@ public class HTMLNode {
         return ""
     }
     
+    public var rawContents : String {
+        if node != nil {
+            return rawContentsOfNode(self.node!, self.pointer)
+        }
+        return ""
+    }
+    
     /**
     * Initializer
     * @param[in] doc xmlDoc
@@ -99,6 +107,7 @@ public class HTMLNode {
     public init(doc: htmlDocPtr = nil) {
         self.doc  = doc
         var node = xmlDocGetRootElement(doc)
+        self.pointer = node
         if node != nil {
             self.node = node.memory
         }
@@ -107,7 +116,7 @@ public class HTMLNode {
     private init(doc: htmlDocPtr, node: UnsafePointer<xmlNode>) {
         self.doc  = doc
         self.node = node.memory
-        
+        self.pointer = xmlNodePtr(node)
         if let type = HTMLNodeType(rawValue: tagName) {
             nodeType = type
         }
