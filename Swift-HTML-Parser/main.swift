@@ -37,13 +37,15 @@ var bodyNode   = parser.body
 
 if let inputNodes = bodyNode?.findChildTags("b") {
     for node in inputNodes {
-        println(node.contents)
+        println("Contents: \(node.contents)")
+        println("Raw contents: \(node.rawContents)")
     }
 }
 
 if let inputNodes = bodyNode?.findChildTags("a") {
     for node in inputNodes {
-        println(node.contents)
+        println("Contents: \(node.contents)")
+        println("Raw contents: \(node.rawContents)")
         println(node.getAttributeNamed("href"))
     }
 }
@@ -52,7 +54,8 @@ println(bodyNode?.findChildTagAttr("div", attrName: "class", attrValue: "val")?.
 
 if let inputNodes = bodyNode?.findChildTagsAttr("div", attrName: "class", attrValue: "val") {
     for node in inputNodes {
-        println(node.contents)
+        println("Contents: \(node.contents)")
+        println("Raw contents: \(node.rawContents)")
     }
 }
 

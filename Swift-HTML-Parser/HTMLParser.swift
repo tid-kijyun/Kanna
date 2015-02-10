@@ -4,11 +4,37 @@
 */
 import Foundation
 
+let DUMP_BUFFER_SIZE : UInt = 4000
+
 func ConvXmlCharToString(str: UnsafePointer<xmlChar>) -> String! {
     if str != nil {
         return String.fromCString(UnsafeMutablePointer<CChar>(str))
     }
     return ""
+}
+
+func rawContentsOfNode(node : xmlNode, pointer: xmlNodePtr) -> String! {
+    var result : String?
+    var xmlBuffer = xmlBufferCreateSize(DUMP_BUFFER_SIZE)
+    var outputBuffer : xmlOutputBufferPtr = xmlOutputBufferCreateBuffer(xmlBuffer, nil)
+    
+    let document = node.doc
+    
+    let xmlCharContent = document.memory.encoding
+    let contentAddress = unsafeBitCast(xmlCharContent, UnsafePointer<xmlChar>.self)
+    let constChar = UnsafePointer<Int8>(contentAddress)
+    
+    htmlNodeDumpOutput(outputBuffer, document, pointer, constChar)
+    xmlOutputBufferFlush(outputBuffer)
+    
+    if xmlBuffer.memory.content != nil {
+        result = ConvXmlCharToString(xmlBuffer.memory.content)
+    }
+    
+    xmlOutputBufferClose(outputBuffer)
+    xmlBufferFree(xmlBuffer)
+    
+    return result
 }
 
 /**
