@@ -70,8 +70,8 @@ public class HTMLParser {
     * @param[in] html  HTML文字列
     * @param[in] error エラーがあれば返します
     */
-    public init(html: String, inout error: NSError?) {
-        if html.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) > 0 {
+    public init(html: String, encoding: UInt, option: CInt, inout error: NSError?) {
+        if html.lengthOfBytesUsingEncoding(encoding) > 0 {
             self.htmlString = html
             var cfenc : CFStringEncoding = CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding)
             var cfencstr : CFStringRef   = CFStringConvertEncodingToIANACharSetName(cfenc)
@@ -79,7 +79,7 @@ public class HTMLParser {
             var cur : [CChar]? = html.cStringUsingEncoding(NSUTF8StringEncoding)
             var url : String = ""
             var enc = CFStringGetCStringPtr(cfencstr, 0)
-            let optionHtml : CInt = 1
+            let optionHtml : CInt = option
             
             if var ucur = cur {
                 _doc = htmlReadDoc(UnsafePointer<CUnsignedChar>(ucur), url, enc, optionHtml)
@@ -92,26 +92,12 @@ public class HTMLParser {
         }
     }
     
-    public init(html: String, encoding : UInt, inout error: NSError?) {
-        if html.lengthOfBytesUsingEncoding(encoding) > 0 {
-            self.htmlString = html
-            var cfenc : CFStringEncoding = CFStringConvertNSStringEncodingToEncoding(encoding)
-            var cfencstr : CFStringRef   = CFStringConvertEncodingToIANACharSetName(cfenc)
-            
-            var cur : [CChar]? = html.cStringUsingEncoding(encoding)
-            var url : String = ""
-            var enc = CFStringGetCStringPtr(cfencstr, 0)
-            let optionHtml : CInt = 1
-            
-            if var ucur = cur {
-                _doc = htmlReadDoc(UnsafePointer<CUnsignedChar>(ucur), url, enc, optionHtml)
-                rootNode  = HTMLNode(doc: _doc)
-            } else {
-                error = NSError(domain: "HTMLParserdomain", code: 1, userInfo: nil)
-            }
-        } else {
-            error = NSError(domain: "HTMLParserdomain", code: 1, userInfo: nil)
-        }
+    public convenience init(html: String, inout error: NSError?) {
+        self.init(html: html, encoding: NSUTF8StringEncoding, option: 1, error: &error)
+    }
+    
+    public convenience init(html: String, encoding : UInt, inout error: NSError?) {
+        self.init(html: html, encoding: encoding, option: 1, error: &error)
     }
     
     deinit {

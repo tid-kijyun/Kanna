@@ -27,7 +27,8 @@ let html =
 
 
 var err : NSError?
-var parser     = HTMLParser(html: html, error: &err)
+let option = CInt(HTML_PARSE_NOERROR.value | HTML_PARSE_RECOVER.value)
+var parser     = HTMLParser(html: html, encoding: NSUTF8StringEncoding, option: option, error: &err)
 if err != nil {
     println(err)
     exit(1)
