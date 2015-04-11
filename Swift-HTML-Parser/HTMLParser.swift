@@ -4,7 +4,7 @@
 */
 import Foundation
 
-let DUMP_BUFFER_SIZE : UInt = 4000
+let DUMP_BUFFER_SIZE : Int = 4000
 
 func ConvXmlCharToString(str: UnsafePointer<xmlChar>) -> String! {
     if str != nil {

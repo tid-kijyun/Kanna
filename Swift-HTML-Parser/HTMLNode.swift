@@ -27,7 +27,7 @@ public class HTMLNode {
     private var doc       : htmlDocPtr
     private var node      : xmlNode?
     private var pointer : xmlNodePtr
-    private let nodeType  : HTMLNodeType = HTMLNodeType.HTMLUnkownNode
+    private let nodeType  : HTMLNodeType
     
     /**
     * 親ノード
@@ -74,8 +74,12 @@ public class HTMLNode {
     * タグ名
     */
     public var tagName : String {
-        if node != nil {
-            return ConvXmlCharToString(self.node!.name)
+        return HTMLNode.GetTagName(self.node)
+    }
+    
+    private static func GetTagName(node: xmlNode?) -> String {
+        if let n = node {
+            return ConvXmlCharToString(n.name)
         }
         return ""
     }
@@ -108,6 +112,7 @@ public class HTMLNode {
         self.doc  = doc
         var node = xmlDocGetRootElement(doc)
         self.pointer = node
+        self.nodeType = .HTMLUnkownNode
         if node != nil {
             self.node = node.memory
         }
@@ -117,8 +122,10 @@ public class HTMLNode {
         self.doc  = doc
         self.node = node.memory
         self.pointer = xmlNodePtr(node)
-        if let type = HTMLNodeType(rawValue: tagName) {
-            nodeType = type
+        if let type = HTMLNodeType(rawValue: HTMLNode.GetTagName(self.node)) {
+            self.nodeType = type
+        } else {
+            self.nodeType = .HTMLUnkownNode
         }
     }
     
