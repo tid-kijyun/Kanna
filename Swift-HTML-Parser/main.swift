@@ -27,10 +27,10 @@ let html =
 
 
 var err : NSError?
-let option = CInt(HTML_PARSE_NOERROR.value | HTML_PARSE_RECOVER.value)
+let option = CInt(HTML_PARSE_NOERROR.rawValue | HTML_PARSE_RECOVER.rawValue)
 var parser     = HTMLParser(html: html, encoding: NSUTF8StringEncoding, option: option, error: &err)
 if err != nil {
-    println(err)
+    print(err)
     exit(1)
 }
 
@@ -38,32 +38,32 @@ var bodyNode   = parser.body
 
 if let inputNodes = bodyNode?.findChildTags("b") {
     for node in inputNodes {
-        println("Contents: \(node.contents)")
-        println("Raw contents: \(node.rawContents)")
+        print("Contents: \(node.contents)")
+        print("Raw contents: \(node.rawContents)")
     }
 }
 
 if let inputNodes = bodyNode?.findChildTags("a") {
     for node in inputNodes {
-        println("Contents: \(node.contents)")
-        println("Raw contents: \(node.rawContents)")
-        println(node.getAttributeNamed("href"))
+        print("Contents: \(node.contents)")
+        print("Raw contents: \(node.rawContents)")
+        print(node.getAttributeNamed("href"))
     }
 }
 
-println(bodyNode?.findChildTagAttr("div", attrName: "class", attrValue: "val")?.contents)
+print(bodyNode?.findChildTagAttr("div", attrName: "class", attrValue: "val")?.contents)
 
 if let inputNodes = bodyNode?.findChildTagsAttr("div", attrName: "class", attrValue: "val") {
     for node in inputNodes {
-        println("Contents: \(node.contents)")
-        println("Raw contents: \(node.rawContents)")
+        print("Contents: \(node.contents)")
+        print("Raw contents: \(node.rawContents)")
     }
 }
 
 
 if let path = bodyNode?.xpath("//div[@class='box']") {
     for node in path {
-        println(node.tagName)
-        println(node.xpath("//h2")?[0].contents)
+        print(node.tagName)
+        print(node.xpath("//h2")?[0].contents)
     }
 }
