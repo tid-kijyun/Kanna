@@ -89,10 +89,7 @@ public class HTMLNode {
     */
     public var contents : String {
         if node != nil {
-            var n = self.node!.children
-            if n != nil {
-                return ConvXmlCharToString(xmlNodeGetContent(pointer))
-            }
+            return ConvXmlCharToString(xmlNodeGetContent(pointer))
         }
         return ""
     }
