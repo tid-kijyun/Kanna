@@ -278,7 +278,7 @@ public class HTMLNode {
         if ctxt == nil {
             return nil
         }
-        
+        ctxt.memory.node = pointer
         let result = xmlXPathEvalExpression(xpath, ctxt)
         xmlXPathFreeContext(ctxt)
         if result == nil {
