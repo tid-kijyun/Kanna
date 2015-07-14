@@ -89,10 +89,7 @@ public class HTMLNode {
     */
     public var contents : String {
         if node != nil {
-            let n = self.node!.children
-            if n != nil {
-                return ConvXmlCharToString(n.memory.content)
-            }
+            return ConvXmlCharToString(xmlNodeGetContent(pointer))
         }
         return ""
     }
@@ -139,7 +136,7 @@ public class HTMLNode {
             let mem = attr.memory
             
             if name == ConvXmlCharToString(mem.name) {
-                return ConvXmlCharToString(mem.children.memory.content)
+                return ConvXmlCharToString(xmlNodeGetContent(mem.children))
             }
         }
         
