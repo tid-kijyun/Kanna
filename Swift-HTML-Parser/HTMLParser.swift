@@ -73,12 +73,12 @@ public class HTMLParser {
     public init(html: String, encoding: UInt, option: CInt, inout error: NSError?) {
         if html.lengthOfBytesUsingEncoding(encoding) > 0 {
             self.htmlString = html
-            let cfenc : CFStringEncoding = CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding)
-            let cfencstr : CFStringRef   = CFStringConvertEncodingToIANACharSetName(cfenc)
+            let cfenc : CFStringEncoding = CFStringConvertNSStringEncodingToEncoding(encoding)
+            let cfencstr = CFStringConvertEncodingToIANACharSetName(cfenc)
             
             let cur : [CChar]? = html.cStringUsingEncoding(NSUTF8StringEncoding)
             let url : String = ""
-            let enc = CFStringGetCStringPtr(cfencstr, 0)
+            let enc = String(cfencstr)
             let optionHtml : CInt = option
             
             if let ucur = cur {
