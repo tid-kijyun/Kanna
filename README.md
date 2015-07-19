@@ -2,6 +2,11 @@ Swift-HTML-Parser
 =================
 A swift wrapper around libxml for parsing HTML
 
+Feature
+=================
+- [x] XPath 1.0 support for document searching
+- [ ] CSS3 selector support for document searching
+
 Usage
 =================
 1. Add [HTMLParser.swift](Swift-HTML-Parser/HTMLParser.swift), [HTMLNode.swift](Swift-HTML-Parser/HTMLNode.swift), [Swift-HTML-Parser-Bridging-Header.h](Swift-HTML-Parser/Swift-HTML-Parser-Bridging-Header.h) to your project
