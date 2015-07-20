@@ -22,6 +22,22 @@ let html =
 "    </span>" +
 "    <h2>Hoge</h2>" +
 "  </div>" +
+    "  <table>" +
+    "    <tr><td>a0</td><td>b0</td></tr>" +
+    "    <tr><td>a1</td><td>b1</td></tr>" +
+    "    <tr><td>a2</td><td>b2</td></tr>" +
+    "    <tr><td>a3</td><td>b3</td></tr>" +
+    "    <tr><td>a4</td><td>b4</td></tr>" +
+    "    <tr><td>a5</td><td>b5</td></tr>" +
+    "    <tr><td>a6</td><td>b6</td></tr>" +
+    "    <tr><td>a7</td><td>b7</td></tr>" +
+    "    <tr><td>a8</td><td>b8</td></tr>" +
+    "    <tr><td>a9</td><td>b9</td></tr>" +
+    "  </table>" +
+    "<a href='mailto:test1'>abc</a>" +
+    "<a href='mailto:test2'>abc</a>" +
+    "<a href='mailto:test3'>abc</a>" +
+    "<a href='mailto:test4'>abc</a>" +
 "</body>" +
 "</html>"
 
@@ -65,5 +81,11 @@ if let path = bodyNode?.xpath("//div[@class='box']") {
     for node in path {
         println(node.tagName)
         println(node.xpath("//h2")?[0].contents)
+    }
+}
+
+if let nodes = bodyNode?.css("tr:nth-child(2) :nth-child(1)") {
+    for node in nodes {
+        println(node.contents)
     }
 }
