@@ -45,3 +45,21 @@ if let inputNodes = bodyNode?.findChildTags("a") {
 }
 
 ```
+
+// Search for nodes by xpath
+```
+if let inputNodes = bodyNode?.xpath("//div") {
+    for node in inputNodes {
+        println(node.contents)
+    }
+}
+```
+
+// Search for nodes by css
+```
+if let inputNodes = bodyNode?.css("li:nth-child(2n)") {
+    for node in inputNodes {
+        println(node.contents)
+    }
+}
+```
