@@ -382,7 +382,7 @@ private struct CSS {
             return nth("following", a, b)
         }
 
-        var xpath = "//"
+        var xpath = "//*"
         var str = selector
         
         while count(str.utf8) > 0 {
@@ -394,11 +394,15 @@ private struct CSS {
                 let attr = (str as NSString).substringWithRange(result.rangeAtIndex(1))
                 let text = (str as NSString).substringWithRange(result.rangeAtIndex(2))
                 if attr.hasPrefix("#") {
-                    xpath += "[@id=\(text)"
+                    xpath += "[@id=\(text)]"
                 } else if attr.hasPrefix(".") {
                     xpath += "[contains(concat(' ', normalize-space(@class), ' '), ' \(text) ')]"
                 } else {
-                    xpath += (text == "") ? "*" : "\(text)"
+                    if xpath.hasSuffix("*") && text != "" {
+                        xpath = xpath.substringToIndex(xpath.endIndex.predecessor()) + text
+                    } else {
+                        xpath +=  "*"
+                    }
                 }
                 str = (str as NSString).substringFromIndex(result.range.length)
             }
