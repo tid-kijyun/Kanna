@@ -5,7 +5,7 @@ A swift wrapper around libxml for parsing HTML
 Feature
 =================
 - [x] XPath 1.0 support for document searching
-- [ ] CSS3 selector support for document searching
+- [x] CSS3 selector support for document searching
 
 Usage
 =================
