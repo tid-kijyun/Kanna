@@ -312,7 +312,7 @@ public class HTMLNode {
             xmlOutputBufferFlush(outputBuffer)
 
             if xmlBuffer.memory.content != nil {
-                let optionHtml : CInt = option
+                let optionHtml : CInt = self.doc.memory.parseFlags + 1
 
                 let nodeDoc = htmlReadDoc(UnsafePointer<CUnsignedChar>(xmlBuffer.memory.content), "", enc, optionHtml)
 
