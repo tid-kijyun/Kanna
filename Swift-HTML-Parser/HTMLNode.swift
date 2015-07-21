@@ -289,10 +289,43 @@ public class HTMLNode {
         
         var nodes : [HTMLNode] = []
         let size = Int(nodeSet.memory.nodeNr)
+
+        var cfenc : CFStringEncoding = CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding)
+        var cfencstr : CFStringRef   = CFStringConvertEncodingToIANACharSetName(cfenc)
+        var enc = CFStringGetCStringPtr(cfencstr, 0)
+
         for var i = 0; i < size; ++i {
             let n = nodeSet.memory
             let node = nodeSet.memory.nodeTab[i]
-            let htmlNode = HTMLNode(doc: self.doc, node: node)
+            let htmlNode:HTMLNode;
+
+            var xmlBuffer = xmlBufferCreateSize(DUMP_BUFFER_SIZE)
+            var outputBuffer : xmlOutputBufferPtr = xmlOutputBufferCreateBuffer(xmlBuffer, nil)
+
+            let document = node.memory.doc
+
+            let xmlCharContent = document.memory.encoding
+            let contentAddress = unsafeBitCast(xmlCharContent, UnsafePointer<xmlChar>.self)
+            let constChar = UnsafePointer<Int8>(contentAddress)
+
+            htmlNodeDumpOutput(outputBuffer, document, node, constChar)
+            xmlOutputBufferFlush(outputBuffer)
+
+            if xmlBuffer.memory.content != nil {
+                let optionHtml : CInt = option
+
+                let nodeDoc = htmlReadDoc(UnsafePointer<CUnsignedChar>(xmlBuffer.memory.content), "", enc, optionHtml)
+
+                htmlNode  = HTMLNode(doc: nodeDoc, node: node)
+            }
+            else {
+
+                htmlNode = HTMLNode(doc: self.doc, node: node)
+            }
+
+            xmlOutputBufferClose(outputBuffer)
+            xmlBufferFree(xmlBuffer)
+
             nodes.append(htmlNode)
         }
         
