@@ -89,3 +89,11 @@ if let nodes = bodyNode?.css("tr:nth-child(2) :nth-child(1)") {
         println(node.contents)
     }
 }
+
+if let nodes = bodyNode?.css("tr") {
+    for node in nodes {
+        if let tdNode = node.css("td") {
+            println(tdNode.first?.contents)
+        }
+    }
+}
