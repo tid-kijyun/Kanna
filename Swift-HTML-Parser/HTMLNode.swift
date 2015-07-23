@@ -305,7 +305,7 @@ public class HTMLNode {
     */
     public func css(selector: String) -> [HTMLNode]? {
         if let xpath = CSS.toXPath(selector) {
-            return self.xpath(xpath)
+            return self.xpath("." + xpath)
         }
         return nil
     }
