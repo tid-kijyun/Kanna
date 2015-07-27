@@ -26,15 +26,15 @@ SOFTWARE.
 /*
 Libxml2HTMLParserOptions
 */
-public struct Libxml2HTMLParserOptions : RawOptionSetType {
-    typealias RawValue = UInt
+public struct Libxml2HTMLParserOptions : OptionSetType {
+    public typealias RawValue = UInt
     private var value: UInt = 0
     init(_ value: UInt) { self.value = value }
-    private init(_ opt: htmlParserOption) { self.value = UInt(opt.value) }
+    private init(_ opt: htmlParserOption) { self.value = UInt(opt.rawValue) }
     public init(rawValue value: UInt) { self.value = value }
     public init(nilLiteral: ()) { self.value = 0 }
-    public static var allZeros: Libxml2HTMLParserOptions { return self(0) }
-    static func fromMask(raw: UInt) -> Libxml2HTMLParserOptions { return self(raw) }
+    public static var allZeros: Libxml2HTMLParserOptions { return self.init(0) }
+    static func fromMask(raw: UInt) -> Libxml2HTMLParserOptions { return self.init(raw) }
     public var rawValue: UInt { return self.value }
     
     static var STRICT:     Libxml2HTMLParserOptions { return Libxml2HTMLParserOptions(0) }
@@ -53,15 +53,15 @@ public struct Libxml2HTMLParserOptions : RawOptionSetType {
 /*
 Libxml2XMLParserOptions
 */
-public struct Libxml2XMLParserOptions: RawOptionSetType {
-    typealias RawValue = UInt
+public struct Libxml2XMLParserOptions: OptionSetType {
+    public typealias RawValue = UInt
     private var value: UInt = 0
     init(_ value: UInt) { self.value = value }
-    private init(_ opt: xmlParserOption) { self.value = UInt(opt.value) }
+    private init(_ opt: xmlParserOption) { self.value = UInt(opt.rawValue) }
     public init(rawValue value: UInt) { self.value = value }
     public init(nilLiteral: ()) { self.value = 0 }
-    public static var allZeros: Libxml2XMLParserOptions { return self(0) }
-    static func fromMask(raw: UInt) -> Libxml2XMLParserOptions { return self(raw) }
+    public static var allZeros: Libxml2XMLParserOptions { return self.init(0) }
+    static func fromMask(raw: UInt) -> Libxml2XMLParserOptions { return self.init(raw) }
     public var rawValue: UInt { return self.value }
     
     static var STRICT:     Libxml2XMLParserOptions { return Libxml2XMLParserOptions(0) }

@@ -32,8 +32,8 @@ public enum ParseOption {
     case HtmlParseUseLibxml(Libxml2HTMLParserOptions)
 }
 
-private let kDefaultXmlParseOption   = ParseOption.XmlParseUseLibxml(.RECOVER | .NOERROR | .NOWARNING)
-private let kDefaultHtmlParseOption  = ParseOption.HtmlParseUseLibxml(.RECOVER | .NOERROR | .NOWARNING)
+private let kDefaultXmlParseOption   = ParseOption.XmlParseUseLibxml([.RECOVER, .NOERROR, .NOWARNING])
+private let kDefaultHtmlParseOption  = ParseOption.HtmlParseUseLibxml([.RECOVER, .NOERROR, .NOWARNING])
 
 /**
 Parse XML
@@ -43,7 +43,7 @@ Parse XML
 @param encoding the document encoding
 @param options  a ParserOption
 */
-public func XML(#xml: String, #url: String?, #encoding: UInt, #option: ParseOption) -> XMLDocument? {
+public func XML(xml xml: String, url: String?, encoding: UInt, option: ParseOption) -> XMLDocument? {
     switch option {
     case .XmlParseUseLibxml(let opt):
         return libxmlXMLDocument(xml: xml, url: url, encoding: encoding, option: opt.rawValue)
@@ -52,35 +52,35 @@ public func XML(#xml: String, #url: String?, #encoding: UInt, #option: ParseOpti
     }
 }
 
-public func XML(#xml: String, #encoding: UInt, #option: ParseOption) -> XMLDocument? {
+public func XML(xml xml: String, encoding: UInt, option: ParseOption) -> XMLDocument? {
     return XML(xml: xml, url: nil, encoding: encoding, option: option)
 }
 
-public func XML(#xml: String, #encoding: UInt) -> XMLDocument? {
+public func XML(xml xml: String, encoding: UInt) -> XMLDocument? {
     return XML(xml: xml, url: nil, encoding: encoding, option: kDefaultXmlParseOption)
 }
 
-public func XML(#xml: String, #url: String?, #encoding: UInt) -> XMLDocument? {
+public func XML(xml xml: String, url: String?, encoding: UInt) -> XMLDocument? {
     return XML(xml: xml, url: url, encoding: encoding, option: kDefaultXmlParseOption)
 }
 
 // NSData
-public func XML(#xml: NSData, #url: String?, #encoding: UInt, #option: ParseOption) -> XMLDocument? {
+public func XML(xml xml: NSData, url: String?, encoding: UInt, option: ParseOption) -> XMLDocument? {
     if let xmlStr = NSString(data: xml, encoding: encoding) as? String {
         return XML(xml: xmlStr, url: url, encoding: encoding, option: option)
     }
     return nil
 }
 
-public func XML(#xml: NSData, #encoding: UInt, #option: ParseOption) -> XMLDocument? {
+public func XML(xml xml: NSData, encoding: UInt, option: ParseOption) -> XMLDocument? {
     return XML(xml: xml, url: nil, encoding: encoding, option: option)
 }
 
-public func XML(#xml: NSData, #encoding: UInt) -> XMLDocument? {
+public func XML(xml xml: NSData, encoding: UInt) -> XMLDocument? {
     return XML(xml: xml, url: nil, encoding: encoding, option: kDefaultXmlParseOption)
 }
 
-public func XML(#xml: NSData, #url: String?, #encoding: UInt) -> XMLDocument? {
+public func XML(xml xml: NSData, url: String?, encoding: UInt) -> XMLDocument? {
     return XML(xml: xml, url: url, encoding: encoding, option: kDefaultXmlParseOption)
 }
 
@@ -92,7 +92,7 @@ Parse HTML
 @param encoding the document encoding
 @param options  a ParserOption
 */
-public func HTML(#html: String, #url: String?, #encoding: UInt, #option: ParseOption) -> HTMLDocument? {
+public func HTML(html html: String, url: String?, encoding: UInt, option: ParseOption) -> HTMLDocument? {
     switch option {
     case .HtmlParseUseLibxml(let opt):
         return libxmlHTMLDocument(html: html, url: url, encoding: encoding, option: opt.rawValue)
@@ -101,35 +101,35 @@ public func HTML(#html: String, #url: String?, #encoding: UInt, #option: ParseOp
     }
 }
 
-public func HTML(#html: String, #encoding: UInt, #option: ParseOption) -> HTMLDocument? {
+public func HTML(html html: String, encoding: UInt, option: ParseOption) -> HTMLDocument? {
     return HTML(html: html, url: nil, encoding: encoding, option: option)
 }
 
-public func HTML(#html: String, #encoding: UInt) -> HTMLDocument? {
+public func HTML(html html: String, encoding: UInt) -> HTMLDocument? {
     return HTML(html: html, url: nil, encoding: encoding, option: kDefaultHtmlParseOption)
 }
 
-public func HTML(#html: String, #url: String?, #encoding: UInt) -> HTMLDocument? {
+public func HTML(html html: String, url: String?, encoding: UInt) -> HTMLDocument? {
     return HTML(html: html, url: url, encoding: encoding, option: kDefaultHtmlParseOption)
 }
 
 // NSData
-public func HTML(#html: NSData, #url: String?, #encoding: UInt, #option: ParseOption) -> HTMLDocument? {
+public func HTML(html html: NSData, url: String?, encoding: UInt, option: ParseOption) -> HTMLDocument? {
     if let htmlStr = NSString(data: html, encoding: encoding) as? String {
         return HTML(html: htmlStr, url: url, encoding: encoding, option: option)
     }
     return nil
 }
 
-public func HTML(#html: NSData, #encoding: UInt, #option: ParseOption) -> HTMLDocument? {
+public func HTML(html html: NSData, encoding: UInt, option: ParseOption) -> HTMLDocument? {
     return HTML(html: html, url: nil, encoding: encoding, option: option)
 }
 
-public func HTML(#html: NSData, #encoding: UInt) -> HTMLDocument? {
+public func HTML(html html: NSData, encoding: UInt) -> HTMLDocument? {
     return HTML(html: html, url: nil, encoding: encoding, option: kDefaultHtmlParseOption)
 }
 
-public func HTML(#html: NSData, #url: String?, #encoding: UInt) -> HTMLDocument? {
+public func HTML(html html: NSData, url: String?, encoding: UInt) -> HTMLDocument? {
     return HTML(html: html, url: url, encoding: encoding, option: kDefaultHtmlParseOption)
 }
 
@@ -256,14 +256,22 @@ public final class XMLNodeSet {
 }
 
 extension XMLNodeSet: SequenceType {
-    public typealias Generator = GeneratorOf<XMLElement>
-    public func generate() -> Generator {
+    
+    public class Generator: AnyGenerator<XMLElement> {
+        var nodeSet: XMLNodeSet
         var index = 0
-        return GeneratorOf {
-            if index < self.nodes.count {
-                return self.nodes[index++]
+        init(nodeSet: XMLNodeSet) {
+            self.nodeSet = nodeSet
+        }
+        public override func next() -> Element? {
+            if index < nodeSet.nodes.count {
+                return nodeSet.nodes[index++]
             }
             return nil
         }
+    }
+    
+    public func generate() -> Generator {
+        return Generator(nodeSet: self)
     }
 }
