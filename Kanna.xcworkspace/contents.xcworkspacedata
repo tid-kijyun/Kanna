@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <Group
+      location = "group:Kanna"
+      name = "Kanna">
+      <FileRef
+         location = "group:Source/Kanna.swift">
+      </FileRef>
+      <FileRef
+         location = "group:Source/Kanna.h">
+      </FileRef>
+      <Group
+         location = "container:"
+         name = "CSS">
+         <FileRef
+            location = "group:Source/CSS.swift">
+         </FileRef>
+      </Group>
+      <Group
+         location = "container:"
+         name = "libxml">
+         <FileRef
+            location = "group:Source/libxml/libxmlHTMLDocument.swift">
+         </FileRef>
+         <FileRef
+            location = "group:Source/libxml/libxmlHTMLNode.swift">
+         </FileRef>
+         <FileRef
+            location = "group:Source/libxml/libxmlParserOption.swift">
+         </FileRef>
+      </Group>
+   </Group>
+   <Group
+      location = "group:KannaTests"
+      name = "Tests">
+      <FileRef
+         location = "group:Tests/KannaTests.swift">
+      </FileRef>
+   </Group>
+   <FileRef
+      location = "group:Kanna.xcodeproj">
+   </FileRef>
+</Workspace>

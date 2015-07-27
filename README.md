@@ -1,47 +1,165 @@
-Swift-HTML-Parser
+Kanna(鉋)
 =================
-A swift wrapper around libxml for parsing HTML
 
-Feature
+Kanna(鉋) is an XML/HTML parser for MacOSX/iOS. (formerly Swift-HTML-Parser)
+
+It was inspired by [Nokogiri](https://github.com/sparklemotion/nokogiri)(鋸).
+
+Features:
 =================
 - [x] XPath 1.0 support for document searching
 - [x] CSS3 selector support for document searching
+- [x] Support for namespace
+- [x] Comprehensive test suite
 
-Usage
+Installation:
 =================
-1. Add [HTMLParser.swift](Swift-HTML-Parser/HTMLParser.swift), [HTMLNode.swift](Swift-HTML-Parser/HTMLNode.swift), [Swift-HTML-Parser-Bridging-Header.h](Swift-HTML-Parser/Swift-HTML-Parser-Bridging-Header.h) to your project
-2. In the project settings add "Swift-HTML-Parser-Bridging-Header.h" to the "Objective-C Bridging Header" 
-3. In the project settings add "/usr/include/libxml2" to the "header search paths" field
-4. Add libxml2.dylib to ""Link Binary With Libraries"
+####Carthage
+Adding it to your `Cartfile`:
 
-Example
+```
+github "tid-kijyun/Kanna" >= 0.1.0
+```
+
+Synopsis:
 =================
 
 ```swift
-import Foundation
+import Kanna
 
-let html = "<html><head></head><body><ul><li><input type='image' name='input1' value='string1value' class='abc' /></li><li><input type='image' name='input2' value='string2value' class='def' /></li></ul><span class='spantext'><b>Hello World 1</b></span><span class='spantext'><b>Hello World 2</b></span><a href='example.com'>example(English)</a><a href='example.co.jp'>example(JP)</a></body>"
+let html = "<html>...</html>"
 
-var err : NSError?
-var parser     = HTMLParser(html: html, error: &err)
-if err != nil {
-    println(err)
-    exit(1)
-}
-
-var bodyNode   = parser.body
-
-if let inputNodes = bodyNode?.findChildTags("b") {
-    for node in inputNodes {
-        println(node.contents)
+if let doc = Kanna.HTML(html: html, encoding: NSUTF8StringEncoding) {
+    println(doc.title)
+    
+    // Search for nodes by CSS
+    for link in doc.css("a, link") {
+        println(link.text)
+        println(link["href"])
+    }
+    
+    // Search for nodes by XPath
+    for link in doc.xpath("//a | //link") {
+        println(link.text)
+        println(link["href"])
     }
 }
-
-if let inputNodes = bodyNode?.findChildTags("a") {
-    for node in inputNodes {
-        println(node.contents)
-        println(node.getAttributeNamed("href"))
-    }
-}
-
 ```
+
+```swift
+let xml = "..."
+if let doc = Kanna.XML(xml: xml, encoding: NSUTF8StringEncoding) {
+    let namespaces = [
+                    "o":  "urn:schemas-microsoft-com:office:office",
+                    "ss": "urn:schemas-microsoft-com:office:spreadsheet"
+                ]
+    if let author = doc.at_xpath("//o:Author", namespaces: namespaces) {
+        println(author.text)
+    }
+}
+```
+
+Migration guide: (from Swift-HTML-Parser)
+=================
+
+### Initialize
+```swift
+// Swift-HTML-Parser
+var err: NSError?
+var parser = HTMLParser(html: html, error: &err)
+
+// New: Kanna
+if let doc = Kanna.HTML(html: html, encoding: NSUTF8StringEncoding) {
+}
+```
+### Search for node
+#### Search for nodes by tag
+```swift
+// Swift-HTML-Parser
+if let nodes = parser.body?.findChildTags("div") {
+    for node in nodes {
+        println(node.contents)
+    }
+}
+
+// NEW: Kanna
+for node in doc.css("div") {
+    println(doc.text)
+}
+```
+
+#### Search for nodes by XPath
+```swift
+// Swift-HTML-Parser
+if let nodes = parser.body?.xpath("//div") {
+    for node in nodes {
+        println(node.contents)
+    }
+}
+
+// New: Kanna
+for node in doc.xpath("//div") {
+    println(node.text)
+}
+```
+
+#### Search for nodes by CSS
+```swift
+// Swift-HTML-Parser
+if let nodes = parser.body?.css("li:nth-child(2n)") {
+    for node in nodes {
+        println(node.contents)
+    }
+}
+
+// New: Kanna
+for node in doc.css("li:nth-child(2n)") {
+    print(node.text)
+}
+```
+
+#### Search for first node
+```swift
+// Swift-HTML-Parser
+if let node = parser.body?.findChildTag("div") {
+    println(node.contents)
+}
+
+// New: Kanna
+if let node = doc.at_css("div") {
+    println(node.text)
+}
+```
+
+### Get contents
+
+#### Get contents
+```swift
+// Swift-HTML-Parser
+node.contents
+
+// New: Kanna
+node.text
+```
+
+#### Get attribute
+```swift
+// Swift-HTML-Parser
+node.getAttributeNamed("href")
+
+// New: Kanna
+node["href"]
+```
+
+#### Get raw contents
+```swift
+// Swift-HTML-Parser
+node.rawContents
+
+// New: Kanna
+node.innerHTML
+```
+
+Lisense:
+=================
+The MIT License. See the LICENSE file for more infomation.
