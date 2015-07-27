@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scheme
+   LastUpgradeVersion = "0700"
+   version = "1.7">
+   <BuildAction
+      parallelizeBuildables = "YES"
+      buildImplicitDependencies = "YES">
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "1EAFA0D71B6039D5001F3D84"
+               BuildableName = "Kanna.framework"
+               BlueprintName = "Kanna_iOS"
+               ReferencedContainer = "container:Kanna.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "1EAFA0E21B6039D5001F3D84"
+               BuildableName = "KannaTests.xctest"
+               BlueprintName = "KannaTests"
+               ReferencedContainer = "container:Kanna.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
+   </BuildAction>
+   <TestAction
+      buildConfiguration = "Debug"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      shouldUseLaunchSchemeArgsEnv = "YES">
+      <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "1EAFA0E21B6039D5001F3D84"
+               BuildableName = "KannaTests.xctest"
+               BlueprintName = "KannaTests"
+               ReferencedContainer = "container:Kanna.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+      </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "1EAFA0D71B6039D5001F3D84"
+            BuildableName = "Kanna.framework"
+            BlueprintName = "Kanna_iOS"
+            ReferencedContainer = "container:Kanna.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
+      <AdditionalOptions>
+      </AdditionalOptions>
+   </TestAction>
+   <LaunchAction
+      buildConfiguration = "Release"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      launchStyle = "0"
+      useCustomWorkingDirectory = "NO"
+      ignoresPersistentStateOnLaunch = "NO"
+      debugDocumentVersioning = "YES"
+      debugServiceExtension = "internal"
+      allowLocationSimulation = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "1EAFA0D71B6039D5001F3D84"
+            BuildableName = "Kanna.framework"
+            BlueprintName = "Kanna_iOS"
+            ReferencedContainer = "container:Kanna.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
+      <AdditionalOptions>
+      </AdditionalOptions>
+   </LaunchAction>
+   <ProfileAction
+      buildConfiguration = "Release"
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      savedToolIdentifier = ""
+      useCustomWorkingDirectory = "NO"
+      debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "1EAFA0D71B6039D5001F3D84"
+            BuildableName = "Kanna.framework"
+            BlueprintName = "Kanna_iOS"
+            ReferencedContainer = "container:Kanna.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
+   </ProfileAction>
+   <AnalyzeAction
+      buildConfiguration = "Debug">
+   </AnalyzeAction>
+   <ArchiveAction
+      buildConfiguration = "Release"
+      revealArchiveInOrganizer = "YES">
+      <PostActions>
+         <ExecutionAction
+            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
+            <ActionContent
+               title = "Run Script"
+               scriptText = "set -e&#10;&#10;DEVICE_BIN=&quot;${OBJROOT}/UninstalledProducts/${TARGET_NAME}.framework&quot;&#10;SIMULATOR_BIN=&quot;${SYMROOT}/../../../../Products/Debug-iphonesimulator/${TARGET_NAME}.framework&quot;&#10;&#10;ARCHIVE_PATH=&quot;${SRCROOT}/_Archive&quot;&#10;rm -rf &quot;${ARCHIVE_PATH}&quot;&#10;mkdir &quot;${ARCHIVE_PATH}&quot;&#10;&#10;if [ &quot;${CONFIGURATION}&quot; = &quot;Release&quot; ]; then&#10;&#10;if [ -d &quot;${DEVICE_BIN}&quot; ]; then&#10;DEVICE_PATH=&quot;${ARCHIVE_PATH}/Release&quot;&#10;mkdir &quot;${DEVICE_PATH}&quot;&#10;cp -r &quot;${DEVICE_BIN}&quot; &quot;${DEVICE_PATH}&quot;&#10;fi&#10;if [ -d &quot;${SIMULATOR_BIN}&quot; ]; then&#10;SIMULATOR_PATH=&quot;${ARCHIVE_PATH}/Debug&quot;&#10;mkdir &quot;${SIMULATOR_PATH}&quot;&#10;cp -r &quot;${DEVICE_BIN}&quot; &quot;${SIMULATOR_PATH}&quot;&#10;lipo -create &quot;${DEVICE_BIN}/${TARGET_NAME}&quot; &quot;${SIMULATOR_BIN}/${TARGET_NAME}&quot; -output &quot;${SIMULATOR_PATH}/${TARGET_NAME}.framework/${TARGET_NAME}&quot;&#10;&#10;fi&#10;fi&#10;exit 0;&#10;">
+               <EnvironmentBuildable>
+                  <BuildableReference
+                     BuildableIdentifier = "primary"
+                     BlueprintIdentifier = "1EAFA0D71B6039D5001F3D84"
+                     BuildableName = "Kanna.framework"
+                     BlueprintName = "Kanna_iOS"
+                     ReferencedContainer = "container:Kanna.xcodeproj">
+                  </BuildableReference>
+               </EnvironmentBuildable>
+            </ActionContent>
+         </ExecutionAction>
+      </PostActions>
+   </ArchiveAction>
+</Scheme>
