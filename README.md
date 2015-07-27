@@ -103,7 +103,6 @@ for node in doc.xpath("//div") {
 }
 ```
 
-<<<<<<< HEAD
 // Search for nodes by xpath
 ```
 if let inputNodes = bodyNode?.xpath("//div") {
@@ -121,7 +120,6 @@ if let inputNodes = bodyNode?.css("li:nth-child(2n)") {
     }
 }
 ```
-=======
 #### Search for nodes by CSS
 ```swift
 // Swift-HTML-Parser
@@ -182,4 +180,3 @@ node.innerHTML
 Lisense:
 =================
 The MIT License. See the LICENSE file for more infomation.
->>>>>>> Kanna
