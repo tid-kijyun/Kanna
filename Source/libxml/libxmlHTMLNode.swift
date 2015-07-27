@@ -35,7 +35,7 @@ internal final class libxmlHTMLNode: XMLElement {
     }
     
     var toHTML: String? {
-        var buf = xmlBufferCreate()
+        let buf = xmlBufferCreate()
         htmlNodeDump(buf, docPtr, nodePtr)
         let html = String.fromCString(UnsafePointer(buf.memory.content))
         xmlBufferFree(buf)
@@ -163,7 +163,7 @@ internal final class libxmlHTMLNode: XMLElement {
 
 private func libxmlGetNodeText(nodePtr: xmlNodePtr) -> String {
     let type = nodePtr.memory.type
-    if type.value == XML_TEXT_NODE.value,
+    if type.rawValue == XML_TEXT_NODE.rawValue,
         let text = String.fromCString(UnsafePointer(xmlNodeGetContent(nodePtr))) {
             return text
     }

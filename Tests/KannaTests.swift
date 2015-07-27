@@ -91,9 +91,20 @@ class KannaTests: XCTestCase {
     */
     func testXml() {
         let filename = "test_XML_ExcelWorkbook"
-        if let path = NSBundle(forClass:self.classForCoder).pathForResource(filename, ofType:"xml"),
-            xml = NSString(contentsOfFile: path, encoding: NSUTF8StringEncoding, error: nil) as? String,
-            doc = XML(xml: xml, encoding: NSUTF8StringEncoding) {
+        
+        guard let path = NSBundle(forClass:self.classForCoder).pathForResource(filename, ofType:"xml") else {
+            XCTAssert(false, "File not found. name: (\(filename))")
+            return
+        }
+        var xml: NSString = ""
+        do  {
+            xml = try NSString(contentsOfFile: path, encoding: NSUTF8StringEncoding)
+        }
+        catch _ {
+            XCTAssert(false, "File not found. name: (\(filename))")
+        }
+        
+        if let doc = XML(xml: xml as String, encoding: NSUTF8StringEncoding) {
                 let namespaces = [
                     "o":  "urn:schemas-microsoft-com:office:office",
                     "ss": "urn:schemas-microsoft-com:office:spreadsheet"
@@ -114,7 +125,7 @@ class KannaTests: XCTestCase {
                 
                 for row in doc.xpath("//ss:Row", namespaces: namespaces) {
                     for cell in row.xpath("//ss:Data", namespaces: namespaces) {
-                        println(cell.text)
+                        print(cell.text)
                     }
                 }
         } else {
@@ -128,9 +139,20 @@ class KannaTests: XCTestCase {
     func testHTML4() {
         // This is an example of a functional test case.
         let filename = "test_HTML4"
-        if let path = NSBundle(forClass:self.classForCoder).pathForResource(filename, ofType:"html"),
-            html = NSString(contentsOfFile: path, encoding: NSUTF8StringEncoding, error: nil) as? String,
-            doc = HTML(html: html, encoding: NSUTF8StringEncoding) {
+        
+        guard let path = NSBundle(forClass:self.classForCoder).pathForResource(filename, ofType:"html") else {
+            XCTAssert(false, "File not found. name: (\(filename))")
+            return
+        }
+        var html: NSString = ""
+        do  {
+            html = try NSString(contentsOfFile: path, encoding: NSUTF8StringEncoding)
+        }
+        catch _ {
+            XCTAssert(false, "File not found. name: (\(filename))")
+        }
+        
+        if let doc = HTML(html: html as String, encoding: NSUTF8StringEncoding) {
                 // Check title
                 XCTAssert(doc.title == "Test HTML4")
                 XCTAssert(doc.head != nil)
@@ -142,25 +164,25 @@ class KannaTests: XCTestCase {
                 }
                 
                 let repoName = ["Kanna", "Swift-HTML-Parser"]
-                for (index, repo) in enumerate(doc.xpath("//span[@class='repo']")) {
+                for (index, repo) in doc.xpath("//span[@class='repo']").enumerate() {
                     XCTAssert(repo["title"] == repoName[index])
                     XCTAssert(repo.text == repoName[index])
                 }
                 
                 if let snTable = doc.at_css("table[id='sequence number']") {
                     let alphabet = ["a", "b", "c"]
-                    for (indexTr, tr) in enumerate(snTable.css("tr")) {
-                        for (indexTd, td) in enumerate(tr.css("td")) {
+                    for (indexTr, tr) in snTable.css("tr").enumerate() {
+                        for (indexTd, td) in tr.css("td").enumerate() {
                             XCTAssert(td.text == "\(alphabet[indexTd])\(indexTr)")
                         }
                     }
                 }
                 
                 if let starTable = doc.at_css("table[id='star table']"),
-                    allStar = starTable.at_css("tfoot > tr > td:nth-child(2)")?.text?.toInt() {
+                    a = starTable.at_css("tfoot > tr > td:nth-child(2)")?.text, allStar = Int(a) {
                         var count = 0
                         for starNode in starTable.css("tbody > tr > td:nth-child(2)") {
-                            if let star = starNode.text?.toInt() {
+                            if let b = starNode.text, star = Int(b) {
                                 count += star
                             }
                         }
