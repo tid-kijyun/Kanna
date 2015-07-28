@@ -11,12 +11,12 @@
 #ifndef __XML_VALID_H__
 #define __XML_VALID_H__
 
-#include "xmlversion.h"
-#include "xmlerror.h"
-#include "tree.h"
-#include "list.h"
-#include "xmlautomata.h"
-#include "xmlregexp.h"
+#include <Kanna/xmlversion.h>
+#include <Kanna/xmlerror.h>
+#include <Kanna/tree.h>
+#include <Kanna/list.h>
+#include <Kanna/xmlautomata.h>
+#include <Kanna/xmlregexp.h>
 
 #ifdef __cplusplus
 extern "C" {

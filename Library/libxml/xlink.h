@@ -10,8 +10,8 @@
 #ifndef __XML_XLINK_H__
 #define __XML_XLINK_H__
 
-#include "xmlversion.h"
-#include "tree.h"
+#include <Kanna/xmlversion.h>
+#include <Kanna/tree.h>
 
 #ifdef LIBXML_XPTR_ENABLED
 

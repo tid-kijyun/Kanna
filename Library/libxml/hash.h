@@ -25,9 +25,9 @@ typedef xmlHashTable *xmlHashTablePtr;
 }
 #endif
 
-#include "xmlversion.h"
-#include "parser.h"
-#include "dict.h"
+#include <Kanna/xmlversion.h>
+#include <Kanna/parser.h>
+#include <Kanna/dict.h>
 
 #ifdef __cplusplus
 extern "C" {

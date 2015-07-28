@@ -11,7 +11,7 @@
 #ifndef __XML_LINK_INCLUDE__
 #define __XML_LINK_INCLUDE__
 
-#include "xmlversion.h"
+#include <Kanna/xmlversion.h>
 
 #ifdef __cplusplus
 extern "C" {

@@ -12,8 +12,8 @@
 #ifndef __XML_XPATH_INTERNALS_H__
 #define __XML_XPATH_INTERNALS_H__
 
-#include "xmlversion.h"
-#include "xpath.h"
+#include <Kanna/xmlversion.h>
+#include <Kanna/xpath.h>
 
 #ifdef LIBXML_XPATH_ENABLED
 

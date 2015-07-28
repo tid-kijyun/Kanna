@@ -14,12 +14,12 @@
 #ifndef __XML_GLOBALS_H
 #define __XML_GLOBALS_H
 
-#include "xmlversion.h"
-#include "parser.h"
-#include "xmlerror.h"
-#include "SAX.h"
-#include "SAX2.h"
-#include "xmlmemory.h"
+#include <Kanna/xmlversion.h>
+#include <Kanna/parser.h>
+#include <Kanna/xmlerror.h>
+#include <Kanna/SAX.h>
+#include <Kanna/SAX2.h>
+#include <Kanna/xmlmemory.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -166,7 +166,7 @@ struct _xmlGlobalState
 #ifdef __cplusplus
 }
 #endif
-#include "threads.h"
+#include <Kanna/threads.h>
 #ifdef __cplusplus
 extern "C" {
 #endif

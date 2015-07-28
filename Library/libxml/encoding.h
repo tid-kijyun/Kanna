@@ -22,7 +22,7 @@
 #ifndef __XML_CHAR_ENCODING_H__
 #define __XML_CHAR_ENCODING_H__
 
-#include "xmlversion.h"
+#include <Kanna/xmlversion.h>
 
 #ifdef LIBXML_ICONV_ENABLED
 #include <iconv.h>
@@ -156,7 +156,7 @@ struct _xmlCharEncodingHandler {
 #ifdef __cplusplus
 }
 #endif
-#include "tree.h"
+#include <Kanna/tree.h>
 #ifdef __cplusplus
 extern "C" {
 #endif

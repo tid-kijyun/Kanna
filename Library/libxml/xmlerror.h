@@ -7,7 +7,7 @@
  * Author: Daniel Veillard
  */
 
-#include "parser.h"
+#include <Kanna/parser.h>
 
 #ifndef __XML_ERROR_H__
 #define __XML_ERROR_H__

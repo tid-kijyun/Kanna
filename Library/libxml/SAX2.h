@@ -14,9 +14,9 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "xmlversion.h"
-#include "parser.h"
-#include "xlink.h"
+#include <Kanna/xmlversion.h>
+#include <Kanna/parser.h>
+#include <Kanna/xlink.h>
 
 #ifdef __cplusplus
 extern "C" {

@@ -19,13 +19,13 @@
 #ifndef __XML_XPATH_H__
 #define __XML_XPATH_H__
 
-#include "xmlversion.h"
+#include <Kanna/xmlversion.h>
 
 #ifdef LIBXML_XPATH_ENABLED
 
-#include "xmlerror.h"
-#include "tree.h"
-#include "hash.h"
+#include <Kanna/xmlerror.h>
+#include <Kanna/tree.h>
+#include <Kanna/hash.h>
 #endif /* LIBXML_XPATH_ENABLED */
 
 #if defined(LIBXML_XPATH_ENABLED) || defined(LIBXML_SCHEMAS_ENABLED)
