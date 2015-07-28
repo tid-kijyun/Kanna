@@ -14,8 +14,8 @@
 
 #include <stdio.h>
 #include <limits.h>
-#include "xmlversion.h"
-#include "xmlstring.h"
+#include <Kanna/xmlversion.h>
+#include <Kanna/xmlstring.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -329,7 +329,7 @@ typedef enum {
 #ifdef __cplusplus
 }
 #endif
-#include "xmlregexp.h"
+#include <Kanna/xmlregexp.h>
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -1296,7 +1296,7 @@ XMLPUBFUN xmlNodePtr XMLCALL
 }
 #endif
 #ifndef __XML_PARSER_H__
-#include "xmlmemory.h"
+#include <Kanna/xmlmemory.h>
 #endif
 
 #endif /* __XML_TREE_H__ */

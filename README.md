@@ -14,11 +14,38 @@ Features:
 
 Installation:
 =================
-####Carthage
+### Swift1.2
+#####Cocoapods
+Adding it to your `Podfile`:
+```
+use_frameworks!
+pod 'Kanna'
+```
+
+#####Carthage
 Adding it to your `Cartfile`:
 
 ```
 github "tid-kijyun/Kanna" >= 0.1.0
+```
+
+### Swift2 (Xcode-beta)
+```
+$ sudo xcode-select -switch /Applications/Xcode-beta.app/Contents/Developer
+```
+
+#####Cocoapods
+Adding it to your `Podfile`:
+```
+use_frameworks!
+pod 'Kanna', :git => "git@github.com:tid-kijyun/Kanna.git", :branch => "feat/Swift2"
+```
+
+#####Carthage
+Adding it to your `Cartfile`:
+
+```
+github "tid-kijyun/Kanna" "feat/Swift2"
 ```
 
 Synopsis:
@@ -103,23 +130,6 @@ for node in doc.xpath("//div") {
 }
 ```
 
-// Search for nodes by xpath
-```
-if let inputNodes = bodyNode?.xpath("//div") {
-    for node in inputNodes {
-        println(node.contents)
-    }
-}
-```
-
-// Search for nodes by css
-```
-if let inputNodes = bodyNode?.css("li:nth-child(2n)") {
-    for node in inputNodes {
-        println(node.contents)
-    }
-}
-```
 #### Search for nodes by CSS
 ```swift
 // Swift-HTML-Parser

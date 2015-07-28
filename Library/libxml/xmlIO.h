@@ -11,7 +11,7 @@
 #define __XML_IO_H__
 
 #include <stdio.h>
-#include "xmlversion.h"
+#include <Kanna/xmlversion.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -114,10 +114,10 @@ typedef int (XMLCALL *xmlOutputCloseCallback) (void * context);
 }
 #endif
 
-#include "globals.h"
-#include "tree.h"
-#include "parser.h"
-#include "encoding.h"
+#include <Kanna/globals.h>
+#include <Kanna/tree.h>
+#include <Kanna/parser.h>
+#include <Kanna/encoding.h>
 
 #ifdef __cplusplus
 extern "C" {

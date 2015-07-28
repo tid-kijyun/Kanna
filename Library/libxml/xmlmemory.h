@@ -13,7 +13,7 @@
 #define __DEBUG_MEMORY_ALLOC__
 
 #include <stdio.h>
-#include "xmlversion.h"
+#include <Kanna/xmlversion.h>
 
 /**
  * DEBUG_MEMORY:
@@ -215,8 +215,8 @@ XMLPUBFUN char * XMLCALL
 
 #ifndef __XML_GLOBALS_H
 #ifndef __XML_THREADS_H__
-#include "threads.h"
-#include "globals.h"
+#include <Kanna/threads.h>
+#include <Kanna/globals.h>
 #endif
 #endif
 

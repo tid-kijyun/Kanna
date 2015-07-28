@@ -12,8 +12,8 @@
 
 #ifndef __HTML_PARSER_H__
 #define __HTML_PARSER_H__
-#include "xmlversion.h"
-#include "parser.h"
+#include <Kanna/xmlversion.h>
+#include <Kanna/parser.h>
 
 #ifdef LIBXML_HTML_ENABLED
 

@@ -12,8 +12,8 @@
 #define __XML_DICT_H__
 
 #include <limits.h>
-#include "xmlversion.h"
-#include "tree.h"
+#include <Kanna/xmlversion.h>
+#include <Kanna/tree.h>
 
 #ifdef __cplusplus
 extern "C" {
