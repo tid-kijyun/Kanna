@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "Kanna"
-  s.version          = "0.1.0"
+  s.version          = "0.1.1"
   s.summary          = "Kanna is an XML/HTML parser for iOS/Mac OS X."
   s.homepage         = "https://github.com/tid-kijyun/Kanna"
   s.license          = 'MIT'
@@ -12,6 +12,6 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.9'
   s.requires_arc = true
 
-  s.source_files        = ['Source/**/*', 'Library/**/*.h']
+  s.source_files        = ['Source/**/*(.swift|.h)', 'Library/**/*.h']
   s.libraries = 'xml2'
 end
