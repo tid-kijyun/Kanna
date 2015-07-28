@@ -14,6 +14,13 @@ Features:
 
 Installation:
 =================
+####Cocoapods
+Adding it to your `Podfile`:
+```
+use_frameworks!
+pod 'Kanna'
+```
+
 ####Carthage
 Adding it to your `Cartfile`:
 
