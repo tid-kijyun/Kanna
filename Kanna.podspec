@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name             = "Kanna"
   s.version          = "0.1.0"
-  s.summary          = "Kanna is an HTML parser for iOS and Mac OS X."
+  s.summary          = "Kanna is an XML/HTML parser for iOS/Mac OS X."
   s.homepage         = "https://github.com/tid-kijyun/Kanna"
   s.license          = 'MIT'
   s.author           = { "Atsushi Kiwaki" => "tid.develop@gmail.com" }
