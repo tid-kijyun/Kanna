@@ -38,7 +38,7 @@ $ sudo xcode-select -switch /Applications/Xcode-beta.app/Contents/Developer
 Adding it to your `Podfile`:
 ```
 use_frameworks!
-pod 'Kanna', :git => "git@github.com:tid-kijyun/Kanna.git", :branch => "feat/Swift2"
+pod 'Kanna', :git => "https://github.com/tid-kijyun/Kanna.git", :branch => "feat/Swift2"
 ```
 
 #####Carthage

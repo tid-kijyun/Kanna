@@ -72,6 +72,10 @@ internal final class libxmlHTMLDocument: HTMLDocument {
             return nil
         }
     }
+    
+    deinit {
+        xmlFreeDoc(self.docPtr)
+    }
 
     var title: String? { return at_xpath("//title")?.text }
     var head: XMLElement? { return at_xpath("//head") }
