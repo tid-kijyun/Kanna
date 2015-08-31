@@ -163,9 +163,11 @@ internal final class libxmlHTMLNode: XMLElement {
 }
 
 private func libxmlGetNodeText(nodePtr: xmlNodePtr) -> String? {
-    let type = nodePtr.memory.type
-    if type.value == XML_TEXT_NODE.value {
-        return libxmlGetNodeText(nodePtr)
+    if nodePtr != nil {
+        let type = nodePtr.memory.type
+        if type.value == XML_TEXT_NODE.value {
+            return libxmlGetNodeText(nodePtr)
+        }
     }
     return nil
 }
