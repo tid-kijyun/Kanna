@@ -48,6 +48,24 @@ Adding it to your `Cartfile`:
 github "tid-kijyun/Kanna" "feat/Swift2"
 ```
 
+#####Munually
+1. Add files to your project:  
+  [Kanna.swift](Source/Kanna.swift)  
+  [CSS.swift](Source/CSS.swift)  
+  [libxmlHTMLDocument.swift](Source/libxml/libxmlHTMLDocument.swift)  
+  [libxmlHTMLNode.swift](Source/libxml/libxmlHTMLNode.swift)  
+  [libxmlParserOption.swift](Source/libxml/libxmlParserOption.swift)  
+1. Add import libxml headers:  
+ Copy and paste these import statements to `[modulename]-Bridging-Header.h`.
+  ```[ANYNAME]-Bridging-Header.h
+  #import <libxml/HTMLtree.h>
+  #import <libxml/xpathInternals.h>
+  ```
+  (optional) In the project settings add "[modulename]-Bridging-Header.h" to the "Objective-C Bridging Header".
+
+1. In the project settings add `$(SDKROOT)/usr/include/libxml2` to the "header search paths" field
+1. Add libxml2.dylib to "Link Binary With Libraries"
+
 Synopsis:
 =================
 
