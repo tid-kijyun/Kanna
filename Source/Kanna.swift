@@ -243,15 +243,15 @@ public final class XMLNodeSet {
         self.nodes = nodes
     }
     
-    internal func at(index: Int) -> XMLElement? {
+    public func at(index: Int) -> XMLElement? {
         return count > index ? nodes[index] : nil
     }
     
-    internal var first: XMLElement? {
+    public var first: XMLElement? {
         return at(0)
     }
     
-    internal var last: XMLElement? {
+    public var last: XMLElement? {
         return at(count-1)
     }
 }
