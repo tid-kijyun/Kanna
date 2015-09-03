@@ -181,4 +181,23 @@ class KannaTests: XCTestCase {
             XCTAssert(false, "File not found. name: (\(filename)), error: \(error)")
         }
     }
+    
+    func testInnerHTML() {
+        let filename = "test_HTML4"
+        guard let path = NSBundle(forClass:self.classForCoder).pathForResource(filename, ofType:"html") else {
+            return
+        }
+        
+        do {
+            let html = try String(contentsOfFile: path, encoding: NSUTF8StringEncoding)
+            guard let doc = HTML(html: html, encoding: NSUTF8StringEncoding) else {
+                return
+            }
+            
+            XCTAssert(doc.at_css("div#inner")!.innerHTML == "\n        abc<div>def</div>hij<span>klmn</span>opq\n    ")
+            XCTAssert(doc.at_css("#asd")!.innerHTML == "asd")
+        } catch {
+            XCTAssert(false, "File not found. name: (\(filename)), error: \(error)")
+        }
+    }
 }

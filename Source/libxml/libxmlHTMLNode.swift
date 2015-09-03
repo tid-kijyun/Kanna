@@ -43,11 +43,12 @@ internal final class libxmlHTMLNode: XMLElement {
     }
     
     var innerHTML: String? {
-        var html: String = ""
-        html += libxmlGetNodeText(nodePtr.memory.children) ?? ""
-        html += self.xpath(".//*").first?.toHTML ?? ""
-        html += libxmlGetNodeText(xmlGetLastChild(nodePtr)) ?? ""
-        return html
+        if let html = self.toHTML {
+            let inner = html.stringByReplacingOccurrencesOfString("</.*>$", withString: "", options: .RegularExpressionSearch, range: nil)
+                            .stringByReplacingOccurrencesOfString("^<.*>", withString: "", options: .RegularExpressionSearch, range: nil)
+            return inner
+        }
+        return nil
     }
     
     var className: String? {
@@ -160,16 +161,6 @@ internal final class libxmlHTMLNode: XMLElement {
     func at_css(selector: String) -> XMLElement? {
         return self.css(selector, namespaces: nil).first
     }
-}
-
-private func libxmlGetNodeText(nodePtr: xmlNodePtr) -> String? {
-    if nodePtr != nil {
-        let type = nodePtr.memory.type
-        if type.rawValue == XML_TEXT_NODE.rawValue {
-            return libxmlGetNodeText(nodePtr)
-        }
-    }
-    return nil
 }
 
 private func libxmlGetNodeContent(nodePtr: xmlNodePtr) -> String? {
