@@ -200,4 +200,12 @@ class KannaTests: XCTestCase {
             XCTAssert(false, "File not found. name: (\(filename)), error: \(error)")
         }
     }
+    
+    func testNSURL() {
+        guard let url = NSURL(string: "https://en.wikipedia.org/wiki/Cat"),
+              let _ = HTML(url: url, encoding: NSUTF8StringEncoding) else {
+            XCTAssert(false)
+            return
+        }
+    }
 }

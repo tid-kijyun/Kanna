@@ -85,6 +85,18 @@ public func XML(xml xml: NSData, url: String?, encoding: UInt) -> XMLDocument? {
     return XML(xml: xml, url: url, encoding: encoding, option: kDefaultXmlParseOption)
 }
 
+// NSURL
+public func XML(url url: NSURL, encoding: UInt, option: ParseOption) -> XMLDocument? {
+    if let data = NSData(contentsOfURL: url) {
+        return XML(xml: data, url: url.absoluteString, encoding: encoding, option: option)
+    }
+    return nil
+}
+
+public func XML(url url: NSURL, encoding: UInt) -> XMLDocument? {
+    return XML(url: url, encoding: encoding, option: kDefaultXmlParseOption)
+}
+
 /**
 Parse HTML
 
@@ -132,6 +144,18 @@ public func HTML(html html: NSData, encoding: UInt) -> HTMLDocument? {
 
 public func HTML(html html: NSData, url: String?, encoding: UInt) -> HTMLDocument? {
     return HTML(html: html, url: url, encoding: encoding, option: kDefaultHtmlParseOption)
+}
+
+// NSURL
+public func HTML(url url: NSURL, encoding: UInt, option: ParseOption) -> HTMLDocument? {
+    if let data = NSData(contentsOfURL: url) {
+        return HTML(html: data, url: url.absoluteString, encoding: encoding, option: option)
+    }
+    return nil
+}
+
+public func HTML(url url: NSURL, encoding: UInt) -> HTMLDocument? {
+    return HTML(url: url, encoding: encoding, option: kDefaultHtmlParseOption)
 }
 
 /**
