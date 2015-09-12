@@ -14,22 +14,8 @@ Features:
 
 Installation:
 =================
-### Swift1.2
-#####Cocoapods
-Adding it to your `Podfile`:
-```
-use_frameworks!
-pod 'Kanna'
-```
 
-#####Carthage
-Adding it to your `Cartfile`:
-
-```
-github "tid-kijyun/Kanna" >= 0.1.0
-```
-
-### Swift2 (Xcode-beta)
+### Swift2
 ```
 $ sudo xcode-select -switch /Applications/Xcode-beta.app/Contents/Developer
 ```
@@ -38,14 +24,14 @@ $ sudo xcode-select -switch /Applications/Xcode-beta.app/Contents/Developer
 Adding it to your `Podfile`:
 ```
 use_frameworks!
-pod 'Kanna', :git => "https://github.com/tid-kijyun/Kanna.git", :branch => "feat/Swift2"
+pod 'Kanna', '~> 1.0.0'
 ```
 
 #####Carthage
 Adding it to your `Cartfile`:
 
 ```
-github "tid-kijyun/Kanna" "feat/Swift2"
+github "tid-kijyun/Kanna" ~> 1.0.0
 ```
 
 #####Munually
@@ -65,6 +51,23 @@ github "tid-kijyun/Kanna" "feat/Swift2"
 
 1. In the project settings add `$(SDKROOT)/usr/include/libxml2` to the "header search paths" field
 1. Add libxml2.dylib to "Link Binary With Libraries"
+
+
+### Swift1.2（deprecated）
+#####Cocoapods
+Adding it to your `Podfile`:
+```
+use_frameworks!
+pod 'Kanna', '~> 0.1.5'
+```
+
+#####Carthage
+Adding it to your `Cartfile`:
+
+```
+github "tid-kijyun/Kanna" ~> 0.1.5
+```
+
 
 Synopsis:
 =================
