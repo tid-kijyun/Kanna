@@ -4,16 +4,16 @@
 */
 import Foundation
 
-@availability(*, unavailable)
+@available(*, unavailable)
 let DUMP_BUFFER_SIZE : Int = 4000
 
 
-@availability(*, unavailable)
+@available(*, unavailable)
 func ConvXmlCharToString(str: UnsafePointer<xmlChar>) -> String! {
     return ""
 }
 
-@availability(*, unavailable)
+@available(*, unavailable)
 func rawContentsOfNode(node : xmlNode, pointer: xmlNodePtr) -> String! {
     return ""
 }
@@ -21,11 +21,11 @@ func rawContentsOfNode(node : xmlNode, pointer: xmlNodePtr) -> String! {
 /**
 * HTMLParser
 */
-@availability(*, unavailable, message="Please use Kanna.HTML instead.")
+@available(*, unavailable, message="Please use Kanna.HTML instead.")
 public class HTMLParser {}
 
 /**
 * HTMLNode
 */
-@availability(*, unavailable, message="Please use Kanna.HTML instead.")
+@available(*, unavailable, message="Please use Kanna.HTML instead.")
 public class HTMLNode {}

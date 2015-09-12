@@ -23,7 +23,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 import XCTest
-import Kanna
+@testable import Kanna
 
 class KannaTests: XCTestCase {
     let css2xpath: [(String, String?)] = [
@@ -92,7 +92,7 @@ class KannaTests: XCTestCase {
     func testXml() {
         let filename = "test_XML_ExcelWorkbook"
         if let path = NSBundle(forClass:self.classForCoder).pathForResource(filename, ofType:"xml"),
-            xml = NSString(contentsOfFile: path, encoding: NSUTF8StringEncoding, error: nil) as? String,
+            xml = NSData(contentsOfFile: path),
             doc = XML(xml: xml, encoding: NSUTF8StringEncoding) {
                 let namespaces = [
                     "o":  "urn:schemas-microsoft-com:office:office",
@@ -114,7 +114,7 @@ class KannaTests: XCTestCase {
                 
                 for row in doc.xpath("//ss:Row", namespaces: namespaces) {
                     for cell in row.xpath("//ss:Data", namespaces: namespaces) {
-                        println(cell.text)
+                        print(cell.text)
                     }
                 }
         } else {
@@ -128,60 +128,84 @@ class KannaTests: XCTestCase {
     func testHTML4() {
         // This is an example of a functional test case.
         let filename = "test_HTML4"
-        if let path = NSBundle(forClass:self.classForCoder).pathForResource(filename, ofType:"html"),
-            html = NSString(contentsOfFile: path, encoding: NSUTF8StringEncoding, error: nil) as? String,
-            doc = HTML(html: html, encoding: NSUTF8StringEncoding) {
-                // Check title
-                XCTAssert(doc.title == "Test HTML4")
-                XCTAssert(doc.head != nil)
-                XCTAssert(doc.body != nil)
-                XCTAssert(doc.toHTML == html)
-                
-                for link in doc.xpath("//link") {
-                    XCTAssert(link["href"] != nil)
-                }
-                
-                let repoName = ["Kanna", "Swift-HTML-Parser"]
-                for (index, repo) in enumerate(doc.xpath("//span[@class='repo']")) {
-                    XCTAssert(repo["title"] == repoName[index])
-                    XCTAssert(repo.text == repoName[index])
-                }
-                
-                if let snTable = doc.at_css("table[id='sequence number']") {
-                    let alphabet = ["a", "b", "c"]
-                    for (indexTr, tr) in enumerate(snTable.css("tr")) {
-                        for (indexTd, td) in enumerate(tr.css("td")) {
-                            XCTAssert(td.text == "\(alphabet[indexTd])\(indexTr)")
-                        }
+        guard let path = NSBundle(forClass:self.classForCoder).pathForResource(filename, ofType:"html") else {
+            return
+        }
+        
+        do {
+            let html = try String(contentsOfFile: path, encoding: NSUTF8StringEncoding)
+            guard let doc = HTML(html: html, encoding: NSUTF8StringEncoding) else {
+                return
+            }
+            // Check title
+            XCTAssert(doc.title == "Test HTML4")
+            XCTAssert(doc.head != nil)
+            XCTAssert(doc.body != nil)
+            XCTAssert(doc.toHTML == html)
+            
+            for link in doc.xpath("//link") {
+                XCTAssert(link["href"] != nil)
+            }
+            
+            let repoName = ["Kanna", "Swift-HTML-Parser"]
+            for (index, repo) in doc.xpath("//span[@class='repo']").enumerate() {
+                XCTAssert(repo["title"] == repoName[index])
+                XCTAssert(repo.text == repoName[index])
+            }
+            
+            if let snTable = doc.at_css("table[id='sequence number']") {
+                let alphabet = ["a", "b", "c"]
+                for (indexTr, tr) in snTable.css("tr").enumerate() {
+                    for (indexTd, td) in tr.css("td").enumerate() {
+                        XCTAssert(td.text == "\(alphabet[indexTd])\(indexTr)")
                     }
                 }
-                
-                if let starTable = doc.at_css("table[id='star table']"),
-                    allStar = starTable.at_css("tfoot > tr > td:nth-child(2)")?.text?.toInt() {
-                        var count = 0
-                        for starNode in starTable.css("tbody > tr > td:nth-child(2)") {
-                            if let star = starNode.text?.toInt() {
-                                count += star
-                            }
+            }
+            
+            if let starTable = doc.at_css("table[id='star table']"),
+                   allStarStr = starTable.at_css("tfoot > tr > td:nth-child(2)")?.text,
+                   allStar = Int(allStarStr) {
+                    var count = 0
+                    for starNode in starTable.css("tbody > tr > td:nth-child(2)") {
+                        if let starStr = starNode.text,
+                               star    = Int(starStr) {
+                            count += star
                         }
-                        
-                        XCTAssert(count == allStar)
-                } else {
-                    XCTAssert(false, "Star not found.")
-                }
-        } else {
-            XCTAssert(false, "File not found. name: (\(filename))")
+                    }
+                    
+                    XCTAssert(count == allStar)
+            } else {
+                XCTAssert(false, "Star not found.")
+            }
+        } catch {
+            XCTAssert(false, "File not found. name: (\(filename)), error: \(error)")
         }
     }
     
     func testInnerHTML() {
         let filename = "test_HTML4"
-        if let path = NSBundle(forClass:self.classForCoder).pathForResource(filename, ofType:"html"),
-            html = NSString(contentsOfFile: path, encoding: NSUTF8StringEncoding, error: nil) as? String,
-            doc = HTML(html: html, encoding: NSUTF8StringEncoding) {
+        guard let path = NSBundle(forClass:self.classForCoder).pathForResource(filename, ofType:"html") else {
+            return
+        }
+        
+        do {
+            let html = try String(contentsOfFile: path, encoding: NSUTF8StringEncoding)
+            guard let doc = HTML(html: html, encoding: NSUTF8StringEncoding) else {
+                return
+            }
             
             XCTAssert(doc.at_css("div#inner")!.innerHTML == "\n        abc<div>def</div>hij<span>klmn</span>opq\n    ")
             XCTAssert(doc.at_css("#asd")!.innerHTML == "asd")
+        } catch {
+            XCTAssert(false, "File not found. name: (\(filename)), error: \(error)")
+        }
+    }
+    
+    func testNSURL() {
+        guard let url = NSURL(string: "https://en.wikipedia.org/wiki/Cat"),
+              let _ = HTML(url: url, encoding: NSUTF8StringEncoding) else {
+            XCTAssert(false)
+            return
         }
     }
 }

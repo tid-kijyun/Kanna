@@ -35,7 +35,7 @@ internal final class libxmlHTMLNode: XMLElement {
     }
     
     var toHTML: String? {
-        var buf = xmlBufferCreate()
+        let buf = xmlBufferCreate()
         htmlNodeDump(buf, docPtr, nodePtr)
         let html = String.fromCString(UnsafePointer(buf.memory.content))
         xmlBufferFree(buf)
