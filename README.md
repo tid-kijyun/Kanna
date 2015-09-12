@@ -16,10 +16,6 @@ Installation:
 =================
 
 ### Swift2
-```
-$ sudo xcode-select -switch /Applications/Xcode-beta.app/Contents/Developer
-```
-
 #####Cocoapods
 Adding it to your `Podfile`:
 ```
