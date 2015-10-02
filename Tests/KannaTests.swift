@@ -93,7 +93,7 @@ class KannaTests: XCTestCase {
         let filename = "test_XML_ExcelWorkbook"
         if let path = NSBundle(forClass:self.classForCoder).pathForResource(filename, ofType:"xml"),
             xml = NSData(contentsOfFile: path),
-            doc = XML(xml: xml, encoding: NSUTF8StringEncoding) {
+            doc = XML(data: xml, encoding: NSUTF8StringEncoding) {
                 let namespaces = [
                     "o":  "urn:schemas-microsoft-com:office:office",
                     "ss": "urn:schemas-microsoft-com:office:spreadsheet"
