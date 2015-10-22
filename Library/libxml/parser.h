@@ -15,10 +15,10 @@
 #include <Kanna/xmlversion.h>
 #include <Kanna/tree.h>
 #include <Kanna/dict.h>
-#include <Kanna/hash.h>
-#include <Kanna/valid.h>
-#include <Kanna/entities.h>
-#include <Kanna/xmlerror.h>
+#include "hash.h"
+#include "valid.h"
+#include "entities.h"
+#include "xmlerror.h"
 #include <Kanna/xmlstring.h>
 
 #ifdef __cplusplus
@@ -807,8 +807,8 @@ typedef xmlParserInputPtr (*xmlExternalEntityLoader) (const char *URL,
 }
 #endif
 
-#include <Kanna/encoding.h>
-#include <Kanna/xmlIO.h>
+#include "encoding.h"
+#include "xmlIO.h"
 #include <Kanna/globals.h>
 
 #ifdef __cplusplus

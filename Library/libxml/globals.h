@@ -15,10 +15,10 @@
 #define __XML_GLOBALS_H
 
 #include <Kanna/xmlversion.h>
-#include <Kanna/parser.h>
-#include <Kanna/xmlerror.h>
-#include <Kanna/SAX.h>
-#include <Kanna/SAX2.h>
+#include "parser.h"
+#include "xmlerror.h"
+#include "SAX.h"
+#include "SAX2.h"
 #include <Kanna/xmlmemory.h>
 
 #ifdef __cplusplus
