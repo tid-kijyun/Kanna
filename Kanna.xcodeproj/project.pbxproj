@@ -12,6 +12,38 @@
 		1E206B911B666AD400441E12 /* test_HTML4.html in Resources */ = {isa = PBXBuildFile; fileRef = 1E69153E1B64114900AF1851 /* test_HTML4.html */; };
 		1E206B921B666AD400441E12 /* test_XML_ExcelWorkbook.xml in Resources */ = {isa = PBXBuildFile; fileRef = 1EBA8A311B6561D900226B9C /* test_XML_ExcelWorkbook.xml */; };
 		1E4E6E271B62C69F003B2BE8 /* libxmlParserOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4E6E261B62C69F003B2BE8 /* libxmlParserOption.swift */; };
+		1E4F86BD1BD90B42008EF835 /* Kanna.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA0F41B603A56001F3D84 /* Kanna.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1E4F86BE1BD90B42008EF835 /* dict.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA2311B60DE10001F3D84 /* dict.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1E4F86BF1BD90B42008EF835 /* encoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA2331B60DE10001F3D84 /* encoding.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1E4F86C01BD90B42008EF835 /* entities.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA2341B60DE10001F3D84 /* entities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1E4F86C11BD90B42008EF835 /* globals.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA2351B60DE10001F3D84 /* globals.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1E4F86C21BD90B42008EF835 /* hash.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA2361B60DE10001F3D84 /* hash.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1E4F86C31BD90B42008EF835 /* HTMLparser.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA2371B60DE10001F3D84 /* HTMLparser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1E4F86C41BD90B42008EF835 /* HTMLtree.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA2381B60DE10001F3D84 /* HTMLtree.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1E4F86C51BD90B42008EF835 /* list.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA2391B60DE10001F3D84 /* list.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1E4F86C61BD90B42008EF835 /* parser.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA23C1B60DE10001F3D84 /* parser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1E4F86C71BD90B42008EF835 /* SAX.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA2401B60DE10001F3D84 /* SAX.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1E4F86C81BD90B42008EF835 /* SAX2.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA2411B60DE10001F3D84 /* SAX2.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1E4F86C91BD90B42008EF835 /* threads.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA2441B60DE10001F3D84 /* threads.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1E4F86CA1BD90B42008EF835 /* tree.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA2451B60DE10001F3D84 /* tree.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1E4F86CB1BD90B42008EF835 /* valid.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA2471B60DE10001F3D84 /* valid.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1E4F86CC1BD90B42008EF835 /* xlink.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA2491B60DE10001F3D84 /* xlink.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1E4F86CD1BD90B42008EF835 /* xmlautomata.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA24A1B60DE10001F3D84 /* xmlautomata.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1E4F86CE1BD90B42008EF835 /* xmlerror.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA24B1B60DE10001F3D84 /* xmlerror.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1E4F86CF1BD90B42008EF835 /* xmlexports.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA24C1B60DE10001F3D84 /* xmlexports.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1E4F86D01BD90B42008EF835 /* xmlIO.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA24D1B60DE10001F3D84 /* xmlIO.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1E4F86D11BD90B43008EF835 /* xmlmemory.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA24E1B60DE10001F3D84 /* xmlmemory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1E4F86D21BD90B43008EF835 /* xmlregexp.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA2511B60DE10001F3D84 /* xmlregexp.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1E4F86D31BD90B43008EF835 /* xmlstring.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA2551B60DE10001F3D84 /* xmlstring.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1E4F86D41BD90B43008EF835 /* xmlversion.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA2571B60DE10001F3D84 /* xmlversion.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1E4F86D51BD90B43008EF835 /* xpath.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA2591B60DE10001F3D84 /* xpath.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1E4F86D61BD90B43008EF835 /* xpathInternals.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA25A1B60DE10001F3D84 /* xpathInternals.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1E4F86D71BD90B52008EF835 /* Kanna.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAFA1601B604252001F3D84 /* Kanna.swift */; };
+		1E4F86D81BD90B52008EF835 /* CSS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAFA1631B6042C2001F3D84 /* CSS.swift */; };
+		1E4F86D91BD90B52008EF835 /* libxmlHTMLDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAFA1761B60CA6F001F3D84 /* libxmlHTMLDocument.swift */; };
+		1E4F86DA1BD90B52008EF835 /* libxmlHTMLNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAFA1781B60CAB5001F3D84 /* libxmlHTMLNode.swift */; };
+		1E4F86DB1BD90B52008EF835 /* libxmlParserOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4E6E261B62C69F003B2BE8 /* libxmlParserOption.swift */; };
+		1E4F86DD1BD90B6D008EF835 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E4F86DC1BD90B6D008EF835 /* libxml2.tbd */; };
 		1E6427F31B6153FD005D9A36 /* xpath.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA2591B60DE10001F3D84 /* xpath.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1E6427F71B615465005D9A36 /* HTMLtree.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA2381B60DE10001F3D84 /* HTMLtree.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1E6427F81B6154D5005D9A36 /* xmlerror.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA24B1B60DE10001F3D84 /* xmlerror.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -80,6 +112,39 @@
 		1EBA8AA41B66352F00226B9C /* xmlIO.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA24D1B60DE10001F3D84 /* xmlIO.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1EBA8AA51B66353300226B9C /* xpathInternals.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA25A1B60DE10001F3D84 /* xpathInternals.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1EBA8AA61B66355900226B9C /* Kanna.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA0F41B603A56001F3D84 /* Kanna.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC47DB51BC9729F00647902 /* Kanna.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EC47DAB1BC9729F00647902 /* Kanna.framework */; };
+		1EC47DC31BC9734900647902 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EC47DC21BC9734900647902 /* libxml2.tbd */; };
+		1EC47DF71BCA0B7300647902 /* Kanna.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAFA1601B604252001F3D84 /* Kanna.swift */; };
+		1EC47DF81BCA0B7300647902 /* CSS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAFA1631B6042C2001F3D84 /* CSS.swift */; };
+		1EC47DF91BCA0B7300647902 /* libxmlHTMLDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAFA1761B60CA6F001F3D84 /* libxmlHTMLDocument.swift */; };
+		1EC47DFA1BCA0B7300647902 /* libxmlHTMLNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAFA1781B60CAB5001F3D84 /* libxmlHTMLNode.swift */; };
+		1EC47DFB1BCA0B7300647902 /* libxmlParserOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4E6E261B62C69F003B2BE8 /* libxmlParserOption.swift */; };
+		1EC47DFC1BCA0B8800647902 /* Kanna.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA0F41B603A56001F3D84 /* Kanna.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC47DFD1BCA0BA500647902 /* dict.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA2311B60DE10001F3D84 /* dict.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC47DFE1BCA0BA500647902 /* encoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA2331B60DE10001F3D84 /* encoding.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC47DFF1BCA0BA500647902 /* entities.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA2341B60DE10001F3D84 /* entities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC47E001BCA0BA500647902 /* globals.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA2351B60DE10001F3D84 /* globals.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC47E011BCA0BA500647902 /* hash.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA2361B60DE10001F3D84 /* hash.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC47E021BCA0BA500647902 /* HTMLparser.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA2371B60DE10001F3D84 /* HTMLparser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC47E031BCA0BA500647902 /* HTMLtree.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA2381B60DE10001F3D84 /* HTMLtree.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC47E041BCA0BA500647902 /* list.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA2391B60DE10001F3D84 /* list.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC47E051BCA0BA500647902 /* parser.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA23C1B60DE10001F3D84 /* parser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC47E061BCA0BA500647902 /* SAX.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA2401B60DE10001F3D84 /* SAX.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC47E071BCA0BA500647902 /* SAX2.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA2411B60DE10001F3D84 /* SAX2.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC47E081BCA0BA600647902 /* threads.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA2441B60DE10001F3D84 /* threads.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC47E091BCA0BA600647902 /* tree.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA2451B60DE10001F3D84 /* tree.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC47E0A1BCA0BA600647902 /* valid.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA2471B60DE10001F3D84 /* valid.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC47E0B1BCA0BA600647902 /* xlink.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA2491B60DE10001F3D84 /* xlink.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC47E0C1BCA0BA600647902 /* xmlautomata.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA24A1B60DE10001F3D84 /* xmlautomata.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC47E0D1BCA0BA600647902 /* xmlerror.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA24B1B60DE10001F3D84 /* xmlerror.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC47E0E1BCA0BA600647902 /* xmlexports.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA24C1B60DE10001F3D84 /* xmlexports.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC47E0F1BCA0BA600647902 /* xmlIO.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA24D1B60DE10001F3D84 /* xmlIO.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC47E101BCA0BA600647902 /* xmlmemory.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA24E1B60DE10001F3D84 /* xmlmemory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC47E111BCA0BA600647902 /* xmlregexp.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA2511B60DE10001F3D84 /* xmlregexp.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC47E121BCA0BA600647902 /* xmlstring.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA2551B60DE10001F3D84 /* xmlstring.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC47E131BCA0BA600647902 /* xmlversion.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA2571B60DE10001F3D84 /* xmlversion.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC47E141BCA0BA600647902 /* xpath.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA2591B60DE10001F3D84 /* xpath.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC47E151BCA0BA600647902 /* xpathInternals.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA25A1B60DE10001F3D84 /* xpathInternals.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,11 +162,22 @@
 			remoteGlobalIDString = 1EAFA0D71B6039D5001F3D84;
 			remoteInfo = Kanna;
 		};
+		1EC47DB61BC9729F00647902 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1EAFA0CF1B6039D5001F3D84 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1EC47DAA1BC9729F00647902;
+			remoteInfo = Kanna;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1E206B841B665E6D00441E12 /* Kanna_OSX Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Kanna_OSX Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E4E6E261B62C69F003B2BE8 /* libxmlParserOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = libxmlParserOption.swift; path = Source/libxml/libxmlParserOption.swift; sourceTree = SOURCE_ROOT; };
+		1E4F86B51BD90AE1008EF835 /* Kanna.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Kanna.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E4F86B71BD90AE1008EF835 /* Kanna.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Kanna.h; sourceTree = "<group>"; };
+		1E4F86B91BD90AE1008EF835 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1E4F86DC1BD90B6D008EF835 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS2.0.sdk/usr/lib/libxml2.tbd; sourceTree = DEVELOPER_DIR; };
 		1E69153E1B64114900AF1851 /* test_HTML4.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = test_HTML4.html; path = Tests/test_HTML4.html; sourceTree = SOURCE_ROOT; };
 		1E6915481B64255000AF1851 /* HTMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HTMLParser.swift; path = Source/_obsolete/HTMLParser.swift; sourceTree = SOURCE_ROOT; };
 		1EAFA0D81B6039D5001F3D84 /* Kanna.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Kanna.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -165,6 +241,9 @@
 		1EBA8A6B1B6632E800226B9C /* Kanna.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Kanna.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EBA8A841B6633D900226B9C /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/libxml2.dylib; sourceTree = DEVELOPER_DIR; };
 		1EBA8A861B6633E200226B9C /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		1EC47DAB1BC9729F00647902 /* Kanna.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Kanna.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1EC47DB41BC9729F00647902 /* Kanna_tvOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Kanna_tvOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1EC47DC21BC9734900647902 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS9.0.sdk/usr/lib/libxml2.tbd; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +252,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E206B8A1B665E6D00441E12 /* Kanna.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1E4F86B11BD90AE1008EF835 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E4F86DD1BD90B6D008EF835 /* libxml2.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,9 +287,34 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1EC47DA71BC9729F00647902 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1EC47DC31BC9734900647902 /* libxml2.tbd in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1EC47DB11BC9729F00647902 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1EC47DB51BC9729F00647902 /* Kanna.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E4F86B61BD90AE1008EF835 /* Kanna */ = {
+			isa = PBXGroup;
+			children = (
+				1E4F86B71BD90AE1008EF835 /* Kanna.h */,
+				1E4F86B91BD90AE1008EF835 /* Info.plist */,
+			);
+			path = Kanna;
+			sourceTree = "<group>";
+		};
 		1E6915471B64253F00AF1851 /* _obsolete */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,11 +326,14 @@
 		1EAFA0CE1B6039D5001F3D84 = {
 			isa = PBXGroup;
 			children = (
+				1E4F86DC1BD90B6D008EF835 /* libxml2.tbd */,
+				1EC47DC21BC9734900647902 /* libxml2.tbd */,
 				1EBA8A861B6633E200226B9C /* libxml2.dylib */,
 				1EBA8A841B6633D900226B9C /* libxml2.dylib */,
 				1EAFA0DA1B6039D5001F3D84 /* Source */,
 				1EAFA22B1B60DDAE001F3D84 /* Library */,
 				1EAFA0E71B6039D5001F3D84 /* Tests */,
+				1E4F86B61BD90AE1008EF835 /* Kanna */,
 				1EAFA0D91B6039D5001F3D84 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -230,6 +345,9 @@
 				1EAFA0E31B6039D5001F3D84 /* KannaTests.xctest */,
 				1EBA8A6B1B6632E800226B9C /* Kanna.framework */,
 				1E206B841B665E6D00441E12 /* Kanna_OSX Tests.xctest */,
+				1EC47DAB1BC9729F00647902 /* Kanna.framework */,
+				1EC47DB41BC9729F00647902 /* Kanna_tvOS Tests.xctest */,
+				1E4F86B51BD90AE1008EF835 /* Kanna.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -351,6 +469,39 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		1E4F86B21BD90AE1008EF835 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E4F86BD1BD90B42008EF835 /* Kanna.h in Headers */,
+				1E4F86BE1BD90B42008EF835 /* dict.h in Headers */,
+				1E4F86BF1BD90B42008EF835 /* encoding.h in Headers */,
+				1E4F86C01BD90B42008EF835 /* entities.h in Headers */,
+				1E4F86C11BD90B42008EF835 /* globals.h in Headers */,
+				1E4F86C21BD90B42008EF835 /* hash.h in Headers */,
+				1E4F86C31BD90B42008EF835 /* HTMLparser.h in Headers */,
+				1E4F86C41BD90B42008EF835 /* HTMLtree.h in Headers */,
+				1E4F86C51BD90B42008EF835 /* list.h in Headers */,
+				1E4F86C61BD90B42008EF835 /* parser.h in Headers */,
+				1E4F86C71BD90B42008EF835 /* SAX.h in Headers */,
+				1E4F86C81BD90B42008EF835 /* SAX2.h in Headers */,
+				1E4F86C91BD90B42008EF835 /* threads.h in Headers */,
+				1E4F86CA1BD90B42008EF835 /* tree.h in Headers */,
+				1E4F86CB1BD90B42008EF835 /* valid.h in Headers */,
+				1E4F86CC1BD90B42008EF835 /* xlink.h in Headers */,
+				1E4F86CD1BD90B42008EF835 /* xmlautomata.h in Headers */,
+				1E4F86CE1BD90B42008EF835 /* xmlerror.h in Headers */,
+				1E4F86CF1BD90B42008EF835 /* xmlexports.h in Headers */,
+				1E4F86D01BD90B42008EF835 /* xmlIO.h in Headers */,
+				1E4F86D11BD90B43008EF835 /* xmlmemory.h in Headers */,
+				1E4F86D21BD90B43008EF835 /* xmlregexp.h in Headers */,
+				1E4F86D31BD90B43008EF835 /* xmlstring.h in Headers */,
+				1E4F86D41BD90B43008EF835 /* xmlversion.h in Headers */,
+				1E4F86D51BD90B43008EF835 /* xpath.h in Headers */,
+				1E4F86D61BD90B43008EF835 /* xpathInternals.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1EAFA0D51B6039D5001F3D84 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -417,6 +568,39 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1EC47DA81BC9729F00647902 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1EC47DFC1BCA0B8800647902 /* Kanna.h in Headers */,
+				1EC47DFD1BCA0BA500647902 /* dict.h in Headers */,
+				1EC47DFE1BCA0BA500647902 /* encoding.h in Headers */,
+				1EC47DFF1BCA0BA500647902 /* entities.h in Headers */,
+				1EC47E001BCA0BA500647902 /* globals.h in Headers */,
+				1EC47E011BCA0BA500647902 /* hash.h in Headers */,
+				1EC47E021BCA0BA500647902 /* HTMLparser.h in Headers */,
+				1EC47E031BCA0BA500647902 /* HTMLtree.h in Headers */,
+				1EC47E041BCA0BA500647902 /* list.h in Headers */,
+				1EC47E051BCA0BA500647902 /* parser.h in Headers */,
+				1EC47E061BCA0BA500647902 /* SAX.h in Headers */,
+				1EC47E071BCA0BA500647902 /* SAX2.h in Headers */,
+				1EC47E081BCA0BA600647902 /* threads.h in Headers */,
+				1EC47E091BCA0BA600647902 /* tree.h in Headers */,
+				1EC47E0A1BCA0BA600647902 /* valid.h in Headers */,
+				1EC47E0B1BCA0BA600647902 /* xlink.h in Headers */,
+				1EC47E0C1BCA0BA600647902 /* xmlautomata.h in Headers */,
+				1EC47E0D1BCA0BA600647902 /* xmlerror.h in Headers */,
+				1EC47E0E1BCA0BA600647902 /* xmlexports.h in Headers */,
+				1EC47E0F1BCA0BA600647902 /* xmlIO.h in Headers */,
+				1EC47E101BCA0BA600647902 /* xmlmemory.h in Headers */,
+				1EC47E111BCA0BA600647902 /* xmlregexp.h in Headers */,
+				1EC47E121BCA0BA600647902 /* xmlstring.h in Headers */,
+				1EC47E131BCA0BA600647902 /* xmlversion.h in Headers */,
+				1EC47E141BCA0BA600647902 /* xpath.h in Headers */,
+				1EC47E151BCA0BA600647902 /* xpathInternals.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
@@ -437,6 +621,24 @@
 			productName = "Kanna_OSX Tests";
 			productReference = 1E206B841B665E6D00441E12 /* Kanna_OSX Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		1E4F86B41BD90AE1008EF835 /* Kanna_watchOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1E4F86BC1BD90AE1008EF835 /* Build configuration list for PBXNativeTarget "Kanna_watchOS" */;
+			buildPhases = (
+				1E4F86B01BD90AE1008EF835 /* Sources */,
+				1E4F86B11BD90AE1008EF835 /* Frameworks */,
+				1E4F86B21BD90AE1008EF835 /* Headers */,
+				1E4F86B31BD90AE1008EF835 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Kanna_watchOS;
+			productName = Kanna;
+			productReference = 1E4F86B51BD90AE1008EF835 /* Kanna.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 		1EAFA0D71B6039D5001F3D84 /* Kanna_iOS */ = {
 			isa = PBXNativeTarget;
@@ -492,18 +694,57 @@
 			productReference = 1EBA8A6B1B6632E800226B9C /* Kanna.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		1EC47DAA1BC9729F00647902 /* Kanna_tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1EC47DC01BC9729F00647902 /* Build configuration list for PBXNativeTarget "Kanna_tvOS" */;
+			buildPhases = (
+				1EC47DA61BC9729F00647902 /* Sources */,
+				1EC47DA71BC9729F00647902 /* Frameworks */,
+				1EC47DA81BC9729F00647902 /* Headers */,
+				1EC47DA91BC9729F00647902 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Kanna_tvOS;
+			productName = Kanna;
+			productReference = 1EC47DAB1BC9729F00647902 /* Kanna.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		1EC47DB31BC9729F00647902 /* Kanna_tvOS Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1EC47DC11BC9729F00647902 /* Build configuration list for PBXNativeTarget "Kanna_tvOS Tests" */;
+			buildPhases = (
+				1EC47DB01BC9729F00647902 /* Sources */,
+				1EC47DB11BC9729F00647902 /* Frameworks */,
+				1EC47DB21BC9729F00647902 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1EC47DB71BC9729F00647902 /* PBXTargetDependency */,
+			);
+			name = "Kanna_tvOS Tests";
+			productName = KannaTests;
+			productReference = 1EC47DB41BC9729F00647902 /* Kanna_tvOS Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		1EAFA0CF1B6039D5001F3D84 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0700;
+				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = tid;
 				TargetAttributes = {
 					1E206B831B665E6D00441E12 = {
 						CreatedOnToolsVersion = 6.4;
+					};
+					1E4F86B41BD90AE1008EF835 = {
+						CreatedOnToolsVersion = 7.1;
 					};
 					1EAFA0D71B6039D5001F3D84 = {
 						CreatedOnToolsVersion = 6.4;
@@ -513,6 +754,12 @@
 					};
 					1EBA8A6A1B6632E800226B9C = {
 						CreatedOnToolsVersion = 6.4;
+					};
+					1EC47DAA1BC9729F00647902 = {
+						CreatedOnToolsVersion = 7.1;
+					};
+					1EC47DB31BC9729F00647902 = {
+						CreatedOnToolsVersion = 7.1;
 					};
 				};
 			};
@@ -530,8 +777,11 @@
 			targets = (
 				1EAFA0D71B6039D5001F3D84 /* Kanna_iOS */,
 				1EBA8A6A1B6632E800226B9C /* Kanna_OSX */,
+				1EC47DAA1BC9729F00647902 /* Kanna_tvOS */,
+				1E4F86B41BD90AE1008EF835 /* Kanna_watchOS */,
 				1EAFA0E21B6039D5001F3D84 /* KannaTests */,
 				1E206B831B665E6D00441E12 /* Kanna_OSX Tests */,
+				1EC47DB31BC9729F00647902 /* Kanna_tvOS Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -543,6 +793,13 @@
 			files = (
 				1E206B911B666AD400441E12 /* test_HTML4.html in Resources */,
 				1E206B921B666AD400441E12 /* test_XML_ExcelWorkbook.xml in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1E4F86B31BD90AE1008EF835 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -569,6 +826,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1EC47DA91BC9729F00647902 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1EC47DB21BC9729F00647902 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -577,6 +848,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E206B901B665E8700441E12 /* KannaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1E4F86B01BD90AE1008EF835 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E4F86D71BD90B52008EF835 /* Kanna.swift in Sources */,
+				1E4F86D81BD90B52008EF835 /* CSS.swift in Sources */,
+				1E4F86D91BD90B52008EF835 /* libxmlHTMLDocument.swift in Sources */,
+				1E4F86DA1BD90B52008EF835 /* libxmlHTMLNode.swift in Sources */,
+				1E4F86DB1BD90B52008EF835 /* libxmlParserOption.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -613,6 +896,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1EC47DA61BC9729F00647902 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1EC47DF71BCA0B7300647902 /* Kanna.swift in Sources */,
+				1EC47DF81BCA0B7300647902 /* CSS.swift in Sources */,
+				1EC47DF91BCA0B7300647902 /* libxmlHTMLDocument.swift in Sources */,
+				1EC47DFA1BCA0B7300647902 /* libxmlHTMLNode.swift in Sources */,
+				1EC47DFB1BCA0B7300647902 /* libxmlParserOption.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1EC47DB01BC9729F00647902 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -625,6 +927,11 @@
 			isa = PBXTargetDependency;
 			target = 1EAFA0D71B6039D5001F3D84 /* Kanna_iOS */;
 			targetProxy = 1EAFA0E51B6039D5001F3D84 /* PBXContainerItemProxy */;
+		};
+		1EC47DB71BC9729F00647902 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1EC47DAA1BC9729F00647902 /* Kanna_tvOS */;
+			targetProxy = 1EC47DB61BC9729F00647902 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -665,6 +972,47 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tid.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		1E4F86BA1BD90AE1008EF835 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tid.Kanna;
+				PRODUCT_NAME = Kanna;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		1E4F86BB1BD90AE1008EF835 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tid.Kanna;
+				PRODUCT_NAME = Kanna;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Release;
 		};
@@ -901,6 +1249,70 @@
 			};
 			name = Release;
 		};
+		1EC47DBC1BC9729F00647902 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tid.Kanna;
+				PRODUCT_NAME = Kanna;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		1EC47DBD1BC9729F00647902 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tid.Kanna;
+				PRODUCT_NAME = Kanna;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Release;
+		};
+		1EC47DBE1BC9729F00647902 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = KannaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tid.KannaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		1EC47DBF1BC9729F00647902 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = KannaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tid.KannaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -912,6 +1324,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		1E4F86BC1BD90AE1008EF835 /* Build configuration list for PBXNativeTarget "Kanna_watchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1E4F86BA1BD90AE1008EF835 /* Debug */,
+				1E4F86BB1BD90AE1008EF835 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		1EAFA0D21B6039D5001F3D84 /* Build configuration list for PBXProject "Kanna" */ = {
 			isa = XCConfigurationList;
@@ -945,6 +1365,24 @@
 			buildConfigurations = (
 				1EBA8A7E1B6632E800226B9C /* Debug */,
 				1EBA8A7F1B6632E800226B9C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1EC47DC01BC9729F00647902 /* Build configuration list for PBXNativeTarget "Kanna_tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1EC47DBC1BC9729F00647902 /* Debug */,
+				1EC47DBD1BC9729F00647902 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1EC47DC11BC9729F00647902 /* Build configuration list for PBXNativeTarget "Kanna_tvOS Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1EC47DBE1BC9729F00647902 /* Debug */,
+				1EC47DBF1BC9729F00647902 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
