@@ -10,7 +10,7 @@
 #ifndef __XML_VERSION_H__
 #define __XML_VERSION_H__
 
-#include <Kanna/xmlexports.h>
+#include "xmlexports.h"
 
 #ifdef __cplusplus
 extern "C" {

@@ -32,7 +32,7 @@ typedef xmlRMutex *xmlRMutexPtr;
 #ifdef __cplusplus
 }
 #endif
-#include <Kanna/globals.h>
+#include "globals.h"
 #ifdef __cplusplus
 extern "C" {
 #endif

@@ -215,8 +215,8 @@ XMLPUBFUN char * XMLCALL
 
 #ifndef __XML_GLOBALS_H
 #ifndef __XML_THREADS_H__
-#include <Kanna/threads.h>
-#include <Kanna/globals.h>
+#include "threads.h"
+#include "globals.h"
 #endif
 #endif
 

@@ -40,7 +40,7 @@ typedef xmlRegExecCtxt *xmlRegExecCtxtPtr;
 }
 #endif
 #include <Kanna/tree.h>
-#include <Kanna/dict.h>
+#include "dict.h"
 #ifdef __cplusplus
 extern "C" {
 #endif

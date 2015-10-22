@@ -12,10 +12,10 @@
 #define __XML_VALID_H__
 
 #include <Kanna/xmlversion.h>
-#include <Kanna/xmlerror.h>
+#include "xmlerror.h"
 #include <Kanna/tree.h>
-#include <Kanna/list.h>
-#include <Kanna/xmlautomata.h>
+#include "list.h"
+#include "xmlautomata.h"
 #include <Kanna/xmlregexp.h>
 
 #ifdef __cplusplus

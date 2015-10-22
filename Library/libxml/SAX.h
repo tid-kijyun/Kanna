@@ -16,7 +16,7 @@
 #include <stdlib.h>
 #include <Kanna/xmlversion.h>
 #include <Kanna/parser.h>
-#include <Kanna/xlink.h>
+#include "xlink.h"
 
 #ifdef LIBXML_LEGACY_ENABLED
 
