@@ -3,6 +3,7 @@
 * @author _tid_
 */
 import Foundation
+import libxml2
 
 @available(*, unavailable)
 let DUMP_BUFFER_SIZE : Int = 4000

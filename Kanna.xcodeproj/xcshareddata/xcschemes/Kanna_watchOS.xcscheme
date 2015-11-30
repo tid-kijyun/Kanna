@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1E4F86B41BD90AE1008EF835"
-               BuildableName = "Kanna_watchOS.framework"
+               BuildableName = "Kanna.framework"
                BlueprintName = "Kanna_watchOS"
                ReferencedContainer = "container:Kanna.xcodeproj">
             </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1E4F86B41BD90AE1008EF835"
-            BuildableName = "Kanna_watchOS.framework"
+            BuildableName = "Kanna.framework"
             BlueprintName = "Kanna_watchOS"
             ReferencedContainer = "container:Kanna.xcodeproj">
          </BuildableReference>
@@ -64,7 +64,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1E4F86B41BD90AE1008EF835"
-            BuildableName = "Kanna_watchOS.framework"
+            BuildableName = "Kanna.framework"
             BlueprintName = "Kanna_watchOS"
             ReferencedContainer = "container:Kanna.xcodeproj">
          </BuildableReference>
