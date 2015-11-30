@@ -44,8 +44,8 @@ internal final class libxmlHTMLNode: XMLElement {
     
     var innerHTML: String? {
         if let html = self.toHTML {
-            let inner = html.stringByReplacingOccurrencesOfString("</.*>$", withString: "", options: .RegularExpressionSearch, range: nil)
-                            .stringByReplacingOccurrencesOfString("^<.*>", withString: "", options: .RegularExpressionSearch, range: nil)
+            let inner = html.stringByReplacingOccurrencesOfString("</[^>]*>$", withString: "", options: .RegularExpressionSearch, range: nil)
+                            .stringByReplacingOccurrencesOfString("^<[^>]*>", withString: "", options: .RegularExpressionSearch, range: nil)
             return inner
         }
         return nil
