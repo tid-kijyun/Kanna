@@ -48,6 +48,7 @@ github "tid-kijyun/Kanna" ~> 1.0.0
 1. In the project settings add `$(SDKROOT)/usr/include/libxml2` to the "header search paths" field
 1. Add libxml2.dylib to "Link Binary With Libraries"
 
+*Note: For manually, this library don't need import and namespace in your code.*
 
 ### Swift1.2（deprecated）
 #####Cocoapods
