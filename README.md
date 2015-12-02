@@ -37,16 +37,11 @@ github "tid-kijyun/Kanna" ~> 1.0.0
   [libxmlHTMLDocument.swift](Source/libxml/libxmlHTMLDocument.swift)  
   [libxmlHTMLNode.swift](Source/libxml/libxmlHTMLNode.swift)  
   [libxmlParserOption.swift](Source/libxml/libxmlParserOption.swift)  
-1. Add import libxml headers:  
- Copy and paste these import statements to `[modulename]-Bridging-Header.h`.
-  ```[ANYNAME]-Bridging-Header.h
-  #import <libxml/HTMLtree.h>
-  #import <libxml/xpathInternals.h>
-  ```
-  (optional) In the project settings add "[modulename]-Bridging-Header.h" to the "Objective-C Bridging Header".
-
+1. Copy folder to your project:  
+  [Modules](Modules)
+1. In the project settings add `$(SRCROOT)/YOUR_PROJECT/Modules` to the "Swift Compiler - Search Paths > Import Paths" field
 1. In the project settings add `$(SDKROOT)/usr/include/libxml2` to the "header search paths" field
-1. Add libxml2.dylib to "Link Binary With Libraries"
+1. In the project settings add `-lxml2` to the "Linking > Other Linker Flags" field
 
 *Note: For manually, this library don't need import and namespace in your code.*
 
