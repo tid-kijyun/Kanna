@@ -5,6 +5,19 @@ Kanna(鉋) is an XML/HTML parser for MacOSX/iOS. (formerly Swift-HTML-Parser)
 
 It was inspired by [Nokogiri](https://github.com/sparklemotion/nokogiri)(鋸).
 
+[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat
+            )](http://mit-license.org)
+[![Platform](http://img.shields.io/badge/platform-ios_osx_tvos-lightgrey.svg?style=flat
+             )](https://developer.apple.com/resources/)
+[![Language](http://img.shields.io/badge/language-swift-orange.svg?style=flat
+             )](https://developer.apple.com/swift)
+[![Issues](https://img.shields.io/github/issues/tid-kijyun/Kanna.svg?style=flat
+           )](https://github.com/tid-kijyun/Kanna/issues)
+[![Cocoapod](http://img.shields.io/cocoapods/v/Kanna.svg?style=flat)](http://cocoadocs.org/docsets/Kanna/)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Reference Status](https://www.versioneye.com/objective-c/kanna/reference_badge.svg?style=flat)](https://www.versioneye.com/objective-c/kanna/references)
+
+
 Features:
 =================
 - [x] XPath 1.0 support for document searching
