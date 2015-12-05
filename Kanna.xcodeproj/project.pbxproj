@@ -19,7 +19,6 @@
 		1E4F86DA1BD90B52008EF835 /* libxmlHTMLNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAFA1781B60CAB5001F3D84 /* libxmlHTMLNode.swift */; };
 		1E4F86DB1BD90B52008EF835 /* libxmlParserOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4E6E261B62C69F003B2BE8 /* libxmlParserOption.swift */; };
 		1E69153F1B64114900AF1851 /* test_HTML4.html in Resources */ = {isa = PBXBuildFile; fileRef = 1E69153E1B64114900AF1851 /* test_HTML4.html */; };
-		1E6915491B64255000AF1851 /* HTMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6915481B64255000AF1851 /* HTMLParser.swift */; };
 		1EAFA0E41B6039D5001F3D84 /* Kanna.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EAFA0D81B6039D5001F3D84 /* Kanna.framework */; };
 		1EAFA0F51B603A56001F3D84 /* Kanna.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA0F41B603A56001F3D84 /* Kanna.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1EAFA0F91B603A71001F3D84 /* KannaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAFA0F81B603A71001F3D84 /* KannaTests.swift */; };
@@ -74,7 +73,6 @@
 		1E4F86B71BD90AE1008EF835 /* Kanna.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Kanna.h; sourceTree = "<group>"; };
 		1E4F86B91BD90AE1008EF835 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E69153E1B64114900AF1851 /* test_HTML4.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = test_HTML4.html; path = Tests/test_HTML4.html; sourceTree = SOURCE_ROOT; };
-		1E6915481B64255000AF1851 /* HTMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HTMLParser.swift; path = Source/_obsolete/HTMLParser.swift; sourceTree = SOURCE_ROOT; };
 		1EAFA0D81B6039D5001F3D84 /* Kanna.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Kanna.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EAFA0E31B6039D5001F3D84 /* KannaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KannaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EAFA0F41B603A56001F3D84 /* Kanna.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Kanna.h; path = Source/Kanna.h; sourceTree = SOURCE_ROOT; };
@@ -156,14 +154,6 @@
 			path = Kanna;
 			sourceTree = "<group>";
 		};
-		1E6915471B64253F00AF1851 /* _obsolete */ = {
-			isa = PBXGroup;
-			children = (
-				1E6915481B64255000AF1851 /* HTMLParser.swift */,
-			);
-			name = _obsolete;
-			sourceTree = "<group>";
-		};
 		1EAFA0CE1B6039D5001F3D84 = {
 			isa = PBXGroup;
 			children = (
@@ -195,7 +185,6 @@
 				1EAFA0F41B603A56001F3D84 /* Kanna.h */,
 				1EAFA1631B6042C2001F3D84 /* CSS.swift */,
 				1EAFA1751B60CA1B001F3D84 /* libxml */,
-				1E6915471B64253F00AF1851 /* _obsolete */,
 				1EAFA0DB1B6039D5001F3D84 /* Supporting Files */,
 			);
 			name = Source;
@@ -544,7 +533,6 @@
 				1E4E6E271B62C69F003B2BE8 /* libxmlParserOption.swift in Sources */,
 				1EAFA1791B60CAB5001F3D84 /* libxmlHTMLNode.swift in Sources */,
 				1EAFA1771B60CA6F001F3D84 /* libxmlHTMLDocument.swift in Sources */,
-				1E6915491B64255000AF1851 /* HTMLParser.swift in Sources */,
 				1EAFA1691B6042C2001F3D84 /* CSS.swift in Sources */,
 				1EAFA1611B604252001F3D84 /* Kanna.swift in Sources */,
 			);
@@ -665,7 +653,7 @@
 				PRODUCT_NAME = Kanna;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_INCLUDE_PATHS = "";
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Modules";
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
@@ -686,7 +674,7 @@
 				PRODUCT_NAME = Kanna;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_INCLUDE_PATHS = "";
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Modules";
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
