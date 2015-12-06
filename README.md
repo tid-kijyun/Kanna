@@ -43,6 +43,8 @@ Adding it to your `Cartfile`:
 github "tid-kijyun/Kanna" ~> 1.0.0
 ```
 
+1. In the project settings add `$(SDKROOT)/usr/include/libxml2` to the "header search paths" field
+
 #####Munually
 1. Add files to your project:  
   [Kanna.swift](Source/Kanna.swift)  
