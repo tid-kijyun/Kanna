@@ -34,21 +34,21 @@ public struct Libxml2HTMLParserOptions : OptionSetType {
     private init(_ opt: htmlParserOption) { self.value = UInt(opt.rawValue) }
     public init(rawValue value: UInt) { self.value = value }
     public init(nilLiteral: ()) { self.value = 0 }
-    public static var allZeros: Libxml2HTMLParserOptions { return self.init(0) }
-    static func fromMask(raw: UInt) -> Libxml2HTMLParserOptions { return self.init(raw) }
+    public static var allZeros: Libxml2HTMLParserOptions { return .init(0) }
+    static func fromMask(raw: UInt) -> Libxml2HTMLParserOptions { return .init(raw) }
     public var rawValue: UInt { return self.value }
     
-    static var STRICT:     Libxml2HTMLParserOptions { return Libxml2HTMLParserOptions(0) }
-    static var RECOVER:    Libxml2HTMLParserOptions { return Libxml2HTMLParserOptions(HTML_PARSE_RECOVER) }
-    static var NODEFDTD:   Libxml2HTMLParserOptions { return Libxml2HTMLParserOptions(HTML_PARSE_NODEFDTD) }
-    static var NOERROR:    Libxml2HTMLParserOptions { return Libxml2HTMLParserOptions(HTML_PARSE_NOERROR) }
-    static var NOWARNING:  Libxml2HTMLParserOptions { return Libxml2HTMLParserOptions(HTML_PARSE_NOWARNING) }
-    static var PEDANTIC:   Libxml2HTMLParserOptions { return Libxml2HTMLParserOptions(HTML_PARSE_PEDANTIC) }
-    static var NOBLANKS:   Libxml2HTMLParserOptions { return Libxml2HTMLParserOptions(HTML_PARSE_NOBLANKS) }
-    static var NONET:      Libxml2HTMLParserOptions { return Libxml2HTMLParserOptions(HTML_PARSE_NONET) }
-    static var NOIMPLIED:  Libxml2HTMLParserOptions { return Libxml2HTMLParserOptions(HTML_PARSE_NOIMPLIED) }
-    static var COMPACT:    Libxml2HTMLParserOptions { return Libxml2HTMLParserOptions(HTML_PARSE_COMPACT) }
-    static var IGNORE_ENC: Libxml2HTMLParserOptions { return Libxml2HTMLParserOptions(HTML_PARSE_IGNORE_ENC) }
+    static let STRICT     = Libxml2HTMLParserOptions(0)
+    static let RECOVER    = Libxml2HTMLParserOptions(HTML_PARSE_RECOVER)
+    static let NODEFDTD   = Libxml2HTMLParserOptions(HTML_PARSE_NODEFDTD)
+    static let NOERROR    = Libxml2HTMLParserOptions(HTML_PARSE_NOERROR)
+    static let NOWARNING  = Libxml2HTMLParserOptions(HTML_PARSE_NOWARNING)
+    static let PEDANTIC   = Libxml2HTMLParserOptions(HTML_PARSE_PEDANTIC)
+    static let NOBLANKS   = Libxml2HTMLParserOptions(HTML_PARSE_NOBLANKS)
+    static let NONET      = Libxml2HTMLParserOptions(HTML_PARSE_NONET)
+    static let NOIMPLIED  = Libxml2HTMLParserOptions(HTML_PARSE_NOIMPLIED)
+    static let COMPACT    = Libxml2HTMLParserOptions(HTML_PARSE_COMPACT)
+    static let IGNORE_ENC = Libxml2HTMLParserOptions(HTML_PARSE_IGNORE_ENC)
 }
 
 /*
@@ -61,32 +61,32 @@ public struct Libxml2XMLParserOptions: OptionSetType {
     private init(_ opt: xmlParserOption) { self.value = UInt(opt.rawValue) }
     public init(rawValue value: UInt) { self.value = value }
     public init(nilLiteral: ()) { self.value = 0 }
-    public static var allZeros: Libxml2XMLParserOptions { return self.init(0) }
-    static func fromMask(raw: UInt) -> Libxml2XMLParserOptions { return self.init(raw) }
+    public static var allZeros: Libxml2XMLParserOptions { return .init(0) }
+    static func fromMask(raw: UInt) -> Libxml2XMLParserOptions { return .init(raw) }
     public var rawValue: UInt { return self.value }
     
-    static var STRICT:     Libxml2XMLParserOptions { return Libxml2XMLParserOptions(0) }
-    static var RECOVER:    Libxml2XMLParserOptions { return Libxml2XMLParserOptions(XML_PARSE_RECOVER) }
-    static var NOENT:      Libxml2XMLParserOptions { return Libxml2XMLParserOptions(XML_PARSE_NOENT) }
-    static var DTDLOAD:    Libxml2XMLParserOptions { return Libxml2XMLParserOptions(XML_PARSE_DTDLOAD) }
-    static var DTDATTR:    Libxml2XMLParserOptions { return Libxml2XMLParserOptions(XML_PARSE_DTDATTR) }
-    static var DTDVALID:   Libxml2XMLParserOptions { return Libxml2XMLParserOptions(XML_PARSE_DTDVALID) }
-    static var NOERROR:    Libxml2XMLParserOptions { return Libxml2XMLParserOptions(XML_PARSE_NOERROR) }
-    static var NOWARNING:  Libxml2XMLParserOptions { return Libxml2XMLParserOptions(XML_PARSE_NOWARNING) }
-    static var PEDANTIC:   Libxml2XMLParserOptions { return Libxml2XMLParserOptions(XML_PARSE_PEDANTIC) }
-    static var NOBLANKS:   Libxml2XMLParserOptions { return Libxml2XMLParserOptions(XML_PARSE_NOBLANKS) }
-    static var SAX1:       Libxml2XMLParserOptions { return Libxml2XMLParserOptions(XML_PARSE_SAX1) }
-    static var XINCLUDE:   Libxml2XMLParserOptions { return Libxml2XMLParserOptions(XML_PARSE_XINCLUDE) }
-    static var NONET:      Libxml2XMLParserOptions { return Libxml2XMLParserOptions(XML_PARSE_NONET) }
-    static var NODICT:     Libxml2XMLParserOptions { return Libxml2XMLParserOptions(XML_PARSE_NODICT) }
-    static var NSCLEAN:    Libxml2XMLParserOptions { return Libxml2XMLParserOptions(XML_PARSE_NSCLEAN) }
-    static var NOCDATA:    Libxml2XMLParserOptions { return Libxml2XMLParserOptions(XML_PARSE_NOCDATA) }
-    static var NOXINCNODE: Libxml2XMLParserOptions { return Libxml2XMLParserOptions(XML_PARSE_NOXINCNODE) }
-    static var COMPACT:    Libxml2XMLParserOptions { return Libxml2XMLParserOptions(XML_PARSE_COMPACT) }
-    static var OLD10:      Libxml2XMLParserOptions { return Libxml2XMLParserOptions(XML_PARSE_OLD10) }
-    static var NOBASEFIX:  Libxml2XMLParserOptions { return Libxml2XMLParserOptions(XML_PARSE_NOBASEFIX) }
-    static var HUGE:       Libxml2XMLParserOptions { return Libxml2XMLParserOptions(XML_PARSE_HUGE) }
-    static var OLDSAX:     Libxml2XMLParserOptions { return Libxml2XMLParserOptions(XML_PARSE_OLDSAX) }
-    static var IGNORE_ENC: Libxml2XMLParserOptions { return Libxml2XMLParserOptions(XML_PARSE_IGNORE_ENC) }
-    static var BIG_LINES:  Libxml2XMLParserOptions { return Libxml2XMLParserOptions(XML_PARSE_BIG_LINES) }
+    static let STRICT     = Libxml2XMLParserOptions(0)
+    static let RECOVER    = Libxml2XMLParserOptions(XML_PARSE_RECOVER)
+    static let NOENT      = Libxml2XMLParserOptions(XML_PARSE_NOENT)
+    static let DTDLOAD    = Libxml2XMLParserOptions(XML_PARSE_DTDLOAD)
+    static let DTDATTR    = Libxml2XMLParserOptions(XML_PARSE_DTDATTR)
+    static let DTDVALID   = Libxml2XMLParserOptions(XML_PARSE_DTDVALID)
+    static let NOERROR    = Libxml2XMLParserOptions(XML_PARSE_NOERROR)
+    static let NOWARNING  = Libxml2XMLParserOptions(XML_PARSE_NOWARNING)
+    static let PEDANTIC   = Libxml2XMLParserOptions(XML_PARSE_PEDANTIC)
+    static let NOBLANKS   = Libxml2XMLParserOptions(XML_PARSE_NOBLANKS)
+    static let SAX1       = Libxml2XMLParserOptions(XML_PARSE_SAX1)
+    static let XINCLUDE   = Libxml2XMLParserOptions(XML_PARSE_XINCLUDE)
+    static let NONET      = Libxml2XMLParserOptions(XML_PARSE_NONET)
+    static let NODICT     = Libxml2XMLParserOptions(XML_PARSE_NODICT)
+    static let NSCLEAN    = Libxml2XMLParserOptions(XML_PARSE_NSCLEAN)
+    static let NOCDATA    = Libxml2XMLParserOptions(XML_PARSE_NOCDATA)
+    static let NOXINCNODE = Libxml2XMLParserOptions(XML_PARSE_NOXINCNODE)
+    static let COMPACT    = Libxml2XMLParserOptions(XML_PARSE_COMPACT)
+    static let OLD10      = Libxml2XMLParserOptions(XML_PARSE_OLD10)
+    static let NOBASEFIX  = Libxml2XMLParserOptions(XML_PARSE_NOBASEFIX)
+    static let HUGE       = Libxml2XMLParserOptions(XML_PARSE_HUGE)
+    static let OLDSAX     = Libxml2XMLParserOptions(XML_PARSE_OLDSAX)
+    static let IGNORE_ENC = Libxml2XMLParserOptions(XML_PARSE_IGNORE_ENC)
+    static let BIG_LINES  = Libxml2XMLParserOptions(XML_PARSE_BIG_LINES)
 }

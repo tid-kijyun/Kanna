@@ -26,7 +26,7 @@ import XCTest
 @testable import Kanna
 
 class KannaTests: XCTestCase {
-    let css2xpath: [(String, String?)] = [
+    let css2xpath: [(css: String, xpath: String?)] = [
         ("*, div", "//* | //div"),
         (".myclass", "//*[contains(concat(' ', normalize-space(@class), ' '), ' myclass ')]"),
         ("#myid", "//*[@id = 'myid']"),
@@ -80,9 +80,9 @@ class KannaTests: XCTestCase {
     test CSS to XPath
     */
     func testCSStoXPath() {
-        css2xpath.map{ (testcase) -> () in
-            let xpath = CSS.toXPath(testcase.0)
-            XCTAssert(xpath == testcase.1, "Create XPath = [\(xpath)] != [\(testcase.1)]")
+        for testCase in css2xpath {
+            let xpath = CSS.toXPath(testCase.css)
+            XCTAssert(xpath == testCase.xpath, "Create XPath = [\(xpath)] != [\(testCase.xpath)]")
         }
     }
     

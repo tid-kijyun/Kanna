@@ -44,7 +44,7 @@ Parse XML
 @param encoding the document encoding
 @param options  a ParserOption
 */
-public func XML(xml xml: String, url: String?, encoding: UInt, option: ParseOption) -> XMLDocument? {
+public func XML(xml xml: String, url: String?, encoding: UInt, option: ParseOption = kDefaultXmlParseOption) -> XMLDocument? {
     switch option {
     case .XmlParseUseLibxml(let opt):
         return libxmlXMLDocument(xml: xml, url: url, encoding: encoding, option: opt.rawValue)
@@ -53,48 +53,28 @@ public func XML(xml xml: String, url: String?, encoding: UInt, option: ParseOpti
     }
 }
 
-public func XML(xml xml: String, encoding: UInt, option: ParseOption) -> XMLDocument? {
+public func XML(xml xml: String, encoding: UInt, option: ParseOption = kDefaultXmlParseOption) -> XMLDocument? {
     return XML(xml: xml, url: nil, encoding: encoding, option: option)
 }
 
-public func XML(xml xml: String, encoding: UInt) -> XMLDocument? {
-    return XML(xml: xml, url: nil, encoding: encoding, option: kDefaultXmlParseOption)
-}
-
-public func XML(xml xml: String, url: String?, encoding: UInt) -> XMLDocument? {
-    return XML(xml: xml, url: url, encoding: encoding, option: kDefaultXmlParseOption)
-}
-
 // NSData
-public func XML(xml xml: NSData, url: String?, encoding: UInt, option: ParseOption) -> XMLDocument? {
+public func XML(xml xml: NSData, url: String?, encoding: UInt, option: ParseOption = kDefaultXmlParseOption) -> XMLDocument? {
     if let xmlStr = NSString(data: xml, encoding: encoding) as? String {
         return XML(xml: xmlStr, url: url, encoding: encoding, option: option)
     }
     return nil
 }
 
-public func XML(xml xml: NSData, encoding: UInt, option: ParseOption) -> XMLDocument? {
+public func XML(xml xml: NSData, encoding: UInt, option: ParseOption = kDefaultXmlParseOption) -> XMLDocument? {
     return XML(xml: xml, url: nil, encoding: encoding, option: option)
 }
 
-public func XML(xml xml: NSData, encoding: UInt) -> XMLDocument? {
-    return XML(xml: xml, url: nil, encoding: encoding, option: kDefaultXmlParseOption)
-}
-
-public func XML(xml xml: NSData, url: String?, encoding: UInt) -> XMLDocument? {
-    return XML(xml: xml, url: url, encoding: encoding, option: kDefaultXmlParseOption)
-}
-
 // NSURL
-public func XML(url url: NSURL, encoding: UInt, option: ParseOption) -> XMLDocument? {
+public func XML(url url: NSURL, encoding: UInt, option: ParseOption = kDefaultXmlParseOption) -> XMLDocument? {
     if let data = NSData(contentsOfURL: url) {
         return XML(xml: data, url: url.absoluteString, encoding: encoding, option: option)
     }
     return nil
-}
-
-public func XML(url url: NSURL, encoding: UInt) -> XMLDocument? {
-    return XML(url: url, encoding: encoding, option: kDefaultXmlParseOption)
 }
 
 /**
@@ -105,7 +85,7 @@ Parse HTML
 @param encoding the document encoding
 @param options  a ParserOption
 */
-public func HTML(html html: String, url: String?, encoding: UInt, option: ParseOption) -> HTMLDocument? {
+public func HTML(html html: String, url: String?, encoding: UInt, option: ParseOption = kDefaultHtmlParseOption) -> HTMLDocument? {
     switch option {
     case .HtmlParseUseLibxml(let opt):
         return libxmlHTMLDocument(html: html, url: url, encoding: encoding, option: opt.rawValue)
@@ -114,48 +94,28 @@ public func HTML(html html: String, url: String?, encoding: UInt, option: ParseO
     }
 }
 
-public func HTML(html html: String, encoding: UInt, option: ParseOption) -> HTMLDocument? {
+public func HTML(html html: String, encoding: UInt, option: ParseOption = kDefaultHtmlParseOption) -> HTMLDocument? {
     return HTML(html: html, url: nil, encoding: encoding, option: option)
 }
 
-public func HTML(html html: String, encoding: UInt) -> HTMLDocument? {
-    return HTML(html: html, url: nil, encoding: encoding, option: kDefaultHtmlParseOption)
-}
-
-public func HTML(html html: String, url: String?, encoding: UInt) -> HTMLDocument? {
-    return HTML(html: html, url: url, encoding: encoding, option: kDefaultHtmlParseOption)
-}
-
 // NSData
-public func HTML(html html: NSData, url: String?, encoding: UInt, option: ParseOption) -> HTMLDocument? {
+public func HTML(html html: NSData, url: String?, encoding: UInt, option: ParseOption = kDefaultHtmlParseOption) -> HTMLDocument? {
     if let htmlStr = NSString(data: html, encoding: encoding) as? String {
         return HTML(html: htmlStr, url: url, encoding: encoding, option: option)
     }
     return nil
 }
 
-public func HTML(html html: NSData, encoding: UInt, option: ParseOption) -> HTMLDocument? {
+public func HTML(html html: NSData, encoding: UInt, option: ParseOption = kDefaultHtmlParseOption) -> HTMLDocument? {
     return HTML(html: html, url: nil, encoding: encoding, option: option)
 }
 
-public func HTML(html html: NSData, encoding: UInt) -> HTMLDocument? {
-    return HTML(html: html, url: nil, encoding: encoding, option: kDefaultHtmlParseOption)
-}
-
-public func HTML(html html: NSData, url: String?, encoding: UInt) -> HTMLDocument? {
-    return HTML(html: html, url: url, encoding: encoding, option: kDefaultHtmlParseOption)
-}
-
 // NSURL
-public func HTML(url url: NSURL, encoding: UInt, option: ParseOption) -> HTMLDocument? {
+public func HTML(url url: NSURL, encoding: UInt, option: ParseOption = kDefaultHtmlParseOption) -> HTMLDocument? {
     if let data = NSData(contentsOfURL: url) {
         return HTML(html: data, url: url.absoluteString, encoding: encoding, option: option)
     }
     return nil
-}
-
-public func HTML(url url: NSURL, encoding: UInt) -> HTMLDocument? {
-    return HTML(url: url, encoding: encoding, option: kDefaultHtmlParseOption)
 }
 
 /**
