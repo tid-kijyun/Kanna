@@ -292,6 +292,8 @@ private func getAttrNot(inout str: String, skip: Bool = true) -> String? {
         } else if let sub = matchElement(str: one) {
             let elem = (one as NSString).substringWithRange(sub.rangeAtIndex(1))
             return "self::\(elem)"
+        } else if let attr = getClassId(&one) {
+            return attr
         }
     }
     return nil

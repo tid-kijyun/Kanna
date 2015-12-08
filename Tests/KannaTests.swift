@@ -61,6 +61,7 @@ class KannaTests: XCTestCase {
         ("div:contains('foo')", "//div[contains(., 'foo')]"),
         ("div:not([type='text'])", "//div[not(@type = 'text')]"),
         ("*:not(div)", "//*[not(self::div)]"),
+        ("#content > p:not(.article-meta)", "//*[@id = 'content']/p[not(contains(concat(' ', normalize-space(@class), ' '), ' article-meta '))]"),
         ("div:not(:nth-child(-n+2))", "//div[not((count(preceding-sibling::*) + 1) <= 2)]"),
         ("*:not(:not(div))", "//*[not(not(self::div))]"),
         ("o|Author", "//o:Author")
