@@ -92,10 +92,10 @@ internal final class libxmlHTMLNode: XMLElement {
     }
     
     // MARK: Searchable
-    func xpath(xpath: String, namespaces: [String:String]?) -> XMLNodeSet {
+    func xpath(xpath: String, namespaces: [String:String]?) -> XPathObject {
         let ctxt = xmlXPathNewContext(docPtr)
         if ctxt == nil {
-            return XMLNodeSet()
+            return XPathObject.None
         }
         ctxt.memory.node = nodePtr
         
@@ -106,41 +106,30 @@ internal final class libxmlHTMLNode: XMLElement {
         }
         
         let result = xmlXPathEvalExpression(xpath, ctxt)
+        defer {
+            xmlXPathFreeObject(result)
+        }
         xmlXPathFreeContext(ctxt)
         if result == nil {
-            return XMLNodeSet()
+            return XPathObject.None
         }
         
-        let nodeSet = result.memory.nodesetval
-        if nodeSet == nil || nodeSet.memory.nodeNr == 0 || nodeSet.memory.nodeTab == nil {
-            xmlXPathFreeObject(result)
-            return XMLNodeSet()
-        }
-        
-        var nodes : [XMLElement] = []
-        let size = Int(nodeSet.memory.nodeNr)
-        for var i = 0; i < size; ++i {
-            let node: xmlNodePtr = nodeSet.memory.nodeTab[i]
-            let htmlNode = libxmlHTMLNode(docPtr: docPtr, node: node)
-            nodes.append(htmlNode)
-        }
-        xmlXPathFreeObject(result)
-        return XMLNodeSet(nodes: nodes)
+        return XPathObject(docPtr: docPtr, object: result.memory)
     }
     
-    func xpath(xpath: String) -> XMLNodeSet {
+    func xpath(xpath: String) -> XPathObject {
         return self.xpath(xpath, namespaces: nil)
     }
     
     func at_xpath(xpath: String, namespaces: [String:String]?) -> XMLElement? {
-        return self.xpath(xpath, namespaces: namespaces).first
+        return self.xpath(xpath, namespaces: namespaces).nodeSetValue.first
     }
     
     func at_xpath(xpath: String) -> XMLElement? {
         return self.at_xpath(xpath, namespaces: nil)
     }
     
-    func css(selector: String, namespaces: [String:String]?) -> XMLNodeSet {
+    func css(selector: String, namespaces: [String:String]?) -> XPathObject {
         if let xpath = CSS.toXPath(selector) {
             if isRoot {
                 return self.xpath(xpath, namespaces: namespaces)
@@ -148,19 +137,19 @@ internal final class libxmlHTMLNode: XMLElement {
                 return self.xpath("." + xpath, namespaces: namespaces)
             }
         }
-        return XMLNodeSet()
+        return XPathObject.None
     }
     
-    func css(selector: String) -> XMLNodeSet {
+    func css(selector: String) -> XPathObject {
         return self.css(selector, namespaces: nil)
     }
     
     func at_css(selector: String, namespaces: [String:String]?) -> XMLElement? {
-        return self.css(selector, namespaces: namespaces).first
+        return self.css(selector, namespaces: namespaces).nodeSetValue.first
     }
     
     func at_css(selector: String) -> XMLElement? {
-        return self.css(selector, namespaces: nil).first
+        return self.css(selector, namespaces: nil).nodeSetValue.first
     }
 }
 

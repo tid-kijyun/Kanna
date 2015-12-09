@@ -83,11 +83,11 @@ internal final class libxmlHTMLDocument: HTMLDocument {
     var head: XMLElement? { return at_xpath("//head") }
     var body: XMLElement? { return at_xpath("//body") }
     
-    func xpath(xpath: String, namespaces: [String:String]?) -> XMLNodeSet {
-        return rootNode?.xpath(xpath, namespaces: namespaces) ?? XMLNodeSet()
+    func xpath(xpath: String, namespaces: [String:String]?) -> XPathObject {
+        return rootNode?.xpath(xpath, namespaces: namespaces) ?? XPathObject.None
     }
     
-    func xpath(xpath: String) -> XMLNodeSet {
+    func xpath(xpath: String) -> XPathObject {
         return self.xpath(xpath, namespaces: nil)
     }
     
@@ -99,11 +99,11 @@ internal final class libxmlHTMLDocument: HTMLDocument {
         return self.at_xpath(xpath, namespaces: nil)
     }
     
-    func css(selector: String, namespaces: [String:String]?) -> XMLNodeSet {
-        return rootNode?.css(selector, namespaces: namespaces) ?? XMLNodeSet()
+    func css(selector: String, namespaces: [String:String]?) -> XPathObject {
+        return rootNode?.css(selector, namespaces: namespaces) ?? XPathObject.None
     }
     
-    func css(selector: String) -> XMLNodeSet {
+    func css(selector: String) -> XPathObject {
         return self.css(selector, namespaces: nil)
     }
     
@@ -166,11 +166,11 @@ internal final class libxmlXMLDocument: XMLDocument {
         }
     }
     
-    func xpath(xpath: String, namespaces: [String:String]?) -> XMLNodeSet {
-        return rootNode?.xpath(xpath, namespaces: namespaces) ?? XMLNodeSet()
+    func xpath(xpath: String, namespaces: [String:String]?) -> XPathObject {
+        return rootNode?.xpath(xpath, namespaces: namespaces) ?? XPathObject.None
     }
     
-    func xpath(xpath: String) -> XMLNodeSet {
+    func xpath(xpath: String) -> XPathObject {
         return self.xpath(xpath, namespaces: nil)
     }
     
@@ -182,11 +182,11 @@ internal final class libxmlXMLDocument: XMLDocument {
         return self.at_xpath(xpath, namespaces: nil)
     }
     
-    func css(selector: String, namespaces: [String:String]?) -> XMLNodeSet {
-        return rootNode?.css(selector, namespaces: namespaces) ?? XMLNodeSet()
+    func css(selector: String, namespaces: [String:String]?) -> XPathObject {
+        return rootNode?.css(selector, namespaces: namespaces) ?? XPathObject.None
     }
     
-    func css(selector: String) -> XMLNodeSet {
+    func css(selector: String) -> XPathObject {
         return self.css(selector, namespaces: nil)
     }
     

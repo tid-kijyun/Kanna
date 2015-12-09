@@ -23,6 +23,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 import Foundation
+import libxml2
 
 /*
 ParseOption
@@ -126,9 +127,9 @@ public protocol Searchable {
     Search for node from current node by XPath.
     
     @param xpath
-    */
-    func xpath(xpath: String, namespaces: [String:String]?) -> XMLNodeSet
-    func xpath(xpath: String) -> XMLNodeSet
+     */
+    func xpath(xpath: String, namespaces: [String:String]?) -> XPathObject
+    func xpath(xpath: String) -> XPathObject
     func at_xpath(xpath: String, namespaces: [String:String]?) -> XMLElement?
     func at_xpath(xpath: String) -> XMLElement?
     
@@ -137,8 +138,8 @@ public protocol Searchable {
     
     @param selector a CSS selector
     */
-    func css(selector: String, namespaces: [String:String]?) -> XMLNodeSet
-    func css(selector: String) -> XMLNodeSet
+    func css(selector: String, namespaces: [String:String]?) -> XPathObject
+    func css(selector: String) -> XPathObject
     func at_css(selector: String, namespaces: [String:String]?) -> XMLElement?
     func at_css(selector: String) -> XMLElement?
 }
@@ -247,6 +248,109 @@ extension XMLNodeSet: SequenceType {
         return anyGenerator {
             if index < self.nodes.count {
                 return self.nodes[index++]
+            }
+            return nil
+        }
+    }
+}
+
+/**
+XPathObject
+*/
+
+public enum XPathObject {
+    case None
+    case NodeSet(nodeset: XMLNodeSet)
+    case Bool(bool: Swift.Bool)
+    case Number(num: Double)
+    case String(text: Swift.String)
+}
+
+extension XPathObject {
+    internal init(docPtr: xmlDocPtr, object: xmlXPathObject) {
+        switch object.type {
+        case XPATH_NODESET:
+            let nodeSet = object.nodesetval
+            if nodeSet == nil || nodeSet.memory.nodeNr == 0 || nodeSet.memory.nodeTab == nil {
+                self = .None
+                return
+            }
+            
+            var nodes : [XMLElement] = []
+            let size = Int(nodeSet.memory.nodeNr)
+            for var i = 0; i < size; ++i {
+                let node: xmlNodePtr = nodeSet.memory.nodeTab[i]
+                let htmlNode = libxmlHTMLNode(docPtr: docPtr, node: node)
+                nodes.append(htmlNode)
+            }
+            self = .NodeSet(nodeset: XMLNodeSet(nodes: nodes))
+            return
+        case XPATH_BOOLEAN:
+            self = .Bool(bool: object.boolval != 0)
+            return
+        case XPATH_NUMBER:
+            self = .Number(num: object.floatval)
+        case XPATH_STRING:
+            self = .String(text: Swift.String.fromCString(UnsafePointer<CChar>(object.stringval)) ?? "")
+            return
+        default:
+            self = .None
+            return
+        }
+    }
+    
+    var nodeSet: XMLNodeSet? {
+        if case let .NodeSet(nodeset) = self {
+            return nodeset
+        }
+        return nil
+    }
+
+    var bool: Swift.Bool? {
+        if case let .Bool(value) = self {
+            return value
+        }
+        return nil
+    }
+    
+    var number: Double? {
+        if case let .Number(value) = self {
+            return value
+        }
+        return nil
+    }
+    
+    var string: Swift.String? {
+        if case let .String(value) = self {
+            return value
+        }
+        return nil
+    }
+    
+    var nodeSetValue: XMLNodeSet {
+        return nodeSet ?? XMLNodeSet()
+    }
+    
+    var boolValue: Swift.Bool {
+        return bool ?? false
+    }
+    
+    var numberValue: Double {
+        return number ?? 0.0
+    }
+    
+    var stringValue: Swift.String {
+        return string ?? ""
+    }
+}
+
+extension XPathObject: SequenceType {
+    public typealias Generator = AnyGenerator<XMLElement>
+    public func generate() -> Generator {
+        var index = 0
+        return anyGenerator {
+            if index < self.nodeSetValue.count {
+                return self.nodeSetValue[index++]
             }
             return nil
         }
