@@ -14,7 +14,9 @@ Pod::Spec.new do |s|
   s.watchos.deployment_target = "2.0"
   s.requires_arc = true
 
-  s.source_files        = ['Source/**/*.swift', 'Source/**/*.h', 'Library/**/*.h']
-  s.libraries = 'xml2'
-  s.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2', 'SWIFT_INCLUDE_PATHS' => '$(SRCROOT)/Kanna/Modules' }
+  s.preserve_path = 'Modules/*'
+  s.source_files  = 'Source/**/*.swift'
+  s.libraries     = 'xml2'
+  s.xcconfig      = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2', 'SWIFT_INCLUDE_PATHS' => '$(SRCROOT)/Kanna/Modules' }
 end
+
