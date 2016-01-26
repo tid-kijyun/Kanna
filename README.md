@@ -54,6 +54,7 @@ github "tid-kijyun/Kanna" ~> 1.0.0
   [libxmlParserOption.swift](Source/libxml/libxmlParserOption.swift)  
 1. Copy folder to your project:  
   [Modules](Modules)
+1. In the project settings add `$(SRCROOT)/YOUR_PROJECT/Modules` to the "Swift Compiler - Search Paths > Import Paths" field
 
 *Note: For manually, this library don't need import and namespace in your code.*
 
