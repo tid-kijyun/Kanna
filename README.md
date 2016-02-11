@@ -30,6 +30,8 @@ Installation:
 
 ### Swift2
 #####Cocoapods
+**:warning: CocoaPods (`0.39 or later`) is required.**
+
 Adding it to your `Podfile`:
 ```
 use_frameworks!
