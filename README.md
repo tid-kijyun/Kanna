@@ -28,7 +28,7 @@ Features:
 Installation:
 =================
 
-### Swift2
+### Swift 2.x
 #####CocoaPods
 **:warning: CocoaPods (`0.39 or later`) is required.**
 
@@ -69,18 +69,18 @@ import Kanna
 let html = "<html>...</html>"
 
 if let doc = Kanna.HTML(html: html, encoding: NSUTF8StringEncoding) {
-    println(doc.title)
+    print(doc.title)
     
     // Search for nodes by CSS
     for link in doc.css("a, link") {
-        println(link.text)
-        println(link["href"])
+        print(link.text)
+        print(link["href"])
     }
     
     // Search for nodes by XPath
     for link in doc.xpath("//a | //link") {
-        println(link.text)
-        println(link["href"])
+        print(link.text)
+        print(link["href"])
     }
 }
 ```
@@ -93,7 +93,7 @@ if let doc = Kanna.XML(xml: xml, encoding: NSUTF8StringEncoding) {
                     "ss": "urn:schemas-microsoft-com:office:spreadsheet"
                 ]
     if let author = doc.at_xpath("//o:Author", namespaces: namespaces) {
-        println(author.text)
+        print(author.text)
     }
 }
 ```
