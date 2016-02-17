@@ -57,6 +57,7 @@ github "tid-kijyun/Kanna" ~> 1.0.0
 1. Copy folder to your project:  
   [Modules](Modules)
 1. In the project settings add `$(SRCROOT)/YOUR_PROJECT/Modules` to the "Swift Compiler - Search Paths > Import Paths" field
+1. In the project settings add `$(SRCROOT)/usr/include/libxml2` to the `Search Paths > Header Search Paths` field
 
 *Note: For manually, this library don't need import and namespace in your code.*
 
