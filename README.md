@@ -1,7 +1,7 @@
 Kanna(鉋)
 =================
 
-Kanna(鉋) is an XML/HTML parser for MacOSX/iOS. (formerly Swift-HTML-Parser)
+Kanna(鉋) is an XML/HTML parser for Mac OS X and iOS. (It was formerly known as Swift-HTML-Parser)
 
 It was inspired by [Nokogiri](https://github.com/sparklemotion/nokogiri)(鋸).
 
@@ -22,13 +22,16 @@ Features:
 =================
 - [x] XPath 1.0 support for document searching
 - [x] CSS3 selector support for document searching
-- [x] Support for namespace
+- [x] Support for namespaces
 - [x] Comprehensive test suite
 
 Installation:
 =================
 
 ### Swift 2.x
+
+Three means of installation are supported:
+
 #####CocoaPods
 **:warning: CocoaPods (`0.39 or later`) is required.**
 
@@ -47,19 +50,19 @@ github "tid-kijyun/Kanna" ~> 1.0.0
 
 1. In the project settings add `$(SDKROOT)/usr/include/libxml2` to the "header search paths" field
 
-#####Munually
-1. Add files to your project:  
+#####Manual Installation
+1. Add these files to your project:  
   [Kanna.swift](Source/Kanna.swift)  
   [CSS.swift](Source/CSS.swift)  
   [libxmlHTMLDocument.swift](Source/libxml/libxmlHTMLDocument.swift)  
   [libxmlHTMLNode.swift](Source/libxml/libxmlHTMLNode.swift)  
   [libxmlParserOption.swift](Source/libxml/libxmlParserOption.swift)  
-1. Copy folder to your project:  
+1. Copy this folder to your project:  
   [Modules](Modules)
 1. In the project settings add `$(SRCROOT)/YOUR_PROJECT/Modules` to the "Swift Compiler - Search Paths > Import Paths" field
 1. In the target settings add `$(SDKROOT)/usr/include/libxml2` to the `Search Paths > Header Search Paths` field
 
-*Note: For manually, this library don't need import and namespace in your code.*
+*Note: With manual installation, this library doesn't need to be imported, or namespace-qualified in your code.*
 
 Synopsis:
 =================
@@ -99,6 +102,6 @@ if let doc = Kanna.XML(xml: xml, encoding: NSUTF8StringEncoding) {
 }
 ```
 
-Lisense:
+License:
 =================
 The MIT License. See the LICENSE file for more infomation.
