@@ -244,9 +244,11 @@ extension XMLNodeSet: SequenceType {
     public typealias Generator = AnyGenerator<XMLElement>
     public func generate() -> Generator {
         var index = 0
-        return anyGenerator {
+        return AnyGenerator {
             if index < self.nodes.count {
-                return self.nodes[index++]
+                let n = self.nodes[index]
+                index += 1
+                return n
             }
             return nil
         }

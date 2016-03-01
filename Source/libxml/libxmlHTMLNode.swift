@@ -69,13 +69,15 @@ internal final class libxmlHTMLNode: XMLElement {
     
     
     subscript(attributeName: String) -> String? {
-        for var attr = nodePtr.memory.properties; attr != nil; attr = attr.memory.next {
+        var attr = nodePtr.memory.properties
+        while attr != nil {
             let mem = attr.memory
             if let tagName = String.fromCString(UnsafePointer(mem.name)) {
                 if attributeName == tagName {
                     return libxmlGetNodeContent(mem.children)
                 }
             }
+            attr = attr.memory.next
         }
         return nil
     }
@@ -119,7 +121,7 @@ internal final class libxmlHTMLNode: XMLElement {
         
         var nodes : [XMLElement] = []
         let size = Int(nodeSet.memory.nodeNr)
-        for var i = 0; i < size; ++i {
+        for i in 0 ..< size {
             let node: xmlNodePtr = nodeSet.memory.nodeTab[i]
             let htmlNode = libxmlHTMLNode(docPtr: docPtr, node: node)
             nodes.append(htmlNode)
