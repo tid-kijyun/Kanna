@@ -11,35 +11,35 @@
 		1E206B901B665E8700441E12 /* KannaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAFA0F81B603A71001F3D84 /* KannaTests.swift */; };
 		1E206B911B666AD400441E12 /* test_HTML4.html in Resources */ = {isa = PBXBuildFile; fileRef = 1E69153E1B64114900AF1851 /* test_HTML4.html */; };
 		1E206B921B666AD400441E12 /* test_XML_ExcelWorkbook.xml in Resources */ = {isa = PBXBuildFile; fileRef = 1EBA8A311B6561D900226B9C /* test_XML_ExcelWorkbook.xml */; };
-		1E4E6E271B62C69F003B2BE8 /* libxmlParserOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4E6E261B62C69F003B2BE8 /* libxmlParserOption.swift */; };
-		1E4F86BD1BD90B42008EF835 /* Kanna.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA0F41B603A56001F3D84 /* Kanna.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1E4F86D71BD90B52008EF835 /* Kanna.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAFA1601B604252001F3D84 /* Kanna.swift */; };
-		1E4F86D81BD90B52008EF835 /* CSS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAFA1631B6042C2001F3D84 /* CSS.swift */; };
-		1E4F86D91BD90B52008EF835 /* libxmlHTMLDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAFA1761B60CA6F001F3D84 /* libxmlHTMLDocument.swift */; };
-		1E4F86DA1BD90B52008EF835 /* libxmlHTMLNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAFA1781B60CAB5001F3D84 /* libxmlHTMLNode.swift */; };
-		1E4F86DB1BD90B52008EF835 /* libxmlParserOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4E6E261B62C69F003B2BE8 /* libxmlParserOption.swift */; };
+		1E689A871C86AB330027BEA1 /* CSS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E689A811C86AB330027BEA1 /* CSS.swift */; };
+		1E689A881C86AB330027BEA1 /* CSS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E689A811C86AB330027BEA1 /* CSS.swift */; };
+		1E689A891C86AB330027BEA1 /* CSS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E689A811C86AB330027BEA1 /* CSS.swift */; };
+		1E689A8A1C86AB330027BEA1 /* CSS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E689A811C86AB330027BEA1 /* CSS.swift */; };
+		1E689A8B1C86AB330027BEA1 /* Kanna.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E689A821C86AB330027BEA1 /* Kanna.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1E689A8C1C86AB330027BEA1 /* Kanna.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E689A821C86AB330027BEA1 /* Kanna.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1E689A8D1C86AB330027BEA1 /* Kanna.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E689A821C86AB330027BEA1 /* Kanna.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1E689A8E1C86AB330027BEA1 /* Kanna.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E689A821C86AB330027BEA1 /* Kanna.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1E689A8F1C86AB330027BEA1 /* Kanna.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E689A831C86AB330027BEA1 /* Kanna.swift */; };
+		1E689A901C86AB330027BEA1 /* Kanna.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E689A831C86AB330027BEA1 /* Kanna.swift */; };
+		1E689A911C86AB330027BEA1 /* Kanna.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E689A831C86AB330027BEA1 /* Kanna.swift */; };
+		1E689A921C86AB330027BEA1 /* Kanna.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E689A831C86AB330027BEA1 /* Kanna.swift */; };
+		1E689A931C86AB330027BEA1 /* libxmlHTMLDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E689A841C86AB330027BEA1 /* libxmlHTMLDocument.swift */; };
+		1E689A941C86AB330027BEA1 /* libxmlHTMLDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E689A841C86AB330027BEA1 /* libxmlHTMLDocument.swift */; };
+		1E689A951C86AB330027BEA1 /* libxmlHTMLDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E689A841C86AB330027BEA1 /* libxmlHTMLDocument.swift */; };
+		1E689A961C86AB330027BEA1 /* libxmlHTMLDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E689A841C86AB330027BEA1 /* libxmlHTMLDocument.swift */; };
+		1E689A971C86AB330027BEA1 /* libxmlHTMLNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E689A851C86AB330027BEA1 /* libxmlHTMLNode.swift */; };
+		1E689A981C86AB330027BEA1 /* libxmlHTMLNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E689A851C86AB330027BEA1 /* libxmlHTMLNode.swift */; };
+		1E689A991C86AB330027BEA1 /* libxmlHTMLNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E689A851C86AB330027BEA1 /* libxmlHTMLNode.swift */; };
+		1E689A9A1C86AB330027BEA1 /* libxmlHTMLNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E689A851C86AB330027BEA1 /* libxmlHTMLNode.swift */; };
+		1E689A9B1C86AB330027BEA1 /* libxmlParserOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E689A861C86AB330027BEA1 /* libxmlParserOption.swift */; };
+		1E689A9C1C86AB330027BEA1 /* libxmlParserOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E689A861C86AB330027BEA1 /* libxmlParserOption.swift */; };
+		1E689A9D1C86AB330027BEA1 /* libxmlParserOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E689A861C86AB330027BEA1 /* libxmlParserOption.swift */; };
+		1E689A9E1C86AB330027BEA1 /* libxmlParserOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E689A861C86AB330027BEA1 /* libxmlParserOption.swift */; };
 		1E69153F1B64114900AF1851 /* test_HTML4.html in Resources */ = {isa = PBXBuildFile; fileRef = 1E69153E1B64114900AF1851 /* test_HTML4.html */; };
 		1EAFA0E41B6039D5001F3D84 /* Kanna.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EAFA0D81B6039D5001F3D84 /* Kanna.framework */; };
-		1EAFA0F51B603A56001F3D84 /* Kanna.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA0F41B603A56001F3D84 /* Kanna.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1EAFA0F91B603A71001F3D84 /* KannaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAFA0F81B603A71001F3D84 /* KannaTests.swift */; };
-		1EAFA1611B604252001F3D84 /* Kanna.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAFA1601B604252001F3D84 /* Kanna.swift */; };
-		1EAFA1691B6042C2001F3D84 /* CSS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAFA1631B6042C2001F3D84 /* CSS.swift */; };
-		1EAFA1771B60CA6F001F3D84 /* libxmlHTMLDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAFA1761B60CA6F001F3D84 /* libxmlHTMLDocument.swift */; };
-		1EAFA1791B60CAB5001F3D84 /* libxmlHTMLNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAFA1781B60CAB5001F3D84 /* libxmlHTMLNode.swift */; };
 		1EBA8A321B6561D900226B9C /* test_XML_ExcelWorkbook.xml in Resources */ = {isa = PBXBuildFile; fileRef = 1EBA8A311B6561D900226B9C /* test_XML_ExcelWorkbook.xml */; };
-		1EBA8A881B6633ED00226B9C /* Kanna.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAFA1601B604252001F3D84 /* Kanna.swift */; };
-		1EBA8A891B6633F300226B9C /* CSS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAFA1631B6042C2001F3D84 /* CSS.swift */; };
-		1EBA8A8A1B6633FB00226B9C /* libxmlHTMLDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAFA1761B60CA6F001F3D84 /* libxmlHTMLDocument.swift */; };
-		1EBA8A8B1B6633FD00226B9C /* libxmlHTMLNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAFA1781B60CAB5001F3D84 /* libxmlHTMLNode.swift */; };
-		1EBA8A8C1B6633FF00226B9C /* libxmlParserOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4E6E261B62C69F003B2BE8 /* libxmlParserOption.swift */; };
-		1EBA8AA61B66355900226B9C /* Kanna.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA0F41B603A56001F3D84 /* Kanna.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1EC47DB51BC9729F00647902 /* Kanna.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EC47DAB1BC9729F00647902 /* Kanna.framework */; };
-		1EC47DF71BCA0B7300647902 /* Kanna.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAFA1601B604252001F3D84 /* Kanna.swift */; };
-		1EC47DF81BCA0B7300647902 /* CSS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAFA1631B6042C2001F3D84 /* CSS.swift */; };
-		1EC47DF91BCA0B7300647902 /* libxmlHTMLDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAFA1761B60CA6F001F3D84 /* libxmlHTMLDocument.swift */; };
-		1EC47DFA1BCA0B7300647902 /* libxmlHTMLNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAFA1781B60CAB5001F3D84 /* libxmlHTMLNode.swift */; };
-		1EC47DFB1BCA0B7300647902 /* libxmlParserOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4E6E261B62C69F003B2BE8 /* libxmlParserOption.swift */; };
-		1EC47DFC1BCA0B8800647902 /* Kanna.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EAFA0F41B603A56001F3D84 /* Kanna.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,21 +68,21 @@
 
 /* Begin PBXFileReference section */
 		1E206B841B665E6D00441E12 /* Kanna_OSX Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Kanna_OSX Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1E4E6E261B62C69F003B2BE8 /* libxmlParserOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = libxmlParserOption.swift; path = Source/libxml/libxmlParserOption.swift; sourceTree = SOURCE_ROOT; };
 		1E4F86B51BD90AE1008EF835 /* Kanna.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Kanna.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E4F86B71BD90AE1008EF835 /* Kanna.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Kanna.h; sourceTree = "<group>"; };
 		1E4F86B91BD90AE1008EF835 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1E689A7C1C86AAF20027BEA1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Sources/Info.plist; sourceTree = SOURCE_ROOT; };
+		1E689A811C86AB330027BEA1 /* CSS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CSS.swift; path = Sources/CSS.swift; sourceTree = SOURCE_ROOT; };
+		1E689A821C86AB330027BEA1 /* Kanna.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Kanna.h; path = Sources/Kanna.h; sourceTree = SOURCE_ROOT; };
+		1E689A831C86AB330027BEA1 /* Kanna.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Kanna.swift; path = Sources/Kanna.swift; sourceTree = SOURCE_ROOT; };
+		1E689A841C86AB330027BEA1 /* libxmlHTMLDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = libxmlHTMLDocument.swift; path = Sources/libxmlHTMLDocument.swift; sourceTree = SOURCE_ROOT; };
+		1E689A851C86AB330027BEA1 /* libxmlHTMLNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = libxmlHTMLNode.swift; path = Sources/libxmlHTMLNode.swift; sourceTree = SOURCE_ROOT; };
+		1E689A861C86AB330027BEA1 /* libxmlParserOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = libxmlParserOption.swift; path = Sources/libxmlParserOption.swift; sourceTree = SOURCE_ROOT; };
 		1E69153E1B64114900AF1851 /* test_HTML4.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = test_HTML4.html; path = Tests/test_HTML4.html; sourceTree = SOURCE_ROOT; };
 		1EAFA0D81B6039D5001F3D84 /* Kanna.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Kanna.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EAFA0E31B6039D5001F3D84 /* KannaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KannaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1EAFA0F41B603A56001F3D84 /* Kanna.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Kanna.h; path = Source/Kanna.h; sourceTree = SOURCE_ROOT; };
-		1EAFA0F61B603A61001F3D84 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Source/Info.plist; sourceTree = SOURCE_ROOT; };
 		1EAFA0F81B603A71001F3D84 /* KannaTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KannaTests.swift; path = Tests/KannaTests.swift; sourceTree = SOURCE_ROOT; };
 		1EAFA0FA1B603A79001F3D84 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Tests/Info.plist; sourceTree = SOURCE_ROOT; };
-		1EAFA1601B604252001F3D84 /* Kanna.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Kanna.swift; path = Source/Kanna.swift; sourceTree = SOURCE_ROOT; };
-		1EAFA1631B6042C2001F3D84 /* CSS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CSS.swift; path = Source/CSS.swift; sourceTree = SOURCE_ROOT; };
-		1EAFA1761B60CA6F001F3D84 /* libxmlHTMLDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = libxmlHTMLDocument.swift; path = Source/libxml/libxmlHTMLDocument.swift; sourceTree = SOURCE_ROOT; };
-		1EAFA1781B60CAB5001F3D84 /* libxmlHTMLNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = libxmlHTMLNode.swift; path = Source/libxml/libxmlHTMLNode.swift; sourceTree = SOURCE_ROOT; };
 		1EBA8A311B6561D900226B9C /* test_XML_ExcelWorkbook.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = test_XML_ExcelWorkbook.xml; path = Tests/test_XML_ExcelWorkbook.xml; sourceTree = SOURCE_ROOT; };
 		1EBA8A6B1B6632E800226B9C /* Kanna.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Kanna.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EC47DAB1BC9729F00647902 /* Kanna.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Kanna.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -181,10 +181,12 @@
 		1EAFA0DA1B6039D5001F3D84 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				1EAFA1601B604252001F3D84 /* Kanna.swift */,
-				1EAFA0F41B603A56001F3D84 /* Kanna.h */,
-				1EAFA1631B6042C2001F3D84 /* CSS.swift */,
-				1EAFA1751B60CA1B001F3D84 /* libxml */,
+				1E689A811C86AB330027BEA1 /* CSS.swift */,
+				1E689A821C86AB330027BEA1 /* Kanna.h */,
+				1E689A831C86AB330027BEA1 /* Kanna.swift */,
+				1E689A841C86AB330027BEA1 /* libxmlHTMLDocument.swift */,
+				1E689A851C86AB330027BEA1 /* libxmlHTMLNode.swift */,
+				1E689A861C86AB330027BEA1 /* libxmlParserOption.swift */,
 				1EAFA0DB1B6039D5001F3D84 /* Supporting Files */,
 			);
 			name = Source;
@@ -194,7 +196,7 @@
 		1EAFA0DB1B6039D5001F3D84 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				1EAFA0F61B603A61001F3D84 /* Info.plist */,
+				1E689A7C1C86AAF20027BEA1 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -219,16 +221,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		1EAFA1751B60CA1B001F3D84 /* libxml */ = {
-			isa = PBXGroup;
-			children = (
-				1EAFA1761B60CA6F001F3D84 /* libxmlHTMLDocument.swift */,
-				1EAFA1781B60CAB5001F3D84 /* libxmlHTMLNode.swift */,
-				1E4E6E261B62C69F003B2BE8 /* libxmlParserOption.swift */,
-			);
-			name = libxml;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -236,7 +228,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E4F86BD1BD90B42008EF835 /* Kanna.h in Headers */,
+				1E689A8E1C86AB330027BEA1 /* Kanna.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,7 +236,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1EAFA0F51B603A56001F3D84 /* Kanna.h in Headers */,
+				1E689A8B1C86AB330027BEA1 /* Kanna.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,7 +244,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1EBA8AA61B66355900226B9C /* Kanna.h in Headers */,
+				1E689A8C1C86AB330027BEA1 /* Kanna.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,7 +252,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1EC47DFC1BCA0B8800647902 /* Kanna.h in Headers */,
+				1E689A8D1C86AB330027BEA1 /* Kanna.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,8 +391,8 @@
 		1EAFA0CF1B6039D5001F3D84 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 0700;
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = tid;
 				TargetAttributes = {
 					1E206B831B665E6D00441E12 = {
@@ -518,11 +510,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E4F86D71BD90B52008EF835 /* Kanna.swift in Sources */,
-				1E4F86D81BD90B52008EF835 /* CSS.swift in Sources */,
-				1E4F86D91BD90B52008EF835 /* libxmlHTMLDocument.swift in Sources */,
-				1E4F86DA1BD90B52008EF835 /* libxmlHTMLNode.swift in Sources */,
-				1E4F86DB1BD90B52008EF835 /* libxmlParserOption.swift in Sources */,
+				1E689A9E1C86AB330027BEA1 /* libxmlParserOption.swift in Sources */,
+				1E689A961C86AB330027BEA1 /* libxmlHTMLDocument.swift in Sources */,
+				1E689A8A1C86AB330027BEA1 /* CSS.swift in Sources */,
+				1E689A9A1C86AB330027BEA1 /* libxmlHTMLNode.swift in Sources */,
+				1E689A921C86AB330027BEA1 /* Kanna.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,11 +522,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E4E6E271B62C69F003B2BE8 /* libxmlParserOption.swift in Sources */,
-				1EAFA1791B60CAB5001F3D84 /* libxmlHTMLNode.swift in Sources */,
-				1EAFA1771B60CA6F001F3D84 /* libxmlHTMLDocument.swift in Sources */,
-				1EAFA1691B6042C2001F3D84 /* CSS.swift in Sources */,
-				1EAFA1611B604252001F3D84 /* Kanna.swift in Sources */,
+				1E689A9B1C86AB330027BEA1 /* libxmlParserOption.swift in Sources */,
+				1E689A931C86AB330027BEA1 /* libxmlHTMLDocument.swift in Sources */,
+				1E689A871C86AB330027BEA1 /* CSS.swift in Sources */,
+				1E689A971C86AB330027BEA1 /* libxmlHTMLNode.swift in Sources */,
+				1E689A8F1C86AB330027BEA1 /* Kanna.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -550,11 +542,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1EBA8A8A1B6633FB00226B9C /* libxmlHTMLDocument.swift in Sources */,
-				1EBA8A8B1B6633FD00226B9C /* libxmlHTMLNode.swift in Sources */,
-				1EBA8A8C1B6633FF00226B9C /* libxmlParserOption.swift in Sources */,
-				1EBA8A881B6633ED00226B9C /* Kanna.swift in Sources */,
-				1EBA8A891B6633F300226B9C /* CSS.swift in Sources */,
+				1E689A9C1C86AB330027BEA1 /* libxmlParserOption.swift in Sources */,
+				1E689A941C86AB330027BEA1 /* libxmlHTMLDocument.swift in Sources */,
+				1E689A881C86AB330027BEA1 /* CSS.swift in Sources */,
+				1E689A981C86AB330027BEA1 /* libxmlHTMLNode.swift in Sources */,
+				1E689A901C86AB330027BEA1 /* Kanna.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,11 +554,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1EC47DF71BCA0B7300647902 /* Kanna.swift in Sources */,
-				1EC47DF81BCA0B7300647902 /* CSS.swift in Sources */,
-				1EC47DF91BCA0B7300647902 /* libxmlHTMLDocument.swift in Sources */,
-				1EC47DFA1BCA0B7300647902 /* libxmlHTMLNode.swift in Sources */,
-				1EC47DFB1BCA0B7300647902 /* libxmlParserOption.swift in Sources */,
+				1E689A9D1C86AB330027BEA1 /* libxmlParserOption.swift in Sources */,
+				1E689A951C86AB330027BEA1 /* libxmlHTMLDocument.swift in Sources */,
+				1E689A891C86AB330027BEA1 /* CSS.swift in Sources */,
+				1E689A991C86AB330027BEA1 /* libxmlHTMLNode.swift in Sources */,
+				1E689A911C86AB330027BEA1 /* Kanna.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -641,12 +633,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BITCODE_GENERATION_MODE = marker;
+				CLANG_ENABLE_MODULES = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tid.Kanna;
@@ -654,6 +647,7 @@
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Modules";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
@@ -663,11 +657,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BITCODE_GENERATION_MODE = bitcode;
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tid.Kanna;
@@ -805,7 +800,7 @@
 					"$(SDKROOT)/usr/include/libxml2",
 					"$(SRCROOT)/Library",
 				);
-				INFOPLIST_FILE = Source/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = "";
@@ -832,7 +827,7 @@
 					"$(SDKROOT)/usr/include/libxml2",
 					"$(SRCROOT)/Library",
 				);
-				INFOPLIST_FILE = Source/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = "";
@@ -845,7 +840,9 @@
 		1EAFA0F21B6039D5001F3D84 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CLANG_ENABLE_MODULES = YES;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
@@ -865,7 +862,9 @@
 		1EAFA0F31B6039D5001F3D84 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CLANG_ENABLE_MODULES = YES;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
@@ -881,6 +880,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BITCODE_GENERATION_MODE = marker;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
@@ -892,7 +892,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = Source/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
@@ -900,6 +900,7 @@
 				PRODUCT_NAME = Kanna;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -907,6 +908,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BITCODE_GENERATION_MODE = bitcode;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -914,7 +916,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = Source/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
@@ -929,18 +931,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BITCODE_GENERATION_MODE = marker;
+				CLANG_ENABLE_MODULES = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tid.Kanna;
 				PRODUCT_NAME = Kanna;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
@@ -950,11 +954,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BITCODE_GENERATION_MODE = bitcode;
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tid.Kanna;
