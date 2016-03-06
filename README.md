@@ -5,6 +5,7 @@ Kanna(鉋) is an XML/HTML parser for Mac OS X and iOS. (It was formerly known as
 
 It was inspired by [Nokogiri](https://github.com/sparklemotion/nokogiri)(鋸).
 
+[![Build Status](https://travis-ci.org/tid-kijyun/Kanna.svg?branch=master)](https://travis-ci.org/tid-kijyun/Kanna)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat
             )](http://mit-license.org)
 [![Platform](http://img.shields.io/badge/platform-ios_osx_tvos-lightgrey.svg?style=flat
