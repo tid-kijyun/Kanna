@@ -158,7 +158,7 @@ public protocol SearchableNode: Searchable {
 XMLElement
 */
 public protocol XMLElement: SearchableNode {
-    subscript(attr: String) -> String? { get }
+    subscript(attr: String) -> String? { get set }
 }
 
 /**
