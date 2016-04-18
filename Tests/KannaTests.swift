@@ -178,6 +178,13 @@ class KannaTests: XCTestCase {
             } else {
                 XCTAssert(false, "Star not found.")
             }
+            
+            if var link = doc.at_xpath("//link") {
+                let attr = "src-data"
+                let testData = "TestData"
+                link[attr] = testData
+                XCTAssert(link[attr] == testData)
+            }
         } catch {
             XCTAssert(false, "File not found. name: (\(filename)), error: \(error)")
         }
