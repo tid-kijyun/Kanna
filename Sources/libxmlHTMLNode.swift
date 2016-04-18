@@ -68,18 +68,29 @@ internal final class libxmlHTMLNode: XMLElement {
     private var isRoot:  Bool       = false
     
     
-    subscript(attributeName: String) -> String? {
-        var attr = nodePtr.memory.properties
-        while attr != nil {
-            let mem = attr.memory
-            if let tagName = String.fromCString(UnsafePointer(mem.name)) {
-                if attributeName == tagName {
-                    return libxmlGetNodeContent(mem.children)
+    subscript(attributeName: String) -> String?
+    {
+        get {
+            var attr = nodePtr.memory.properties
+            while attr != nil {
+                let mem = attr.memory
+                if let tagName = String.fromCString(UnsafePointer(mem.name)) {
+                    if attributeName == tagName {
+                        return libxmlGetNodeContent(mem.children)
+                    }
                 }
+                attr = attr.memory.next
             }
-            attr = attr.memory.next
+            return nil
         }
-        return nil
+        
+        set(newValue) {
+            if let newValue = newValue {
+                xmlSetProp(nodePtr, attributeName, newValue)
+            } else {
+                xmlUnsetProp(nodePtr, attributeName)
+            }
+        }
     }
     
     init(docPtr: xmlDocPtr) {
