@@ -166,6 +166,10 @@ internal final class libxmlXMLDocument: XMLDocument {
         }
     }
     
+    deinit {
+        xmlFreeDoc(self.docPtr)
+    }
+    
     func xpath(xpath: String, namespaces: [String:String]?) -> XMLNodeSet {
         return rootNode?.xpath(xpath, namespaces: namespaces) ?? XMLNodeSet()
     }
