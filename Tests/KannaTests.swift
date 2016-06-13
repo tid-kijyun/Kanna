@@ -92,9 +92,9 @@ class KannaTests: XCTestCase {
     */
     func testXml() {
         let filename = "test_XML_ExcelWorkbook"
-        if let path = NSBundle(forClass:self.classForCoder).pathForResource(filename, ofType:"xml"),
-            xml = NSData(contentsOfFile: path),
-            doc = XML(xml: xml, encoding: NSUTF8StringEncoding) {
+        if let path = Bundle(for:self.classForCoder).pathForResource(filename, ofType:"xml"),
+            xml = try? Data(contentsOf: URL(fileURLWithPath: path)),
+            doc = XML(xml: xml, encoding: .utf8) {
                 let namespaces = [
                     "o":  "urn:schemas-microsoft-com:office:office",
                     "ss": "urn:schemas-microsoft-com:office:spreadsheet"
@@ -129,13 +129,13 @@ class KannaTests: XCTestCase {
     func testHTML4() {
         // This is an example of a functional test case.
         let filename = "test_HTML4"
-        guard let path = NSBundle(forClass:self.classForCoder).pathForResource(filename, ofType:"html") else {
+        guard let path = Bundle(for:self.classForCoder).pathForResource(filename, ofType:"html") else {
             return
         }
         
         do {
-            let html = try String(contentsOfFile: path, encoding: NSUTF8StringEncoding)
-            guard let doc = HTML(html: html, encoding: NSUTF8StringEncoding) else {
+            let html = try String(contentsOfFile: path, encoding: .utf8)
+            guard let doc = HTML(html: html, encoding: .utf8) else {
                 return
             }
             // Check title
@@ -149,15 +149,15 @@ class KannaTests: XCTestCase {
             }
             
             let repoName = ["Kanna", "Swift-HTML-Parser"]
-            for (index, repo) in doc.xpath("//span[@class='repo']").enumerate() {
+            for (index, repo) in doc.xpath("//span[@class='repo']").enumerated() {
                 XCTAssert(repo["title"] == repoName[index])
                 XCTAssert(repo.text == repoName[index])
             }
             
             if let snTable = doc.at_css("table[id='sequence number']") {
                 let alphabet = ["a", "b", "c"]
-                for (indexTr, tr) in snTable.css("tr").enumerate() {
-                    for (indexTd, td) in tr.css("td").enumerate() {
+                for (indexTr, tr) in snTable.css("tr").enumerated() {
+                    for (indexTd, td) in tr.css("td").enumerated() {
                         XCTAssert(td.text == "\(alphabet[indexTd])\(indexTr)")
                     }
                 }
@@ -192,13 +192,13 @@ class KannaTests: XCTestCase {
     
     func testInnerHTML() {
         let filename = "test_HTML4"
-        guard let path = NSBundle(forClass:self.classForCoder).pathForResource(filename, ofType:"html") else {
+        guard let path = Bundle(for:self.classForCoder).pathForResource(filename, ofType:"html") else {
             return
         }
         
         do {
-            let html = try String(contentsOfFile: path, encoding: NSUTF8StringEncoding)
-            guard let doc = HTML(html: html, encoding: NSUTF8StringEncoding) else {
+            let html = try String(contentsOfFile: path, encoding: .utf8)
+            guard let doc = HTML(html: html, encoding: .utf8) else {
                 return
             }
             
@@ -210,8 +210,8 @@ class KannaTests: XCTestCase {
     }
     
     func testNSURL() {
-        guard let url = NSURL(string: "https://en.wikipedia.org/wiki/Cat"),
-              let _ = HTML(url: url, encoding: NSUTF8StringEncoding) else {
+        guard let url = URL(string: "https://en.wikipedia.org/wiki/Cat"),
+              let _ = HTML(url: url, encoding: .utf8) else {
             XCTAssert(false)
             return
         }

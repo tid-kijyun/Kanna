@@ -30,7 +30,7 @@ libxmlHTMLNode
 internal final class libxmlHTMLNode: XMLElement {
     var text: String? {
         if nodePtr != nil {
-            return libxmlGetNodeContent(nodePtr)
+            return libxmlGetNodeContent(nodePtr!)
         }
         return nil
     }
@@ -38,15 +38,15 @@ internal final class libxmlHTMLNode: XMLElement {
     var toHTML: String? {
         let buf = xmlBufferCreate()
         htmlNodeDump(buf, docPtr, nodePtr)
-        let html = String.fromCString(UnsafePointer(buf.memory.content))
+        let html = String(cString: UnsafePointer((buf?.pointee.content)!))
         xmlBufferFree(buf)
         return html
     }
     
     var innerHTML: String? {
         if let html = self.toHTML {
-            let inner = html.stringByReplacingOccurrencesOfString("</[^>]*>$", withString: "", options: .RegularExpressionSearch, range: nil)
-                            .stringByReplacingOccurrencesOfString("^<[^>]*>", withString: "", options: .RegularExpressionSearch, range: nil)
+            let inner = html.replacingOccurrences(of: "</[^>]*>$", with: "", options: .regularExpressionSearch, range: nil)
+                            .replacingOccurrences(of: "^<[^>]*>", with: "", options: .regularExpressionSearch, range: nil)
             return inner
         }
         return nil
@@ -58,28 +58,28 @@ internal final class libxmlHTMLNode: XMLElement {
     
     var tagName:   String? {
         if nodePtr != nil {
-            return String.fromCString(UnsafePointer(nodePtr.memory.name))
+            return String(cString: UnsafePointer((nodePtr?.pointee.name)!))
         }
         return nil
     }
     
-    private var docPtr:  htmlDocPtr = nil
-    private var nodePtr: xmlNodePtr = nil
+    private var docPtr:  htmlDocPtr? = nil
+    private var nodePtr: xmlNodePtr? = nil
     private var isRoot:  Bool       = false
     
     
     subscript(attributeName: String) -> String?
     {
         get {
-            var attr = nodePtr.memory.properties
+            var attr = nodePtr?.pointee.properties
             while attr != nil {
-                let mem = attr.memory
-                if let tagName = String.fromCString(UnsafePointer(mem.name)) {
+                let mem = attr?.pointee
+                if let tagName = String(validatingUTF8: UnsafePointer((mem?.name)!)) {
                     if attributeName == tagName {
-                        return libxmlGetNodeContent(mem.children)
+                        return libxmlGetNodeContent((mem?.children)!)
                     }
                 }
-                attr = attr.memory.next
+                attr = attr?.pointee.next
             }
             return nil
         }
@@ -105,12 +105,12 @@ internal final class libxmlHTMLNode: XMLElement {
     }
     
     // MARK: Searchable
-    func xpath(xpath: String, namespaces: [String:String]?) -> XMLNodeSet {
+    func xpath(_ xpath: String, namespaces: [String:String]?) -> XMLNodeSet {
         let ctxt = xmlXPathNewContext(docPtr)
         if ctxt == nil {
             return XMLNodeSet()
         }
-        ctxt.memory.node = nodePtr
+        ctxt?.pointee.node = nodePtr
         
         if let nsDictionary = namespaces {
             for (ns, name) in nsDictionary {
@@ -124,36 +124,36 @@ internal final class libxmlHTMLNode: XMLElement {
             return XMLNodeSet()
         }
         
-        let nodeSet = result.memory.nodesetval
-        if nodeSet == nil || nodeSet.memory.nodeNr == 0 || nodeSet.memory.nodeTab == nil {
+        let nodeSet = result?.pointee.nodesetval
+        if nodeSet == nil || nodeSet?.pointee.nodeNr == 0 || nodeSet?.pointee.nodeTab == nil {
             xmlXPathFreeObject(result)
             return XMLNodeSet()
         }
         
         var nodes : [XMLElement] = []
-        let size = Int(nodeSet.memory.nodeNr)
+        let size = Int((nodeSet?.pointee.nodeNr)!)
         for i in 0 ..< size {
-            let node: xmlNodePtr = nodeSet.memory.nodeTab[i]
-            let htmlNode = libxmlHTMLNode(docPtr: docPtr, node: node)
+            let node: xmlNodePtr = nodeSet!.pointee.nodeTab[i]!
+            let htmlNode = libxmlHTMLNode(docPtr: docPtr!, node: node)
             nodes.append(htmlNode)
         }
         xmlXPathFreeObject(result)
         return XMLNodeSet(nodes: nodes)
     }
     
-    func xpath(xpath: String) -> XMLNodeSet {
+    func xpath(_ xpath: String) -> XMLNodeSet {
         return self.xpath(xpath, namespaces: nil)
     }
     
-    func at_xpath(xpath: String, namespaces: [String:String]?) -> XMLElement? {
+    func at_xpath(_ xpath: String, namespaces: [String:String]?) -> XMLElement? {
         return self.xpath(xpath, namespaces: namespaces).first
     }
     
-    func at_xpath(xpath: String) -> XMLElement? {
+    func at_xpath(_ xpath: String) -> XMLElement? {
         return self.at_xpath(xpath, namespaces: nil)
     }
     
-    func css(selector: String, namespaces: [String:String]?) -> XMLNodeSet {
+    func css(_ selector: String, namespaces: [String:String]?) -> XMLNodeSet {
         if let xpath = CSS.toXPath(selector) {
             if isRoot {
                 return self.xpath(xpath, namespaces: namespaces)
@@ -164,25 +164,25 @@ internal final class libxmlHTMLNode: XMLElement {
         return XMLNodeSet()
     }
     
-    func css(selector: String) -> XMLNodeSet {
+    func css(_ selector: String) -> XMLNodeSet {
         return self.css(selector, namespaces: nil)
     }
     
-    func at_css(selector: String, namespaces: [String:String]?) -> XMLElement? {
+    func at_css(_ selector: String, namespaces: [String:String]?) -> XMLElement? {
         return self.css(selector, namespaces: namespaces).first
     }
     
-    func at_css(selector: String) -> XMLElement? {
+    func at_css(_ selector: String) -> XMLElement? {
         return self.css(selector, namespaces: nil).first
     }
 }
 
-private func libxmlGetNodeContent(nodePtr: xmlNodePtr) -> String? {
+private func libxmlGetNodeContent(_ nodePtr: xmlNodePtr) -> String? {
     let content = xmlNodeGetContent(nodePtr)
-    if let result  = String.fromCString(UnsafePointer(content)) {
-        content.dealloc(1)
+    if let result  = String(validatingUTF8: UnsafePointer(content!)) {
+        content?.deallocateCapacity(1)
         return result
     }
-    content.dealloc(1)
+    content?.deallocateCapacity(1)
     return nil
 }
