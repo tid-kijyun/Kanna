@@ -38,8 +38,28 @@ internal final class libxmlHTMLDocument: HTMLDocument {
     var text: String? {
         return rootNode?.text
     }
-    
+
     var toHTML: String? {
+        let buf = xmlBufferCreate()
+        defer {
+            xmlBufferFree(buf)
+        }
+
+        let outputBuf = xmlOutputBufferCreateBuffer(buf, nil)
+        htmlDocContentDumpOutput(outputBuf, docPtr, nil)
+        let html = String.fromCString(UnsafePointer(xmlOutputBufferGetContent(outputBuf)))
+        return html
+    }
+
+    var toXML: String? {
+        var buf: UnsafeMutablePointer<xmlChar> = nil
+        let size: UnsafeMutablePointer<Int32> = nil
+        defer {
+            xmlFree(buf)
+        }
+
+        xmlDocDumpMemory(docPtr, &buf, size)
+        let html = String.fromCString(UnsafePointer(buf))
         return html
     }
     
@@ -131,7 +151,27 @@ internal final class libxmlXMLDocument: XMLDocument {
     }
     
     var toHTML: String? {
-        return xml
+        let buf = xmlBufferCreate()
+        defer {
+            xmlBufferFree(buf)
+        }
+
+        let outputBuf = xmlOutputBufferCreateBuffer(buf, nil)
+        htmlDocContentDumpOutput(outputBuf, docPtr, nil)
+        let html = String.fromCString(UnsafePointer(xmlOutputBufferGetContent(outputBuf)))
+        return html
+    }
+
+    var toXML: String? {
+        var buf: UnsafeMutablePointer<xmlChar> = nil
+        let size: UnsafeMutablePointer<Int32> = nil
+        defer {
+            xmlFree(buf)
+        }
+
+        xmlDocDumpMemory(docPtr, &buf, size)
+        let html = String.fromCString(UnsafePointer(buf))
+        return html
     }
     
     var innerHTML: String? {
