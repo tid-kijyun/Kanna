@@ -204,13 +204,17 @@ class KannaTests: XCTestCase {
             } else {
                 XCTAssert(false, "Star not found.")
             }
-            
+
             if var link = doc.at_xpath("//link") {
                 let attr = "src-data"
                 let testData = "TestData"
                 link[attr] = testData
                 XCTAssert(link[attr] == testData)
             }
+
+            XCTAssert(doc.xpath("true()").boolValue == true)
+            XCTAssert(doc.xpath("number(123)").numberValue == 123)
+            XCTAssert(doc.xpath("concat((//a/@href)[1], (//a/@href)[2])").stringValue == "/tid-kijyun/Kanna/tid-kijyun/Swift-HTML-Parser")
         } catch {
             XCTAssert(false, "File not found. name: (\(filename)), error: \(error)")
         }
