@@ -149,6 +149,7 @@ SearchableNode
 public protocol SearchableNode: Searchable {
     var text: String? { get }
     var toHTML:      String? { get }
+    var toXML:     String? { get }
     var innerHTML: String? { get }
     var className: String? { get }
     var tagName:   String? { get }
@@ -159,6 +160,9 @@ XMLElement
 */
 public protocol XMLElement: SearchableNode {
     subscript(attr: String) -> String? { get set }
+
+    func addPrevSibling(node: XMLElement)
+    func addNextSibling(node: XMLElement)
 }
 
 /**

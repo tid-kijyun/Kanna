@@ -42,6 +42,14 @@ internal final class libxmlHTMLNode: XMLElement {
         xmlBufferFree(buf)
         return html
     }
+
+    var toXML: String? {
+        let buf = xmlBufferCreate()
+        xmlNodeDump(buf, docPtr, nodePtr, 0, 0)
+        let html = String.fromCString(UnsafePointer(buf.memory.content))
+        xmlBufferFree(buf)
+        return html
+    }
     
     var innerHTML: String? {
         if let html = self.toHTML {
@@ -174,6 +182,20 @@ internal final class libxmlHTMLNode: XMLElement {
     
     func at_css(selector: String) -> XMLElement? {
         return self.css(selector, namespaces: nil).first
+    }
+
+    func addPrevSibling(node: XMLElement) {
+        guard let node = node as? libxmlHTMLNode else {
+            return
+        }
+        xmlAddPrevSibling(nodePtr, node.nodePtr)
+    }
+
+    func addNextSibling(node: XMLElement) {
+        guard let node = node as? libxmlHTMLNode else {
+            return
+        }
+        xmlAddNextSibling(nodePtr, node.nodePtr)
     }
 }
 
