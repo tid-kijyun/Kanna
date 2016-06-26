@@ -1,6 +1,0 @@
-{
-  "name": "Kanna",
-  "tagline": "Kanna(鉋) is an XML/HTML parser for macOS / iOS / tvOS.",
-  "body": "### Tutorials\r\n1. [Installing Kanna]()\r\n1. [Parsing an HTML/XML document]()\r\n1. [Searching a XML/HTML document]()\r\n1. [Modifying an HTML/XML document]()\r\n\r\n### Support\r\n* Report a problem using the library. [Open an Issue with Bug Template](https://github.com/tid-kijyun/Kanna/issues/new?body=%23%23%23%20Description:%0A%0A%0A%23%23%23%20Installation method:%0A%2d%20[%20]%20Carthage%0A%2d%20[%20]%20CocoaPods%0A%2d%20[%20]%20Manually%0A%0A%23%23%23%20Library version:%0A%2d%20[%20]%20v1.0.6%0A%2d%20[%20]%20v1.0.2%0A%2d%20[%20]%20other:%20(Please%20fill in%20the%20version%20you%20are%20using.)%0A%0A%23%23%23%20Xcode%20version:%0A%2d%20[%20]%208.0%20beta%0A%2d%20[%20]%207.3.1%0A%2d%20[%20]%20other:%20(Please%20fill in%20the%20version%20you%20are%20using.)%0A)\r\n* Require a new feature. [Open an Issue with Feature Request Template](https://github.com/tid-kijyun/Kanna/issues/new?body=%23%23%23%20Description:%0A%0A%0A)\r\n\r\n### Authors and Contributors\r\nAtsushi Kiwaki(@tid-kijyun) = Twitter: [@_tid_](https://twitter.com/_tid_)\r\n\r\n[Contributors](https://github.com/tid-kijyun/Kanna/graphs/contributors)\r\n",
-  "note": "Don't delete this file! It's used internally to help with page regeneration."
-}

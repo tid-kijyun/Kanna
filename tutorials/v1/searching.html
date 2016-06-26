@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  
+  <head>
+  <meta charset="UTF-8">
+  <title>Kanna</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#157878">
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/css/cayman.css">
+</head>
+
+  <body>
+    <section class="page-header">
+  <h1 class="project-name">Kanna</h1>
+  <h2 class="project-tagline">Kanna(鉋) is an XML/HTML parser for macOS / iOS / tvOS.</h2>
+  <a href="https://github.com/tid-kijyun/Kanna" class="btn">View on GitHub</a>
+</section>
+
+
+    <section class="main-content">
+      
+      <h1 id="searching-an-htmlxml-document">Searching an HTML/XML document</h1>
+<ol>
+  <li><a href="#basic-searching">Basic Searching</a></li>
+  <li><a href="#single-results">Single Results</a></li>
+  <li><a href="#namespaces">Namespaces</a></li>
+</ol>
+
+<h2 id="basic-searching">Basic Searching</h2>
+
+<p>Let’s suppose you have the following document:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>[versions.xml]
+&lt;root&gt;
+  &lt;ios&gt;
+    &lt;version&gt;
+      &lt;name&gt;iOS 10&lt;/name&gt;
+    &lt;/version&gt;
+    &lt;version&gt;
+      &lt;name&gt;iOS 9&lt;/name&gt;
+    &lt;/version&gt;
+    &lt;version&gt;
+      &lt;name&gt;iOS 8&lt;/name&gt;
+    &lt;/version&gt;
+  &lt;/ios&gt;
+  &lt;macos&gt;
+    &lt;version&gt;
+      &lt;name&gt;macOS 10.12&lt;/name&gt;
+    &lt;/version&gt;
+    &lt;version&gt;
+      &lt;name&gt;macOS 10.11&lt;/name&gt;
+    &lt;/version&gt;
+  &lt;/macos&gt;
+  &lt;tvos&gt;
+    &lt;version&gt;
+      &lt;name&gt;tvOS 10.0&lt;/name&gt;
+    &lt;/version&gt;
+  &lt;/tvos&gt;
+&lt;/root&gt;
+</code></pre>
+</div>
+
+<p>Let’s further suppose that you want a list of all the versions in all the showns in this document.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>let xml = try! String(contentsOfFile: "items.xml", encoding: NSUTF8StringEncoding)
+if let doc = XML(xml: xml, encoding: NSUTF8StringEncoding) {
+    for node in doc.xpath("//name") {
+        print(node.text!)
+    }
+}
+
+// "iOS 10"
+// "iOS 9"
+// "iOS 8"
+// "macOS 10.12"
+// "macOS 10.11"
+// "tvOS 10.0"
+</code></pre>
+</div>
+
+<p>The methods <code class="highlighter-rouge">xpath</code> and <code class="highlighter-rouge">css</code> actually return a <code class="highlighter-rouge">XPathObject</code>,
+which acts very much like an array, and contains matching nodes from the document.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>let nodes = doc.xpath("//name")
+print(nodes[0].text!)
+
+// "iOS 10"
+</code></pre>
+</div>
+
+<p>You can use any XPath or CSS query you like.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>for node in doc.xpath("//ios//name") {
+    print(node.text!)
+}
+
+// "iOS 10"
+// "iOS 9"
+// "iOS 8"
+</code></pre>
+</div>
+
+<p>Notably, you can even use CSS queries in an XML document!</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>for node in doc.css("ios name") {
+    print(node.text!)
+}
+
+// "iOS 10"
+// "iOS 9"
+// "iOS 8"
+</code></pre>
+</div>
+
+<p>CSS queries are often the easiest and most succinct way to express what you’re looking for, so don’t be afraid to use them!</p>
+
+<h2 id="single-results">Single Results</h2>
+<p>If you know you’re going to get only a single result back, you can use the shortcuts <code class="highlighter-rouge">at_xpath</code> and <code class="highlighter-rouge">at_css</code> instead of having to access the first element of a XPathObject.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>doc.css("tvos name").first  // "tvOS 10.0"
+doc.at_css("tvos name")     // "tvOS 10.0"
+</code></pre>
+</div>
+
+<h2 id="namespaces">Namespaces</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>[libraries.xml]
+&lt;root&gt;
+  &lt;host xmlns="https://github.com/"&gt;
+    &lt;title&gt;Kanna&lt;/title&gt;
+    &lt;title&gt;Alamofire&lt;/title&gt;
+  &lt;/host&gt;
+  &lt;host xmlns="https://bitbucket.org/"&gt;
+    &lt;title&gt;Hoge&lt;/title&gt;
+  &lt;/host&gt;
+&lt;/root&gt;
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>let xml = try! String(contentsOfFile: "libraries.xml", encoding: NSUTF8StringEncoding)
+if let doc = XML(xml: xml, encoding: NSUTF8StringEncoding) {
+    for node in doc.xpath("//github:title", namespaces: ["github": "https://github.com/"]) {
+        print(node.text!)
+    }
+}
+
+// "Kanna"
+// "Alamofire"
+
+if let doc = XML(xml: xml, encoding: NSUTF8StringEncoding) {
+    for node in doc.xpath("//bitbucket:title", namespaces: ["bitbucket": "https://bitbucket.org/"]) {
+        print(node.text!)
+    }
+}
+
+// "Hoge"
+</code></pre>
+</div>
+
+
+      <footer class="site-footer">
+  <span class="site-footer-owner"><a href="">Kanna</a> is maintained by <a href="http://blog.guardlet.com">Atsushi Kiwaki</a>. It was inspired by <a href="http://www.nokogiri.org">Nokogiri 鋸</a></span>
+  <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/pietromenna/jekyll-cayman-theme">Cayman theme</a> by <a href="http://github.com/jasonlong">Jason Long</a>.</span>
+</footer>
+
+
+    </section>
+
+  </body>
+</html>
