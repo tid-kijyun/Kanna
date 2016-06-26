@@ -122,6 +122,32 @@ class KannaTests: XCTestCase {
             XCTAssert(false, "File not found. name: (\(filename))")
         }
     }
+
+    func testXML_MovingNode() {
+        let xml = "<?xml version=\"1.0\"?><all_item><item><title>item0</title></item><item><title>item1</title></item></all_item>"
+        let modifyPrevXML = "<all_item><item><title>item1</title></item><item><title>item0</title></item></all_item>"
+        let modifyNextXML = "<all_item><item><title>item1</title></item><item><title>item0</title></item></all_item>"
+
+        do {
+            guard let doc = XML(xml: xml, encoding: .utf8) else {
+                    return
+            }
+            let item0 = doc.css("item")[0]
+            let item1 = doc.css("item")[1]
+            item0.addPrevSibling(item1)
+            XCTAssert(doc.at_css("all_item")!.toXML == modifyPrevXML)
+        }
+
+        do {
+            guard let doc = XML(xml: xml, encoding: .utf8) else {
+                return
+            }
+            let item0 = doc.css("item")[0]
+            let item1 = doc.css("item")[1]
+            item1.addNextSibling(item0)
+            XCTAssert(doc.at_css("all_item")!.toXML == modifyNextXML)
+        }
+    }
     
     /**
     test HTML4
@@ -142,7 +168,7 @@ class KannaTests: XCTestCase {
             XCTAssert(doc.title == "Test HTML4")
             XCTAssert(doc.head != nil)
             XCTAssert(doc.body != nil)
-            XCTAssert(doc.toHTML == html)
+            XCTAssert(doc.toHTML!.hasPrefix("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN\" \"http://www.w3.org/TR/html4/strict.dtd\">\n<html lang=\"en\">"))
             
             for link in doc.xpath("//link") {
                 XCTAssert(link["href"] != nil)
@@ -178,13 +204,17 @@ class KannaTests: XCTestCase {
             } else {
                 XCTAssert(false, "Star not found.")
             }
-            
+
             if var link = doc.at_xpath("//link") {
                 let attr = "src-data"
                 let testData = "TestData"
                 link[attr] = testData
                 XCTAssert(link[attr] == testData)
             }
+
+            XCTAssert(doc.xpath("true()").boolValue == true)
+            XCTAssert(doc.xpath("number(123)").numberValue == 123)
+            XCTAssert(doc.xpath("concat((//a/@href)[1], (//a/@href)[2])").stringValue == "/tid-kijyun/Kanna/tid-kijyun/Swift-HTML-Parser")
         } catch {
             XCTAssert(false, "File not found. name: (\(filename)), error: \(error)")
         }
@@ -214,6 +244,32 @@ class KannaTests: XCTestCase {
               let _ = HTML(url: url, encoding: .utf8) else {
             XCTAssert(false)
             return
+        }
+    }
+
+    func testHTML_MovingNode() {
+        let html = "<body><div>A love triangle.<h1>Three's Company</h1></div></body>"
+        let modifyPrevHTML = "<body>\n<h1>Three's Company</h1>\n<div>A love triangle.</div>\n</body>"
+        let modifyNextHTML = "<body>\n<div>A love triangle.</div>\n<h1>Three's Company</h1>\n</body>"
+
+        do {
+            guard let doc = HTML(html: html, encoding: .utf8),
+                h1 = doc.at_css("h1"),
+                div = doc.at_css("div") else {
+                    return
+            }
+            div.addPrevSibling(h1)
+            XCTAssert(doc.body!.toHTML == modifyPrevHTML)
+        }
+
+        do {
+            guard let doc = HTML(html: html, encoding: .utf8),
+                h1 = doc.at_css("h1"),
+                div = doc.at_css("div") else {
+                    return
+            }
+            div.addNextSibling(h1)
+            XCTAssert(doc.body!.toHTML == modifyNextHTML)
         }
     }
 }
