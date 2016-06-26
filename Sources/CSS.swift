@@ -38,7 +38,8 @@ public struct CSS {
     public static func toXPath(selector: String) -> String? {
         var xpath = "//"
         var str = selector
-        
+        var prev = str
+
         while str.utf8.count > 0 {
             var attributes: [String] = []
             var combinator: String = ""
@@ -72,6 +73,12 @@ public struct CSS {
             } else {
                 xpath += "\(element)[\(attr)]\(combinator)"
             }
+
+            if str == prev {
+                print("CSS Syntax Error: Unsupport syntax '\(selector)'")
+                return nil
+            }
+            prev = str
         }
         return xpath
     }
