@@ -23,6 +23,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 import libxml2
+import CoreFoundation
 
 /**
 libxmlHTMLNode
@@ -86,7 +87,7 @@ internal final class libxmlHTMLNode: XMLElement {
 
         set {
             if let newValue = newValue {
-                let v = CFXMLCreateStringByEscapingEntities(kCFAllocatorDefault, newValue, nil) as String
+                let v = escape(newValue)
                 xmlNodeSetContent(nodePtr, v)
             }
         }
@@ -238,3 +239,18 @@ private func libxmlGetNodeContent(nodePtr: xmlNodePtr) -> String? {
     content.dealloc(1)
     return nil
 }
+
+let entities = [
+    "&": "&amp;",
+    "<" : "&lt;",
+    ">" : "&gt;",
+]
+
+private func escape(str: String) -> String {
+    var newStr = str
+    for (unesc, esc) in entities {
+        newStr = newStr.stringByReplacingOccurrencesOfString(unesc, withString: esc, options: .RegularExpressionSearch, range: nil)
+    }
+    return newStr
+}
+

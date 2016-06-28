@@ -40,11 +40,7 @@
 		1EAFA0F91B603A71001F3D84 /* KannaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAFA0F81B603A71001F3D84 /* KannaTests.swift */; };
 		1EBA8A321B6561D900226B9C /* test_XML_ExcelWorkbook.xml in Resources */ = {isa = PBXBuildFile; fileRef = 1EBA8A311B6561D900226B9C /* test_XML_ExcelWorkbook.xml */; };
 		1EC47DB51BC9729F00647902 /* Kanna.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EC47DAB1BC9729F00647902 /* Kanna.framework */; };
-		1EF2516B1D20CA73005757A0 /* KannaTutorialsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF2516A1D20CA73005757A0 /* KannaTutorialsTest.swift */; };
-		1EF2516C1D20CAD0005757A0 /* KannaTutorialsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF2516A1D20CA73005757A0 /* KannaTutorialsTest.swift */; };
-		1EF2516D1D20CAD4005757A0 /* KannaTutorialsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF2516A1D20CA73005757A0 /* KannaTutorialsTest.swift */; };
 		1EF2516E1D20CADB005757A0 /* KannaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAFA0F81B603A71001F3D84 /* KannaTests.swift */; };
-		1EF2516F1D20CADB005757A0 /* KannaTutorialsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF2516A1D20CA73005757A0 /* KannaTutorialsTest.swift */; };
 		1EF251711D20CD2C005757A0 /* versions.xml in Resources */ = {isa = PBXBuildFile; fileRef = 1EF251701D20CD2C005757A0 /* versions.xml */; };
 		1EF251721D20CD8F005757A0 /* versions.xml in Resources */ = {isa = PBXBuildFile; fileRef = 1EF251701D20CD2C005757A0 /* versions.xml */; };
 		1EF251731D20CD93005757A0 /* versions.xml in Resources */ = {isa = PBXBuildFile; fileRef = 1EF251701D20CD2C005757A0 /* versions.xml */; };
@@ -59,6 +55,9 @@
 		1EF2517E1D20EBFB005757A0 /* sample.html in Resources */ = {isa = PBXBuildFile; fileRef = 1EF2517C1D20EBED005757A0 /* sample.html */; };
 		1EF2517F1D20EBFE005757A0 /* sample.html in Resources */ = {isa = PBXBuildFile; fileRef = 1EF2517C1D20EBED005757A0 /* sample.html */; };
 		1EF251801D20EC00005757A0 /* sample.html in Resources */ = {isa = PBXBuildFile; fileRef = 1EF2517C1D20EBED005757A0 /* sample.html */; };
+		1EF251811D225F48005757A0 /* KannaTutorialsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF2516A1D20CA73005757A0 /* KannaTutorialsTest.swift */; };
+		1EF251821D225F48005757A0 /* KannaTutorialsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF2516A1D20CA73005757A0 /* KannaTutorialsTest.swift */; };
+		1EF251831D225F48005757A0 /* KannaTutorialsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF2516A1D20CA73005757A0 /* KannaTutorialsTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -543,8 +542,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1EF2516D1D20CAD4005757A0 /* KannaTutorialsTest.swift in Sources */,
 				1E206B901B665E8700441E12 /* KannaTests.swift in Sources */,
+				1EF251821D225F48005757A0 /* KannaTutorialsTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -565,7 +564,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E689A9B1C86AB330027BEA1 /* libxmlParserOption.swift in Sources */,
-				1EF2516B1D20CA73005757A0 /* KannaTutorialsTest.swift in Sources */,
 				1E689A931C86AB330027BEA1 /* libxmlHTMLDocument.swift in Sources */,
 				1E689A871C86AB330027BEA1 /* CSS.swift in Sources */,
 				1E689A971C86AB330027BEA1 /* libxmlHTMLNode.swift in Sources */,
@@ -577,8 +575,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1EF2516C1D20CAD0005757A0 /* KannaTutorialsTest.swift in Sources */,
 				1EAFA0F91B603A71001F3D84 /* KannaTests.swift in Sources */,
+				1EF251831D225F48005757A0 /* KannaTutorialsTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -611,7 +609,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1EF2516E1D20CADB005757A0 /* KannaTests.swift in Sources */,
-				1EF2516F1D20CADB005757A0 /* KannaTutorialsTest.swift in Sources */,
+				1EF251811D225F48005757A0 /* KannaTutorialsTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
