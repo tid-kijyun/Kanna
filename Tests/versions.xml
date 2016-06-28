@@ -1,0 +1,26 @@
+<root>
+    <ios>
+        <version>
+            <name>iOS 10</name>
+        </version>
+        <version>
+            <name>iOS 9</name>
+        </version>
+        <version>
+            <name>iOS 8</name>
+        </version>
+    </ios>
+    <macos>
+        <version>
+            <name>macOS 10.12</name>
+        </version>
+        <version>
+            <name>macOS 10.11</name>
+        </version>
+    </macos>
+    <tvos>
+        <version>
+            <name>tvOS 10.0</name>
+        </version>
+    </tvos>
+</root>

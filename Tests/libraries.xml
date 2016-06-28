@@ -1,0 +1,9 @@
+<root>
+    <host xmlns="https://github.com/">
+        <title>Kanna</title>
+        <title>Alamofire</title>
+    </host>
+    <host xmlns="https://bitbucket.org/">
+        <title>Hoge</title>
+    </host>
+</root>
