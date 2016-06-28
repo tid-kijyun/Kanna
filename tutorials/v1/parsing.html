@@ -48,7 +48,7 @@ if let xmlDoc = XML(xml: xml, encoding: NSUTF8StringEncoding) {
 <h2 id="from-a-file">From a File</h2>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>let data = NSData(contentsOfFile: filePath)!
-if let doc = HTML(data: data, encoding: NSUTF8StringEncoding) {
+if let doc = HTML(html: data, encoding: NSUTF8StringEncoding) {
 }
 </code></pre>
 </div>

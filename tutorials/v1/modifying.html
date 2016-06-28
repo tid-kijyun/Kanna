@@ -49,10 +49,10 @@
 guard let doc = HTML(html: html, encoding: NSUTF8StringEncoding) else {
     return
 }
-var h1 = doc.at_css("h1")
+var h1 = doc.at_css("h1")!
 h1.content = "Snap, Crackle &amp; Pop"
 
-print(doc.toHTML)
+print(doc.body?.toHTML)
 
 // "&lt;body&gt;
 // &lt;h1&gt;Snap, Crackle &amp;amp; Pop&lt;/h1&gt;
@@ -66,11 +66,11 @@ print(doc.toHTML)
 <h2 id="moving-nodes">Moving nodes</h2>
 <p>The simplest method of moving a node is assign its parent:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>var h1  = doc.at_css("h1")
-var div = doc.at_css("div")
+<div class="highlighter-rouge"><pre class="highlight"><code>var h1  = doc.at_css("h1")!
+var div = doc.at_css("div")!
 h1.parent = div
 
-print(doc.toHTML)
+print(doc.body?.toHTML)
 
 // "&lt;body&gt;
 // &lt;div&gt;A love triangle.&lt;h1&gt;Three's Company&lt;/h1&gt;&lt;/div&gt;
@@ -82,7 +82,7 @@ print(doc.toHTML)
 
 <div class="highlighter-rouge"><pre class="highlight"><code>div.addNextSibling(h1)
 
-print(doc.toHTML)
+print(doc.body?.toHTML)
 
 // "&lt;body&gt;
 // &lt;div&gt;A love triangle.&lt;/div&gt;
@@ -93,10 +93,10 @@ print(doc.toHTML)
 
 <h2 id="modifying-nodes-and-attributes">Modifying Nodes and Attributes</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>h1.name = "h2"
+<div class="highlighter-rouge"><pre class="highlight"><code>h1.tagName = "h2"
 h1["class"] = "show-title"
 
-print(doc.toHTML)
+print(doc.body?.toHTML)
 
 // "&lt;body&gt;
 // &lt;h2 class=\"show-title\"&gt;Three's Company&lt;/h2&gt;

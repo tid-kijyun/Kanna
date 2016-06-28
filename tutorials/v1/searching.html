@@ -65,7 +65,7 @@
 
 <p>Let’s further suppose that you want a list of all the versions in all the showns in this document.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>let xml = try! String(contentsOfFile: "items.xml", encoding: NSUTF8StringEncoding)
+<div class="highlighter-rouge"><pre class="highlight"><code>let xml = try! String(contentsOfFile: "versions.xml", encoding: NSUTF8StringEncoding)
 if let doc = XML(xml: xml, encoding: NSUTF8StringEncoding) {
     for node in doc.xpath("//name") {
         print(node.text!)
