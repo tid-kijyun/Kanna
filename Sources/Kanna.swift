@@ -311,7 +311,7 @@ extension XPathObject {
         return nodeSet![index]
     }
 
-    var first: XMLElement? {
+    public var first: XMLElement? {
         return nodeSet?.first
     }
 
