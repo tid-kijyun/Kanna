@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "Kanna"
-  s.version          = "1.0.6"
+  s.version          = "1.1.0"
   s.summary          = "Kanna is an XML/HTML parser for iOS/Mac OS X."
   s.homepage         = "https://github.com/tid-kijyun/Kanna"
   s.license          = 'MIT'
@@ -14,9 +14,7 @@ Pod::Spec.new do |s|
   s.watchos.deployment_target = "2.0"
   s.requires_arc = true
 
-  s.preserve_path = 'Modules/*'
-  s.source_files  = 'Sources/**/*.swift'
+  s.source_files  = ['Source/**/*.swift', 'Source/**/*.h']
   s.libraries     = 'xml2'
-  s.xcconfig      = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2', 'SWIFT_INCLUDE_PATHS' => '$(SRCROOT)/Kanna/Modules' }
+  s.xcconfig      = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2' }
 end
-
