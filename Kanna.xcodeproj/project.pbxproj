@@ -40,6 +40,24 @@
 		1EAFA0F91B603A71001F3D84 /* KannaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAFA0F81B603A71001F3D84 /* KannaTests.swift */; };
 		1EBA8A321B6561D900226B9C /* test_XML_ExcelWorkbook.xml in Resources */ = {isa = PBXBuildFile; fileRef = 1EBA8A311B6561D900226B9C /* test_XML_ExcelWorkbook.xml */; };
 		1EC47DB51BC9729F00647902 /* Kanna.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EC47DAB1BC9729F00647902 /* Kanna.framework */; };
+		1EF2516E1D20CADB005757A0 /* KannaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAFA0F81B603A71001F3D84 /* KannaTests.swift */; };
+		1EF251711D20CD2C005757A0 /* versions.xml in Resources */ = {isa = PBXBuildFile; fileRef = 1EF251701D20CD2C005757A0 /* versions.xml */; };
+		1EF251721D20CD8F005757A0 /* versions.xml in Resources */ = {isa = PBXBuildFile; fileRef = 1EF251701D20CD2C005757A0 /* versions.xml */; };
+		1EF251731D20CD93005757A0 /* versions.xml in Resources */ = {isa = PBXBuildFile; fileRef = 1EF251701D20CD2C005757A0 /* versions.xml */; };
+		1EF251741D20CD96005757A0 /* versions.xml in Resources */ = {isa = PBXBuildFile; fileRef = 1EF251701D20CD2C005757A0 /* versions.xml */; };
+		1EF251761D20D043005757A0 /* libraries.xml in Resources */ = {isa = PBXBuildFile; fileRef = 1EF251751D20D043005757A0 /* libraries.xml */; };
+		1EF251771D20D058005757A0 /* libraries.xml in Resources */ = {isa = PBXBuildFile; fileRef = 1EF251751D20D043005757A0 /* libraries.xml */; };
+		1EF251781D20D05C005757A0 /* libraries.xml in Resources */ = {isa = PBXBuildFile; fileRef = 1EF251751D20D043005757A0 /* libraries.xml */; };
+		1EF251791D20D05F005757A0 /* libraries.xml in Resources */ = {isa = PBXBuildFile; fileRef = 1EF251751D20D043005757A0 /* libraries.xml */; };
+		1EF2517A1D20D064005757A0 /* test_HTML4.html in Resources */ = {isa = PBXBuildFile; fileRef = 1E69153E1B64114900AF1851 /* test_HTML4.html */; };
+		1EF2517B1D20D064005757A0 /* test_XML_ExcelWorkbook.xml in Resources */ = {isa = PBXBuildFile; fileRef = 1EBA8A311B6561D900226B9C /* test_XML_ExcelWorkbook.xml */; };
+		1EF2517D1D20EBED005757A0 /* sample.html in Resources */ = {isa = PBXBuildFile; fileRef = 1EF2517C1D20EBED005757A0 /* sample.html */; };
+		1EF2517E1D20EBFB005757A0 /* sample.html in Resources */ = {isa = PBXBuildFile; fileRef = 1EF2517C1D20EBED005757A0 /* sample.html */; };
+		1EF2517F1D20EBFE005757A0 /* sample.html in Resources */ = {isa = PBXBuildFile; fileRef = 1EF2517C1D20EBED005757A0 /* sample.html */; };
+		1EF251801D20EC00005757A0 /* sample.html in Resources */ = {isa = PBXBuildFile; fileRef = 1EF2517C1D20EBED005757A0 /* sample.html */; };
+		1EF251811D225F48005757A0 /* KannaTutorialsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF2516A1D20CA73005757A0 /* KannaTutorialsTest.swift */; };
+		1EF251821D225F48005757A0 /* KannaTutorialsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF2516A1D20CA73005757A0 /* KannaTutorialsTest.swift */; };
+		1EF251831D225F48005757A0 /* KannaTutorialsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF2516A1D20CA73005757A0 /* KannaTutorialsTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +105,10 @@
 		1EBA8A6B1B6632E800226B9C /* Kanna.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Kanna.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EC47DAB1BC9729F00647902 /* Kanna.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Kanna.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EC47DB41BC9729F00647902 /* Kanna_tvOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Kanna_tvOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1EF2516A1D20CA73005757A0 /* KannaTutorialsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KannaTutorialsTest.swift; path = Tests/KannaTutorialsTest.swift; sourceTree = SOURCE_ROOT; };
+		1EF251701D20CD2C005757A0 /* versions.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = versions.xml; path = Tests/versions.xml; sourceTree = SOURCE_ROOT; };
+		1EF251751D20D043005757A0 /* libraries.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = libraries.xml; path = Tests/libraries.xml; sourceTree = SOURCE_ROOT; };
+		1EF2517C1D20EBED005757A0 /* sample.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = sample.html; path = Tests/sample.html; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,8 +227,12 @@
 			isa = PBXGroup;
 			children = (
 				1EAFA0F81B603A71001F3D84 /* KannaTests.swift */,
+				1EF2516A1D20CA73005757A0 /* KannaTutorialsTest.swift */,
 				1E69153E1B64114900AF1851 /* test_HTML4.html */,
 				1EBA8A311B6561D900226B9C /* test_XML_ExcelWorkbook.xml */,
+				1EF251701D20CD2C005757A0 /* versions.xml */,
+				1EF251751D20D043005757A0 /* libraries.xml */,
+				1EF2517C1D20EBED005757A0 /* sample.html */,
 				1EAFA0E81B6039D5001F3D84 /* Supporting Files */,
 			);
 			name = Tests;
@@ -446,6 +472,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EF2517F1D20EBFE005757A0 /* sample.html in Resources */,
+				1EF251781D20D05C005757A0 /* libraries.xml in Resources */,
+				1EF251721D20CD8F005757A0 /* versions.xml in Resources */,
 				1E206B911B666AD400441E12 /* test_HTML4.html in Resources */,
 				1E206B921B666AD400441E12 /* test_XML_ExcelWorkbook.xml in Resources */,
 			);
@@ -462,6 +491,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EF251711D20CD2C005757A0 /* versions.xml in Resources */,
+				1EF251761D20D043005757A0 /* libraries.xml in Resources */,
+				1EF2517D1D20EBED005757A0 /* sample.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,6 +501,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EF2517E1D20EBFB005757A0 /* sample.html in Resources */,
+				1EF251771D20D058005757A0 /* libraries.xml in Resources */,
+				1EF251731D20CD93005757A0 /* versions.xml in Resources */,
 				1E69153F1B64114900AF1851 /* test_HTML4.html in Resources */,
 				1EBA8A321B6561D900226B9C /* test_XML_ExcelWorkbook.xml in Resources */,
 			);
@@ -492,6 +527,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EF251801D20EC00005757A0 /* sample.html in Resources */,
+				1EF251741D20CD96005757A0 /* versions.xml in Resources */,
+				1EF251791D20D05F005757A0 /* libraries.xml in Resources */,
+				1EF2517A1D20D064005757A0 /* test_HTML4.html in Resources */,
+				1EF2517B1D20D064005757A0 /* test_XML_ExcelWorkbook.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,6 +543,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E206B901B665E8700441E12 /* KannaTests.swift in Sources */,
+				1EF251821D225F48005757A0 /* KannaTutorialsTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -535,6 +576,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1EAFA0F91B603A71001F3D84 /* KannaTests.swift in Sources */,
+				1EF251831D225F48005757A0 /* KannaTutorialsTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -566,6 +608,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EF2516E1D20CADB005757A0 /* KannaTests.swift in Sources */,
+				1EF251811D225F48005757A0 /* KannaTutorialsTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

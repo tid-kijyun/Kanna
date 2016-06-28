@@ -23,6 +23,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 import libxml2
+import CoreFoundation
 
 /**
 libxmlHTMLNode
@@ -65,12 +66,45 @@ internal final class libxmlHTMLNode: XMLElement {
     }
     
     var tagName:   String? {
-        if nodePtr != nil {
-            return String.fromCString(UnsafePointer(nodePtr.memory.name))
+        get {
+            if nodePtr != nil {
+                return String.fromCString(UnsafePointer(nodePtr.memory.name))
+            }
+            return nil
         }
-        return nil
+
+        set {
+            if let newValue = newValue {
+                xmlNodeSetName(nodePtr, newValue)
+            }
+        }
     }
-    
+
+    var content: String? {
+        get {
+            return text
+        }
+
+        set {
+            if let newValue = newValue {
+                let v = escape(newValue)
+                xmlNodeSetContent(nodePtr, v)
+            }
+        }
+    }
+
+    var parent: XMLElement? {
+        get {
+            return libxmlHTMLNode(docPtr: docPtr, node: nodePtr.memory.parent)
+        }
+
+        set {
+            if let node = newValue as? libxmlHTMLNode {
+                node.addChild(self)
+            }
+        }
+    }
+
     private var docPtr:  htmlDocPtr = nil
     private var nodePtr: xmlNodePtr = nil
     private var isRoot:  Bool       = false
@@ -186,6 +220,14 @@ internal final class libxmlHTMLNode: XMLElement {
         }
         xmlAddNextSibling(nodePtr, node.nodePtr)
     }
+
+    func addChild(node: XMLElement) {
+        guard let node = node as? libxmlHTMLNode else {
+            return
+        }
+        xmlUnlinkNode(node.nodePtr)
+        xmlAddChild(nodePtr, node.nodePtr)
+    }
 }
 
 private func libxmlGetNodeContent(nodePtr: xmlNodePtr) -> String? {
@@ -197,3 +239,18 @@ private func libxmlGetNodeContent(nodePtr: xmlNodePtr) -> String? {
     content.dealloc(1)
     return nil
 }
+
+let entities = [
+    "&": "&amp;",
+    "<" : "&lt;",
+    ">" : "&gt;",
+]
+
+private func escape(str: String) -> String {
+    var newStr = str
+    for (unesc, esc) in entities {
+        newStr = newStr.stringByReplacingOccurrencesOfString(unesc, withString: esc, options: .RegularExpressionSearch, range: nil)
+    }
+    return newStr
+}
+

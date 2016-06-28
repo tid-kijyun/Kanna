@@ -72,7 +72,23 @@ internal final class libxmlHTMLDocument: HTMLDocument {
     }
     
     var tagName:   String? {
-        return nil
+        get {
+            return nil
+        }
+
+        set {
+
+        }
+    }
+
+    var content: String? {
+        get {
+            return text
+        }
+
+        set {
+            rootNode?.content = newValue
+        }
     }
     
     init?(html: String, url: String?, encoding: UInt, option: UInt) {
@@ -183,7 +199,23 @@ internal final class libxmlXMLDocument: XMLDocument {
     }
     
     var tagName:   String? {
-        return nil
+        get {
+            return nil
+        }
+
+        set {
+            
+        }
+    }
+
+    var content: String? {
+        get {
+            return text
+        }
+
+        set {
+            rootNode?.content = newValue
+        }
     }
     
     init?(xml: String, url: String?, encoding: UInt, option: UInt) {
