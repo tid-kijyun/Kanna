@@ -28,7 +28,7 @@
 <ol>
   <li><a href="#cocoapods">CocoaPods</a></li>
   <li><a href="#carthage">Carthage</a></li>
-  <li><a href="#manually">Manually</a></li>
+  <li><a href="#manual-installation">Manually</a></li>
 </ol>
 
 <h2 id="cocoapods">CocoaPods</h2>
@@ -48,7 +48,7 @@ pod 'Kanna', '~&gt; 1.1.0'
 </code></pre>
 </div>
 
-<h2 id="manually">Manually</h2>
+<h3 id="manual-installation">Manual Installation</h3>
 <ol>
   <li>Add these files to your project:<br />
   <a href="Source/Kanna.swift">Kanna.swift</a><br />
@@ -56,11 +56,20 @@ pod 'Kanna', '~&gt; 1.1.0'
   <a href="Source/libxml/libxmlHTMLDocument.swift">libxmlHTMLDocument.swift</a><br />
   <a href="Source/libxml/libxmlHTMLNode.swift">libxmlHTMLNode.swift</a><br />
   <a href="Source/libxml/libxmlParserOption.swift">libxmlParserOption.swift</a></li>
-  <li>Copy this folder to your project:<br />
-  <a href="Modules">Modules</a></li>
-  <li>In the project settings add <code class="highlighter-rouge">$(SRCROOT)/YOUR_PROJECT/Modules</code> to the “Swift Compiler - Search Paths &gt; Import Paths” field</li>
   <li>In the target settings add <code class="highlighter-rouge">$(SDKROOT)/usr/include/libxml2</code> to the <code class="highlighter-rouge">Search Paths &gt; Header Search Paths</code> field</li>
+  <li>In the target settings add <code class="highlighter-rouge">-lxml2</code> to the <code class="highlighter-rouge">Linking &gt; Other Linker Flags</code> field</li>
+  <li>Import <code class="highlighter-rouge">libxml</code> headers:</li>
 </ol>
+
+<p>Copy the those import statements:</p>
+
+<p><code class="highlighter-rouge">
+  #import &lt;libxml/HTMLtree.h&gt;
+  #import &lt;libxml/xpath.h&gt;
+  #import &lt;libxml/xpathInternals.h&gt;
+ </code></p>
+
+<p>and paste them into your [Modulename]-Bridging-Header.h</p>
 
 <p><em>Note: With manual installation, this library doesn’t need to be imported, or namespace-qualified in your code.</em></p>
 
