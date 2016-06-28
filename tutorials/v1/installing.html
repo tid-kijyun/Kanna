@@ -58,18 +58,15 @@ pod 'Kanna', '~&gt; 1.1.0'
   <a href="Source/libxml/libxmlParserOption.swift">libxmlParserOption.swift</a></li>
   <li>In the target settings add <code class="highlighter-rouge">$(SDKROOT)/usr/include/libxml2</code> to the <code class="highlighter-rouge">Search Paths &gt; Header Search Paths</code> field</li>
   <li>In the target settings add <code class="highlighter-rouge">-lxml2</code> to the <code class="highlighter-rouge">Linking &gt; Other Linker Flags</code> field</li>
-  <li>Import <code class="highlighter-rouge">libxml</code> headers:</li>
-</ol>
-
-<p>Copy the those import statements:</p>
-
-<p><code class="highlighter-rouge">
+  <li>Import <code class="highlighter-rouge">libxml</code> headers:
+  Copy the those import statements:
+  <code class="highlighter-rouge">
   #import &lt;libxml/HTMLtree.h&gt;
   #import &lt;libxml/xpath.h&gt;
   #import &lt;libxml/xpathInternals.h&gt;
- </code></p>
-
-<p>and paste them into your [Modulename]-Bridging-Header.h</p>
+ </code>
+  and paste them into your [Modulename]-Bridging-Header.h</li>
+</ol>
 
 <p><em>Note: With manual installation, this library doesn’t need to be imported, or namespace-qualified in your code.</em></p>
 
