@@ -40,7 +40,7 @@ public struct CSS {
         var str = selector
         var prev = str
 
-        while str.utf8.count > 0 {
+        while str.utf16.count > 0 {
             var attributes: [String] = []
             var combinator: String = ""
             
@@ -86,7 +86,7 @@ public struct CSS {
 
 private func firstMatch(pattern: String) -> (String) -> NSTextCheckingResult? {
     return { str in
-        let length = str.utf8.count
+        let length = str.utf16.count
         do {
             let regex = try NSRegularExpression(pattern: pattern, options: .CaseInsensitive)
             if let result = regex.firstMatchInString(str, options: .ReportProgress, range: NSRange(location: 0, length: length)) {
