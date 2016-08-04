@@ -53,8 +53,9 @@ internal final class libxmlHTMLNode: XMLElement {
     
     var innerHTML: String? {
         if let html = self.toHTML {
-            let inner = html.replacingOccurrences(of: "</[^>]*>$", with: "", options: .regularExpressionSearch, range: nil)
-                            .replacingOccurrences(of: "^<[^>]*>", with: "", options: .regularExpressionSearch, range: nil)
+
+            let inner = html.replacingOccurrences(of: "</[^>]*>$", with: "", options: [.regularExpression], range: nil)
+                            .replacingOccurrences(of: "^<[^>]*>", with: "", options: [.regularExpression], range: nil)
             return inner
         }
         return nil
@@ -191,9 +192,9 @@ internal final class libxmlHTMLNode: XMLElement {
 private func libxmlGetNodeContent(_ nodePtr: xmlNodePtr) -> String? {
     let content = xmlNodeGetContent(nodePtr)
     if let result  = String(validatingUTF8: UnsafePointer(content!)) {
-        content?.deallocateCapacity(1)
+        content?.deallocate(capacity: 1)
         return result
     }
-    content?.deallocateCapacity(1)
+    content?.deallocate(capacity: 1)
     return nil
 }

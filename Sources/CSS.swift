@@ -84,11 +84,11 @@ public struct CSS {
     }
 }
 
-private func firstMatch(_ pattern: String) -> (String) -> TextCheckingResult? {
+private func firstMatch(_ pattern: String) -> (String) -> NSTextCheckingResult? {
     return { str in
         let length = str.utf8.count
         do {
-            let regex = try RegularExpression(pattern: pattern, options: .caseInsensitive)
+            let regex = try NSRegularExpression(pattern: pattern, options: .caseInsensitive)
             if let result = regex.firstMatch(in: str, options: .reportProgress, range: NSRange(location: 0, length: length)) {
                 return result
             }
@@ -136,9 +136,9 @@ private let matchSubNthOfType = firstMatch("nth-of-type\\((odd|even|\\d+)\\)")
 private let matchSubContains  = firstMatch("contains\\([\"\'](.*?)[\"\']\\)")
 private let matchSubBlank     = firstMatch("^\\s*$")
 
-private func substringWithRangeAtIndex(_ result: TextCheckingResult, str: String, at: Int) -> String {
+private func substringWithRangeAtIndex(_ result: NSTextCheckingResult, str: String, at: Int) -> String {
     if result.numberOfRanges > at {
-        let range = result.range(at: at)
+        let range = result.rangeAt(at)
         if range.length > 0 {
             return (str as NSString).substring(with: range)
         }
@@ -299,7 +299,7 @@ private func getAttrNot(_ str: inout String, skip: Bool = true) -> String? {
         if let attr = getAttribute(&one, skip: false) {
             return attr
         } else if let sub = matchElement(one) {
-            let elem = (one as NSString).substring(with: sub.range(at: 1))
+            let elem = (one as NSString).substring(with: sub.rangeAt(1))
             return "self::\(elem)"
         } else if let attr = getClassId(&one) {
             return attr

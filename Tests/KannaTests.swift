@@ -92,7 +92,7 @@ class KannaTests: XCTestCase {
     */
     func testXml() {
         let filename = "test_XML_ExcelWorkbook"
-        if let path = Bundle(for:self.classForCoder).pathForResource(filename, ofType:"xml"),
+        if let path = Bundle(for:self.classForCoder).path(forResource: filename, ofType:"xml"),
             xml = try? Data(contentsOf: URL(fileURLWithPath: path)),
             doc = XML(xml: xml, encoding: .utf8) {
                 let namespaces = [
@@ -155,7 +155,7 @@ class KannaTests: XCTestCase {
     func testHTML4() {
         // This is an example of a functional test case.
         let filename = "test_HTML4"
-        guard let path = Bundle(for:self.classForCoder).pathForResource(filename, ofType:"html") else {
+        guard let path = Bundle(for:self.classForCoder).path(forResource: filename, ofType:"html") else {
             return
         }
         
@@ -222,7 +222,7 @@ class KannaTests: XCTestCase {
     
     func testInnerHTML() {
         let filename = "test_HTML4"
-        guard let path = Bundle(for:self.classForCoder).pathForResource(filename, ofType:"html") else {
+        guard let path = Bundle(for:self.classForCoder).path(forResource: filename, ofType:"html") else {
             return
         }
         
