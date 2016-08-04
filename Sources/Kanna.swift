@@ -165,6 +165,7 @@ public protocol XMLElement: SearchableNode {
 
     func addPrevSibling(node: XMLElement)
     func addNextSibling(node: XMLElement)
+    func removeChild(node: XMLElement)
 }
 
 /**
