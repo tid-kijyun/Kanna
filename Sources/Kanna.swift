@@ -185,7 +185,7 @@ public protocol HTMLDocument: XMLDocument {
 XMLNodeSet
 */
 public final class XMLNodeSet {
-    private var nodes: [XMLElement] = []
+    fileprivate var nodes: [XMLElement] = []
     
     public var toHTML: String? {
         let html = nodes.reduce("") {
@@ -297,7 +297,11 @@ extension XPathObject {
         case XPATH_NUMBER:
             self = .Number(num: object.floatval)
         case XPATH_STRING:
-            self = .String(text: Swift.String(cString: UnsafePointer<CChar>(object.stringval)) ?? "")
+            guard let str = UnsafeRawPointer(object.stringval)?.assumingMemoryBound(to: CChar.self) else {
+                self = .String(text: "")
+                return
+            }
+            self = .String(text: Swift.String(cString: str))
             return
         default:
             self = .none

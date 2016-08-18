@@ -93,8 +93,8 @@ class KannaTests: XCTestCase {
     func testXml() {
         let filename = "test_XML_ExcelWorkbook"
         if let path = Bundle(for:self.classForCoder).path(forResource: filename, ofType:"xml"),
-            xml = try? Data(contentsOf: URL(fileURLWithPath: path)),
-            doc = XML(xml: xml, encoding: .utf8) {
+            let xml = try? Data(contentsOf: URL(fileURLWithPath: path)),
+            let doc = XML(xml: xml, encoding: .utf8) {
                 let namespaces = [
                     "o":  "urn:schemas-microsoft-com:office:office",
                     "ss": "urn:schemas-microsoft-com:office:spreadsheet"
@@ -190,12 +190,12 @@ class KannaTests: XCTestCase {
             }
             
             if let starTable = doc.at_css("table[id='star table']"),
-                   allStarStr = starTable.at_css("tfoot > tr > td:nth-child(2)")?.text,
-                   allStar = Int(allStarStr) {
+                   let allStarStr = starTable.at_css("tfoot > tr > td:nth-child(2)")?.text,
+                   let allStar = Int(allStarStr) {
                     var count = 0
                     for starNode in starTable.css("tbody > tr > td:nth-child(2)") {
                         if let starStr = starNode.text,
-                               star    = Int(starStr) {
+                               let star    = Int(starStr) {
                             count += star
                         }
                     }
@@ -254,8 +254,8 @@ class KannaTests: XCTestCase {
 
         do {
             guard let doc = HTML(html: html, encoding: .utf8),
-                h1 = doc.at_css("h1"),
-                div = doc.at_css("div") else {
+                let h1 = doc.at_css("h1"),
+                let div = doc.at_css("div") else {
                     return
             }
             div.addPrevSibling(h1)
@@ -264,8 +264,8 @@ class KannaTests: XCTestCase {
 
         do {
             guard let doc = HTML(html: html, encoding: .utf8),
-                h1 = doc.at_css("h1"),
-                div = doc.at_css("div") else {
+                let h1 = doc.at_css("h1"),
+                let div = doc.at_css("div") else {
                     return
             }
             div.addNextSibling(h1)

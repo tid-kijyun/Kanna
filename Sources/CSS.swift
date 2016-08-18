@@ -254,11 +254,11 @@ private func getAttribute(_ str: inout String, skip: Bool = true) -> String? {
                 
                 let nthFunc = (nth == "nth-child") ? nth_child : nth_last_child
                 if arg1 == "odd" {
-                    return nthFunc(a: 2, b: 1)
+                    return nthFunc(2, 1)
                 } else if arg1 == "even" {
-                    return nthFunc(a: 2, b: 0)
+                    return nthFunc(2, 0)
                 } else {
-                    return nthFunc(a: 0, b: Int(arg1)!)
+                    return nthFunc(0, Int(arg1)!)
                 }
             } else if let sub = matchSubNthChildN(one) {
                 let (nth, arg1, arg2) = (substringWithRangeAtIndex(sub, str: one, at: 1),
@@ -268,7 +268,7 @@ private func getAttribute(_ str: inout String, skip: Bool = true) -> String? {
                 let nthFunc = (nth == "nth-child") ? nth_child : nth_last_child
                 let a: Int = (arg1 == "-") ? -1 : Int(arg1)!
                 let b: Int = (arg2.isEmpty) ? 0 : Int(arg2)!
-                return nthFunc(a: a, b: b)
+                return nthFunc(a, b)
             } else if let sub = matchSubNthOfType(one) {
                 let arg1   = substringWithRangeAtIndex(sub, str: one, at: 1)
                 if arg1 == "odd" {
