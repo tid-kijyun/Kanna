@@ -83,7 +83,7 @@ internal final class libxmlHTMLNode: XMLElement {
             var attr = nodePtr?.pointee.properties
             while attr != nil {
                 let mem = attr?.pointee
-                if let tagName = String(validatingUTF8: UnsafePointer((mem?.name)!)) {
+                if let tagName = String(validatingUTF8: UnsafeRawPointer((mem?.name)!).assumingMemoryBound(to: CChar.self)) {
                     if attributeName == tagName {
                         return libxmlGetNodeContent((mem?.children)!)
                     }
@@ -191,7 +191,7 @@ internal final class libxmlHTMLNode: XMLElement {
 
 private func libxmlGetNodeContent(_ nodePtr: xmlNodePtr) -> String? {
     let content = xmlNodeGetContent(nodePtr)
-    if let result  = String(validatingUTF8: UnsafePointer(content!)) {
+    if let result  = String(validatingUTF8: UnsafeRawPointer(content!).assumingMemoryBound(to: CChar.self)) {
         content?.deallocate(capacity: 1)
         return result
     }
