@@ -31,13 +31,20 @@ Installation:
 
 ### Swift 3.x
 
-Open terminal.app and execute `sudo xcode-select -switch /Applications/Xcode-beta.app/Contents/Developer`
+#####CocoaPods
+**:warning: CocoaPods (`0.39 or later`) is required.**
+
+Adding it to your `Podfile`:
+```
+use_frameworks!
+pod 'Kanna', '~> 2.0.0'
+```
 
 #####Carthage
 Adding it to your `Cartfile`:
 
 ```
-github "tid-kijyun/Kanna" "swift3.0"
+github "tid-kijyun/Kanna" ~> 2.0.0
 ```
 
 1. In the project settings add `$(SDKROOT)/usr/include/libxml2` to the "header search paths" field
