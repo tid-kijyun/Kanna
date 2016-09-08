@@ -84,11 +84,11 @@ internal final class libxmlHTMLDocument: HTMLDocument {
             return nil
         }
         let cfenc : CFStringEncoding = CFStringConvertNSStringEncodingToEncoding(encoding.rawValue)
-        let cfencstr = CFStringConvertEncodingToIANACharSetName(cfenc)
+        let cfencstr = CFStringConvertEncodingToIANACharSetName(cfenc) as? String
         
         if let cur = html.cString(using: encoding) {
             let url : String = ""
-            docPtr = htmlReadDoc(UnsafeRawPointer(cur).assumingMemoryBound(to: xmlChar.self), url, (cfencstr as? String) ?? "", CInt(option))
+            docPtr = htmlReadDoc(UnsafeRawPointer(cur).assumingMemoryBound(to: xmlChar.self), url, cfencstr ?? "", CInt(option))
             rootNode  = libxmlHTMLNode(docPtr: docPtr!)
         } else {
             return nil
