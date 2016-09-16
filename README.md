@@ -31,7 +31,7 @@ Features:
 Installation:
 =================
 
-### Swift 3.x (Beta)
+### Swift 3.0
 
 #####CocoaPods
 **:warning: CocoaPods (`0.39 or later`) is required.**
