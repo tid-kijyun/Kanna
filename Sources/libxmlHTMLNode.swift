@@ -22,7 +22,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-import Foundation
+import libxml2
 
 /**
 libxmlHTMLNode
@@ -30,7 +30,7 @@ libxmlHTMLNode
 internal final class libxmlHTMLNode: XMLElement {
     var text: String? {
         if nodePtr != nil {
-            return libxmlGetNodeContent(nodePtr)
+            return libxmlGetNodeContent(nodePtr!)
         }
         return nil
     }
@@ -38,7 +38,7 @@ internal final class libxmlHTMLNode: XMLElement {
     var toHTML: String? {
         let buf = xmlBufferCreate()
         htmlNodeDump(buf, docPtr, nodePtr)
-        let html = String.fromCString(UnsafePointer(buf.memory.content))
+        let html = String(cString: UnsafePointer((buf?.pointee.content)!))
         xmlBufferFree(buf)
         return html
     }
@@ -46,15 +46,16 @@ internal final class libxmlHTMLNode: XMLElement {
     var toXML: String? {
         let buf = xmlBufferCreate()
         xmlNodeDump(buf, docPtr, nodePtr, 0, 0)
-        let html = String.fromCString(UnsafePointer(buf.memory.content))
+        let html = String(cString: UnsafePointer((buf?.pointee.content)!))
         xmlBufferFree(buf)
         return html
     }
     
     var innerHTML: String? {
         if let html = self.toHTML {
-            let inner = html.stringByReplacingOccurrencesOfString("</[^>]*>$", withString: "", options: .RegularExpressionSearch, range: nil)
-                            .stringByReplacingOccurrencesOfString("^<[^>]*>", withString: "", options: .RegularExpressionSearch, range: nil)
+
+            let inner = html.replacingOccurrences(of: "</[^>]*>$", with: "", options: [.regularExpression], range: nil)
+                            .replacingOccurrences(of: "^<[^>]*>", with: "", options: [.regularExpression], range: nil)
             return inner
         }
         return nil
@@ -65,62 +66,29 @@ internal final class libxmlHTMLNode: XMLElement {
     }
     
     var tagName:   String? {
-        get {
-            if nodePtr != nil {
-                return String.fromCString(UnsafePointer(nodePtr.memory.name))
-            }
-            return nil
+        if nodePtr != nil {
+            return String(cString: UnsafePointer((nodePtr?.pointee.name)!))
         }
-
-        set {
-            if let newValue = newValue {
-                xmlNodeSetName(nodePtr, newValue)
-            }
-        }
+        return nil
     }
-
-    var content: String? {
-        get {
-            return text
-        }
-
-        set {
-            if let newValue = newValue {
-                let v = escape(newValue)
-                xmlNodeSetContent(nodePtr, v)
-            }
-        }
-    }
-
-    var parent: XMLElement? {
-        get {
-            return libxmlHTMLNode(docPtr: docPtr, node: nodePtr.memory.parent)
-        }
-
-        set {
-            if let node = newValue as? libxmlHTMLNode {
-                node.addChild(self)
-            }
-        }
-    }
-
-    private var docPtr:  htmlDocPtr = nil
-    private var nodePtr: xmlNodePtr = nil
+    
+    private var docPtr:  htmlDocPtr? = nil
+    private var nodePtr: xmlNodePtr? = nil
     private var isRoot:  Bool       = false
     
     
     subscript(attributeName: String) -> String?
     {
         get {
-            var attr = nodePtr.memory.properties
+            var attr = nodePtr?.pointee.properties
             while attr != nil {
-                let mem = attr.memory
-                if let tagName = String.fromCString(UnsafePointer(mem.name)) {
+                let mem = attr?.pointee
+                if let tagName = String(validatingUTF8: UnsafeRawPointer((mem?.name)!).assumingMemoryBound(to: CChar.self)) {
                     if attributeName == tagName {
-                        return libxmlGetNodeContent(mem.children)
+                        return libxmlGetNodeContent((mem?.children)!)
                     }
                 }
-                attr = attr.memory.next
+                attr = attr?.pointee.next
             }
             return nil
         }
@@ -146,12 +114,12 @@ internal final class libxmlHTMLNode: XMLElement {
     }
     
     // MARK: Searchable
-    func xpath(xpath: String, namespaces: [String:String]?) -> XPathObject {
+    func xpath(_ xpath: String, namespaces: [String:String]?) -> XPathObject {
         let ctxt = xmlXPathNewContext(docPtr)
         if ctxt == nil {
-            return XPathObject.None
+            return XPathObject.none
         }
-        ctxt.memory.node = nodePtr
+        ctxt?.pointee.node = nodePtr
         
         if let nsDictionary = namespaces {
             for (ns, name) in nsDictionary {
@@ -165,25 +133,25 @@ internal final class libxmlHTMLNode: XMLElement {
         }
         xmlXPathFreeContext(ctxt)
         if result == nil {
-            return XPathObject.None
+            return XPathObject.none
         }
 
-        return XPathObject(docPtr: docPtr, object: result.memory)
+        return XPathObject(docPtr: docPtr!, object: result!.pointee)
     }
     
-    func xpath(xpath: String) -> XPathObject {
+    func xpath(_ xpath: String) -> XPathObject {
         return self.xpath(xpath, namespaces: nil)
     }
     
-    func at_xpath(xpath: String, namespaces: [String:String]?) -> XMLElement? {
+    func at_xpath(_ xpath: String, namespaces: [String:String]?) -> XMLElement? {
         return self.xpath(xpath, namespaces: namespaces).nodeSetValue.first
     }
     
-    func at_xpath(xpath: String) -> XMLElement? {
+    func at_xpath(_ xpath: String) -> XMLElement? {
         return self.at_xpath(xpath, namespaces: nil)
     }
     
-    func css(selector: String, namespaces: [String:String]?) -> XPathObject {
+    func css(_ selector: String, namespaces: [String:String]?) -> XPathObject {
         if let xpath = CSS.toXPath(selector) {
             if isRoot {
                 return self.xpath(xpath, namespaces: namespaces)
@@ -191,45 +159,36 @@ internal final class libxmlHTMLNode: XMLElement {
                 return self.xpath("." + xpath, namespaces: namespaces)
             }
         }
-        return XPathObject.None
+        return XPathObject.none
     }
     
-    func css(selector: String) -> XPathObject {
+    func css(_ selector: String) -> XPathObject {
         return self.css(selector, namespaces: nil)
     }
     
-    func at_css(selector: String, namespaces: [String:String]?) -> XMLElement? {
+    func at_css(_ selector: String, namespaces: [String:String]?) -> XMLElement? {
         return self.css(selector, namespaces: namespaces).nodeSetValue.first
     }
     
-    func at_css(selector: String) -> XMLElement? {
+    func at_css(_ selector: String) -> XMLElement? {
         return self.css(selector, namespaces: nil).nodeSetValue.first
     }
 
-    func addPrevSibling(node: XMLElement) {
+    func addPrevSibling(_ node: XMLElement) {
         guard let node = node as? libxmlHTMLNode else {
             return
         }
         xmlAddPrevSibling(nodePtr, node.nodePtr)
     }
 
-    func addNextSibling(node: XMLElement) {
+    func addNextSibling(_ node: XMLElement) {
         guard let node = node as? libxmlHTMLNode else {
             return
         }
         xmlAddNextSibling(nodePtr, node.nodePtr)
     }
 
-    func addChild(node: XMLElement) {
-        guard let node = node as? libxmlHTMLNode else {
-            return
-        }
-        xmlUnlinkNode(node.nodePtr)
-        xmlAddChild(nodePtr, node.nodePtr)
-    }
-    
-    func removeChild(node: XMLElement) {
-        
+    func removeChild(_ node: XMLElement) {
         guard let node = node as? libxmlHTMLNode else {
             return
         }
@@ -238,27 +197,12 @@ internal final class libxmlHTMLNode: XMLElement {
     }
 }
 
-private func libxmlGetNodeContent(nodePtr: xmlNodePtr) -> String? {
+private func libxmlGetNodeContent(_ nodePtr: xmlNodePtr) -> String? {
     let content = xmlNodeGetContent(nodePtr)
-    if let result  = String.fromCString(UnsafePointer(content)) {
-        content.dealloc(1)
+    if let result  = String(validatingUTF8: UnsafeRawPointer(content!).assumingMemoryBound(to: CChar.self)) {
+        content?.deallocate(capacity: 1)
         return result
     }
-    content.dealloc(1)
+    content?.deallocate(capacity: 1)
     return nil
 }
-
-let entities = [
-    "&": "&amp;",
-    "<" : "&lt;",
-    ">" : "&gt;",
-]
-
-private func escape(str: String) -> String {
-    var newStr = str
-    for (unesc, esc) in entities {
-        newStr = newStr.stringByReplacingOccurrencesOfString(unesc, withString: esc, options: .RegularExpressionSearch, range: nil)
-    }
-    return newStr
-}
-

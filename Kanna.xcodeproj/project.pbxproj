@@ -40,124 +40,106 @@
 		1EAFA0F91B603A71001F3D84 /* KannaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAFA0F81B603A71001F3D84 /* KannaTests.swift */; };
 		1EBA8A321B6561D900226B9C /* test_XML_ExcelWorkbook.xml in Resources */ = {isa = PBXBuildFile; fileRef = 1EBA8A311B6561D900226B9C /* test_XML_ExcelWorkbook.xml */; };
 		1EC47DB51BC9729F00647902 /* Kanna.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EC47DAB1BC9729F00647902 /* Kanna.framework */; };
-		1EF2516E1D20CADB005757A0 /* KannaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAFA0F81B603A71001F3D84 /* KannaTests.swift */; };
-		1EF251711D20CD2C005757A0 /* versions.xml in Resources */ = {isa = PBXBuildFile; fileRef = 1EF251701D20CD2C005757A0 /* versions.xml */; };
-		1EF251721D20CD8F005757A0 /* versions.xml in Resources */ = {isa = PBXBuildFile; fileRef = 1EF251701D20CD2C005757A0 /* versions.xml */; };
-		1EF251731D20CD93005757A0 /* versions.xml in Resources */ = {isa = PBXBuildFile; fileRef = 1EF251701D20CD2C005757A0 /* versions.xml */; };
-		1EF251741D20CD96005757A0 /* versions.xml in Resources */ = {isa = PBXBuildFile; fileRef = 1EF251701D20CD2C005757A0 /* versions.xml */; };
-		1EF251761D20D043005757A0 /* libraries.xml in Resources */ = {isa = PBXBuildFile; fileRef = 1EF251751D20D043005757A0 /* libraries.xml */; };
-		1EF251771D20D058005757A0 /* libraries.xml in Resources */ = {isa = PBXBuildFile; fileRef = 1EF251751D20D043005757A0 /* libraries.xml */; };
-		1EF251781D20D05C005757A0 /* libraries.xml in Resources */ = {isa = PBXBuildFile; fileRef = 1EF251751D20D043005757A0 /* libraries.xml */; };
-		1EF251791D20D05F005757A0 /* libraries.xml in Resources */ = {isa = PBXBuildFile; fileRef = 1EF251751D20D043005757A0 /* libraries.xml */; };
-		1EF2517A1D20D064005757A0 /* test_HTML4.html in Resources */ = {isa = PBXBuildFile; fileRef = 1E69153E1B64114900AF1851 /* test_HTML4.html */; };
-		1EF2517B1D20D064005757A0 /* test_XML_ExcelWorkbook.xml in Resources */ = {isa = PBXBuildFile; fileRef = 1EBA8A311B6561D900226B9C /* test_XML_ExcelWorkbook.xml */; };
-		1EF2517D1D20EBED005757A0 /* sample.html in Resources */ = {isa = PBXBuildFile; fileRef = 1EF2517C1D20EBED005757A0 /* sample.html */; };
-		1EF2517E1D20EBFB005757A0 /* sample.html in Resources */ = {isa = PBXBuildFile; fileRef = 1EF2517C1D20EBED005757A0 /* sample.html */; };
-		1EF2517F1D20EBFE005757A0 /* sample.html in Resources */ = {isa = PBXBuildFile; fileRef = 1EF2517C1D20EBED005757A0 /* sample.html */; };
-		1EF251801D20EC00005757A0 /* sample.html in Resources */ = {isa = PBXBuildFile; fileRef = 1EF2517C1D20EBED005757A0 /* sample.html */; };
-		1EF251811D225F48005757A0 /* KannaTutorialsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF2516A1D20CA73005757A0 /* KannaTutorialsTest.swift */; };
-		1EF251821D225F48005757A0 /* KannaTutorialsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF2516A1D20CA73005757A0 /* KannaTutorialsTest.swift */; };
-		1EF251831D225F48005757A0 /* KannaTutorialsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF2516A1D20CA73005757A0 /* KannaTutorialsTest.swift */; };
-		1EF2519E1D226E71005757A0 /* dict.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251851D226E71005757A0 /* dict.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF2519F1D226E71005757A0 /* dict.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251851D226E71005757A0 /* dict.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251A01D226E71005757A0 /* dict.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251851D226E71005757A0 /* dict.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251A11D226E71005757A0 /* dict.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251851D226E71005757A0 /* dict.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251A21D226E71005757A0 /* encoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251861D226E71005757A0 /* encoding.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251A31D226E71005757A0 /* encoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251861D226E71005757A0 /* encoding.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251A41D226E71005757A0 /* encoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251861D226E71005757A0 /* encoding.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251A51D226E71005757A0 /* encoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251861D226E71005757A0 /* encoding.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251A61D226E71005757A0 /* entities.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251871D226E71005757A0 /* entities.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251A71D226E71005757A0 /* entities.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251871D226E71005757A0 /* entities.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251A81D226E71005757A0 /* entities.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251871D226E71005757A0 /* entities.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251A91D226E71005757A0 /* entities.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251871D226E71005757A0 /* entities.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251AA1D226E71005757A0 /* globals.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251881D226E71005757A0 /* globals.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251AB1D226E71005757A0 /* globals.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251881D226E71005757A0 /* globals.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251AC1D226E71005757A0 /* globals.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251881D226E71005757A0 /* globals.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251AD1D226E71005757A0 /* globals.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251881D226E71005757A0 /* globals.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251AE1D226E71005757A0 /* hash.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251891D226E71005757A0 /* hash.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251AF1D226E71005757A0 /* hash.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251891D226E71005757A0 /* hash.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251B01D226E71005757A0 /* hash.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251891D226E71005757A0 /* hash.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251B11D226E71005757A0 /* hash.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251891D226E71005757A0 /* hash.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251B21D226E71005757A0 /* HTMLparser.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF2518A1D226E71005757A0 /* HTMLparser.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251B31D226E71005757A0 /* HTMLparser.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF2518A1D226E71005757A0 /* HTMLparser.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251B41D226E71005757A0 /* HTMLparser.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF2518A1D226E71005757A0 /* HTMLparser.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251B51D226E71005757A0 /* HTMLparser.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF2518A1D226E71005757A0 /* HTMLparser.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251B61D226E71005757A0 /* HTMLtree.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF2518B1D226E71005757A0 /* HTMLtree.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251B71D226E71005757A0 /* HTMLtree.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF2518B1D226E71005757A0 /* HTMLtree.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251B81D226E71005757A0 /* HTMLtree.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF2518B1D226E71005757A0 /* HTMLtree.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251B91D226E71005757A0 /* HTMLtree.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF2518B1D226E71005757A0 /* HTMLtree.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251BA1D226E71005757A0 /* list.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF2518C1D226E71005757A0 /* list.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251BB1D226E71005757A0 /* list.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF2518C1D226E71005757A0 /* list.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251BC1D226E71005757A0 /* list.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF2518C1D226E71005757A0 /* list.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251BD1D226E71005757A0 /* list.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF2518C1D226E71005757A0 /* list.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251BE1D226E71005757A0 /* parser.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF2518D1D226E71005757A0 /* parser.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251BF1D226E71005757A0 /* parser.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF2518D1D226E71005757A0 /* parser.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251C01D226E71005757A0 /* parser.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF2518D1D226E71005757A0 /* parser.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251C11D226E71005757A0 /* parser.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF2518D1D226E71005757A0 /* parser.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251C21D226E71005757A0 /* SAX.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF2518E1D226E71005757A0 /* SAX.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251C31D226E71005757A0 /* SAX.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF2518E1D226E71005757A0 /* SAX.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251C41D226E71005757A0 /* SAX.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF2518E1D226E71005757A0 /* SAX.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251C51D226E71005757A0 /* SAX.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF2518E1D226E71005757A0 /* SAX.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251C61D226E71005757A0 /* SAX2.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF2518F1D226E71005757A0 /* SAX2.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251C71D226E71005757A0 /* SAX2.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF2518F1D226E71005757A0 /* SAX2.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251C81D226E71005757A0 /* SAX2.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF2518F1D226E71005757A0 /* SAX2.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251C91D226E71005757A0 /* SAX2.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF2518F1D226E71005757A0 /* SAX2.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251CA1D226E71005757A0 /* threads.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251901D226E71005757A0 /* threads.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251CB1D226E71005757A0 /* threads.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251901D226E71005757A0 /* threads.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251CC1D226E71005757A0 /* threads.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251901D226E71005757A0 /* threads.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251CD1D226E71005757A0 /* threads.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251901D226E71005757A0 /* threads.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251CE1D226E71005757A0 /* tree.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251911D226E71005757A0 /* tree.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251CF1D226E71005757A0 /* tree.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251911D226E71005757A0 /* tree.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251D01D226E71005757A0 /* tree.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251911D226E71005757A0 /* tree.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251D11D226E71005757A0 /* tree.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251911D226E71005757A0 /* tree.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251D21D226E71005757A0 /* valid.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251921D226E71005757A0 /* valid.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251D31D226E71005757A0 /* valid.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251921D226E71005757A0 /* valid.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251D41D226E71005757A0 /* valid.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251921D226E71005757A0 /* valid.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251D51D226E71005757A0 /* valid.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251921D226E71005757A0 /* valid.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251D61D226E71005757A0 /* xlink.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251931D226E71005757A0 /* xlink.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251D71D226E71005757A0 /* xlink.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251931D226E71005757A0 /* xlink.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251D81D226E71005757A0 /* xlink.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251931D226E71005757A0 /* xlink.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251D91D226E71005757A0 /* xlink.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251931D226E71005757A0 /* xlink.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251DA1D226E71005757A0 /* xmlautomata.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251941D226E71005757A0 /* xmlautomata.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251DB1D226E71005757A0 /* xmlautomata.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251941D226E71005757A0 /* xmlautomata.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251DC1D226E71005757A0 /* xmlautomata.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251941D226E71005757A0 /* xmlautomata.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251DD1D226E71005757A0 /* xmlautomata.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251941D226E71005757A0 /* xmlautomata.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251DE1D226E71005757A0 /* xmlerror.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251951D226E71005757A0 /* xmlerror.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251DF1D226E71005757A0 /* xmlerror.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251951D226E71005757A0 /* xmlerror.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251E01D226E71005757A0 /* xmlerror.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251951D226E71005757A0 /* xmlerror.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251E11D226E71005757A0 /* xmlerror.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251951D226E71005757A0 /* xmlerror.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251E21D226E71005757A0 /* xmlexports.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251961D226E71005757A0 /* xmlexports.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251E31D226E71005757A0 /* xmlexports.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251961D226E71005757A0 /* xmlexports.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251E41D226E71005757A0 /* xmlexports.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251961D226E71005757A0 /* xmlexports.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251E51D226E71005757A0 /* xmlexports.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251961D226E71005757A0 /* xmlexports.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251E61D226E71005757A0 /* xmlIO.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251971D226E71005757A0 /* xmlIO.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251E71D226E71005757A0 /* xmlIO.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251971D226E71005757A0 /* xmlIO.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251E81D226E71005757A0 /* xmlIO.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251971D226E71005757A0 /* xmlIO.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251E91D226E71005757A0 /* xmlIO.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251971D226E71005757A0 /* xmlIO.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251EA1D226E71005757A0 /* xmlmemory.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251981D226E71005757A0 /* xmlmemory.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251EB1D226E71005757A0 /* xmlmemory.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251981D226E71005757A0 /* xmlmemory.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251EC1D226E71005757A0 /* xmlmemory.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251981D226E71005757A0 /* xmlmemory.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251ED1D226E71005757A0 /* xmlmemory.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251981D226E71005757A0 /* xmlmemory.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251EE1D226E71005757A0 /* xmlregexp.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251991D226E71005757A0 /* xmlregexp.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251EF1D226E71005757A0 /* xmlregexp.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251991D226E71005757A0 /* xmlregexp.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251F01D226E71005757A0 /* xmlregexp.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251991D226E71005757A0 /* xmlregexp.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251F11D226E71005757A0 /* xmlregexp.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF251991D226E71005757A0 /* xmlregexp.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251F21D226E71005757A0 /* xmlstring.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF2519A1D226E71005757A0 /* xmlstring.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251F31D226E71005757A0 /* xmlstring.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF2519A1D226E71005757A0 /* xmlstring.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251F41D226E71005757A0 /* xmlstring.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF2519A1D226E71005757A0 /* xmlstring.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251F51D226E71005757A0 /* xmlstring.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF2519A1D226E71005757A0 /* xmlstring.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251F61D226E71005757A0 /* xmlversion.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF2519B1D226E71005757A0 /* xmlversion.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251F71D226E71005757A0 /* xmlversion.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF2519B1D226E71005757A0 /* xmlversion.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251F81D226E71005757A0 /* xmlversion.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF2519B1D226E71005757A0 /* xmlversion.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251F91D226E71005757A0 /* xmlversion.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF2519B1D226E71005757A0 /* xmlversion.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251FA1D226E71005757A0 /* xpath.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF2519C1D226E71005757A0 /* xpath.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251FB1D226E71005757A0 /* xpath.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF2519C1D226E71005757A0 /* xpath.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251FC1D226E71005757A0 /* xpath.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF2519C1D226E71005757A0 /* xpath.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251FD1D226E71005757A0 /* xpath.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF2519C1D226E71005757A0 /* xpath.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251FE1D226E71005757A0 /* xpathInternals.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF2519D1D226E71005757A0 /* xpathInternals.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF251FF1D226E71005757A0 /* xpathInternals.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF2519D1D226E71005757A0 /* xpathInternals.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF252001D226E71005757A0 /* xpathInternals.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF2519D1D226E71005757A0 /* xpathInternals.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EF252011D226E71005757A0 /* xpathInternals.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF2519D1D226E71005757A0 /* xpathInternals.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC850D11D8BAA7E0061C284 /* dict.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850B81D8BAA7E0061C284 /* dict.h */; };
+		1EC850D21D8BAA7E0061C284 /* dict.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850B81D8BAA7E0061C284 /* dict.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC850D31D8BAA7E0061C284 /* dict.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850B81D8BAA7E0061C284 /* dict.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC850D41D8BAA7E0061C284 /* dict.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850B81D8BAA7E0061C284 /* dict.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC850D51D8BAA7E0061C284 /* encoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850B91D8BAA7E0061C284 /* encoding.h */; };
+		1EC850D61D8BAA7E0061C284 /* encoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850B91D8BAA7E0061C284 /* encoding.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC850D71D8BAA7E0061C284 /* encoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850B91D8BAA7E0061C284 /* encoding.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC850D81D8BAA7E0061C284 /* encoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850B91D8BAA7E0061C284 /* encoding.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC850D91D8BAA7E0061C284 /* entities.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850BA1D8BAA7E0061C284 /* entities.h */; };
+		1EC850DA1D8BAA7E0061C284 /* entities.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850BA1D8BAA7E0061C284 /* entities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC850DB1D8BAA7E0061C284 /* entities.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850BA1D8BAA7E0061C284 /* entities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC850DC1D8BAA7E0061C284 /* entities.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850BA1D8BAA7E0061C284 /* entities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC850DD1D8BAA7E0061C284 /* globals.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850BB1D8BAA7E0061C284 /* globals.h */; };
+		1EC850DE1D8BAA7E0061C284 /* globals.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850BB1D8BAA7E0061C284 /* globals.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC850DF1D8BAA7E0061C284 /* globals.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850BB1D8BAA7E0061C284 /* globals.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC850E01D8BAA7E0061C284 /* globals.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850BB1D8BAA7E0061C284 /* globals.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC850E11D8BAA7E0061C284 /* hash.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850BC1D8BAA7E0061C284 /* hash.h */; };
+		1EC850E21D8BAA7E0061C284 /* hash.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850BC1D8BAA7E0061C284 /* hash.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC850E31D8BAA7E0061C284 /* hash.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850BC1D8BAA7E0061C284 /* hash.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC850E41D8BAA7E0061C284 /* hash.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850BC1D8BAA7E0061C284 /* hash.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC850E51D8BAA7E0061C284 /* HTMLparser.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850BD1D8BAA7E0061C284 /* HTMLparser.h */; };
+		1EC850E61D8BAA7E0061C284 /* HTMLparser.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850BD1D8BAA7E0061C284 /* HTMLparser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC850E71D8BAA7E0061C284 /* HTMLparser.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850BD1D8BAA7E0061C284 /* HTMLparser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC850E81D8BAA7E0061C284 /* HTMLparser.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850BD1D8BAA7E0061C284 /* HTMLparser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC850E91D8BAA7E0061C284 /* HTMLtree.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850BE1D8BAA7E0061C284 /* HTMLtree.h */; };
+		1EC850EA1D8BAA7E0061C284 /* HTMLtree.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850BE1D8BAA7E0061C284 /* HTMLtree.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC850EB1D8BAA7E0061C284 /* HTMLtree.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850BE1D8BAA7E0061C284 /* HTMLtree.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC850EC1D8BAA7E0061C284 /* HTMLtree.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850BE1D8BAA7E0061C284 /* HTMLtree.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC850ED1D8BAA7E0061C284 /* list.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850BF1D8BAA7E0061C284 /* list.h */; };
+		1EC850EE1D8BAA7E0061C284 /* list.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850BF1D8BAA7E0061C284 /* list.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC850EF1D8BAA7E0061C284 /* list.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850BF1D8BAA7E0061C284 /* list.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC850F01D8BAA7E0061C284 /* list.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850BF1D8BAA7E0061C284 /* list.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC850F11D8BAA7E0061C284 /* parser.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850C01D8BAA7E0061C284 /* parser.h */; };
+		1EC850F21D8BAA7E0061C284 /* parser.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850C01D8BAA7E0061C284 /* parser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC850F31D8BAA7E0061C284 /* parser.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850C01D8BAA7E0061C284 /* parser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC850F41D8BAA7E0061C284 /* parser.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850C01D8BAA7E0061C284 /* parser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC850F51D8BAA7E0061C284 /* SAX.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850C11D8BAA7E0061C284 /* SAX.h */; };
+		1EC850F61D8BAA7E0061C284 /* SAX.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850C11D8BAA7E0061C284 /* SAX.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC850F71D8BAA7E0061C284 /* SAX.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850C11D8BAA7E0061C284 /* SAX.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC850F81D8BAA7E0061C284 /* SAX.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850C11D8BAA7E0061C284 /* SAX.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC850F91D8BAA7E0061C284 /* SAX2.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850C21D8BAA7E0061C284 /* SAX2.h */; };
+		1EC850FA1D8BAA7E0061C284 /* SAX2.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850C21D8BAA7E0061C284 /* SAX2.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC850FB1D8BAA7E0061C284 /* SAX2.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850C21D8BAA7E0061C284 /* SAX2.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC850FC1D8BAA7E0061C284 /* SAX2.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850C21D8BAA7E0061C284 /* SAX2.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC850FD1D8BAA7E0061C284 /* threads.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850C31D8BAA7E0061C284 /* threads.h */; };
+		1EC850FE1D8BAA7E0061C284 /* threads.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850C31D8BAA7E0061C284 /* threads.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC850FF1D8BAA7E0061C284 /* threads.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850C31D8BAA7E0061C284 /* threads.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC851001D8BAA7E0061C284 /* threads.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850C31D8BAA7E0061C284 /* threads.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC851011D8BAA7E0061C284 /* tree.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850C41D8BAA7E0061C284 /* tree.h */; };
+		1EC851021D8BAA7E0061C284 /* tree.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850C41D8BAA7E0061C284 /* tree.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC851031D8BAA7E0061C284 /* tree.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850C41D8BAA7E0061C284 /* tree.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC851041D8BAA7E0061C284 /* tree.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850C41D8BAA7E0061C284 /* tree.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC851051D8BAA7E0061C284 /* valid.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850C51D8BAA7E0061C284 /* valid.h */; };
+		1EC851061D8BAA7E0061C284 /* valid.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850C51D8BAA7E0061C284 /* valid.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC851071D8BAA7E0061C284 /* valid.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850C51D8BAA7E0061C284 /* valid.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC851081D8BAA7E0061C284 /* valid.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850C51D8BAA7E0061C284 /* valid.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC851091D8BAA7E0061C284 /* xlink.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850C61D8BAA7E0061C284 /* xlink.h */; };
+		1EC8510A1D8BAA7E0061C284 /* xlink.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850C61D8BAA7E0061C284 /* xlink.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC8510B1D8BAA7E0061C284 /* xlink.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850C61D8BAA7E0061C284 /* xlink.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC8510C1D8BAA7E0061C284 /* xlink.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850C61D8BAA7E0061C284 /* xlink.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC8510D1D8BAA7E0061C284 /* xmlautomata.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850C71D8BAA7E0061C284 /* xmlautomata.h */; };
+		1EC8510E1D8BAA7E0061C284 /* xmlautomata.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850C71D8BAA7E0061C284 /* xmlautomata.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC8510F1D8BAA7E0061C284 /* xmlautomata.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850C71D8BAA7E0061C284 /* xmlautomata.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC851101D8BAA7E0061C284 /* xmlautomata.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850C71D8BAA7E0061C284 /* xmlautomata.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC851111D8BAA7E0061C284 /* xmlerror.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850C81D8BAA7E0061C284 /* xmlerror.h */; };
+		1EC851121D8BAA7E0061C284 /* xmlerror.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850C81D8BAA7E0061C284 /* xmlerror.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC851131D8BAA7E0061C284 /* xmlerror.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850C81D8BAA7E0061C284 /* xmlerror.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC851141D8BAA7E0061C284 /* xmlerror.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850C81D8BAA7E0061C284 /* xmlerror.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC851151D8BAA7E0061C284 /* xmlexports.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850C91D8BAA7E0061C284 /* xmlexports.h */; };
+		1EC851161D8BAA7E0061C284 /* xmlexports.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850C91D8BAA7E0061C284 /* xmlexports.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC851171D8BAA7E0061C284 /* xmlexports.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850C91D8BAA7E0061C284 /* xmlexports.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC851181D8BAA7E0061C284 /* xmlexports.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850C91D8BAA7E0061C284 /* xmlexports.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC851191D8BAA7E0061C284 /* xmlIO.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850CA1D8BAA7E0061C284 /* xmlIO.h */; };
+		1EC8511A1D8BAA7E0061C284 /* xmlIO.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850CA1D8BAA7E0061C284 /* xmlIO.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC8511B1D8BAA7E0061C284 /* xmlIO.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850CA1D8BAA7E0061C284 /* xmlIO.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC8511C1D8BAA7E0061C284 /* xmlIO.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850CA1D8BAA7E0061C284 /* xmlIO.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC8511D1D8BAA7E0061C284 /* xmlmemory.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850CB1D8BAA7E0061C284 /* xmlmemory.h */; };
+		1EC8511E1D8BAA7E0061C284 /* xmlmemory.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850CB1D8BAA7E0061C284 /* xmlmemory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC8511F1D8BAA7E0061C284 /* xmlmemory.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850CB1D8BAA7E0061C284 /* xmlmemory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC851201D8BAA7E0061C284 /* xmlmemory.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850CB1D8BAA7E0061C284 /* xmlmemory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC851211D8BAA7E0061C284 /* xmlregexp.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850CC1D8BAA7E0061C284 /* xmlregexp.h */; };
+		1EC851221D8BAA7E0061C284 /* xmlregexp.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850CC1D8BAA7E0061C284 /* xmlregexp.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC851231D8BAA7E0061C284 /* xmlregexp.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850CC1D8BAA7E0061C284 /* xmlregexp.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC851241D8BAA7E0061C284 /* xmlregexp.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850CC1D8BAA7E0061C284 /* xmlregexp.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC851251D8BAA7E0061C284 /* xmlstring.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850CD1D8BAA7E0061C284 /* xmlstring.h */; };
+		1EC851261D8BAA7E0061C284 /* xmlstring.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850CD1D8BAA7E0061C284 /* xmlstring.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC851271D8BAA7E0061C284 /* xmlstring.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850CD1D8BAA7E0061C284 /* xmlstring.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC851281D8BAA7E0061C284 /* xmlstring.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850CD1D8BAA7E0061C284 /* xmlstring.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC851291D8BAA7E0061C284 /* xmlversion.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850CE1D8BAA7E0061C284 /* xmlversion.h */; };
+		1EC8512A1D8BAA7E0061C284 /* xmlversion.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850CE1D8BAA7E0061C284 /* xmlversion.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC8512B1D8BAA7E0061C284 /* xmlversion.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850CE1D8BAA7E0061C284 /* xmlversion.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC8512C1D8BAA7E0061C284 /* xmlversion.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850CE1D8BAA7E0061C284 /* xmlversion.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC8512D1D8BAA7E0061C284 /* xpath.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850CF1D8BAA7E0061C284 /* xpath.h */; };
+		1EC8512E1D8BAA7E0061C284 /* xpath.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850CF1D8BAA7E0061C284 /* xpath.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC8512F1D8BAA7E0061C284 /* xpath.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850CF1D8BAA7E0061C284 /* xpath.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC851301D8BAA7E0061C284 /* xpath.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850CF1D8BAA7E0061C284 /* xpath.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC851311D8BAA7E0061C284 /* xpathInternals.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850D01D8BAA7E0061C284 /* xpathInternals.h */; };
+		1EC851321D8BAA7E0061C284 /* xpathInternals.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850D01D8BAA7E0061C284 /* xpathInternals.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC851331D8BAA7E0061C284 /* xpathInternals.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850D01D8BAA7E0061C284 /* xpathInternals.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EC851341D8BAA7E0061C284 /* xpathInternals.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC850D01D8BAA7E0061C284 /* xpathInternals.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -205,35 +187,31 @@
 		1EBA8A6B1B6632E800226B9C /* Kanna.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Kanna.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EC47DAB1BC9729F00647902 /* Kanna.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Kanna.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EC47DB41BC9729F00647902 /* Kanna_tvOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Kanna_tvOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1EF2516A1D20CA73005757A0 /* KannaTutorialsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KannaTutorialsTest.swift; path = Tests/KannaTutorialsTest.swift; sourceTree = SOURCE_ROOT; };
-		1EF251701D20CD2C005757A0 /* versions.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = versions.xml; path = Tests/versions.xml; sourceTree = SOURCE_ROOT; };
-		1EF251751D20D043005757A0 /* libraries.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = libraries.xml; path = Tests/libraries.xml; sourceTree = SOURCE_ROOT; };
-		1EF2517C1D20EBED005757A0 /* sample.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = sample.html; path = Tests/sample.html; sourceTree = SOURCE_ROOT; };
-		1EF251851D226E71005757A0 /* dict.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dict.h; sourceTree = "<group>"; };
-		1EF251861D226E71005757A0 /* encoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = encoding.h; sourceTree = "<group>"; };
-		1EF251871D226E71005757A0 /* entities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = entities.h; sourceTree = "<group>"; };
-		1EF251881D226E71005757A0 /* globals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = globals.h; sourceTree = "<group>"; };
-		1EF251891D226E71005757A0 /* hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hash.h; sourceTree = "<group>"; };
-		1EF2518A1D226E71005757A0 /* HTMLparser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMLparser.h; sourceTree = "<group>"; };
-		1EF2518B1D226E71005757A0 /* HTMLtree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMLtree.h; sourceTree = "<group>"; };
-		1EF2518C1D226E71005757A0 /* list.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = list.h; sourceTree = "<group>"; };
-		1EF2518D1D226E71005757A0 /* parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parser.h; sourceTree = "<group>"; };
-		1EF2518E1D226E71005757A0 /* SAX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAX.h; sourceTree = "<group>"; };
-		1EF2518F1D226E71005757A0 /* SAX2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAX2.h; sourceTree = "<group>"; };
-		1EF251901D226E71005757A0 /* threads.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = threads.h; sourceTree = "<group>"; };
-		1EF251911D226E71005757A0 /* tree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tree.h; sourceTree = "<group>"; };
-		1EF251921D226E71005757A0 /* valid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = valid.h; sourceTree = "<group>"; };
-		1EF251931D226E71005757A0 /* xlink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xlink.h; sourceTree = "<group>"; };
-		1EF251941D226E71005757A0 /* xmlautomata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xmlautomata.h; sourceTree = "<group>"; };
-		1EF251951D226E71005757A0 /* xmlerror.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xmlerror.h; sourceTree = "<group>"; };
-		1EF251961D226E71005757A0 /* xmlexports.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xmlexports.h; sourceTree = "<group>"; };
-		1EF251971D226E71005757A0 /* xmlIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xmlIO.h; sourceTree = "<group>"; };
-		1EF251981D226E71005757A0 /* xmlmemory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xmlmemory.h; sourceTree = "<group>"; };
-		1EF251991D226E71005757A0 /* xmlregexp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xmlregexp.h; sourceTree = "<group>"; };
-		1EF2519A1D226E71005757A0 /* xmlstring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xmlstring.h; sourceTree = "<group>"; };
-		1EF2519B1D226E71005757A0 /* xmlversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xmlversion.h; sourceTree = "<group>"; };
-		1EF2519C1D226E71005757A0 /* xpath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xpath.h; sourceTree = "<group>"; };
-		1EF2519D1D226E71005757A0 /* xpathInternals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xpathInternals.h; sourceTree = "<group>"; };
+		1EC850B81D8BAA7E0061C284 /* dict.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dict.h; sourceTree = "<group>"; };
+		1EC850B91D8BAA7E0061C284 /* encoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = encoding.h; sourceTree = "<group>"; };
+		1EC850BA1D8BAA7E0061C284 /* entities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = entities.h; sourceTree = "<group>"; };
+		1EC850BB1D8BAA7E0061C284 /* globals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = globals.h; sourceTree = "<group>"; };
+		1EC850BC1D8BAA7E0061C284 /* hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hash.h; sourceTree = "<group>"; };
+		1EC850BD1D8BAA7E0061C284 /* HTMLparser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMLparser.h; sourceTree = "<group>"; };
+		1EC850BE1D8BAA7E0061C284 /* HTMLtree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMLtree.h; sourceTree = "<group>"; };
+		1EC850BF1D8BAA7E0061C284 /* list.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = list.h; sourceTree = "<group>"; };
+		1EC850C01D8BAA7E0061C284 /* parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parser.h; sourceTree = "<group>"; };
+		1EC850C11D8BAA7E0061C284 /* SAX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAX.h; sourceTree = "<group>"; };
+		1EC850C21D8BAA7E0061C284 /* SAX2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAX2.h; sourceTree = "<group>"; };
+		1EC850C31D8BAA7E0061C284 /* threads.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = threads.h; sourceTree = "<group>"; };
+		1EC850C41D8BAA7E0061C284 /* tree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tree.h; sourceTree = "<group>"; };
+		1EC850C51D8BAA7E0061C284 /* valid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = valid.h; sourceTree = "<group>"; };
+		1EC850C61D8BAA7E0061C284 /* xlink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xlink.h; sourceTree = "<group>"; };
+		1EC850C71D8BAA7E0061C284 /* xmlautomata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xmlautomata.h; sourceTree = "<group>"; };
+		1EC850C81D8BAA7E0061C284 /* xmlerror.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xmlerror.h; sourceTree = "<group>"; };
+		1EC850C91D8BAA7E0061C284 /* xmlexports.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xmlexports.h; sourceTree = "<group>"; };
+		1EC850CA1D8BAA7E0061C284 /* xmlIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xmlIO.h; sourceTree = "<group>"; };
+		1EC850CB1D8BAA7E0061C284 /* xmlmemory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xmlmemory.h; sourceTree = "<group>"; };
+		1EC850CC1D8BAA7E0061C284 /* xmlregexp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xmlregexp.h; sourceTree = "<group>"; };
+		1EC850CD1D8BAA7E0061C284 /* xmlstring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xmlstring.h; sourceTree = "<group>"; };
+		1EC850CE1D8BAA7E0061C284 /* xmlversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xmlversion.h; sourceTree = "<group>"; };
+		1EC850CF1D8BAA7E0061C284 /* xpath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xpath.h; sourceTree = "<group>"; };
+		1EC850D01D8BAA7E0061C284 /* xpathInternals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xpathInternals.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -328,7 +306,7 @@
 		1EAFA0DA1B6039D5001F3D84 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				1EF251841D226E71005757A0 /* libxml */,
+				1EC850B71D8BAA7E0061C284 /* libxml */,
 				1E689A811C86AB330027BEA1 /* CSS.swift */,
 				1E689A821C86AB330027BEA1 /* Kanna.h */,
 				1E689A831C86AB330027BEA1 /* Kanna.swift */,
@@ -353,12 +331,8 @@
 			isa = PBXGroup;
 			children = (
 				1EAFA0F81B603A71001F3D84 /* KannaTests.swift */,
-				1EF2516A1D20CA73005757A0 /* KannaTutorialsTest.swift */,
 				1E69153E1B64114900AF1851 /* test_HTML4.html */,
 				1EBA8A311B6561D900226B9C /* test_XML_ExcelWorkbook.xml */,
-				1EF251701D20CD2C005757A0 /* versions.xml */,
-				1EF251751D20D043005757A0 /* libraries.xml */,
-				1EF2517C1D20EBED005757A0 /* sample.html */,
 				1EAFA0E81B6039D5001F3D84 /* Supporting Files */,
 			);
 			name = Tests;
@@ -373,34 +347,34 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		1EF251841D226E71005757A0 /* libxml */ = {
+		1EC850B71D8BAA7E0061C284 /* libxml */ = {
 			isa = PBXGroup;
 			children = (
-				1EF251851D226E71005757A0 /* dict.h */,
-				1EF251861D226E71005757A0 /* encoding.h */,
-				1EF251871D226E71005757A0 /* entities.h */,
-				1EF251881D226E71005757A0 /* globals.h */,
-				1EF251891D226E71005757A0 /* hash.h */,
-				1EF2518A1D226E71005757A0 /* HTMLparser.h */,
-				1EF2518B1D226E71005757A0 /* HTMLtree.h */,
-				1EF2518C1D226E71005757A0 /* list.h */,
-				1EF2518D1D226E71005757A0 /* parser.h */,
-				1EF2518E1D226E71005757A0 /* SAX.h */,
-				1EF2518F1D226E71005757A0 /* SAX2.h */,
-				1EF251901D226E71005757A0 /* threads.h */,
-				1EF251911D226E71005757A0 /* tree.h */,
-				1EF251921D226E71005757A0 /* valid.h */,
-				1EF251931D226E71005757A0 /* xlink.h */,
-				1EF251941D226E71005757A0 /* xmlautomata.h */,
-				1EF251951D226E71005757A0 /* xmlerror.h */,
-				1EF251961D226E71005757A0 /* xmlexports.h */,
-				1EF251971D226E71005757A0 /* xmlIO.h */,
-				1EF251981D226E71005757A0 /* xmlmemory.h */,
-				1EF251991D226E71005757A0 /* xmlregexp.h */,
-				1EF2519A1D226E71005757A0 /* xmlstring.h */,
-				1EF2519B1D226E71005757A0 /* xmlversion.h */,
-				1EF2519C1D226E71005757A0 /* xpath.h */,
-				1EF2519D1D226E71005757A0 /* xpathInternals.h */,
+				1EC850B81D8BAA7E0061C284 /* dict.h */,
+				1EC850B91D8BAA7E0061C284 /* encoding.h */,
+				1EC850BA1D8BAA7E0061C284 /* entities.h */,
+				1EC850BB1D8BAA7E0061C284 /* globals.h */,
+				1EC850BC1D8BAA7E0061C284 /* hash.h */,
+				1EC850BD1D8BAA7E0061C284 /* HTMLparser.h */,
+				1EC850BE1D8BAA7E0061C284 /* HTMLtree.h */,
+				1EC850BF1D8BAA7E0061C284 /* list.h */,
+				1EC850C01D8BAA7E0061C284 /* parser.h */,
+				1EC850C11D8BAA7E0061C284 /* SAX.h */,
+				1EC850C21D8BAA7E0061C284 /* SAX2.h */,
+				1EC850C31D8BAA7E0061C284 /* threads.h */,
+				1EC850C41D8BAA7E0061C284 /* tree.h */,
+				1EC850C51D8BAA7E0061C284 /* valid.h */,
+				1EC850C61D8BAA7E0061C284 /* xlink.h */,
+				1EC850C71D8BAA7E0061C284 /* xmlautomata.h */,
+				1EC850C81D8BAA7E0061C284 /* xmlerror.h */,
+				1EC850C91D8BAA7E0061C284 /* xmlexports.h */,
+				1EC850CA1D8BAA7E0061C284 /* xmlIO.h */,
+				1EC850CB1D8BAA7E0061C284 /* xmlmemory.h */,
+				1EC850CC1D8BAA7E0061C284 /* xmlregexp.h */,
+				1EC850CD1D8BAA7E0061C284 /* xmlstring.h */,
+				1EC850CE1D8BAA7E0061C284 /* xmlversion.h */,
+				1EC850CF1D8BAA7E0061C284 /* xpath.h */,
+				1EC850D01D8BAA7E0061C284 /* xpathInternals.h */,
 			);
 			name = libxml;
 			path = Sources/libxml;
@@ -413,31 +387,31 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1EF251D51D226E71005757A0 /* valid.h in Headers */,
-				1EF251C51D226E71005757A0 /* SAX.h in Headers */,
-				1EF251A11D226E71005757A0 /* dict.h in Headers */,
-				1EF252011D226E71005757A0 /* xpathInternals.h in Headers */,
-				1EF251D91D226E71005757A0 /* xlink.h in Headers */,
-				1EF251FD1D226E71005757A0 /* xpath.h in Headers */,
-				1EF251CD1D226E71005757A0 /* threads.h in Headers */,
-				1EF251AD1D226E71005757A0 /* globals.h in Headers */,
-				1EF251B51D226E71005757A0 /* HTMLparser.h in Headers */,
-				1EF251C11D226E71005757A0 /* parser.h in Headers */,
-				1EF251F51D226E71005757A0 /* xmlstring.h in Headers */,
-				1EF251F91D226E71005757A0 /* xmlversion.h in Headers */,
-				1EF251D11D226E71005757A0 /* tree.h in Headers */,
-				1EF251ED1D226E71005757A0 /* xmlmemory.h in Headers */,
-				1EF251B11D226E71005757A0 /* hash.h in Headers */,
-				1EF251BD1D226E71005757A0 /* list.h in Headers */,
-				1EF251E51D226E71005757A0 /* xmlexports.h in Headers */,
-				1EF251E11D226E71005757A0 /* xmlerror.h in Headers */,
-				1EF251A91D226E71005757A0 /* entities.h in Headers */,
-				1EF251F11D226E71005757A0 /* xmlregexp.h in Headers */,
-				1EF251B91D226E71005757A0 /* HTMLtree.h in Headers */,
-				1EF251A51D226E71005757A0 /* encoding.h in Headers */,
-				1EF251C91D226E71005757A0 /* SAX2.h in Headers */,
-				1EF251DD1D226E71005757A0 /* xmlautomata.h in Headers */,
-				1EF251E91D226E71005757A0 /* xmlIO.h in Headers */,
+				1EC851081D8BAA7E0061C284 /* valid.h in Headers */,
+				1EC850F81D8BAA7E0061C284 /* SAX.h in Headers */,
+				1EC850D41D8BAA7E0061C284 /* dict.h in Headers */,
+				1EC851341D8BAA7E0061C284 /* xpathInternals.h in Headers */,
+				1EC8510C1D8BAA7E0061C284 /* xlink.h in Headers */,
+				1EC851301D8BAA7E0061C284 /* xpath.h in Headers */,
+				1EC851001D8BAA7E0061C284 /* threads.h in Headers */,
+				1EC850E01D8BAA7E0061C284 /* globals.h in Headers */,
+				1EC850E81D8BAA7E0061C284 /* HTMLparser.h in Headers */,
+				1EC850F41D8BAA7E0061C284 /* parser.h in Headers */,
+				1EC851281D8BAA7E0061C284 /* xmlstring.h in Headers */,
+				1EC8512C1D8BAA7E0061C284 /* xmlversion.h in Headers */,
+				1EC851041D8BAA7E0061C284 /* tree.h in Headers */,
+				1EC851201D8BAA7E0061C284 /* xmlmemory.h in Headers */,
+				1EC850E41D8BAA7E0061C284 /* hash.h in Headers */,
+				1EC850F01D8BAA7E0061C284 /* list.h in Headers */,
+				1EC851181D8BAA7E0061C284 /* xmlexports.h in Headers */,
+				1EC851141D8BAA7E0061C284 /* xmlerror.h in Headers */,
+				1EC850DC1D8BAA7E0061C284 /* entities.h in Headers */,
+				1EC851241D8BAA7E0061C284 /* xmlregexp.h in Headers */,
+				1EC850EC1D8BAA7E0061C284 /* HTMLtree.h in Headers */,
+				1EC850D81D8BAA7E0061C284 /* encoding.h in Headers */,
+				1EC850FC1D8BAA7E0061C284 /* SAX2.h in Headers */,
+				1EC851101D8BAA7E0061C284 /* xmlautomata.h in Headers */,
+				1EC8511C1D8BAA7E0061C284 /* xmlIO.h in Headers */,
 				1E689A8E1C86AB330027BEA1 /* Kanna.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -446,31 +420,31 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1EF251D21D226E71005757A0 /* valid.h in Headers */,
-				1EF251C21D226E71005757A0 /* SAX.h in Headers */,
-				1EF2519E1D226E71005757A0 /* dict.h in Headers */,
-				1EF251FE1D226E71005757A0 /* xpathInternals.h in Headers */,
-				1EF251D61D226E71005757A0 /* xlink.h in Headers */,
-				1EF251FA1D226E71005757A0 /* xpath.h in Headers */,
-				1EF251CA1D226E71005757A0 /* threads.h in Headers */,
-				1EF251AA1D226E71005757A0 /* globals.h in Headers */,
-				1EF251B21D226E71005757A0 /* HTMLparser.h in Headers */,
-				1EF251BE1D226E71005757A0 /* parser.h in Headers */,
-				1EF251F21D226E71005757A0 /* xmlstring.h in Headers */,
-				1EF251F61D226E71005757A0 /* xmlversion.h in Headers */,
-				1EF251CE1D226E71005757A0 /* tree.h in Headers */,
-				1EF251EA1D226E71005757A0 /* xmlmemory.h in Headers */,
-				1EF251AE1D226E71005757A0 /* hash.h in Headers */,
-				1EF251BA1D226E71005757A0 /* list.h in Headers */,
-				1EF251E21D226E71005757A0 /* xmlexports.h in Headers */,
-				1EF251DE1D226E71005757A0 /* xmlerror.h in Headers */,
-				1EF251A61D226E71005757A0 /* entities.h in Headers */,
-				1EF251EE1D226E71005757A0 /* xmlregexp.h in Headers */,
-				1EF251B61D226E71005757A0 /* HTMLtree.h in Headers */,
-				1EF251A21D226E71005757A0 /* encoding.h in Headers */,
-				1EF251C61D226E71005757A0 /* SAX2.h in Headers */,
-				1EF251DA1D226E71005757A0 /* xmlautomata.h in Headers */,
-				1EF251E61D226E71005757A0 /* xmlIO.h in Headers */,
+				1EC851051D8BAA7E0061C284 /* valid.h in Headers */,
+				1EC850F51D8BAA7E0061C284 /* SAX.h in Headers */,
+				1EC850D11D8BAA7E0061C284 /* dict.h in Headers */,
+				1EC851311D8BAA7E0061C284 /* xpathInternals.h in Headers */,
+				1EC851091D8BAA7E0061C284 /* xlink.h in Headers */,
+				1EC8512D1D8BAA7E0061C284 /* xpath.h in Headers */,
+				1EC850FD1D8BAA7E0061C284 /* threads.h in Headers */,
+				1EC850DD1D8BAA7E0061C284 /* globals.h in Headers */,
+				1EC850E51D8BAA7E0061C284 /* HTMLparser.h in Headers */,
+				1EC850F11D8BAA7E0061C284 /* parser.h in Headers */,
+				1EC851251D8BAA7E0061C284 /* xmlstring.h in Headers */,
+				1EC851291D8BAA7E0061C284 /* xmlversion.h in Headers */,
+				1EC851011D8BAA7E0061C284 /* tree.h in Headers */,
+				1EC8511D1D8BAA7E0061C284 /* xmlmemory.h in Headers */,
+				1EC850E11D8BAA7E0061C284 /* hash.h in Headers */,
+				1EC850ED1D8BAA7E0061C284 /* list.h in Headers */,
+				1EC851151D8BAA7E0061C284 /* xmlexports.h in Headers */,
+				1EC851111D8BAA7E0061C284 /* xmlerror.h in Headers */,
+				1EC850D91D8BAA7E0061C284 /* entities.h in Headers */,
+				1EC851211D8BAA7E0061C284 /* xmlregexp.h in Headers */,
+				1EC850E91D8BAA7E0061C284 /* HTMLtree.h in Headers */,
+				1EC850D51D8BAA7E0061C284 /* encoding.h in Headers */,
+				1EC850F91D8BAA7E0061C284 /* SAX2.h in Headers */,
+				1EC8510D1D8BAA7E0061C284 /* xmlautomata.h in Headers */,
+				1EC851191D8BAA7E0061C284 /* xmlIO.h in Headers */,
 				1E689A8B1C86AB330027BEA1 /* Kanna.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -479,31 +453,31 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1EF251D31D226E71005757A0 /* valid.h in Headers */,
-				1EF251C31D226E71005757A0 /* SAX.h in Headers */,
-				1EF2519F1D226E71005757A0 /* dict.h in Headers */,
-				1EF251FF1D226E71005757A0 /* xpathInternals.h in Headers */,
-				1EF251D71D226E71005757A0 /* xlink.h in Headers */,
-				1EF251FB1D226E71005757A0 /* xpath.h in Headers */,
-				1EF251CB1D226E71005757A0 /* threads.h in Headers */,
-				1EF251AB1D226E71005757A0 /* globals.h in Headers */,
-				1EF251B31D226E71005757A0 /* HTMLparser.h in Headers */,
-				1EF251BF1D226E71005757A0 /* parser.h in Headers */,
-				1EF251F31D226E71005757A0 /* xmlstring.h in Headers */,
-				1EF251F71D226E71005757A0 /* xmlversion.h in Headers */,
-				1EF251CF1D226E71005757A0 /* tree.h in Headers */,
-				1EF251EB1D226E71005757A0 /* xmlmemory.h in Headers */,
-				1EF251AF1D226E71005757A0 /* hash.h in Headers */,
-				1EF251BB1D226E71005757A0 /* list.h in Headers */,
-				1EF251E31D226E71005757A0 /* xmlexports.h in Headers */,
-				1EF251DF1D226E71005757A0 /* xmlerror.h in Headers */,
-				1EF251A71D226E71005757A0 /* entities.h in Headers */,
-				1EF251EF1D226E71005757A0 /* xmlregexp.h in Headers */,
-				1EF251B71D226E71005757A0 /* HTMLtree.h in Headers */,
-				1EF251A31D226E71005757A0 /* encoding.h in Headers */,
-				1EF251C71D226E71005757A0 /* SAX2.h in Headers */,
-				1EF251DB1D226E71005757A0 /* xmlautomata.h in Headers */,
-				1EF251E71D226E71005757A0 /* xmlIO.h in Headers */,
+				1EC851061D8BAA7E0061C284 /* valid.h in Headers */,
+				1EC850F61D8BAA7E0061C284 /* SAX.h in Headers */,
+				1EC850D21D8BAA7E0061C284 /* dict.h in Headers */,
+				1EC851321D8BAA7E0061C284 /* xpathInternals.h in Headers */,
+				1EC8510A1D8BAA7E0061C284 /* xlink.h in Headers */,
+				1EC8512E1D8BAA7E0061C284 /* xpath.h in Headers */,
+				1EC850FE1D8BAA7E0061C284 /* threads.h in Headers */,
+				1EC850DE1D8BAA7E0061C284 /* globals.h in Headers */,
+				1EC850E61D8BAA7E0061C284 /* HTMLparser.h in Headers */,
+				1EC850F21D8BAA7E0061C284 /* parser.h in Headers */,
+				1EC851261D8BAA7E0061C284 /* xmlstring.h in Headers */,
+				1EC8512A1D8BAA7E0061C284 /* xmlversion.h in Headers */,
+				1EC851021D8BAA7E0061C284 /* tree.h in Headers */,
+				1EC8511E1D8BAA7E0061C284 /* xmlmemory.h in Headers */,
+				1EC850E21D8BAA7E0061C284 /* hash.h in Headers */,
+				1EC850EE1D8BAA7E0061C284 /* list.h in Headers */,
+				1EC851161D8BAA7E0061C284 /* xmlexports.h in Headers */,
+				1EC851121D8BAA7E0061C284 /* xmlerror.h in Headers */,
+				1EC850DA1D8BAA7E0061C284 /* entities.h in Headers */,
+				1EC851221D8BAA7E0061C284 /* xmlregexp.h in Headers */,
+				1EC850EA1D8BAA7E0061C284 /* HTMLtree.h in Headers */,
+				1EC850D61D8BAA7E0061C284 /* encoding.h in Headers */,
+				1EC850FA1D8BAA7E0061C284 /* SAX2.h in Headers */,
+				1EC8510E1D8BAA7E0061C284 /* xmlautomata.h in Headers */,
+				1EC8511A1D8BAA7E0061C284 /* xmlIO.h in Headers */,
 				1E689A8C1C86AB330027BEA1 /* Kanna.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -512,31 +486,31 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1EF251D41D226E71005757A0 /* valid.h in Headers */,
-				1EF251C41D226E71005757A0 /* SAX.h in Headers */,
-				1EF251A01D226E71005757A0 /* dict.h in Headers */,
-				1EF252001D226E71005757A0 /* xpathInternals.h in Headers */,
-				1EF251D81D226E71005757A0 /* xlink.h in Headers */,
-				1EF251FC1D226E71005757A0 /* xpath.h in Headers */,
-				1EF251CC1D226E71005757A0 /* threads.h in Headers */,
-				1EF251AC1D226E71005757A0 /* globals.h in Headers */,
-				1EF251B41D226E71005757A0 /* HTMLparser.h in Headers */,
-				1EF251C01D226E71005757A0 /* parser.h in Headers */,
-				1EF251F41D226E71005757A0 /* xmlstring.h in Headers */,
-				1EF251F81D226E71005757A0 /* xmlversion.h in Headers */,
-				1EF251D01D226E71005757A0 /* tree.h in Headers */,
-				1EF251EC1D226E71005757A0 /* xmlmemory.h in Headers */,
-				1EF251B01D226E71005757A0 /* hash.h in Headers */,
-				1EF251BC1D226E71005757A0 /* list.h in Headers */,
-				1EF251E41D226E71005757A0 /* xmlexports.h in Headers */,
-				1EF251E01D226E71005757A0 /* xmlerror.h in Headers */,
-				1EF251A81D226E71005757A0 /* entities.h in Headers */,
-				1EF251F01D226E71005757A0 /* xmlregexp.h in Headers */,
-				1EF251B81D226E71005757A0 /* HTMLtree.h in Headers */,
-				1EF251A41D226E71005757A0 /* encoding.h in Headers */,
-				1EF251C81D226E71005757A0 /* SAX2.h in Headers */,
-				1EF251DC1D226E71005757A0 /* xmlautomata.h in Headers */,
-				1EF251E81D226E71005757A0 /* xmlIO.h in Headers */,
+				1EC851071D8BAA7E0061C284 /* valid.h in Headers */,
+				1EC850F71D8BAA7E0061C284 /* SAX.h in Headers */,
+				1EC850D31D8BAA7E0061C284 /* dict.h in Headers */,
+				1EC851331D8BAA7E0061C284 /* xpathInternals.h in Headers */,
+				1EC8510B1D8BAA7E0061C284 /* xlink.h in Headers */,
+				1EC8512F1D8BAA7E0061C284 /* xpath.h in Headers */,
+				1EC850FF1D8BAA7E0061C284 /* threads.h in Headers */,
+				1EC850DF1D8BAA7E0061C284 /* globals.h in Headers */,
+				1EC850E71D8BAA7E0061C284 /* HTMLparser.h in Headers */,
+				1EC850F31D8BAA7E0061C284 /* parser.h in Headers */,
+				1EC851271D8BAA7E0061C284 /* xmlstring.h in Headers */,
+				1EC8512B1D8BAA7E0061C284 /* xmlversion.h in Headers */,
+				1EC851031D8BAA7E0061C284 /* tree.h in Headers */,
+				1EC8511F1D8BAA7E0061C284 /* xmlmemory.h in Headers */,
+				1EC850E31D8BAA7E0061C284 /* hash.h in Headers */,
+				1EC850EF1D8BAA7E0061C284 /* list.h in Headers */,
+				1EC851171D8BAA7E0061C284 /* xmlexports.h in Headers */,
+				1EC851131D8BAA7E0061C284 /* xmlerror.h in Headers */,
+				1EC850DB1D8BAA7E0061C284 /* entities.h in Headers */,
+				1EC851231D8BAA7E0061C284 /* xmlregexp.h in Headers */,
+				1EC850EB1D8BAA7E0061C284 /* HTMLtree.h in Headers */,
+				1EC850D71D8BAA7E0061C284 /* encoding.h in Headers */,
+				1EC850FB1D8BAA7E0061C284 /* SAX2.h in Headers */,
+				1EC8510F1D8BAA7E0061C284 /* xmlautomata.h in Headers */,
+				1EC8511B1D8BAA7E0061C284 /* xmlIO.h in Headers */,
 				1E689A8D1C86AB330027BEA1 /* Kanna.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -682,6 +656,7 @@
 				TargetAttributes = {
 					1E206B831B665E6D00441E12 = {
 						CreatedOnToolsVersion = 6.4;
+						LastSwiftMigration = 0800;
 					};
 					1E4F86B41BD90AE1008EF835 = {
 						CreatedOnToolsVersion = 7.1;
@@ -694,6 +669,7 @@
 					};
 					1EBA8A6A1B6632E800226B9C = {
 						CreatedOnToolsVersion = 6.4;
+						LastSwiftMigration = 0800;
 					};
 					1EC47DAA1BC9729F00647902 = {
 						CreatedOnToolsVersion = 7.1;
@@ -731,9 +707,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1EF2517F1D20EBFE005757A0 /* sample.html in Resources */,
-				1EF251781D20D05C005757A0 /* libraries.xml in Resources */,
-				1EF251721D20CD8F005757A0 /* versions.xml in Resources */,
 				1E206B911B666AD400441E12 /* test_HTML4.html in Resources */,
 				1E206B921B666AD400441E12 /* test_XML_ExcelWorkbook.xml in Resources */,
 			);
@@ -750,9 +723,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1EF251711D20CD2C005757A0 /* versions.xml in Resources */,
-				1EF251761D20D043005757A0 /* libraries.xml in Resources */,
-				1EF2517D1D20EBED005757A0 /* sample.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -760,9 +730,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1EF2517E1D20EBFB005757A0 /* sample.html in Resources */,
-				1EF251771D20D058005757A0 /* libraries.xml in Resources */,
-				1EF251731D20CD93005757A0 /* versions.xml in Resources */,
 				1E69153F1B64114900AF1851 /* test_HTML4.html in Resources */,
 				1EBA8A321B6561D900226B9C /* test_XML_ExcelWorkbook.xml in Resources */,
 			);
@@ -786,11 +753,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1EF251801D20EC00005757A0 /* sample.html in Resources */,
-				1EF251741D20CD96005757A0 /* versions.xml in Resources */,
-				1EF251791D20D05F005757A0 /* libraries.xml in Resources */,
-				1EF2517A1D20D064005757A0 /* test_HTML4.html in Resources */,
-				1EF2517B1D20D064005757A0 /* test_XML_ExcelWorkbook.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -802,7 +764,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E206B901B665E8700441E12 /* KannaTests.swift in Sources */,
-				1EF251821D225F48005757A0 /* KannaTutorialsTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -835,7 +796,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1EAFA0F91B603A71001F3D84 /* KannaTests.swift in Sources */,
-				1EF251831D225F48005757A0 /* KannaTutorialsTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -867,8 +827,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1EF2516E1D20CADB005757A0 /* KannaTests.swift in Sources */,
-				1EF251811D225F48005757A0 /* KannaTutorialsTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -896,6 +854,7 @@
 		1E206B8E1B665E6D00441E12 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -912,13 +871,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tid.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		1E206B8F1B665E6D00441E12 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
@@ -931,7 +891,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -948,14 +908,12 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tid.Kanna;
 				PRODUCT_NAME = Kanna;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_INCLUDE_PATHS = "";
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Modules";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
@@ -973,14 +931,12 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tid.Kanna;
 				PRODUCT_NAME = Kanna;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_INCLUDE_PATHS = "";
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Modules";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
@@ -1028,7 +984,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/Sources/libxml",
+					"$(SDKROOT)/usr/include/libxml2",
+					"$(SRCROOT)/Library",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
@@ -1038,7 +995,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Modules";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1080,7 +1037,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/Sources/libxml",
+					"$(SDKROOT)/usr/include/libxml2",
+					"$(SRCROOT)/Library",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
@@ -1088,7 +1046,7 @@
 				OTHER_LDFLAGS = "";
 				SDKROOT = iphoneos;
 				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Modules";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1108,18 +1066,17 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
+					"$(SDKROOT)/usr/include/libxml2",
 					"$(SRCROOT)/Library",
 				);
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				OTHER_LDFLAGS = "-lxml2";
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tid.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Kanna;
 				SKIP_INSTALL = YES;
-				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -1136,18 +1093,17 @@
 				ENABLE_TESTABILITY = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
+					"$(SDKROOT)/usr/include/libxml2",
 					"$(SRCROOT)/Library",
 				);
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				OTHER_LDFLAGS = "-lxml2";
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tid.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Kanna;
 				SKIP_INSTALL = YES;
-				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -1170,7 +1126,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tid.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -1189,7 +1144,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tid.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -1213,14 +1167,12 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tid.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Kanna;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -1240,14 +1192,12 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tid.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Kanna;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -1264,14 +1214,11 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tid.Kanna;
 				PRODUCT_NAME = Kanna;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
-				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
@@ -1289,14 +1236,11 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tid.Kanna;
 				PRODUCT_NAME = Kanna;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
-				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
@@ -1305,13 +1249,13 @@
 		1EC47DBE1BC9729F00647902 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				INFOPLIST_FILE = KannaTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tid.KannaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				SWIFT_VERSION = 2.3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Debug;
@@ -1319,13 +1263,12 @@
 		1EC47DBF1BC9729F00647902 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				INFOPLIST_FILE = KannaTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tid.KannaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 2.3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Release;

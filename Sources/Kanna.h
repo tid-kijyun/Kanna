@@ -31,6 +31,3 @@ FOUNDATION_EXPORT double KannaVersionNumber;
 FOUNDATION_EXPORT const unsigned char KannaVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <Kanna/PublicHeader.h>
-#import "HTMLtree.h"
-#import "xpath.h"
-#import "xpathInternals.h"
