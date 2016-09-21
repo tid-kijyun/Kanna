@@ -21,7 +21,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
- */
+*/
 import Foundation
 
 /*
@@ -35,7 +35,7 @@ public struct Libxml2HTMLParserOptions : OptionSet {
     public init(rawValue value: UInt) { self.value = value }
     public init(nilLiteral: ()) { self.value = 0 }
     public static var allZeros: Libxml2HTMLParserOptions { return .init(0) }
-    static func fromMask(_ raw: UInt) -> Libxml2HTMLParserOptions { return .init(raw) }
+    static func fromMask(raw: UInt) -> Libxml2HTMLParserOptions { return .init(raw) }
     public var rawValue: UInt { return self.value }
     
     public static let STRICT     = Libxml2HTMLParserOptions(0)
@@ -62,7 +62,7 @@ public struct Libxml2XMLParserOptions: OptionSet {
     public init(rawValue value: UInt) { self.value = value }
     public init(nilLiteral: ()) { self.value = 0 }
     public static var allZeros: Libxml2XMLParserOptions { return .init(0) }
-    static func fromMask(_ raw: UInt) -> Libxml2XMLParserOptions { return .init(raw) }
+    static func fromMask(raw: UInt) -> Libxml2XMLParserOptions { return .init(raw) }
     public var rawValue: UInt { return self.value }
     
     public static let STRICT     = Libxml2XMLParserOptions(0)

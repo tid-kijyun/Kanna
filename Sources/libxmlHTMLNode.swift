@@ -53,9 +53,8 @@ internal final class libxmlHTMLNode: XMLElement {
     
     var innerHTML: String? {
         if let html = self.toHTML {
-
-            let inner = html.replacingOccurrences(of: "</[^>]*>$", with: "", options: [.regularExpression], range: nil)
-                            .replacingOccurrences(of: "^<[^>]*>", with: "", options: [.regularExpression], range: nil)
+            let inner = html.replacingOccurrences(of: "</[^>]*>$", with: "", options: .regularExpression, range: nil)
+                            .replacingOccurrences(of: "^<[^>]*>", with: "", options: .regularExpression, range: nil)
             return inner
         }
         return nil
@@ -66,15 +65,48 @@ internal final class libxmlHTMLNode: XMLElement {
     }
     
     var tagName:   String? {
-        if nodePtr != nil {
-            return String(cString: UnsafePointer((nodePtr?.pointee.name)!))
+        get {
+            if nodePtr != nil {
+                return String(cString: UnsafePointer((nodePtr?.pointee.name)!))
+            }
+            return nil
         }
-        return nil
+
+        set {
+            if let newValue = newValue {
+                xmlNodeSetName(nodePtr, newValue)
+            }
+        }
     }
-    
-    private var docPtr:  htmlDocPtr? = nil
-    private var nodePtr: xmlNodePtr? = nil
-    private var isRoot:  Bool       = false
+
+    var content: String? {
+        get {
+            return text
+        }
+
+        set {
+            if let newValue = newValue {
+                let v = escape(newValue)
+                xmlNodeSetContent(nodePtr, v)
+            }
+        }
+    }
+
+    var parent: XMLElement? {
+        get {
+            return libxmlHTMLNode(docPtr: docPtr!, node: (nodePtr?.pointee.parent)!)
+        }
+
+        set {
+            if let node = newValue as? libxmlHTMLNode {
+                node.addChild(self)
+            }
+        }
+    }
+
+    fileprivate var docPtr:  htmlDocPtr? = nil
+    fileprivate var nodePtr: xmlNodePtr? = nil
+    fileprivate var isRoot:  Bool       = false
     
     
     subscript(attributeName: String) -> String?
@@ -188,7 +220,16 @@ internal final class libxmlHTMLNode: XMLElement {
         xmlAddNextSibling(nodePtr, node.nodePtr)
     }
 
+    func addChild(_ node: XMLElement) {
+        guard let node = node as? libxmlHTMLNode else {
+            return
+        }
+        xmlUnlinkNode(node.nodePtr)
+        xmlAddChild(nodePtr, node.nodePtr)
+    }
+    
     func removeChild(_ node: XMLElement) {
+        
         guard let node = node as? libxmlHTMLNode else {
             return
         }
@@ -206,3 +247,18 @@ private func libxmlGetNodeContent(_ nodePtr: xmlNodePtr) -> String? {
     content?.deallocate(capacity: 1)
     return nil
 }
+
+let entities = [
+    "&": "&amp;",
+    "<" : "&lt;",
+    ">" : "&gt;",
+]
+
+private func escape(_ str: String) -> String {
+    var newStr = str
+    for (unesc, esc) in entities {
+        newStr = newStr.replacingOccurrences(of: unesc, with: esc, options: .regularExpression, range: nil)
+    }
+    return newStr
+}
+

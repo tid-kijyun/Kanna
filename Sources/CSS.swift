@@ -152,7 +152,7 @@ private func getElement(_ str: inout String, skip: Bool = true) -> String {
                              substringWithRangeAtIndex(result, str: str, at: 4))
         
         if skip {
-            str = str.substring(from: str.index(str.startIndex, offsetBy: result.range.length))
+            str = str.substring(from: str.characters.index(str.startIndex, offsetBy: result.range.length))
         }
         
         // tag with namespace
@@ -173,7 +173,7 @@ private func getClassId(_ str: inout String, skip: Bool = true) -> String? {
         let (attr, text) = (substringWithRangeAtIndex(result, str: str, at: 1),
                             substringWithRangeAtIndex(result, str: str, at: 2))
         if skip {
-            str = str.substring(from: str.index(str.startIndex, offsetBy: result.range.length))
+            str = str.substring(from: str.characters.index(str.startIndex, offsetBy: result.range.length))
         }
         
         if attr.hasPrefix("#") {
@@ -191,7 +191,7 @@ private func getAttribute(_ str: inout String, skip: Bool = true) -> String? {
                                   substringWithRangeAtIndex(result, str: str, at: 2),
                                   substringWithRangeAtIndex(result, str: str, at: 3))
         if skip {
-            str = str.substring(from: str.index(str.startIndex, offsetBy: result.range.length))
+            str = str.substring(from: str.characters.index(str.startIndex, offsetBy: result.range.length))
         }
         
         switch expr {
@@ -213,7 +213,7 @@ private func getAttribute(_ str: inout String, skip: Bool = true) -> String? {
     } else if let result = matchAttr1(str) {
         let atr = substringWithRangeAtIndex(result, str: str, at: 1)
         if skip {
-            str = str.substring(from: str.index(str.startIndex, offsetBy: result.range.length))
+            str = str.substring(from: str.characters.index(str.startIndex, offsetBy: result.range.length))
         }
         
         return "@\(atr)"
@@ -225,7 +225,7 @@ private func getAttribute(_ str: inout String, skip: Bool = true) -> String? {
     } else if let result = matchPseudo(str) {
         let one = substringWithRangeAtIndex(result, str: str, at: 1)
         if skip {
-            str = str.substring(from: str.index(str.startIndex, offsetBy: result.range.length))
+            str = str.substring(from: str.characters.index(str.startIndex, offsetBy: result.range.length))
         }
         
         switch one {
@@ -293,7 +293,7 @@ private func getAttrNot(_ str: inout String, skip: Bool = true) -> String? {
     if let result = matchAttrN(str) {
         var one = substringWithRangeAtIndex(result, str: str, at: 1)
         if skip {
-            str = str.substring(from: str.index(str.startIndex, offsetBy: result.range.length))
+            str = str.substring(from: str.characters.index(str.startIndex, offsetBy: result.range.length))
         }
         
         if let attr = getAttribute(&one, skip: false) {
@@ -312,7 +312,7 @@ private func genCombinator(_ str: inout String, skip: Bool = true) -> String? {
     if let result = matchCombinator(str) {
         let one = substringWithRangeAtIndex(result, str: str, at: 1)
         if skip {
-            str = str.substring(from: str.index(str.startIndex, offsetBy: result.range.length))
+            str = str.substring(from: str.characters.index(str.startIndex, offsetBy: result.range.length))
         }
         
         switch one {

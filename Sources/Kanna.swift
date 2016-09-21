@@ -152,13 +152,15 @@ public protocol SearchableNode: Searchable {
     var toXML:     String? { get }
     var innerHTML: String? { get }
     var className: String? { get }
-    var tagName:   String? { get }
+    var tagName:   String? { get set }
+    var content:   String? { get set }
 }
 
 /**
 XMLElement
 */
 public protocol XMLElement: SearchableNode {
+    var parent: XMLElement? { get set }
     subscript(attr: String) -> String? { get set }
 
     func addPrevSibling(_ node: XMLElement)
@@ -311,6 +313,10 @@ extension XPathObject {
 
     public subscript(index: Int) -> XMLElement {
         return nodeSet![index]
+    }
+
+    public var first: XMLElement? {
+        return nodeSet?.first
     }
 
     var nodeSet: XMLNodeSet? {
