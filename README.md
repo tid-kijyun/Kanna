@@ -34,7 +34,7 @@ Installation:
 ### Swift 3.0
 
 #####CocoaPods
-**:warning: CocoaPods (`0.39 or later`) is required.**
+**:warning: CocoaPods (`1.1.0 or later`) is required.**
 
 Adding it to your `Podfile`:
 ```
@@ -103,7 +103,7 @@ import Kanna
 
 let html = "<html>...</html>"
 
-if let doc = Kanna.HTML(html: html, encoding: NSUTF8StringEncoding) {
+if let doc = HTML(html: html, encoding: .utf8) {
     print(doc.title)
     
     // Search for nodes by CSS
@@ -122,7 +122,7 @@ if let doc = Kanna.HTML(html: html, encoding: NSUTF8StringEncoding) {
 
 ```swift
 let xml = "..."
-if let doc = Kanna.XML(xml: xml, encoding: NSUTF8StringEncoding) {
+if let doc = Kanna.XML(xml: xml, encoding: .utf8) {
     let namespaces = [
                     "o":  "urn:schemas-microsoft-com:office:office",
                     "ss": "urn:schemas-microsoft-com:office:spreadsheet"
