@@ -375,6 +375,13 @@ extension XPathObject {
         return nodeSet?.first
     }
 
+    public var count: Int {
+        guard let nodeset = nodeSet else {
+            return 0
+        }
+        return nodeset.count
+    }
+
     var nodeSet: XMLNodeSet? {
         if case let .NodeSet(nodeset) = self {
             return nodeset
