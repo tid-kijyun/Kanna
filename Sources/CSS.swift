@@ -126,7 +126,7 @@ private let matchBlank        = firstMatch("^\\s*|\\s$")
 private let matchElement      = firstMatch("^([a-z0-9\\*_-]+)((\\|)([a-z0-9\\*_-]+))?")
 private let matchClassId      = firstMatch("^([#.])([a-z0-9\\*_-]+)")
 private let matchAttr1        = firstMatch("^\\[([^\\]]*)\\]")
-private let matchAttr2        = firstMatch("^\\[\\s*([^~\\|\\^\\$\\*=\\s]+)\\s*([~\\|\\^\\$\\*]?=)\\s*[\"\']([^\"]*)[\"\']\\s*\\]")
+private let matchAttr2        = firstMatch("^\\[\\s*([^~\\|\\^\\$\\*=\\s]+)\\s*([~\\|\\^\\$\\*]?=)\\s*([^\"]*)\\s*\\]")
 private let matchAttrN        = firstMatch("^:not\\((.*?\\)?)\\)")
 private let matchPseudo       = firstMatch("^:([\'()a-z0-9_+-]+)")
 private let matchCombinator   = firstMatch("^\\s*([\\s>+~,])\\s*")
@@ -189,7 +189,8 @@ private func getAttribute(_ str: inout String, skip: Bool = true) -> String? {
     if let result = matchAttr2(str) {
         let (attr, expr, text) = (substringWithRangeAtIndex(result, str: str, at: 1),
                                   substringWithRangeAtIndex(result, str: str, at: 2),
-                                  substringWithRangeAtIndex(result, str: str, at: 3))
+                                  substringWithRangeAtIndex(result, str: str, at: 3).replacingOccurrences(of: "[\'\"](.*)[\'\"]", with: "$1", options: .regularExpression, range: nil))
+
         if skip {
             str = str.substring(from: str.characters.index(str.startIndex, offsetBy: result.range.length))
         }
