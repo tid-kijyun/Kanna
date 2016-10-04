@@ -24,6 +24,16 @@ SOFTWARE.
 */
 import Foundation
 
+#if os(Linux)
+import SwiftClibxml2
+
+typealias AKTextCheckingResult = TextCheckingResult
+typealias AKRegularExpression  = RegularExpression
+#else
+typealias AKRegularExpression  = NSRegularExpression
+typealias AKTextCheckingResult = NSTextCheckingResult
+#endif
+
 /**
 CSS
 */
@@ -45,7 +55,7 @@ public struct CSS {
             var combinator: String = ""
             
             if let result = matchBlank(str) {
-                str = (str as NSString).substring(from: result.range.length)
+                str = str.substring(from: str.index(str.startIndex, offsetBy: result.range.length))
             }
             
             // element
@@ -84,11 +94,11 @@ public struct CSS {
     }
 }
 
-private func firstMatch(_ pattern: String) -> (String) -> NSTextCheckingResult? {
+private func firstMatch(_ pattern: String) -> (String) -> AKTextCheckingResult? {
     return { str in
         let length = str.utf16.count
         do {
-            let regex = try NSRegularExpression(pattern: pattern, options: .caseInsensitive)
+            let regex = try AKRegularExpression(pattern: pattern, options: .caseInsensitive)
             if let result = regex.firstMatch(in: str, options: .reportProgress, range: NSRange(location: 0, length: length)) {
                 return result
             }
@@ -136,11 +146,17 @@ private let matchSubNthOfType = firstMatch("nth-of-type\\((odd|even|\\d+)\\)")
 private let matchSubContains  = firstMatch("contains\\([\"\'](.*?)[\"\']\\)")
 private let matchSubBlank     = firstMatch("^\\s*$")
 
-private func substringWithRangeAtIndex(_ result: NSTextCheckingResult, str: String, at: Int) -> String {
+private func substringWithRangeAtIndex(_ result: AKTextCheckingResult, str: String, at: Int) -> String {
     if result.numberOfRanges > at {
+        #if os(Linux)
+        let range = result.range(at: at)
+        #else
         let range = result.rangeAt(at)
+        #endif
         if range.length > 0 {
-            return (str as NSString).substring(with: range)
+            let startIndex = str.index(str.startIndex, offsetBy: range.location)
+            let endIndex = str.index(startIndex, offsetBy: range.length)
+            return str.substring(with: startIndex..<endIndex)
         }
     }
     return ""
@@ -300,7 +316,15 @@ private func getAttrNot(_ str: inout String, skip: Bool = true) -> String? {
         if let attr = getAttribute(&one, skip: false) {
             return attr
         } else if let sub = matchElement(one) {
-            let elem = (one as NSString).substring(with: sub.rangeAt(1))
+            #if os(Linux)
+            let range = sub.range(at: 1)
+            #else
+            let range = sub.rangeAt(1)
+            #endif
+            let startIndex = one.index(one.startIndex, offsetBy: range.location)
+            let endIndex   = one.index(startIndex, offsetBy: range.length)
+
+            let elem = one.substring(with: startIndex ..< endIndex)
             return "self::\(elem)"
         } else if let attr = getClassId(&one) {
             return attr

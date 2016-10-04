@@ -23,6 +23,11 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 import Foundation
+import CoreFoundation
+
+#if os(Linux)
+    import SwiftClibxml2
+#endif
 
 /*
 libxmlHTMLDocument
@@ -98,9 +103,9 @@ internal final class libxmlHTMLDocument: HTMLDocument {
         if html.lengthOfBytes(using: encoding) <= 0 {
             return nil
         }
+
         let cfenc : CFStringEncoding = CFStringConvertNSStringEncodingToEncoding(encoding.rawValue)
         let cfencstr = CFStringConvertEncodingToIANACharSetName(cfenc)
-        
         if let cur = html.cString(using: encoding) {
             let url : String = ""
             docPtr = htmlReadDoc(UnsafeRawPointer(cur).assumingMemoryBound(to: xmlChar.self), url, (cfencstr as? String) ?? "", CInt(option))
@@ -227,7 +232,6 @@ internal final class libxmlXMLDocument: XMLDocument {
         }
         let cfenc : CFStringEncoding = CFStringConvertNSStringEncodingToEncoding(encoding.rawValue)
         let cfencstr = CFStringConvertEncodingToIANACharSetName(cfenc)
-        
         if let cur = xml.cString(using: encoding) {
             let url : String = ""
             docPtr = xmlReadDoc(UnsafeRawPointer(cur).assumingMemoryBound(to: xmlChar.self), url, (cfencstr as? String) ?? "", CInt(option))

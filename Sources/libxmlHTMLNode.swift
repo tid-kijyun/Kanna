@@ -24,6 +24,10 @@ SOFTWARE.
 */
 import Foundation
 
+#if os(Linux)
+    import SwiftClibxml2
+#endif
+
 /**
 libxmlHTMLNode
 */
