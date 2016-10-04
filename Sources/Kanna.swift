@@ -24,6 +24,10 @@ SOFTWARE.
 */
 import Foundation
 
+#if os(Linux)
+    import SwiftClibxml2
+#endif
+
 /*
 ParseOption
 */
@@ -59,7 +63,7 @@ public func XML(xml: String, encoding: String.Encoding, option: ParseOption = kD
 
 // NSData
 public func XML(xml: Data, url: String?, encoding: String.Encoding, option: ParseOption = kDefaultXmlParseOption) -> XMLDocument? {
-    if let xmlStr = NSString(data: xml, encoding: encoding.rawValue) as? String {
+    if let xmlStr = String(data: xml, encoding: encoding) {
         return XML(xml: xmlStr, url: url, encoding: encoding, option: option)
     }
     return nil
@@ -128,7 +132,7 @@ public func HTML(html: String, encoding: String.Encoding, option: ParseOption = 
 
 // NSData
 public func HTML(html: Data, url: String?, encoding: String.Encoding, option: ParseOption = kDefaultHtmlParseOption) -> HTMLDocument? {
-    if let htmlStr = NSString(data: html, encoding: encoding.rawValue) as? String {
+    if let htmlStr = String(data: html, encoding: encoding) {
         return HTML(html: htmlStr, url: url, encoding: encoding, option: option)
     }
     return nil
