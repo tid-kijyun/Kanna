@@ -51,6 +51,20 @@ github "tid-kijyun/Kanna" ~> 2.0.0
 
 1. In the project settings add `$(SDKROOT)/usr/include/libxml2` to the "header search paths" field
 
+#####Swift Package Manager (beta)
+Adding it to your `Package.swift`:
+
+```
+import PackageDescription
+
+let package = Package(
+    name: "YourProject",
+    
+    dependencies: [
+        .Package(url: "https://github.com/tid-kijyun/Kanna.git", majorVersion: 2)
+    ]
+)
+```
 
 ### Swift 2.x
 
