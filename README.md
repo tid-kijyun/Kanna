@@ -1,7 +1,7 @@
 Kanna(鉋)
 =================
 
-Kanna(鉋) is an XML/HTML parser for Mac OS X and iOS. (It was formerly known as Swift-HTML-Parser)
+Kanna(鉋) is an XML/HTML parser for cross-platform(macOS, iOS, tvOS, watchOS and Linux!).
 
 It was inspired by [Nokogiri](https://github.com/sparklemotion/nokogiri)(鋸).
 
