@@ -18,7 +18,7 @@ It was inspired by [Nokogiri](https://github.com/sparklemotion/nokogiri)(鋸).
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Reference Status](https://www.versioneye.com/objective-c/kanna/reference_badge.svg?style=flat)](https://www.versioneye.com/objective-c/kanna/references)
 
-:information_source: [Documentation](http://blog.guardlet.com/Kanna/)
+:information_source: [Documentation](http://tid-kijyun.github.io/Kanna/)
 
 
 Features:
