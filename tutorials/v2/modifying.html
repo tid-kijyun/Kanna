@@ -45,8 +45,8 @@
 
 <p>Let’s change the header’s text contents:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>let html = try! String(contentsOfFile: "sample.html", encoding: NSUTF8StringEncoding)
-guard let doc = HTML(html: html, encoding: NSUTF8StringEncoding) else {
+<div class="highlighter-rouge"><pre class="highlight"><code>let html = try! String(contentsOfFile: "sample.html", encoding: .utf8)
+guard let doc = HTML(html: html, encoding: .utf8) else {
     return
 }
 var h1 = doc.at_css("h1")!

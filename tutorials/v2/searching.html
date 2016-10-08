@@ -65,8 +65,8 @@
 
 <p>Let’s further suppose that you want a list of all the versions in all the showns in this document.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>let xml = try! String(contentsOfFile: "versions.xml", encoding: NSUTF8StringEncoding)
-if let doc = XML(xml: xml, encoding: NSUTF8StringEncoding) {
+<div class="highlighter-rouge"><pre class="highlight"><code>let xml = try! String(contentsOfFile: filePath, encoding: .utf8)
+if let doc = XML(xml: xml, encoding: .utf8) {
     for node in doc.xpath("//name") {
         print(node.text!)
     }
@@ -140,8 +140,8 @@ doc.at_css("tvos name")     // "tvOS 10.0"
 </code></pre>
 </div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>let xml = try! String(contentsOfFile: "libraries.xml", encoding: NSUTF8StringEncoding)
-if let doc = XML(xml: xml, encoding: NSUTF8StringEncoding) {
+<div class="highlighter-rouge"><pre class="highlight"><code>let xml = try! String(contentsOfFile: "libraries.xml", encoding: .utf8)
+if let doc = XML(xml: xml, encoding: .utf8) {
     for node in doc.xpath("//github:title", namespaces: ["github": "https://github.com/"]) {
         print(node.text!)
     }
@@ -150,7 +150,7 @@ if let doc = XML(xml: xml, encoding: NSUTF8StringEncoding) {
 // "Kanna"
 // "Alamofire"
 
-if let doc = XML(xml: xml, encoding: NSUTF8StringEncoding) {
+if let doc = XML(xml: xml, encoding: .utf8) {
     for node in doc.xpath("//bitbucket:title", namespaces: ["bitbucket": "https://bitbucket.org/"]) {
         print(node.text!)
     }

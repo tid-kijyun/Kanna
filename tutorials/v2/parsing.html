@@ -34,11 +34,11 @@
 <h2 id="from-a-string">From a String</h2>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>let html = "<span class="nt">&lt;html&gt;&lt;body&gt;&lt;h1&gt;</span>Tutorials<span class="nt">&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;</span>"
-if let htmlDoc = HTML(html: html, encoding: NSUTF8StringEncoding) {
+if let htmlDoc = HTML(html: html, encoding: .utf8) {
 }
 
 let xml = "<span class="nt">&lt;root&gt;&lt;item&gt;&lt;name&gt;</span>Tutorials<span class="nt">&lt;/name&gt;&lt;/item&gt;&lt;/root&gt;</span>"
-if let xmlDoc = XML(xml: xml, encoding: NSUTF8StringEncoding) {
+if let xmlDoc = XML(xml: xml, encoding: .utf8) {
 }
 </code></pre>
 </div>
@@ -48,15 +48,15 @@ if let xmlDoc = XML(xml: xml, encoding: NSUTF8StringEncoding) {
 <h2 id="from-a-file">From a File</h2>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>let data = NSData(contentsOfFile: filePath)!
-if let doc = HTML(html: data, encoding: NSUTF8StringEncoding) {
+if let doc = HTML(html: data, encoding: .utf8) {
 }
 </code></pre>
 </div>
 
 <p>or</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>let html = try! String(contentsOfFile: path, encoding: NSUTF8StringEncoding)
-if let doc = HTML(html: html, encoding: NSUTF8StringEncoding) {
+<div class="highlighter-rouge"><pre class="highlight"><code>let html = try! String(contentsOfFile: path, encoding: .utf8)
+if let doc = HTML(html: html, encoding: .utf8) {
 }
 </code></pre>
 </div>
@@ -64,18 +64,21 @@ if let doc = HTML(html: html, encoding: NSUTF8StringEncoding) {
 <h2 id="from-the-internets">From the Internets</h2>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>let url = NSURL(string: "https://en.wikipedia.org/wiki/Cat")
-if let doc = HTML(url: url!, encoding: NSUTF8StringEncoding) {
+if let doc = HTML(url: url!, encoding: .utf8) {
 }
 </code></pre>
 </div>
 
 <p>Of cause, You can use other networking libraries. (e.g. <a href="https://github.com/Alamofire/Alamofire">Alamofire</a>)</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>Alamofire.request(.GET, NSURL(string: "https://en.wikipedia.org/wiki/Cat")!)
-    .responseString(encoding: NSUTF8StringEncoding) { (request, response, string, error) in
-        if let doc = HTML(html: string!, encoding: NSUTF8StringEncoding) {
+<div class="highlighter-rouge"><pre class="highlight"><code>Alamofire.request("https://en.wikipedia.org/wiki/Cat").responseString(queue: nil, encoding: .utf8) { response in
+    if let html = response.result.value,
+       let doc = HTML(html: html, encoding: .utf8) {
+        for headline in doc.css(".mw-headline") {
+            print(headline.text)
         }
     }
+}
 </code></pre>
 </div>
 
@@ -84,7 +87,7 @@ if let doc = HTML(url: url!, encoding: NSUTF8StringEncoding) {
 Hrea is an example of explicitly setting the encoding to EUC-JP on the parser:</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>let html = "<span class="nt">&lt;html&gt;&lt;body&gt;&lt;h1&gt;</span>Tutorials<span class="nt">&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;</span>"
-if let htmlDoc = HTML(html: html, encoding: NSJapaneseEUCStringEncoding) {
+if let htmlDoc = HTML(html: html, encoding: .japaneseEUC) {
 }
 </code></pre>
 </div>
@@ -95,7 +98,7 @@ if let htmlDoc = HTML(html: html, encoding: NSJapaneseEUCStringEncoding) {
 <p><em>Note: This is optional argument.</em></p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>let html = "<span class="nt">&lt;html&gt;&lt;body&gt;&lt;h1&gt;</span>Tutorials<span class="nt">&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;</span>"
-if let doc = HTML(html: html, encoding: NSUTF8StringEncoding, option: .HtmlParseUseLibxml([.STRICT])) {
+if let doc = HTML(html: html, encoding: .utf8, option: .htmlParseUseLibxml([.STRICT])) {
 }
 </code></pre>
 </div>
