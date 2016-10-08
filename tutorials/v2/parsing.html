@@ -47,7 +47,7 @@ if let xmlDoc = XML(xml: xml, encoding: .utf8) {
 
 <h2 id="from-a-file">From a File</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>let data = NSData(contentsOfFile: filePath)!
+<div class="highlighter-rouge"><pre class="highlight"><code>let data = try! Data(contentsOf: URL(fileURLWithPath: filePath))
 if let doc = HTML(html: data, encoding: .utf8) {
 }
 </code></pre>
@@ -63,7 +63,7 @@ if let doc = HTML(html: html, encoding: .utf8) {
 
 <h2 id="from-the-internets">From the Internets</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>let url = NSURL(string: "https://en.wikipedia.org/wiki/Cat")
+<div class="highlighter-rouge"><pre class="highlight"><code>let url = URL(string: "https://en.wikipedia.org/wiki/Cat")
 if let doc = HTML(url: url!, encoding: .utf8) {
 }
 </code></pre>
