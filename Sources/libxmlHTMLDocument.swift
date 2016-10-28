@@ -27,6 +27,8 @@ import CoreFoundation
 
 #if os(Linux)
     import SwiftClibxml2
+#elseif SPM
+    import SwiftClibxml2
 #endif
 
 /*
