@@ -121,7 +121,7 @@ class KannaTests: XCTestCase {
                 
                 for row in doc.xpath("//ss:Row", namespaces: namespaces) {
                     for cell in row.xpath("//ss:Data", namespaces: namespaces) {
-                        print(cell.text)
+                        print(cell.text!)
                     }
                 }
         } else {
