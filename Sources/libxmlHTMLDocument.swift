@@ -25,10 +25,8 @@ SOFTWARE.
 import Foundation
 import CoreFoundation
 
-#if os(Linux)
-    import SwiftClibxml2
-#elseif SPM
-    import SwiftClibxml2
+#if SWIFT_PACKAGE
+import SwiftClibxml2
 #endif
 
 /*
