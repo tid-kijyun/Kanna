@@ -6,16 +6,10 @@ Kanna(鉋) is an XML/HTML parser for cross-platform(macOS, iOS, tvOS, watchOS an
 It was inspired by [Nokogiri](https://github.com/sparklemotion/nokogiri)(鋸).
 
 [![Build Status](https://travis-ci.org/tid-kijyun/Kanna.svg?branch=master)](https://travis-ci.org/tid-kijyun/Kanna)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat
-            )](http://mit-license.org)
-[![Platform](http://img.shields.io/badge/platform-ios_osx_tvos-lightgrey.svg?style=flat
-             )](https://developer.apple.com/resources/)
-[![Language](http://img.shields.io/badge/language-swift-orange.svg?style=flat
-             )](https://developer.apple.com/swift)
-[![Issues](https://img.shields.io/github/issues/tid-kijyun/Kanna.svg?style=flat
-           )](https://github.com/tid-kijyun/Kanna/issues)
+[![Platform](http://img.shields.io/badge/platform-ios_osx_watchos_tvos_linux-lightgrey.svg?style=flat)](https://developer.apple.com/resources/)
 [![Cocoapod](http://img.shields.io/cocoapods/v/Kanna.svg?style=flat)](http://cocoadocs.org/docsets/Kanna/)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Swift Package Manager](https://img.shields.io/badge/Swift%20Package%20Manager-compatible-brightgreen.svg)](https://github.com/apple/swift-package-manager)
 [![Reference Status](https://www.versioneye.com/objective-c/kanna/reference_badge.svg?style=flat)](https://www.versioneye.com/objective-c/kanna/references)
 
 :information_source: [Documentation](http://tid-kijyun.github.io/Kanna/)
