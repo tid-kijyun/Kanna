@@ -33,14 +33,14 @@ Installation:
 Adding it to your `Podfile`:
 ```
 use_frameworks!
-pod 'Kanna', '~> 2.0.0'
+pod 'Kanna', '~> 2.1.0'
 ```
 
 #####Carthage
 Adding it to your `Cartfile`:
 
 ```
-github "tid-kijyun/Kanna" ~> 2.0.0
+github "tid-kijyun/Kanna" ~> 2.1.0
 ```
 
 1. In the project settings add `$(SDKROOT)/usr/include/libxml2` to the "header search paths" field
