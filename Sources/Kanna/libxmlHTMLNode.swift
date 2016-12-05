@@ -24,10 +24,10 @@ SOFTWARE.
 */
 import Foundation
 
-#if os(Linux)
-    import SwiftClibxml2
-#elseif SPM
-    import SwiftClibxml2
+#if SWIFT_PACKAGE
+import SwiftClibxml2
+#else
+import libxml2
 #endif
 
 /**

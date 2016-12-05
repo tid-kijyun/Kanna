@@ -8,7 +8,7 @@ let package = Package(
     exclude: [
         "Sources/Info.plist",
         "Sources/Kanna.h",
-        "Tests/KannaTests.swift",
-        "Tests/KannaTutorialsTest.swift"
+        "Tests/KannaTests/Data"
     ]
 )
+

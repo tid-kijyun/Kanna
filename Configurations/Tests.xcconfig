@@ -1,0 +1,17 @@
+//
+//  Tests.xcconfig
+//  Kanna
+//
+//  Created by Atsushi Kiwaki on 2016/12/05.
+//  Copyright © 2016 Atsushi Kiwaki. All rights reserved.
+//
+COMBINE_HIDPI_IMAGES = YES
+INFOPLIST_FILE = Tests/KannaTests/Info.plist
+PRODUCT_BUNDLE_IDENTIFIER = com.tid.$(PRODUCT_NAME:rfc1034identifier)
+PRODUCT_NAME = $(PROJECT_NAME)Tests
+
+SUPPORTED_PLATFORMS = macosx iphoneos iphonesimulator appletvos appletvsimulator
+
+LD_RUNPATH_SEARCH_PATHS[sdk=macosx*] = $(inherited) @executable_path/../Frameworks @loader_path/../Frameworks
+LD_RUNPATH_SEARCH_PATHS[sdk=iphone*] = $(inherited) @executable_path/Frameworks @loader_path/Frameworks
+LD_RUNPATH_SEARCH_PATHS[sdk=appletv*] = $(inherited) @executable_path/Frameworks @loader_path/Frameworks

@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name             = "Kanna"
-  s.version          = "2.0.0"
-  s.summary          = "Kanna is an XML/HTML parser for iOS/Mac OS X."
+  s.version          = "2.1.0"
+  s.summary          = "Kanna is an XML/HTML parser for iOS/macOS/watchOS/tvOS and Linux."
   s.homepage         = "https://github.com/tid-kijyun/Kanna"
   s.license          = 'MIT'
   s.author           = { "Atsushi Kiwaki" => "tid.develop@gmail.com" }
@@ -13,8 +13,11 @@ Pod::Spec.new do |s|
   s.tvos.deployment_target = "9.0"
   s.watchos.deployment_target = "2.0"
   s.requires_arc = true
-
+  s.preserve_path = 'Modules/*'
   s.source_files  = ['Sources/**/*.swift', 'Sources/**/*.h']
-  s.libraries     = 'xml2'
-  s.xcconfig      = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2' }
+  s.xcconfig      = {
+                      'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2',
+                      'SWIFT_INCLUDE_PATHS' => '$(SRCROOT)/Kanna/Modules'
+                    }
 end
+

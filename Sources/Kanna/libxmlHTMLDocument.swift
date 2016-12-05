@@ -25,10 +25,10 @@ SOFTWARE.
 import Foundation
 import CoreFoundation
 
-#if os(Linux)
-    import SwiftClibxml2
-#elseif SPM
-    import SwiftClibxml2
+#if SWIFT_PACKAGE
+import SwiftClibxml2
+#else
+import libxml2
 #endif
 
 /*
@@ -110,7 +110,7 @@ internal final class libxmlHTMLDocument: HTMLDocument {
         let cfencstr = CFStringConvertEncodingToIANACharSetName(cfenc)
         if let cur = html.cString(using: encoding) {
             let url : String = ""
-            docPtr = htmlReadDoc(UnsafeRawPointer(cur).assumingMemoryBound(to: xmlChar.self), url, (cfencstr as? String) ?? "", CInt(option))
+            docPtr = htmlReadDoc(UnsafeRawPointer(cur).assumingMemoryBound(to: xmlChar.self), url, String(describing: cfencstr!), CInt(option))
             rootNode  = libxmlHTMLNode(docPtr: docPtr!)
         } else {
             return nil
@@ -236,7 +236,7 @@ internal final class libxmlXMLDocument: XMLDocument {
         let cfencstr = CFStringConvertEncodingToIANACharSetName(cfenc)
         if let cur = xml.cString(using: encoding) {
             let url : String = ""
-            docPtr = xmlReadDoc(UnsafeRawPointer(cur).assumingMemoryBound(to: xmlChar.self), url, (cfencstr as? String) ?? "", CInt(option))
+            docPtr = xmlReadDoc(UnsafeRawPointer(cur).assumingMemoryBound(to: xmlChar.self), url, String(describing:  cfencstr!), CInt(option))
             rootNode  = libxmlHTMLNode(docPtr: docPtr!)
         } else {
             return nil

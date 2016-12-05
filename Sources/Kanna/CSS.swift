@@ -24,9 +24,13 @@ SOFTWARE.
 */
 import Foundation
 
-#if os(Linux)
+#if SWIFT_PACKAGE
 import SwiftClibxml2
+#else
+import libxml2
+#endif
 
+#if os(Linux)
 typealias AKTextCheckingResult = TextCheckingResult
 typealias AKRegularExpression  = RegularExpression
 #else
