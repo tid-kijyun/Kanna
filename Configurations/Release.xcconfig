@@ -1,0 +1,15 @@
+//
+//  Release.xcconfig
+//  Kanna
+//
+//  Created by Atsushi Kiwaki on 2016/12/05.
+//  Copyright © 2016 Atsushi Kiwaki. All rights reserved.
+//
+#include "Base.xcconfig"
+
+COPY_PHASE_STRIP = YES
+ENABLE_NS_ASSERTIONS = NO
+MTL_ENABLE_DEBUG_INFO = NO
+VALIDATE_PRODUCT = YES
+DEBUG_INFORMATION_FORMAT = dwarf-with-dsym
+BITCODE_GENERATION_MODE = bitcode

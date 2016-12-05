@@ -26,6 +26,8 @@ import Foundation
 
 #if SWIFT_PACKAGE
 import SwiftClibxml2
+#else
+import libxml2
 #endif
 
 #if os(Linux)
