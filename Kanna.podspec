@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "Kanna"
-  s.version          = "2.1.0"
+  s.version          = "2.1.1"
   s.summary          = "Kanna is an XML/HTML parser for iOS/macOS/watchOS/tvOS and Linux."
   s.homepage         = "https://github.com/tid-kijyun/Kanna"
   s.license          = 'MIT'
@@ -20,4 +20,3 @@ Pod::Spec.new do |s|
                       'SWIFT_INCLUDE_PATHS' => '$(SRCROOT)/Kanna/Modules'
                     }
 end
-
