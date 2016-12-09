@@ -46,6 +46,18 @@ github "tid-kijyun/Kanna" ~> 2.1.0
 1. In the project settings add `$(SDKROOT)/usr/include/libxml2` to the "header search paths" field
 
 #####Swift Package Manager
+
+Installing libxml2 to your computer:
+
+```
+// macOS
+$ brew install libxml2
+$ brew link --force libxml2
+
+// Linux(Ubuntu)
+$ sudo apt-get install libxml2-dev
+```
+
 Adding it to your `Package.swift`:
 
 ```
