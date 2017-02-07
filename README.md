@@ -76,6 +76,11 @@ let package = Package(
 $ swift build
 ```
 
+*Note: When a build error occurs, please try run the following command:*
+```
+$ sudo apt-get install pkg-config
+```
+
 ### Swift 2.x
 
 Three means of installation are supported:
