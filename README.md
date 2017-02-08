@@ -81,6 +81,17 @@ $ swift build
 $ sudo apt-get install pkg-config
 ```
 
+#####Manual Installation
+1. Add these files to your project:  
+  [Kanna.swift](Source/Kanna.swift)  
+  [CSS.swift](Source/CSS.swift)  
+  [libxmlHTMLDocument.swift](Source/libxml/libxmlHTMLDocument.swift)  
+  [libxmlHTMLNode.swift](Source/libxml/libxmlHTMLNode.swift)  
+  [libxmlParserOption.swift](Source/libxml/libxmlParserOption.swift)
+  [Modules](Modules)
+1. In the target settings add `$(SDKROOT)/usr/include/libxml2` to the `Search Paths > Header Search Paths` field
+1. In the target settings add `$(SRCROOT)/Modules` to the `Swift Compiler - Search Paths > Import Paths` field
+
 ### Swift 2.x
 
 Three means of installation are supported:
