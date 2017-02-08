@@ -87,7 +87,7 @@ $ sudo apt-get install pkg-config
   [CSS.swift](Source/CSS.swift)  
   [libxmlHTMLDocument.swift](Source/libxml/libxmlHTMLDocument.swift)  
   [libxmlHTMLNode.swift](Source/libxml/libxmlHTMLNode.swift)  
-  [libxmlParserOption.swift](Source/libxml/libxmlParserOption.swift)
+  [libxmlParserOption.swift](Source/libxml/libxmlParserOption.swift)  
   [Modules](Modules)
 1. In the target settings add `$(SDKROOT)/usr/include/libxml2` to the `Search Paths > Header Search Paths` field
 1. In the target settings add `$(SRCROOT)/Modules` to the `Swift Compiler - Search Paths > Import Paths` field
