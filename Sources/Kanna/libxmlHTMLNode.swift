@@ -246,6 +246,15 @@ internal final class libxmlHTMLNode: XMLElement {
         xmlUnlinkNode(node.nodePtr)
         xmlFree(node.nodePtr)
     }
+    
+    func setAttribute(name: String, value: String?) {
+        
+        if let value = value {
+            xmlSetProp(nodePtr, name, value)
+        } else {
+            xmlUnsetProp(nodePtr, name)
+        }
+    }
 }
 
 private func libxmlGetNodeContent(_ nodePtr: xmlNodePtr) -> String? {
