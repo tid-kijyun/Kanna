@@ -111,7 +111,7 @@ internal final class libxmlHTMLDocument: HTMLDocument {
         if let cur = html.cString(using: encoding) {
             let url : String = ""
             docPtr = htmlReadDoc(UnsafeRawPointer(cur).assumingMemoryBound(to: xmlChar.self), url, String(describing: cfencstr!), CInt(option))
-            rootNode  = libxmlHTMLNode(docPtr: docPtr!)
+            rootNode  = libxmlHTMLNode(document: self, docPtr: docPtr!)
         } else {
             return nil
         }
@@ -237,7 +237,7 @@ internal final class libxmlXMLDocument: XMLDocument {
         if let cur = xml.cString(using: encoding) {
             let url : String = ""
             docPtr = xmlReadDoc(UnsafeRawPointer(cur).assumingMemoryBound(to: xmlChar.self), url, String(describing:  cfencstr!), CInt(option))
-            rootNode  = libxmlHTMLNode(docPtr: docPtr!)
+            rootNode  = libxmlHTMLNode(document: self, docPtr: docPtr!)
         } else {
             return nil
         }
