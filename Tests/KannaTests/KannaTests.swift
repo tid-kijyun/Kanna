@@ -40,11 +40,17 @@ class KannaTests: XCTestCase {
         ("div + span", "//div/following-sibling::*[1]/self::span"),
         ("div[attr]", "//div[@attr]"),
         ("div[attr='val']", "//div[@attr = 'val']"),
+        ("div[attr=\"val\"]", "//div[@attr = 'val']"),
         ("div[attr~='val']", "//div[contains(concat(' ', @attr, ' '),concat(' ', 'val', ' '))]"),
+        ("div[attr~=\"val\"]", "//div[contains(concat(' ', @attr, ' '),concat(' ', 'val', ' '))]"),
         ("div[attr|='val']", "//div[@attr = 'val' or starts-with(@attr,concat('val', '-'))]"),
+        ("div[attr|=\"val\"]", "//div[@attr = 'val' or starts-with(@attr,concat('val', '-'))]"),
         ("div[attr*='val']", "//div[contains(@attr, 'val')]"),
+        ("div[attr*=\"val\"]", "//div[contains(@attr, 'val')]"),
         ("div[attr^='val']", "//div[starts-with(@attr, 'val')]"),
+        ("div[attr^=\"val\"]", "//div[starts-with(@attr, 'val')]"),
         ("div[attr$='val']", "//div[substring(@attr, string-length(@attr) - string-length('val') + 1, string-length('val')) = 'val']"),
+        ("div[attr$=\"val\"]", "//div[substring(@attr, string-length(@attr) - string-length('val') + 1, string-length('val')) = 'val']"),
         ("img[src=jpg]", "//img[@src = 'jpg']"),
         ("img[src~=jpg]", "//img[contains(concat(' ', @src, ' '),concat(' ', 'jpg', ' '))]"),
         ("img[src|=jpg]", "//img[@src = 'jpg' or starts-with(@src,concat('jpg', '-'))]"),
@@ -67,7 +73,9 @@ class KannaTests: XCTestCase {
         ("div:nth-of-type(odd)", "//div[(position() >= 1) and (((position()-1) mod 2) = 0)]"),
         ("*:root", "//*[not(parent::*)]"),
         ("div:contains('foo')", "//div[contains(., 'foo')]"),
+        ("div:contains(\"foo\")", "//div[contains(., 'foo')]"),
         ("div:not([type='text'])", "//div[not(@type = 'text')]"),
+        ("div:not([type=\"text\"])", "//div[not(@type = 'text')]"),
         ("*:not(div)", "//*[not(self::div)]"),
         ("#content > p:not(.article-meta)", "//*[@id = 'content']/p[not(contains(concat(' ', normalize-space(@class), ' '), ' article-meta '))]"),
         ("div:not(:nth-child(-n+2))", "//div[not((count(preceding-sibling::*) + 1) <= 2)]"),
@@ -94,7 +102,7 @@ class KannaTests: XCTestCase {
             XCTAssert(xpath == testCase.xpath, "Create XPath = [\(xpath)] != [\(testCase.xpath)]")
         }
     }
-    
+
     /**
     test XML
     */
