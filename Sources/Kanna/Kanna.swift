@@ -233,7 +233,7 @@ public protocol XMLElement: SearchableNode {
 /**
 XMLDocument
 */
-public protocol XMLDocument: SearchableNode {
+public protocol XMLDocument: class, SearchableNode {
 }
 
 /**
@@ -337,7 +337,7 @@ public enum XPathObject {
 }
 
 extension XPathObject {
-    internal init(docPtr: xmlDocPtr, object: xmlXPathObject) {
+    internal init(document: XMLDocument?, docPtr: xmlDocPtr, object: xmlXPathObject) {
         switch object.type {
         case XPATH_NODESET:
             let nodeSet = object.nodesetval
@@ -350,7 +350,7 @@ extension XPathObject {
             let size = Int((nodeSet?.pointee.nodeNr)!)
             for i in 0 ..< size {
                 let node: xmlNodePtr = nodeSet!.pointee.nodeTab[i]!
-                let htmlNode = libxmlHTMLNode(docPtr: docPtr, node: node)
+                let htmlNode = libxmlHTMLNode(document: document, docPtr: docPtr, node: node)
                 nodes.append(htmlNode)
             }
             self = .NodeSet(nodeset: XMLNodeSet(nodes: nodes))

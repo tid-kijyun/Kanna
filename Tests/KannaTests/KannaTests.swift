@@ -284,6 +284,30 @@ class KannaTests: XCTestCase {
             XCTAssert(doc.body!.toHTML == modifyNextHTML)
         }
     }
+
+    func testOutOfDocument() {
+        let filename = "test_HTML4"
+        guard let path = Bundle(for:KannaTests.self).path(forResource: filename, ofType:"html") else {
+            return
+        }
+
+        var elements: [Kanna.XMLElement] = []
+
+        do {
+            let html = try String(contentsOfFile: path, encoding: .utf8)
+            if let doc = HTML(html: html, encoding: .utf8) {
+                for node in doc.css("div#inner > div") {
+                    elements.append(node)
+                }
+            }
+        } catch {
+            XCTAssert(false, "File not found. name: (\(filename)), error: \(error)")
+        }
+
+        for element in elements {
+            XCTAssert(element.text! == "def")
+        }
+    }
 }
 
 extension KannaTests {
