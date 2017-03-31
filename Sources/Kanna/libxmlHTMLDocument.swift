@@ -97,13 +97,13 @@ internal final class libxmlHTMLDocument: HTMLDocument {
         }
     }
     
-    init?(html: String, url: String?, encoding: String.Encoding, option: UInt) {
+    init(html: String, url: String?, encoding: String.Encoding, option: UInt) throws {
         self.html = html
         self.url  = url
         self.encoding = encoding
         
-        if html.lengthOfBytes(using: encoding) <= 0 {
-            return nil
+        if html.isEmpty {
+            throw ParseError.Empty
         }
 
         let cfenc : CFStringEncoding = CFStringConvertNSStringEncodingToEncoding(encoding.rawValue)
@@ -113,7 +113,7 @@ internal final class libxmlHTMLDocument: HTMLDocument {
             docPtr = htmlReadDoc(UnsafeRawPointer(cur).assumingMemoryBound(to: xmlChar.self), url, String(describing: cfencstr!), CInt(option))
             rootNode  = libxmlHTMLNode(document: self, docPtr: docPtr!)
         } else {
-            return nil
+            throw ParseError.EncodingMismatch
         }
     }
     
@@ -224,13 +224,13 @@ internal final class libxmlXMLDocument: XMLDocument {
         }
     }
     
-    init?(xml: String, url: String?, encoding: String.Encoding, option: UInt) {
+    init(xml: String, url: String?, encoding: String.Encoding, option: UInt) throws {
         self.xml  = xml
         self.url  = url
         self.encoding = encoding
         
-        if xml.lengthOfBytes(using: encoding) <= 0 {
-            return nil
+        if xml.isEmpty {
+            throw ParseError.Empty
         }
         let cfenc : CFStringEncoding = CFStringConvertNSStringEncodingToEncoding(encoding.rawValue)
         let cfencstr = CFStringConvertEncodingToIANACharSetName(cfenc)
@@ -239,7 +239,7 @@ internal final class libxmlXMLDocument: XMLDocument {
             docPtr = xmlReadDoc(UnsafeRawPointer(cur).assumingMemoryBound(to: xmlChar.self), url, String(describing:  cfencstr!), CInt(option))
             rootNode  = libxmlHTMLNode(document: self, docPtr: docPtr!)
         } else {
-            return nil
+            throw ParseError.EncodingMismatch
         }
     }
 
