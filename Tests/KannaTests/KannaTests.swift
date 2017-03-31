@@ -28,7 +28,7 @@ import CoreFoundation
 @testable import Kanna
 
 class KannaTests: XCTestCase {
-    let css2xpath: [(css: String, xpath: String?)] = [
+    let css2xpath: [(css: String, xpath: String)] = [
         ("*, div", "//* | //div"),
         (".myclass", "//*[contains(concat(' ', normalize-space(@class), ' '), ' myclass ')]"),
         ("#myid", "//*[@id = 'myid']"),
@@ -98,8 +98,12 @@ class KannaTests: XCTestCase {
     */
     func testCSStoXPath() {
         for testCase in css2xpath {
-            let xpath = CSS.toXPath(testCase.css)
-            XCTAssert(xpath == testCase.xpath, "Create XPath = [\(xpath)] != [\(testCase.xpath)]")
+            do {
+                let xpath = try CSS.toXPath(testCase.css)
+                XCTAssert(xpath == testCase.xpath, "Create XPath = [\(xpath)] != [\(testCase.xpath)]")
+            } catch {
+                XCTAssert(false, error.localizedDescription)
+            }
         }
     }
 
@@ -112,7 +116,7 @@ class KannaTests: XCTestCase {
             return
         }
         if let xml = try? Data(contentsOf: URL(fileURLWithPath: path)),
-            let doc = XML(xml: xml, encoding: .utf8) {
+            let doc = try? XML(xml: xml, encoding: .utf8) {
                 let namespaces = [
                     "o":  "urn:schemas-microsoft-com:office:office",
                     "ss": "urn:schemas-microsoft-com:office:spreadsheet"
@@ -147,7 +151,7 @@ class KannaTests: XCTestCase {
         let modifyNextXML = "<all_item><item><title>item1</title></item><item><title>item0</title></item></all_item>"
 
         do {
-            guard let doc = XML(xml: xml, encoding: .utf8) else {
+            guard let doc = try? XML(xml: xml, encoding: .utf8) else {
                     return
             }
             let item0 = doc.css("item")[0]
@@ -157,7 +161,7 @@ class KannaTests: XCTestCase {
         }
 
         do {
-            guard let doc = XML(xml: xml, encoding: .utf8) else {
+            guard let doc = try? XML(xml: xml, encoding: .utf8) else {
                 return
             }
             let item0 = doc.css("item")[0]
@@ -165,6 +169,10 @@ class KannaTests: XCTestCase {
             item1.addNextSibling(item0)
             XCTAssert(doc.at_css("all_item")!.toXML == modifyNextXML)
         }
+    }
+
+    func testXmlThrows() {
+        XCTAssertThrowsError(try XML(xml: "", encoding: .utf8))
     }
     
     /**
@@ -179,7 +187,7 @@ class KannaTests: XCTestCase {
         
         do {
             let html = try String(contentsOfFile: path, encoding: .utf8)
-            guard let doc = HTML(html: html, encoding: .utf8) else {
+            guard let doc = try? HTML(html: html, encoding: .utf8) else {
                 return
             }
             // Check title
@@ -248,7 +256,7 @@ class KannaTests: XCTestCase {
         
         do {
             let html = try String(contentsOfFile: path, encoding: .utf8)
-            guard let doc = HTML(html: html, encoding: .utf8) else {
+            guard let doc = try? HTML(html: html, encoding: .utf8) else {
                 return
             }
             
@@ -261,7 +269,7 @@ class KannaTests: XCTestCase {
     
     func testNSURL() {
         guard let url = URL(string: "https://en.wikipedia.org/wiki/Cat"),
-              let _ = HTML(url: url, encoding: .utf8) else {
+              let _ = try? HTML(url: url, encoding: .utf8) else {
             XCTAssert(false)
             return
         }
@@ -273,7 +281,7 @@ class KannaTests: XCTestCase {
         let modifyNextHTML = "<body>\n<div>A love triangle.</div>\n<h1>Three's Company</h1>\n</body>"
 
         do {
-            guard let doc = HTML(html: html, encoding: .utf8),
+            guard let doc = try? HTML(html: html, encoding: .utf8),
                 let h1 = doc.at_css("h1"),
                 let div = doc.at_css("div") else {
                     return
@@ -283,7 +291,7 @@ class KannaTests: XCTestCase {
         }
 
         do {
-            guard let doc = HTML(html: html, encoding: .utf8),
+            guard let doc = try? HTML(html: html, encoding: .utf8),
                 let h1 = doc.at_css("h1"),
                 let div = doc.at_css("div") else {
                     return
@@ -295,7 +303,7 @@ class KannaTests: XCTestCase {
 
     func testNextPreviousSibling() {
         let html = "<body><div>first</div><div>second</div><div>third</div></body>"
-        guard let doc = HTML(html: html, encoding: .utf8),
+        guard let doc = try? HTML(html: html, encoding: .utf8),
             let node = doc.css("div:nth-child(2)").first else {
             XCTFail()
             return
@@ -324,7 +332,7 @@ class KannaTests: XCTestCase {
 
         do {
             let html = try String(contentsOfFile: path, encoding: .utf8)
-            if let doc = HTML(html: html, encoding: .utf8) {
+            if let doc = try? HTML(html: html, encoding: .utf8) {
                 for node in doc.css("div#inner > div") {
                     elements.append(node)
                 }
