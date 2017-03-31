@@ -210,7 +210,7 @@ internal final class libxmlHTMLNode: XMLElement {
     }
     
     func css(_ selector: String, namespaces: [String:String]?) -> XPathObject {
-        if let xpath = CSS.toXPath(selector) {
+        if let xpath = try? CSS.toXPath(selector) {
             if isRoot {
                 return self.xpath(xpath, namespaces: namespaces)
             } else {

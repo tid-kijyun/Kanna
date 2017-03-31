@@ -38,6 +38,10 @@ typealias AKRegularExpression  = NSRegularExpression
 typealias AKTextCheckingResult = NSTextCheckingResult
 #endif
 
+public enum CSSError: Error {
+    case UnsupportSyntax(String)
+}
+
 /**
 CSS
 */
@@ -49,7 +53,7 @@ public struct CSS {
     
     @return XPath
     */
-    public static func toXPath(_ selector: String) -> String? {
+    public static func toXPath(_ selector: String) throws -> String {
         var xpath = "//"
         var str = selector
         var prev = str
@@ -89,8 +93,7 @@ public struct CSS {
             }
 
             if str == prev {
-                print("CSS Syntax Error: Unsupport syntax '\(selector)'")
-                return nil
+                throw CSSError.UnsupportSyntax(selector)
             }
             prev = str
         }
