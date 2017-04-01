@@ -32,7 +32,7 @@ import libxml2
 
 #if os(Linux)
 typealias AKTextCheckingResult = TextCheckingResult
-typealias AKRegularExpression  = RegularExpression
+typealias AKRegularExpression  = NSRegularExpression
 #else
 typealias AKRegularExpression  = NSRegularExpression
 typealias AKTextCheckingResult = NSTextCheckingResult
