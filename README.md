@@ -31,7 +31,7 @@ Installation:
 **:warning: CocoaPods (`1.1.0 or later`) is required.**
 
 Adding it to your `Podfile`:
-```
+```ruby
 use_frameworks!
 pod 'Kanna', '~> 2.1.0'
 ```
@@ -39,7 +39,7 @@ pod 'Kanna', '~> 2.1.0'
 ##### Carthage
 Adding it to your `Cartfile`:
 
-```
+```ogdl
 github "tid-kijyun/Kanna" ~> 2.1.0
 ```
 
@@ -49,7 +49,7 @@ github "tid-kijyun/Kanna" ~> 2.1.0
 
 Installing libxml2 to your computer:
 
-```
+```bash
 // macOS
 $ brew install libxml2
 $ brew link --force libxml2
@@ -60,7 +60,7 @@ $ sudo apt-get install libxml2-dev
 
 Adding it to your `Package.swift`:
 
-```
+```swift
 import PackageDescription
 
 let package = Package(
@@ -72,12 +72,12 @@ let package = Package(
 )
 ```
 
-```
+```bash
 $ swift build
 ```
 
 *Note: When a build error occurs, please try run the following command:*
-```
+```bash
 $ sudo apt-get install pkg-config
 ```
 
@@ -100,7 +100,7 @@ Three means of installation are supported:
 **:warning: CocoaPods (`0.39 or later`) is required.**
 
 Adding it to your `Podfile`:
-```
+```ruby
 use_frameworks!
 pod 'Kanna', '~> 1.1.0'
 ```
@@ -108,7 +108,7 @@ pod 'Kanna', '~> 1.1.0'
 ##### Carthage
 Adding it to your `Cartfile`:
 
-```
+```ogdl
 github "tid-kijyun/Kanna" ~> 1.1.0
 ```
 
@@ -125,7 +125,7 @@ github "tid-kijyun/Kanna" ~> 1.1.0
 
   Copy the those import statements:
 
-  ```
+  ```objective-c
   #import <libxml/HTMLtree.h>
   #import <libxml/xpath.h>
   #import <libxml/xpathInternals.h>
