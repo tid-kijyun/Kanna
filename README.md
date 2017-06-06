@@ -25,6 +25,10 @@ Features:
 Installation:
 =================
 
+### Swift 4 (beta)
+If you want to use Swift 4, please use branch `feature/v4.0.0`.  
+This is a beta version. There may be API changes.
+
 ### Swift 3.0
 
 ##### CocoaPods
