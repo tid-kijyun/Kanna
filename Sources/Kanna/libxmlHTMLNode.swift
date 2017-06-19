@@ -244,7 +244,7 @@ internal final class libxmlHTMLNode: XMLElement {
             return
         }
         xmlUnlinkNode(node.nodePtr)
-        xmlFree(node.nodePtr)
+        xmlFreeNode(node.nodePtr)
     }
     
     func setAttribute(name: String, value: String?) {
