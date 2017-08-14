@@ -102,19 +102,28 @@ internal final class libxmlHTMLDocument: HTMLDocument {
         self.url  = url
         self.encoding = encoding
         
-        if html.lengthOfBytes(using: encoding) <= 0 {
+        guard html.lengthOfBytes(using: encoding) > 0 else {
             return nil
         }
-
+        
         let cfenc : CFStringEncoding = CFStringConvertNSStringEncodingToEncoding(encoding.rawValue)
-        let cfencstr = CFStringConvertEncodingToIANACharSetName(cfenc)
-        if let cur = html.cString(using: encoding) {
-            let url : String = ""
-            docPtr = htmlReadDoc(UnsafeRawPointer(cur).assumingMemoryBound(to: xmlChar.self), url, String(describing: cfencstr!), CInt(option))
-            rootNode  = libxmlHTMLNode(document: self, docPtr: docPtr!)
-        } else {
+        
+        guard let cfencstr = CFStringConvertEncodingToIANACharSetName(cfenc) else {
             return nil
         }
+        
+        guard let cur = html.cString(using: encoding) else {
+            return nil
+        }
+        
+        let url : String = ""
+        docPtr = htmlReadDoc(UnsafeRawPointer(cur).assumingMemoryBound(to: xmlChar.self), url, String(describing: cfencstr), CInt(option))
+        
+        guard let docPtr = docPtr else {
+            return nil
+        }
+        
+        rootNode  = libxmlHTMLNode(document: self, docPtr: docPtr)
     }
     
     deinit {
