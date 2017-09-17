@@ -186,17 +186,17 @@ Searchable
 public protocol Searchable {
     /**
     Search for node from current node by XPath.
-    
+
     @param xpath
      */
     func xpath(_ xpath: String, namespaces: [String:String]?) -> XPathObject
     func xpath(_ xpath: String) -> XPathObject
     func at_xpath(_ xpath: String, namespaces: [String:String]?) -> XMLElement?
     func at_xpath(_ xpath: String) -> XMLElement?
-    
+
     /**
     Search for node from current node by CSS selector.
-    
+
     @param selector a CSS selector
     */
     func css(_ selector: String, namespaces: [String:String]?) -> XPathObject
@@ -229,6 +229,8 @@ public protocol XMLElement: SearchableNode {
     func addNextSibling(_ node: XMLElement)
     func removeChild(_ node: XMLElement)
     func setAttribute(name: String, value: String?)
+    func nextSibling() -> XMLElement?
+    func previousSibling() -> XMLElement?
 }
 
 /**
@@ -251,7 +253,7 @@ XMLNodeSet
 */
 public final class XMLNodeSet {
     fileprivate var nodes: [XMLElement] = []
-    
+
     public var toHTML: String? {
         let html = nodes.reduce("") {
             if let text = $1.toHTML {
@@ -261,7 +263,7 @@ public final class XMLNodeSet {
         }
         return html.isEmpty == false ? html : nil
     }
-    
+
     public var innerHTML: String? {
         let html = nodes.reduce("") {
             if let text = $1.innerHTML {
@@ -271,7 +273,7 @@ public final class XMLNodeSet {
         }
         return html.isEmpty == false ? html : nil
     }
-    
+
     public var text: String? {
         let html = nodes.reduce("") {
             if let text = $1.text {
@@ -281,30 +283,30 @@ public final class XMLNodeSet {
         }
         return html
     }
-    
+
     public subscript(index: Int) -> XMLElement {
         return nodes[index]
     }
-    
+
     public var count: Int {
         return nodes.count
     }
-    
+
     internal init() {
     }
-    
+
     internal init(nodes: [XMLElement]) {
         self.nodes = nodes
     }
-    
+
     public func at(_ index: Int) -> XMLElement? {
         return count > index ? nodes[index] : nil
     }
-    
+
     public var first: XMLElement? {
         return at(0)
     }
-    
+
     public var last: XMLElement? {
         return at(count-1)
     }
@@ -402,33 +404,33 @@ extension XPathObject {
         }
         return nil
     }
-    
+
     var number: Double? {
         if case let .Number(value) = self {
             return value
         }
         return nil
     }
-    
+
     var string: Swift.String? {
         if case let .String(value) = self {
             return value
         }
         return nil
     }
-    
+
     var nodeSetValue: XMLNodeSet {
         return nodeSet ?? XMLNodeSet()
     }
-    
+
     var boolValue: Swift.Bool {
         return bool ?? false
     }
-    
+
     var numberValue: Double {
         return number ?? 0.0
     }
-    
+
     var stringValue: Swift.String {
         return string ?? ""
     }
