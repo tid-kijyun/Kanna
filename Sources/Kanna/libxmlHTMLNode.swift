@@ -252,6 +252,25 @@ internal final class libxmlHTMLNode: XMLElement {
         xmlUnlinkNode(node.nodePtr)
         xmlFree(node.nodePtr)
     }
+
+    func nextSibling() -> XMLElement? {
+        let val = xmlNextElementSibling(self.nodePtr)
+        return self.node(from: val)
+    }
+
+    func previousSibling() -> XMLElement? {
+        let val = xmlPreviousElementSibling(self.nodePtr)
+        return self.node(from: val)
+    }
+
+    private func node(from ptr: xmlNodePtr?) -> XMLElement? {
+        guard let doc = self.doc, let docPtr = self.docPtr, let nodePtr = ptr else {
+            return nil
+        }
+
+        let element = libxmlHTMLNode(document: doc, docPtr: docPtr, node: nodePtr)
+        return element
+    }
 }
 
 private func libxmlGetNodeContent(_ nodePtr: xmlNodePtr) -> String? {
