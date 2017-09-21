@@ -301,6 +301,27 @@ class KannaTests: XCTestCase {
         }
     }
 
+    func testNextPreviousSibling() {
+        let html = "<body><div>first</div><div>second</div><div>third</div></body>"
+        guard let doc = HTML(html: html, encoding: .utf8),
+            let node = doc.css("div:nth-child(2)").first else {
+            XCTFail()
+            return
+        }
+
+        guard let next = node.nextSibling else {
+            XCTFail("Next sibling not found")
+            return
+        }
+        XCTAssert(next.text == "third")
+
+        guard let previous = node.previousSibling else {
+            XCTFail("Previous sibling not found")
+            return
+        }
+        XCTAssert(previous.text == "first")
+    }
+
     func testOutOfDocument() {
         let filename = "test_HTML4"
         guard let path = Bundle(for:KannaTests.self).path(forResource: filename, ofType:"html") else {
