@@ -110,6 +110,16 @@ internal final class libxmlHTMLNode: XMLElement {
         }
     }
 
+    var nextSibling: XMLElement? {
+        let val = xmlNextElementSibling(self.nodePtr)
+        return self.node(from: val)
+    }
+
+    var previousSibling: XMLElement? {
+        let val = xmlPreviousElementSibling(self.nodePtr)
+        return self.node(from: val)
+    }
+
     fileprivate weak var weakDocument: XMLDocument?
     fileprivate var document: XMLDocument?
     fileprivate var docPtr:  htmlDocPtr? = nil
@@ -260,16 +270,6 @@ internal final class libxmlHTMLNode: XMLElement {
         } else {
             xmlUnsetProp(nodePtr, name)
         }
-    }
-
-    func nextSibling() -> XMLElement? {
-        let val = xmlNextElementSibling(self.nodePtr)
-        return self.node(from: val)
-    }
-
-    func previousSibling() -> XMLElement? {
-        let val = xmlPreviousElementSibling(self.nodePtr)
-        return self.node(from: val)
     }
 
     private func node(from ptr: xmlNodePtr?) -> XMLElement? {
