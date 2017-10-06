@@ -30,13 +30,8 @@ import SwiftClibxml2
 import libxml2
 #endif
 
-#if os(Linux)
-typealias AKTextCheckingResult = TextCheckingResult
-typealias AKRegularExpression  = NSRegularExpression
-#else
 typealias AKRegularExpression  = NSRegularExpression
 typealias AKTextCheckingResult = NSTextCheckingResult
-#endif
 
 public enum CSSError: Error {
     case UnsupportSyntax(String)
