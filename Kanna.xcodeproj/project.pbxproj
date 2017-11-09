@@ -134,8 +134,7 @@
 				1E7ADC9A1DF5907F006E1815 /* Data */,
 				1E7ADC8A1DF55B37006E1815 /* Info.plist */,
 			);
-			name = KannaTests;
-			path = Kanna;
+			path = KannaTests;
 			sourceTree = "<group>";
 		};
 		1E7ADC631DF4F7BC006E1815 /* Configurations */ = {

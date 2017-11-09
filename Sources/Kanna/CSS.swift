@@ -308,7 +308,7 @@ private func getAttrNot(_ str: inout String, skip: Bool = true) -> String? {
     if let result = matchAttrN(str) {
         var one = substringWithRangeAtIndex(result, str: str, at: 1)
         if skip {
-            str = String(str[str.characters.index(str.startIndex, offsetBy: result.range.length)..<str.endIndex])
+            str = String(str[str.index(str.startIndex, offsetBy: result.range.length)..<str.endIndex])
         }
         
         if let attr = getAttribute(&one, skip: false) {
@@ -331,7 +331,7 @@ private func genCombinator(_ str: inout String, skip: Bool = true) -> String? {
     if let result = matchCombinator(str) {
         let one = substringWithRangeAtIndex(result, str: str, at: 1)
         if skip {
-            str = String(str[str.characters.index(str.startIndex, offsetBy: result.range.length)..<str.endIndex])
+            str = String(str[str.index(str.startIndex, offsetBy: result.range.length)..<str.endIndex])
         }
         
         switch one {
