@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage         = "https://github.com/tid-kijyun/Kanna"
   s.license          = 'MIT'
   s.author           = { "Atsushi Kiwaki" => "tid.develop@gmail.com" }
-  s.source           = { :git => "https://github.com/tid-kijyun/Kanna.git", :tag => s.version.to_s }
+  s.source           = { :git => "git@github.com:OlafAndreas/Kanna.git", :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/_tid_'
 
   s.ios.deployment_target = '8.0'
