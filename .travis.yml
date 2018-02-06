@@ -10,8 +10,8 @@ matrix:
       script:
         - set -o pipefail
         - xcodebuild build-for-testing test-without-building -scheme Kanna -configuration Release ENABLE_TESTABILITY=YES | xcpretty -c
-        - xcodebuild build-for-testing test-without-building -scheme Kanna -configuration Release -sdk iphonesimulator -destination "name=iPhone 6s" ENABLE_TESTABILITY=YES | xcpretty -c
-        - xcodebuild build-for-testing test-without-building -scheme Kanna -configuration Release -sdk appletvsimulator -destination "name=Apple TV 1080p" ENABLE_TESTABILITY=YES | xcpretty -c
+        - xcodebuild build-for-testing test-without-building -scheme Kanna -configuration Release -sdk iphonesimulator -destination "name=iPhone 7" ENABLE_TESTABILITY=YES | xcpretty -c
+        - xcodebuild build-for-testing test-without-building -scheme Kanna -configuration Release -sdk appletvsimulator -destination "name=Apple TV" ENABLE_TESTABILITY=YES | xcpretty -c
         - xcodebuild -scheme Kanna -configuration Release -sdk watchsimulator -destination "name=Apple Watch - 38mm"
     - os: osx
       language: generic
@@ -30,7 +30,7 @@ matrix:
         - swift build
         - swift test
       env:
-        - SWIFT_VERSION=4.1-DEVELOPMENT-SNAPSHOT-2018-01-25-a
+        - SWIFT_VERSION=4.0.3
 
 notifications:
   email: false
