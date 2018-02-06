@@ -30,7 +30,7 @@ matrix:
         - swift build
         - swift test
       env:
-        - SWIFT_VERSION=4.1-DEVELOPMENT-SNAPSHOT-2018-01-25-a
+        - SWIFT_VERSION=4.0.3
 
 notifications:
   email: false
