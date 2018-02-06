@@ -19,8 +19,7 @@ let package = Package(
                     "Tests/KannaTests/Data"
                 ]),
         .testTarget(name: "KannaTests",
-                    dependencies: ["Kanna"],
-                    path: "Tests"
-                ),
+                    dependencies: ["Kanna"]
+                )
     ]
 )
