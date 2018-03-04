@@ -269,8 +269,6 @@ private func getAttribute(_ str: inout String, skip: Bool = true) -> String? {
             return "not(node())"
         case "root":
             return "not(parent::*)"
-        case "last-child":
-            return "count(following-sibling::*) = 0"
         default:
             if let sub = matchSubNthChild(one) {
                 let (nth, arg1) = (substringWithRangeAtIndex(sub, str: one, at: 1),
