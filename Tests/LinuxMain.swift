@@ -26,7 +26,11 @@ import XCTest
 @testable import KannaTests
 
 XCTMain([
-    testCase(KannaTests.allTests),
+    testCase(KannaXMLTests.allTests),
+    testCase(KannaHTMLTests.allTests),
+    testCase(KannaXMLModifyingTests.allTests),
+    testCase(KannaHTMLModifyingTests.allTests),
+    testCase(KannaCSSTests.allTests),
     testCase(KannaTutorialsTests.allTests)
 ])
 

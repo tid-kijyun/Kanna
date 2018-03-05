@@ -14,13 +14,18 @@
 		1E7ADC5A1DF4F567006E1815 /* libxmlHTMLDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7ADC531DF4F567006E1815 /* libxmlHTMLDocument.swift */; };
 		1E7ADC5B1DF4F567006E1815 /* libxmlHTMLNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7ADC541DF4F567006E1815 /* libxmlHTMLNode.swift */; };
 		1E7ADC5C1DF4F567006E1815 /* libxmlParserOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7ADC551DF4F567006E1815 /* libxmlParserOption.swift */; };
-		1E7ADC931DF55B37006E1815 /* KannaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7ADC8B1DF55B37006E1815 /* KannaTests.swift */; };
+		1E7ADC931DF55B37006E1815 /* KannaHTMLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7ADC8B1DF55B37006E1815 /* KannaHTMLTests.swift */; };
 		1E7ADC941DF55B37006E1815 /* KannaTutorialsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7ADC8C1DF55B37006E1815 /* KannaTutorialsTest.swift */; };
 		1E7ADCA01DF5907F006E1815 /* libraries.xml in Resources */ = {isa = PBXBuildFile; fileRef = 1E7ADC9B1DF5907F006E1815 /* libraries.xml */; };
 		1E7ADCA11DF5907F006E1815 /* sample.html in Resources */ = {isa = PBXBuildFile; fileRef = 1E7ADC9C1DF5907F006E1815 /* sample.html */; };
 		1E7ADCA21DF5907F006E1815 /* test_HTML4.html in Resources */ = {isa = PBXBuildFile; fileRef = 1E7ADC9D1DF5907F006E1815 /* test_HTML4.html */; };
 		1E7ADCA31DF5907F006E1815 /* test_XML_ExcelWorkbook.xml in Resources */ = {isa = PBXBuildFile; fileRef = 1E7ADC9E1DF5907F006E1815 /* test_XML_ExcelWorkbook.xml */; };
 		1E7ADCA41DF5907F006E1815 /* versions.xml in Resources */ = {isa = PBXBuildFile; fileRef = 1E7ADC9F1DF5907F006E1815 /* versions.xml */; };
+		1E7E698A204C1D6300516E31 /* KannaXMLModifyingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7E6989204C1D6300516E31 /* KannaXMLModifyingTests.swift */; };
+		1EB4A01D204C1E750003D7A2 /* KannaHTMLModifyingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB4A01C204C1E750003D7A2 /* KannaHTMLModifyingTests.swift */; };
+		1EB4A01F204C1F240003D7A2 /* KannaCSSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB4A01E204C1F240003D7A2 /* KannaCSSTests.swift */; };
+		1EB4A021204C20760003D7A2 /* KannaXMLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB4A020204C20760003D7A2 /* KannaXMLTests.swift */; };
+		1EC805FA1FA2FB2F0067D3DA /* Deprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC805F91FA2FB2F0067D3DA /* Deprecated.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,13 +54,18 @@
 		1E7ADC671DF4F885006E1815 /* Kanna.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Kanna.xcconfig; sourceTree = "<group>"; };
 		1E7ADC681DF4F8D5006E1815 /* Tests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Tests.xcconfig; sourceTree = "<group>"; };
 		1E7ADC8A1DF55B37006E1815 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Tests/KannaTests/Info.plist; sourceTree = SOURCE_ROOT; };
-		1E7ADC8B1DF55B37006E1815 /* KannaTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KannaTests.swift; path = Tests/KannaTests/KannaTests.swift; sourceTree = SOURCE_ROOT; };
+		1E7ADC8B1DF55B37006E1815 /* KannaHTMLTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KannaHTMLTests.swift; path = Tests/KannaTests/KannaHTMLTests.swift; sourceTree = SOURCE_ROOT; };
 		1E7ADC8C1DF55B37006E1815 /* KannaTutorialsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KannaTutorialsTest.swift; path = Tests/KannaTests/KannaTutorialsTest.swift; sourceTree = SOURCE_ROOT; };
 		1E7ADC9B1DF5907F006E1815 /* libraries.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = libraries.xml; sourceTree = "<group>"; };
 		1E7ADC9C1DF5907F006E1815 /* sample.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = sample.html; sourceTree = "<group>"; };
 		1E7ADC9D1DF5907F006E1815 /* test_HTML4.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = test_HTML4.html; sourceTree = "<group>"; };
 		1E7ADC9E1DF5907F006E1815 /* test_XML_ExcelWorkbook.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = test_XML_ExcelWorkbook.xml; sourceTree = "<group>"; };
 		1E7ADC9F1DF5907F006E1815 /* versions.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = versions.xml; sourceTree = "<group>"; };
+		1E7E6989204C1D6300516E31 /* KannaXMLModifyingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KannaXMLModifyingTests.swift; sourceTree = "<group>"; };
+		1EB4A01C204C1E750003D7A2 /* KannaHTMLModifyingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KannaHTMLModifyingTests.swift; sourceTree = "<group>"; };
+		1EB4A01E204C1F240003D7A2 /* KannaCSSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KannaCSSTests.swift; sourceTree = "<group>"; };
+		1EB4A020204C20760003D7A2 /* KannaXMLTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KannaXMLTests.swift; sourceTree = "<group>"; };
+		1EC805F91FA2FB2F0067D3DA /* Deprecated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deprecated.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,13 +139,16 @@
 		1E7ADC5E1DF4F576006E1815 /* KannaTests */ = {
 			isa = PBXGroup;
 			children = (
-				1E7ADC8B1DF55B37006E1815 /* KannaTests.swift */,
+				1EB4A020204C20760003D7A2 /* KannaXMLTests.swift */,
+				1E7ADC8B1DF55B37006E1815 /* KannaHTMLTests.swift */,
+				1E7E6989204C1D6300516E31 /* KannaXMLModifyingTests.swift */,
+				1EB4A01C204C1E750003D7A2 /* KannaHTMLModifyingTests.swift */,
+				1EB4A01E204C1F240003D7A2 /* KannaCSSTests.swift */,
 				1E7ADC8C1DF55B37006E1815 /* KannaTutorialsTest.swift */,
 				1E7ADC9A1DF5907F006E1815 /* Data */,
 				1E7ADC8A1DF55B37006E1815 /* Info.plist */,
 			);
-			name = KannaTests;
-			path = Kanna;
+			path = KannaTests;
 			sourceTree = "<group>";
 		};
 		1E7ADC631DF4F7BC006E1815 /* Configurations */ = {
@@ -292,8 +305,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E7ADC931DF55B37006E1815 /* KannaTests.swift in Sources */,
+				1E7ADC931DF55B37006E1815 /* KannaHTMLTests.swift in Sources */,
 				1E7ADC941DF55B37006E1815 /* KannaTutorialsTest.swift in Sources */,
+				1EB4A01F204C1F240003D7A2 /* KannaCSSTests.swift in Sources */,
+				1E7E698A204C1D6300516E31 /* KannaXMLModifyingTests.swift in Sources */,
+				1EB4A01D204C1E750003D7A2 /* KannaHTMLModifyingTests.swift in Sources */,
+				1EB4A021204C20760003D7A2 /* KannaXMLTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
