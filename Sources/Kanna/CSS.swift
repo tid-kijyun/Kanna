@@ -144,8 +144,10 @@ private func nth_last_child(a: Int, b: Int) -> String {
     return nth(prefix: "following", a: a, b: b)
 }
 
-private let matchElement      = firstMatch("^([a-z0-9\\*_-]+)((\\|)([a-z0-9\\*_-]+))?")
-private let matchClassId      = firstMatch("^([#.])([a-z0-9\\*_-]+)")
+private let escapePattern = "(?:\\\\([!\"#\\$%&\'\\(\\)\\*\\+,\\./:;<=>\\?@\\[\\\\\\]\\^`\\{\\|\\}~]))"
+private let escapeRepeatPattern = "\(escapePattern)*"
+private let matchElement      = firstMatch("^((?:[a-z0-9\\*_-]+\(escapeRepeatPattern))+)((\\|)((?:[a-z0-9\\*_-]+\(escapeRepeatPattern))+))?")
+private let matchClassId      = firstMatch("^([#.])((?:[a-z0-9\\*_-]+\(escapeRepeatPattern))+)")
 private let matchAttr1        = firstMatch("^\\[([^\\]]*)\\]")
 private let matchAttr2        = firstMatch("^\\[\\s*([^~\\|\\^\\$\\*=\\s]+)\\s*([~\\|\\^\\$\\*]?=)\\s*(.*)\\s*\\]")
 private let matchAttrN        = firstMatch("^:not\\((.*?\\)?)\\)")
@@ -172,10 +174,14 @@ private func substringWithRangeAtIndex(_ result: AKTextCheckingResult, str: Stri
     return ""
 }
 
+private func escapeCSS(_ text: String) -> String {
+    return text.replacingOccurrences(of: escapePattern, with: "$1", options: .regularExpression, range: nil)
+}
+
 private func getElement(_ str: inout String, skip: Bool = true) -> String {
     if let result = matchElement(str) {
-        let (text, text2) = (substringWithRangeAtIndex(result, str: str, at: 1),
-                             substringWithRangeAtIndex(result, str: str, at: 4))
+        let (text, text2) = (escapeCSS(substringWithRangeAtIndex(result, str: str, at: 1)),
+                             escapeCSS(substringWithRangeAtIndex(result, str: str, at: 5)))
         
         if skip {
             str = String(str[str.index(str.startIndex, offsetBy: result.range.length)..<str.endIndex])
@@ -196,8 +202,8 @@ private func getElement(_ str: inout String, skip: Bool = true) -> String {
 
 private func getClassId(_ str: inout String, skip: Bool = true) -> String? {
     if let result = matchClassId(str) {
-        let (attr, text) = (substringWithRangeAtIndex(result, str: str, at: 1),
-                            substringWithRangeAtIndex(result, str: str, at: 2))
+        let (attr, text) = (escapeCSS(substringWithRangeAtIndex(result, str: str, at: 1)),
+                            escapeCSS(substringWithRangeAtIndex(result, str: str, at: 2)))
         if skip {
             str = String(str[str.index(str.startIndex, offsetBy: result.range.length)..<str.endIndex])
         }
@@ -213,9 +219,9 @@ private func getClassId(_ str: inout String, skip: Bool = true) -> String? {
 
 private func getAttribute(_ str: inout String, skip: Bool = true) -> String? {
     if let result = matchAttr2(str) {
-        let (attr, expr, text) = (substringWithRangeAtIndex(result, str: str, at: 1),
+        let (attr, expr, text) = (escapeCSS(substringWithRangeAtIndex(result, str: str, at: 1)),
                                   substringWithRangeAtIndex(result, str: str, at: 2),
-                                  substringWithRangeAtIndex(result, str: str, at: 3).replacingOccurrences(of: "[\'\"](.*)[\'\"]", with: "$1", options: .regularExpression, range: nil))
+                                  escapeCSS(substringWithRangeAtIndex(result, str: str, at: 3).replacingOccurrences(of: "[\'\"](.*)[\'\"]", with: "$1", options: .regularExpression, range: nil)))
 
         if skip {
             str = String(str[str.index(str.startIndex, offsetBy: result.range.length)..<str.endIndex])

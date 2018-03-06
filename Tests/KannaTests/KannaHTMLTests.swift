@@ -146,6 +146,17 @@ class KannaHTMLTests: XCTestCase {
         XCTAssert(previous.text == "first")
     }
 
+    func testEscapeId() {
+        let html = "<body><div id='my.id'>target</div><div>second</div><div>third</div></body>"
+        guard let doc = try? HTML(html: html, encoding: .utf8),
+            let node = doc.css("div[id='my\\.id']").first else {
+                XCTFail()
+                return
+        }
+
+        XCTAssert(node.text == "target")
+    }
+
     func testOutOfDocument() {
         let filename = "test_HTML4"
         guard let path = Bundle(for:KannaHTMLTests.self).path(forResource: filename, ofType:"html") else {
