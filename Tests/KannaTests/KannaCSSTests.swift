@@ -83,6 +83,11 @@ class KannaCSSTests: XCTestCase {
         ("o|Author", "//o:Author")
     ]
 
+    let invalidCSS = [
+        "h2..foo",
+        "h1, h2..foo, h3",
+    ]
+
     func testCSStoXPath() {
         for testCase in css2xpath {
             do {
@@ -91,6 +96,12 @@ class KannaCSSTests: XCTestCase {
             } catch {
                 XCTAssert(false, error.localizedDescription)
             }
+        }
+    }
+
+    func testInvalidCSStoXPath() {
+        for css in invalidCSS {
+            XCTAssertThrowsError(try CSS.toXPath(css))
         }
     }
 }
