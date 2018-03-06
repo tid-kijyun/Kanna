@@ -38,6 +38,7 @@ class KannaCSSTests: XCTestCase {
         ("ul.info li.favo", "//ul[contains(concat(' ', normalize-space(@class), ' '), ' info ')]//li[contains(concat(' ', normalize-space(@class), ' '), ' favo ')]"),
         ("div > span", "//div/span"),
         ("div + span", "//div/following-sibling::*[1]/self::span"),
+        ("div ~ span", "//div/following-sibling::span"),
         ("div[attr]", "//div[@attr]"),
         ("div[attr='val']", "//div[@attr = 'val']"),
         ("div[attr=\"val\"]", "//div[@attr = 'val']"),
@@ -80,7 +81,10 @@ class KannaCSSTests: XCTestCase {
         ("#content > p:not(.article-meta)", "//*[@id = 'content']/p[not(contains(concat(' ', normalize-space(@class), ' '), ' article-meta '))]"),
         ("div:not(:nth-child(-n+2))", "//div[not((count(preceding-sibling::*) + 1) <= 2)]"),
         ("*:not(:not(div))", "//*[not(not(self::div))]"),
-        ("o|Author", "//o:Author")
+        ("o|Author", "//o:Author"),
+        // escaping
+        ("o|A\\.uthor", "//o:A.uthor"),
+        ("E\\!L\\\"E\\#M\\$E\\%N\\&T_E\\\'L\\(E\\)\\*M\\+E\\.N\\:T_E\\;L\\<E\\=M\\>E\\?N\\@T_\\[E\\\\L\\]E\\^M\\`E\\{N\\|T_E\\}L\\~E#my\\.id", "//E!L\"E#M$E%N&T_E\'L(E)*M+E.N:T_E;L<E=M>E?N@T_[E\\L]E^M`E{N|T_E}L~E[@id = 'my.id']")
     ]
 
     let invalidCSS = [
