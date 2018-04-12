@@ -25,31 +25,30 @@ Features:
 Installation:
 =================
 
-### Swift 3.0
-
-#####CocoaPods
+### Swift 4
+##### CocoaPods
 **:warning: CocoaPods (`1.1.0 or later`) is required.**
 
 Adding it to your `Podfile`:
-```
+```ruby
 use_frameworks!
-pod 'Kanna', '~> 2.1.0'
+pod 'Kanna', '~> 4.0.0'
 ```
 
-#####Carthage
+##### Carthage
 Adding it to your `Cartfile`:
 
-```
-github "tid-kijyun/Kanna" ~> 2.1.0
+```ogdl
+github "tid-kijyun/Kanna" ~> 4.0.0
 ```
 
 1. In the project settings add `$(SDKROOT)/usr/include/libxml2` to the "header search paths" field
 
-#####Swift Package Manager
+##### Swift Package Manager
 
 Installing libxml2 to your computer:
 
-```
+```bash
 // macOS
 $ brew install libxml2
 $ brew link --force libxml2
@@ -60,7 +59,80 @@ $ sudo apt-get install libxml2-dev
 
 Adding it to your `Package.swift`:
 
+```swift
+// swift-tools-version:4.0
+import PackageDescription
+
+let package = Package(
+    name: "YourProject",
+    dependencies: [
+        .package(url: "https://github.com/tid-kijyun/Kanna.git", from: "4.0.0")
+    ],
+    targets: [
+        .target(
+            name: "YourTarget",
+            dependencies: ["Kanna"]),
+    ]
+)
 ```
+
+```bash
+$ swift build
+```
+
+*Note: When a build error occurs, please try run the following command:*
+```bash
+$ sudo apt-get install pkg-config
+```
+
+##### Manual Installation
+1. Add these files to your project:  
+  [Kanna.swift](Source/Kanna.swift)  
+  [CSS.swift](Source/CSS.swift)  
+  [libxmlHTMLDocument.swift](Source/libxml/libxmlHTMLDocument.swift)  
+  [libxmlHTMLNode.swift](Source/libxml/libxmlHTMLNode.swift)  
+  [libxmlParserOption.swift](Source/libxml/libxmlParserOption.swift)  
+  [Modules](Modules)
+1. In the target settings add `$(SDKROOT)/usr/include/libxml2` to the `Search Paths > Header Search Paths` field
+1. In the target settings add `$(SRCROOT)/Modules` to the `Swift Compiler - Search Paths > Import Paths` field
+
+
+### Swift 3.0
+
+##### CocoaPods
+**:warning: CocoaPods (`1.1.0 or later`) is required.**
+
+Adding it to your `Podfile`:
+```ruby
+use_frameworks!
+pod 'Kanna', '~> 2.1.0'
+```
+
+##### Carthage
+Adding it to your `Cartfile`:
+
+```ogdl
+github "tid-kijyun/Kanna" ~> 2.1.0
+```
+
+1. In the project settings add `$(SDKROOT)/usr/include/libxml2` to the "header search paths" field
+
+##### Swift Package Manager
+
+Installing libxml2 to your computer:
+
+```bash
+// macOS
+$ brew install libxml2
+$ brew link --force libxml2
+
+// Linux(Ubuntu)
+$ sudo apt-get install libxml2-dev
+```
+
+Adding it to your `Package.swift`:
+
+```swift
 import PackageDescription
 
 let package = Package(
@@ -72,16 +144,16 @@ let package = Package(
 )
 ```
 
-```
+```bash
 $ swift build
 ```
 
 *Note: When a build error occurs, please try run the following command:*
-```
+```bash
 $ sudo apt-get install pkg-config
 ```
 
-#####Manual Installation
+##### Manual Installation
 1. Add these files to your project:  
   [Kanna.swift](Source/Kanna.swift)  
   [CSS.swift](Source/CSS.swift)  
@@ -96,23 +168,23 @@ $ sudo apt-get install pkg-config
 
 Three means of installation are supported:
 
-#####CocoaPods
+##### CocoaPods
 **:warning: CocoaPods (`0.39 or later`) is required.**
 
 Adding it to your `Podfile`:
-```
+```ruby
 use_frameworks!
 pod 'Kanna', '~> 1.1.0'
 ```
 
-#####Carthage
+##### Carthage
 Adding it to your `Cartfile`:
 
-```
+```ogdl
 github "tid-kijyun/Kanna" ~> 1.1.0
 ```
 
-#####Manual Installation
+##### Manual Installation
 1. Add these files to your project:  
   [Kanna.swift](Source/Kanna.swift)  
   [CSS.swift](Source/CSS.swift)  
@@ -125,7 +197,7 @@ github "tid-kijyun/Kanna" ~> 1.1.0
 
   Copy the those import statements:
 
-  ```
+  ```objective-c
   #import <libxml/HTMLtree.h>
   #import <libxml/xpath.h>
   #import <libxml/xpathInternals.h>
@@ -143,7 +215,7 @@ import Kanna
 
 let html = "<html>...</html>"
 
-if let doc = HTML(html: html, encoding: .utf8) {
+if let doc = try? HTML(html: html, encoding: .utf8) {
     print(doc.title)
     
     // Search for nodes by CSS
@@ -162,7 +234,7 @@ if let doc = HTML(html: html, encoding: .utf8) {
 
 ```swift
 let xml = "..."
-if let doc = Kanna.XML(xml: xml, encoding: .utf8) {
+if let doc = try? Kanna.XML(xml: xml, encoding: .utf8) {
     let namespaces = [
                     "o":  "urn:schemas-microsoft-com:office:office",
                     "ss": "urn:schemas-microsoft-com:office:spreadsheet"
