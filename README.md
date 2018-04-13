@@ -98,6 +98,7 @@ $ sudo apt-get install pkg-config
 
 
 ### Swift 3.0
+For now, please use the `feature/v3.0.0` branch.
 
 ##### CocoaPods
 **:warning: CocoaPods (`1.1.0 or later`) is required.**
@@ -105,14 +106,14 @@ $ sudo apt-get install pkg-config
 Adding it to your `Podfile`:
 ```ruby
 use_frameworks!
-pod 'Kanna', '~> 2.1.0'
+pod 'Kanna', :git => 'https://github.com/tid-kijyun/Kanna', :branch => 'feature/v3.0.0'
 ```
 
 ##### Carthage
 Adding it to your `Cartfile`:
 
 ```ogdl
-github "tid-kijyun/Kanna" ~> 2.1.0
+github "tid-kijyun/Kanna" "feature/v3.0.0"
 ```
 
 1. In the project settings add `$(SDKROOT)/usr/include/libxml2` to the "header search paths" field
