@@ -25,7 +25,6 @@
 		1EB4A01D204C1E750003D7A2 /* KannaHTMLModifyingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB4A01C204C1E750003D7A2 /* KannaHTMLModifyingTests.swift */; };
 		1EB4A01F204C1F240003D7A2 /* KannaCSSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB4A01E204C1F240003D7A2 /* KannaCSSTests.swift */; };
 		1EB4A021204C20760003D7A2 /* KannaXMLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB4A020204C20760003D7A2 /* KannaXMLTests.swift */; };
-		1EC805FA1FA2FB2F0067D3DA /* Deprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC805F91FA2FB2F0067D3DA /* Deprecated.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,7 +64,6 @@
 		1EB4A01C204C1E750003D7A2 /* KannaHTMLModifyingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KannaHTMLModifyingTests.swift; sourceTree = "<group>"; };
 		1EB4A01E204C1F240003D7A2 /* KannaCSSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KannaCSSTests.swift; sourceTree = "<group>"; };
 		1EB4A020204C20760003D7A2 /* KannaXMLTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KannaXMLTests.swift; sourceTree = "<group>"; };
-		1EC805F91FA2FB2F0067D3DA /* Deprecated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deprecated.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,7 +231,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Atsushi Kiwaki";
 				TargetAttributes = {
 					1E7ADC321DF4F3FC006E1815 = {
@@ -335,15 +333,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
@@ -389,15 +395,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
