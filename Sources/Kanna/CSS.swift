@@ -155,7 +155,7 @@ private let matchSubContains  = firstMatch("contains\\([\"\'](.*?)[\"\']\\)")
 
 private func substringWithRangeAtIndex(_ result: AKTextCheckingResult, str: String, at: Int) -> String {
     if result.numberOfRanges > at {
-        let range = result.range(at: at)
+        let range = result.rangeAt(at)
         if range.length > 0 {
             let startIndex = str.index(str.startIndex, offsetBy: range.location)
             let endIndex = str.index(startIndex, offsetBy: range.length)
@@ -321,7 +321,7 @@ private func getAttrNot(_ str: inout String, skip: Bool = true) -> String? {
         if let attr = getAttribute(&one, skip: false) {
             return attr
         } else if let sub = matchElement(one) {
-            let range = sub.range(at: 1)
+            let range = sub.rangeAt(1)
             let startIndex = one.index(one.startIndex, offsetBy: range.location)
             let endIndex   = one.index(startIndex, offsetBy: range.length)
 
