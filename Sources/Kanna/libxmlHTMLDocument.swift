@@ -108,11 +108,12 @@ internal final class libxmlHTMLDocument: HTMLDocument {
 
     var toHTML: String? {
         let buf = xmlBufferCreate()
+        let outputBuf = xmlOutputBufferCreateBuffer(buf, nil)
         defer {
+            xmlOutputBufferClose(outputBuf)
             xmlBufferFree(buf)
         }
 
-        let outputBuf = xmlOutputBufferCreateBuffer(buf, nil)
         htmlDocContentDumpOutput(outputBuf, docPtr, nil)
         let html = String(cString: UnsafePointer(xmlOutputBufferGetContent(outputBuf)))
         return html
@@ -239,11 +240,12 @@ internal final class libxmlXMLDocument: XMLDocument {
     
     var toHTML: String? {
         let buf = xmlBufferCreate()
+        let outputBuf = xmlOutputBufferCreateBuffer(buf, nil)
         defer {
+            xmlOutputBufferClose(outputBuf)
             xmlBufferFree(buf)
         }
 
-        let outputBuf = xmlOutputBufferCreateBuffer(buf, nil)
         htmlDocContentDumpOutput(outputBuf, docPtr, nil)
         let html = String(cString: UnsafePointer(xmlOutputBufferGetContent(outputBuf)))
         return html
