@@ -31,7 +31,13 @@ import libxmlKanna
 #endif
 
 typealias AKRegularExpression  = NSRegularExpression
+#if os(Linux) && swift(>=4)
 typealias AKTextCheckingResult = NSTextCheckingResult
+#elseif os(Linux) && swift(>=3)
+typealias AKTextCheckingResult = TextCheckingResult
+#else
+typealias AKTextCheckingResult = NSTextCheckingResult
+#endif
 
 public enum CSSError: Error {
     case UnsupportSyntax(String)
@@ -155,7 +161,7 @@ private let matchSubContains  = firstMatch("contains\\([\"\'](.*?)[\"\']\\)")
 
 private func substringWithRangeAtIndex(_ result: AKTextCheckingResult, str: String, at: Int) -> String {
     if result.numberOfRanges > at {
-        #if swift(>=4.0)
+        #if swift(>=4.0) || os(Linux)
         let range = result.range(at: at)
         #else
         let range = result.rangeAt(at)
@@ -325,7 +331,7 @@ private func getAttrNot(_ str: inout String, skip: Bool = true) -> String? {
         if let attr = getAttribute(&one, skip: false) {
             return attr
         } else if let sub = matchElement(one) {
-            #if swift(>=4.0)
+            #if swift(>=4.0) || os(Linux)
             let range = sub.range(at: 1)
             #else
             let range = sub.rangeAt(1)
