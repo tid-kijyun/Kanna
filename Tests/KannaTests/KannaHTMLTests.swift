@@ -184,6 +184,21 @@ class KannaHTMLTests: XCTestCase {
             XCTAssert(element.text! == "def")
         }
     }
+
+    func testNoTagElement() {
+        let input = """
+        <div>
+        <style>@media all and (max-width:720px){.mw-parser-output .tmulti>.thumbinner{width:100%!important;max-width:none!important}.mw-parser-output .tmulti .tsingle{float:none!important;max-width:none!important;width:100%!important;text-align:center}}</style>
+        </div>
+        """
+
+        do {
+            let doc = try HTML(html: input, encoding: .utf8)
+            XCTAssertNil(doc.body?.at_xpath("//style/child::text()")?.tagName)
+        } catch {
+            XCTFail()
+        }
+    }
 }
 
 extension KannaHTMLTests {
