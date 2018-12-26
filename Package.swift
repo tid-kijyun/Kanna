@@ -1,4 +1,4 @@
-// swift-tools-version:4.0
+// swift-tools-version:4.2
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 import PackageDescription
 
@@ -7,11 +7,17 @@ let package = Package(
     products: [
       .library(name: "Kanna", targets: ["Kanna"]),
     ],
-    dependencies: [
-        .package(url: "https://github.com/tid-kijyun/SwiftClibxml2.git", from: "1.0.0")
-    ],
     targets: [
+        .systemLibrary(
+                name: "libxmlKanna",
+                path: "Modules",
+                pkgConfig: "libxml-2.0",
+                providers: [
+                    .brew(["libxml2"]),
+                    .apt(["libxml2-dev"])
+                ]),
         .target(name: "Kanna",
+                dependencies: ["libxmlKanna"],
                 path: "Sources",
                 exclude: [
                     "Sources/Info.plist",
