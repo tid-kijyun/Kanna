@@ -25,7 +25,7 @@ Features:
 Installation:
 =================
 
-### Swift 4
+### Swift 5
 ##### CocoaPods
 **:warning: CocoaPods (`1.1.0 or later`) is required.**
 
