@@ -12,7 +12,7 @@ matrix:
         - xcodebuild build-for-testing test-without-building -scheme Kanna -configuration Release ENABLE_TESTABILITY=YES | xcpretty -c
         - xcodebuild build-for-testing test-without-building -scheme Kanna -configuration Release -sdk iphonesimulator -destination "name=iPhone 7" ENABLE_TESTABILITY=YES | xcpretty -c
         - xcodebuild build-for-testing test-without-building -scheme Kanna -configuration Release -sdk appletvsimulator -destination "name=Apple TV" ENABLE_TESTABILITY=YES | xcpretty -c
-        - xcodebuild -scheme Kanna -configuration Release -sdk watchsimulator -destination "name=Apple Watch - 38mm"
+        - xcodebuild -scheme Kanna -configuration Release -sdk watchsimulator -destination "name=Apple Watch Series 3 - 38mm"
     - os: osx
       language: generic
       osx_image: xcode10.2
