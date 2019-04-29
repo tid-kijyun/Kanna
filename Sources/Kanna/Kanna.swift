@@ -168,6 +168,13 @@ XMLDocument
 public protocol XMLDocument: class, SearchableNode {
 }
 
+extension XMLDocument {
+    public var namespaces: [Namespace] {
+        guard let namespaces = xpath("namespace::*").namespaces else { return [] }
+        return namespaces
+    }
+}
+
 /**
 HTMLDocument
 */
@@ -257,12 +264,19 @@ extension XMLNodeSet: Sequence {
 }
 
 /**
+Namespace
+*/
+public struct Namespace {
+    public let prefix: String
+    public let name: String
+}
+
+/**
 XPathObject
 */
-
 public enum XPathObject {
     case none
-    case NodeSet(nodeset: XMLNodeSet)
+    case NodeSet(nodeset: XMLNodeSet, namespaces: [Namespace])
     case Bool(bool: Swift.Bool)
     case Number(num: Double)
     case String(text: Swift.String)
@@ -278,14 +292,28 @@ extension XPathObject {
                 return
             }
 
+            var namespaces = [Namespace]()
             var nodes : [XMLElement] = []
             let size = Int((nodeSet?.pointee.nodeNr)!)
             for i in 0 ..< size {
-                let node: xmlNodePtr = nodeSet!.pointee.nodeTab[i]!
-                let htmlNode = libxmlHTMLNode(document: document, docPtr: docPtr, node: node)
-                nodes.append(htmlNode)
+                var node: xmlNodePtr = nodeSet!.pointee.nodeTab[i]!
+                if node.pointee.type == XML_NAMESPACE_DECL {
+                    withUnsafePointer(to: &node, { (ptr: UnsafePointer<xmlNodePtr>) -> Void in
+                        var ns = unsafeBitCast(ptr, to: UnsafePointer<xmlNsPtr>.self)
+                        let namePtr = ns.pointee.pointee.href
+                        let prefixPtr = ns.pointee.pointee.prefix
+                        if let prefixPtr = UnsafePointer<UInt8>(prefixPtr), let namePtr = UnsafePointer<UInt8>(namePtr) {
+                            let prefix = Swift.String(cString: prefixPtr)
+                            let name = Swift.String(cString: namePtr)
+                            namespaces.append(.init(prefix: prefix, name: name))
+                        }
+                    })
+                } else {
+                    let htmlNode = libxmlHTMLNode(document: document, docPtr: docPtr, node: node)
+                    nodes.append(htmlNode)
+                }
             }
-            self = .NodeSet(nodeset: XMLNodeSet(nodes: nodes))
+            self = .NodeSet(nodeset: XMLNodeSet(nodes: nodes), namespaces: namespaces)
             return
         case XPATH_BOOLEAN:
             self = .Bool(bool: object.boolval != 0)
@@ -321,8 +349,15 @@ extension XPathObject {
     }
 
     var nodeSet: XMLNodeSet? {
-        if case let .NodeSet(nodeset) = self {
+        if case let .NodeSet(nodeset, _) = self {
             return nodeset
+        }
+        return nil
+    }
+
+    public var namespaces: [Namespace]? {
+        if case let .NodeSet(_, namespaces) = self {
+            return namespaces
         }
         return nil
     }
