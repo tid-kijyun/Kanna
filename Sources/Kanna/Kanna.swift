@@ -166,6 +166,7 @@ public protocol XMLElement: SearchableNode {
 XMLDocument
 */
 public protocol XMLDocument: class, SearchableNode {
+    var namespaces: [Namespace] { get }
 }
 
 /**
@@ -254,6 +255,14 @@ extension XMLNodeSet: Sequence {
             return nil
         }
     }
+}
+
+/**
+ Namespace
+ */
+public struct Namespace {
+    public let prefix: String
+    public let name: String
 }
 
 /**
