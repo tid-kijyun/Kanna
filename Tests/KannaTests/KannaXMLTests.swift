@@ -66,6 +66,23 @@ class KannaXMLTests: XCTestCase {
     func testXmlThrows() {
         XCTAssertThrowsError(try XML(xml: "", encoding: .utf8))
     }
+
+    func testNamespaces() {
+        let filename = "test_XML_ExcelWorkbook"
+        guard let path = Bundle(for:KannaXMLTests.self).path(forResource: filename, ofType:"xml") else {
+            return
+        }
+        if let xml = try? Data(contentsOf: URL(fileURLWithPath: path)),
+            let doc = try? XML(xml: xml, encoding: .utf8) {
+            let namespaces = doc.namespaces.map { $0.name }
+
+            let arry = ["http://www.w3.org/TR/REC-html40",
+                        "urn:schemas-microsoft-com:office:spreadsheet",
+                        "urn:schemas-microsoft-com:office:spreadsheet", "urn:schemas-microsoft-com:office:excel", "urn:schemas-microsoft-com:office:office"]
+
+            XCTAssertEqual(namespaces.sorted(), arry.sorted())
+        }
+    }
 }
 
 extension KannaXMLTests {

@@ -203,6 +203,10 @@ internal final class libxmlHTMLDocument: HTMLDocument {
             rootNode?.content = newValue
         }
     }
+
+    var namespaces: [Namespace] {
+        return getNamespaces(docPtr: docPtr)
+    }
     
     init(html: String, url: String?, encoding: String.Encoding, option: UInt) throws {
         self.html = html
@@ -335,6 +339,10 @@ internal final class libxmlXMLDocument: XMLDocument {
             rootNode?.content = newValue
         }
     }
+
+    var namespaces: [Namespace] {
+        return getNamespaces(docPtr: docPtr)
+    }
     
     init(xml: String, url: String?, encoding: String.Encoding, option: UInt) throws {
         self.xml  = xml
@@ -390,4 +398,24 @@ internal final class libxmlXMLDocument: XMLDocument {
     func at_css(_ selector: String) -> XMLElement? {
         return self.at_css(selector, namespaces: nil)
     }
+}
+
+private func getNamespaces(docPtr: xmlDocPtr?) -> [Namespace] {
+    let rootNode = xmlDocGetRootElement(docPtr)
+    guard let ns = xmlGetNsList(docPtr, rootNode) else {
+        return []
+    }
+
+    var result: [Namespace] = []
+    var next = ns.pointee
+    while next != nil {
+        if let namePtr = next?.pointee.href {
+            let prefixPtr = next?.pointee.prefix
+            let prefix = prefixPtr == nil ? "" : String(cString: UnsafePointer<UInt8>(prefixPtr!))
+            let name = String(cString: UnsafePointer<UInt8>(namePtr))
+            result.append(Namespace(prefix: prefix, name: name))
+        }
+        next = next?.pointee.next
+    }
+    return result
 }
