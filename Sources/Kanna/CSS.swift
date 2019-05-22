@@ -50,10 +50,11 @@ public enum CSS {
     
     @return XPath
     */
-    public static func toXPath(_ css: String) throws -> String {
+    public static func toXPath(_ css: String, isRoot: Bool = true) throws -> String {
         let selectorGroups = css.components(separatedBy: ",")
+        let prefix = isRoot ? "" : "."
         return try selectorGroups
-            .map { try toXPath(selector: $0) }
+            .map { prefix.appending(try toXPath(selector: $0)) }
             .joined(separator: " | ")
     }
 
