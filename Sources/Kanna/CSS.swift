@@ -51,8 +51,8 @@ public enum CSS {
     @return XPath
     */
     public static func toXPath(_ css: String) throws -> String {
-        let selectorGroups = css.components(separatedBy: ",")
-        return try selectorGroups
+        try css
+            .components(separatedBy: ",")
             .map { try toXPath(selector: $0) }
             .joined(separator: " | ")
     }
@@ -104,7 +104,7 @@ public enum CSS {
 }
 
 private func firstMatch(_ pattern: String) -> (String) -> AKTextCheckingResult? {
-    return { str in
+    { str in
         let length = str.utf16.count
         do {
             let regex = try AKRegularExpression(pattern: pattern, options: .caseInsensitive)
@@ -134,11 +134,11 @@ private func nth(prefix: String, a: Int, b: Int) -> String {
 
 // a(n) + b | a(n) - b
 private func nth_child(a: Int, b: Int) -> String {
-    return nth(prefix: "preceding", a: a, b: b)
+    nth(prefix: "preceding", a: a, b: b)
 }
 
 private func nth_last_child(a: Int, b: Int) -> String {
-    return nth(prefix: "following", a: a, b: b)
+    nth(prefix: "following", a: a, b: b)
 }
 
 private let escapePattern = "(?:\\\\([!\"#\\$%&\'\\(\\)\\*\\+,\\./:;<=>\\?@\\[\\\\\\]\\^`\\{\\|\\}~]))"
@@ -172,7 +172,7 @@ private func substringWithRangeAtIndex(_ result: AKTextCheckingResult, str: Stri
 }
 
 private func escapeCSS(_ text: String) -> String {
-    return text.replacingOccurrences(of: escapePattern, with: "$1", options: .regularExpression, range: nil)
+    text.replacingOccurrences(of: escapePattern, with: "$1", options: .regularExpression, range: nil)
 }
 
 private func getElement(_ str: inout String, skip: Bool = true) -> String {
