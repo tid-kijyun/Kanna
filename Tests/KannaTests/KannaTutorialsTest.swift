@@ -193,7 +193,7 @@ class KannaTutorialsTests: XCTestCase {
 
 extension KannaTutorialsTests {
     static var allTests: [(String, (KannaTutorialsTests) -> () throws -> Void)] {
-        return [
+        [
             ("testParsingFromString", testParsingFromString),
             //("testParsingFromFile", testParsingFromFile),
             ("testParsingFromInternets", testParsingFromInternets),

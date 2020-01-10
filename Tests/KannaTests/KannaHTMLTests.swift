@@ -25,6 +25,9 @@ SOFTWARE.
 import XCTest
 import Foundation
 import CoreFoundation
+#if os(Linux)
+import FoundationNetworking
+#endif
 @testable import Kanna
 
 class KannaHTMLTests: XCTestCase {
@@ -203,7 +206,7 @@ class KannaHTMLTests: XCTestCase {
 
 extension KannaHTMLTests {
     static var allTests: [(String, (KannaHTMLTests) -> () throws -> Void)] {
-        return [
+        [
             //("testHTML4", testHTML4),
             //("testInnerHTML", testInnerHTML),
             ("testNSURL", testNSURL),
