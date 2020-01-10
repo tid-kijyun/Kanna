@@ -25,6 +25,9 @@ SOFTWARE.
 import XCTest
 import Foundation
 import CoreFoundation
+#if os(Linux)
+import FoundationNetworking
+#endif
 @testable import Kanna
 
 class KannaHTMLTests: XCTestCase {
