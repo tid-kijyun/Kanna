@@ -23,8 +23,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 import Foundation
-
-import libxmlKanna
+import libxml2
 
 typealias AKRegularExpression  = NSRegularExpression
 #if os(Linux) && swift(>=4)
