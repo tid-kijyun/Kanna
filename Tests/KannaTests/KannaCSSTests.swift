@@ -112,7 +112,7 @@ class KannaCSSTests: XCTestCase {
 
 extension KannaCSSTests {
     static var allTests: [(String, (KannaCSSTests) -> () throws -> Void)] {
-        return [
+        [
             ("testCSStoXPath", testCSStoXPath),
         ]
     }

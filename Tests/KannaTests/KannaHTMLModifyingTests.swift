@@ -57,7 +57,7 @@ class KannaHTMLModifyingTests: XCTestCase {
 
 extension KannaHTMLModifyingTests {
     static var allTests: [(String, (KannaHTMLModifyingTests) -> () throws -> Void)] {
-        return [
+        [
             ("testHTML_MovingNode", testHTML_MovingNode)
         ]
     }

@@ -87,7 +87,7 @@ class KannaXMLTests: XCTestCase {
 
 extension KannaXMLTests {
     static var allTests: [(String, (KannaXMLTests) -> () throws -> Void)] {
-        return [
+        [
             //("testXml", testXml),
             ("testXmlThrows", testXmlThrows),
         ]
