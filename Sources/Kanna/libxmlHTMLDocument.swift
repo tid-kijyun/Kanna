@@ -128,7 +128,7 @@ extension String.Encoding {
             return nil
         }
         #else
-        let cfenc = CFStringConvertNSStringEncodingToEncoding(self.rawValue)
+        let cfenc = CFStringConvertNSStringEncodingToEncoding(rawValue)
         guard let cfencstr = CFStringConvertEncodingToIANACharSetName(cfenc) else {
             return nil
         }
@@ -140,16 +140,14 @@ extension String.Encoding {
 /*
 libxmlHTMLDocument
 */
-internal final class libxmlHTMLDocument: HTMLDocument {
-    fileprivate var docPtr:   htmlDocPtr? = nil
-    fileprivate var rootNode: XMLElement?
-    fileprivate var html: String
-    fileprivate var url:  String?
-    fileprivate var encoding: String.Encoding
+final class libxmlHTMLDocument: HTMLDocument {
+    private var docPtr:   htmlDocPtr? = nil
+    private var rootNode: XMLElement?
+    private var html: String
+    private var url:  String?
+    private var encoding: String.Encoding
     
-    var text: String? {
-        return rootNode?.text
-    }
+    var text: String? { rootNode?.text }
 
     var toHTML: String? {
         let buf = xmlBufferCreate()
@@ -176,37 +174,21 @@ internal final class libxmlHTMLDocument: HTMLDocument {
         return html
     }
     
-    var innerHTML: String? {
-        return rootNode?.innerHTML
-    }
+    var innerHTML: String? { rootNode?.innerHTML }
     
-    var className: String? {
-        return nil
-    }
+    var className: String? { nil }
     
-    var tagName:   String? {
-        get {
-            return nil
-        }
-
-        set {
-
-        }
+    var tagName: String? {
+        get { nil }
+        set {}
     }
 
     var content: String? {
-        get {
-            return text
-        }
-
-        set {
-            rootNode?.content = newValue
-        }
+        get { text }
+        set { rootNode?.content = newValue }
     }
 
-    var namespaces: [Namespace] {
-        return getNamespaces(docPtr: docPtr)
-    }
+    var namespaces: [Namespace] { getNamespaces(docPtr: docPtr) }
     
     init(html: String, url: String?, encoding: String.Encoding, option: UInt) throws {
         self.html = html
@@ -233,59 +215,57 @@ internal final class libxmlHTMLDocument: HTMLDocument {
     }
     
     deinit {
-        xmlFreeDoc(self.docPtr)
+        xmlFreeDoc(docPtr)
     }
 
-    var title: String? { return at_xpath("//title")?.text }
-    var head: XMLElement? { return at_xpath("//head") }
-    var body: XMLElement? { return at_xpath("//body") }
+    var title: String? { at_xpath("//title")?.text }
+    var head: XMLElement? { at_xpath("//head") }
+    var body: XMLElement? { at_xpath("//body") }
     
     func xpath(_ xpath: String, namespaces: [String:String]?) -> XPathObject {
-        return rootNode?.xpath(xpath, namespaces: namespaces) ?? XPathObject.none
+        rootNode?.xpath(xpath, namespaces: namespaces) ?? .none
     }
     
     func xpath(_ xpath: String) -> XPathObject {
-        return self.xpath(xpath, namespaces: nil)
+        self.xpath(xpath, namespaces: nil)
     }
     
     func at_xpath(_ xpath: String, namespaces: [String:String]?) -> XMLElement? {
-        return rootNode?.at_xpath(xpath, namespaces: namespaces)
+        rootNode?.at_xpath(xpath, namespaces: namespaces)
     }
     
     func at_xpath(_ xpath: String) -> XMLElement? {
-        return self.at_xpath(xpath, namespaces: nil)
+        self.at_xpath(xpath, namespaces: nil)
     }
     
     func css(_ selector: String, namespaces: [String:String]?) -> XPathObject {
-        return rootNode?.css(selector, namespaces: namespaces) ?? XPathObject.none
+        rootNode?.css(selector, namespaces: namespaces) ?? .none
     }
     
     func css(_ selector: String) -> XPathObject {
-        return self.css(selector, namespaces: nil)
+        self.css(selector, namespaces: nil)
     }
     
     func at_css(_ selector: String, namespaces: [String:String]?) -> XMLElement? {
-        return rootNode?.at_css(selector, namespaces: namespaces)
+        rootNode?.at_css(selector, namespaces: namespaces)
     }
     
     func at_css(_ selector: String) -> XMLElement? {
-        return self.at_css(selector, namespaces: nil)
+        self.at_css(selector, namespaces: nil)
     }
 }
 
 /*
 libxmlXMLDocument
 */
-internal final class libxmlXMLDocument: XMLDocument {
-    fileprivate var docPtr:   xmlDocPtr? = nil
-    fileprivate var rootNode: XMLElement?
-    fileprivate var xml: String
-    fileprivate var url: String?
-    fileprivate var encoding: String.Encoding
+final class libxmlXMLDocument: XMLDocument {
+    private var docPtr:   xmlDocPtr? = nil
+    private var rootNode: XMLElement?
+    private var xml: String
+    private var url: String?
+    private var encoding: String.Encoding
     
-    var text: String? {
-        return rootNode?.text
-    }
+    var text: String? { rootNode?.text }
     
     var toHTML: String? {
         let buf = xmlBufferCreate()
@@ -312,41 +292,25 @@ internal final class libxmlXMLDocument: XMLDocument {
         return html
     }
     
-    var innerHTML: String? {
-        return rootNode?.innerHTML
-    }
+    var innerHTML: String? { rootNode?.innerHTML }
     
-    var className: String? {
-        return nil
-    }
+    var className: String? { nil }
     
-    var tagName:   String? {
-        get {
-            return nil
-        }
-
-        set {
-            
-        }
+    var tagName: String? {
+        get { nil }
+        set {}
     }
 
     var content: String? {
-        get {
-            return text
-        }
-
-        set {
-            rootNode?.content = newValue
-        }
+        get { text }
+        set { rootNode?.content = newValue }
     }
 
-    var namespaces: [Namespace] {
-        return getNamespaces(docPtr: docPtr)
-    }
+    var namespaces: [Namespace] { getNamespaces(docPtr: docPtr) }
     
     init(xml: String, url: String?, encoding: String.Encoding, option: UInt) throws {
-        self.xml  = xml
-        self.url  = url
+        self.xml = xml
+        self.url = url
         self.encoding = encoding
         
         if xml.isEmpty {
@@ -364,39 +328,39 @@ internal final class libxmlXMLDocument: XMLDocument {
     }
 
     deinit {
-        xmlFreeDoc(self.docPtr)
+        xmlFreeDoc(docPtr)
     }
     
     func xpath(_ xpath: String, namespaces: [String:String]?) -> XPathObject {
-        return rootNode?.xpath(xpath, namespaces: namespaces) ?? XPathObject.none
+        rootNode?.xpath(xpath, namespaces: namespaces) ?? .none
     }
     
     func xpath(_ xpath: String) -> XPathObject {
-        return self.xpath(xpath, namespaces: nil)
+        self.xpath(xpath, namespaces: nil)
     }
     
     func at_xpath(_ xpath: String, namespaces: [String:String]?) -> XMLElement? {
-        return rootNode?.at_xpath(xpath, namespaces: namespaces)
+        rootNode?.at_xpath(xpath, namespaces: namespaces)
     }
     
     func at_xpath(_ xpath: String) -> XMLElement? {
-        return self.at_xpath(xpath, namespaces: nil)
+        self.at_xpath(xpath, namespaces: nil)
     }
     
     func css(_ selector: String, namespaces: [String:String]?) -> XPathObject {
-        return rootNode?.css(selector, namespaces: namespaces) ?? XPathObject.none
+        rootNode?.css(selector, namespaces: namespaces) ?? .none
     }
     
     func css(_ selector: String) -> XPathObject {
-        return self.css(selector, namespaces: nil)
+        self.css(selector, namespaces: nil)
     }
     
     func at_css(_ selector: String, namespaces: [String:String]?) -> XMLElement? {
-        return rootNode?.at_css(selector, namespaces: namespaces)
+        rootNode?.at_css(selector, namespaces: namespaces)
     }
     
     func at_css(_ selector: String) -> XMLElement? {
-        return self.at_css(selector, namespaces: nil)
+        self.at_css(selector, namespaces: nil)
     }
 }
 

@@ -182,7 +182,7 @@ public protocol HTMLDocument: XMLDocument {
 XMLNodeSet
 */
 public final class XMLNodeSet {
-    fileprivate var nodes: [XMLElement] = []
+    private var nodes: [XMLElement] = []
     
     public var toHTML: String? {
         let html = nodes.reduce("") {
@@ -215,31 +215,23 @@ public final class XMLNodeSet {
     }
     
     public subscript(index: Int) -> XMLElement {
-        return nodes[index]
+        nodes[index]
     }
     
-    public var count: Int {
-        return nodes.count
-    }
+    public var count: Int { nodes.count }
     
-    internal init() {
-    }
+    init() {}
     
-    internal init(nodes: [XMLElement]) {
+    init(nodes: [XMLElement]) {
         self.nodes = nodes
     }
     
     public func at(_ index: Int) -> XMLElement? {
-        return count > index ? nodes[index] : nil
+        count > index ? nodes[index] : nil
     }
-    
-    public var first: XMLElement? {
-        return at(0)
-    }
-    
-    public var last: XMLElement? {
-        return at(count-1)
-    }
+
+    public var first: XMLElement? { at(0) }
+    public var last: XMLElement? { at(count - 1) }
 }
 
 extension XMLNodeSet: Sequence {
@@ -278,7 +270,7 @@ public enum XPathObject {
 }
 
 extension XPathObject {
-    internal init(document: XMLDocument?, docPtr: xmlDocPtr, object: xmlXPathObject) {
+    init(document: XMLDocument?, docPtr: xmlDocPtr, object: xmlXPathObject) {
         switch object.type {
         case XPATH_NODESET:
             let nodeSet = object.nodesetval
@@ -315,18 +307,15 @@ extension XPathObject {
     }
 
     public subscript(index: Int) -> XMLElement {
-        return nodeSet![index]
+        nodeSet![index]
     }
 
     public var first: XMLElement? {
-        return nodeSet?.first
+        nodeSet?.first
     }
 
     public var count: Int {
-        guard let nodeset = nodeSet else {
-            return 0
-        }
-        return nodeset.count
+        nodeSet?.count ?? 0
     }
 
     var nodeSet: XMLNodeSet? {
@@ -358,19 +347,19 @@ extension XPathObject {
     }
     
     var nodeSetValue: XMLNodeSet {
-        return nodeSet ?? XMLNodeSet()
+        nodeSet ?? XMLNodeSet()
     }
     
     var boolValue: Swift.Bool {
-        return bool ?? false
+        bool ?? false
     }
     
     var numberValue: Double {
-        return number ?? 0.0
+        number ?? 0
     }
     
     var stringValue: Swift.String {
-        return string ?? ""
+        string ?? ""
     }
 }
 
