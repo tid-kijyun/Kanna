@@ -42,8 +42,24 @@ github "tid-kijyun/Kanna" ~> 5.0.0
 
 1. In the project settings add `$(SDKROOT)/usr/include/libxml2` to the "header search paths" field
 
-##### Others(Swift PM and manual Installation)
-Please refer to the case of Swift 4.
+##### Swift Package Manager
+Adding it to your `Package.swift`:
+
+```swift
+import PackageDescription
+
+let package = Package(
+    name: "YourProject",
+    
+    dependencies: [
+        .Package(url: "https://github.com/tid-kijyun/Kanna.git", from: "5.0.0")
+    ]
+
+    // Link xml2 (needed for Xcode builds)
+    swiftSettings:[.unsafeFlags(["-I$SDKROOT/usr/include/libxml2"])],
+    linkerSettings: [.linkedLibrary("xml2")]),
+)
+```
 
 ### Swift 4
 ##### CocoaPods
