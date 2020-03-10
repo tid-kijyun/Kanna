@@ -204,7 +204,7 @@ final class libxmlHTMLDocument: HTMLDocument {
         }
         
         let url : String = ""
-        docPtr = htmlReadDoc(UnsafeRawPointer(cur).assumingMemoryBound(to: xmlChar.self), url, charsetName, CInt(option))
+        docPtr = cur.withUnsafeBytes { xmlReadDoc($0.bindMemory(to: xmlChar.self).baseAddress!, url, charsetName, CInt(option)) }
         
         guard let docPtr = docPtr else {
             throw ParseError.EncodingMismatch
@@ -322,7 +322,7 @@ final class libxmlXMLDocument: XMLDocument {
                 throw ParseError.EncodingMismatch
         }
         let url : String = ""
-        docPtr = xmlReadDoc(UnsafeRawPointer(cur).assumingMemoryBound(to: xmlChar.self), url, charsetName, CInt(option))
+        docPtr = cur.withUnsafeBytes { xmlReadDoc($0.bindMemory(to: xmlChar.self).baseAddress!, url, charsetName, CInt(option)) }
         rootNode  = libxmlHTMLNode(document: self, docPtr: docPtr!)
     }
 
