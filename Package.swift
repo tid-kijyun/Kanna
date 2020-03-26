@@ -2,6 +2,12 @@
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 import PackageDescription
 
+#if swift(>=5.2) && !os(Linux)
+let pkgConfig: String? = nil
+#else
+let pkgConfig = "libxml-2.0"
+#endif
+
 #if swift(>=5.2)
 let provider: [SystemPackageProvider] = [
     .apt(["libxml2-dev"]),
@@ -22,7 +28,7 @@ let package = Package(
         .systemLibrary(
             name: "libxml2",
             path: "Modules",
-            pkgConfig: "libxml-2.0",
+            pkgConfig: pkgConfig,
             providers: provider
         ),
         .target(
