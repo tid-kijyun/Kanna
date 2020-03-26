@@ -204,8 +204,7 @@ final class libxmlHTMLDocument: HTMLDocument {
         }
         
         let url : String = ""
-        docPtr = cur.withUnsafeBytes { xmlReadDoc($0.bindMemory(to: xmlChar.self).baseAddress!, url, charsetName, CInt(option)) }
-        
+        docPtr = cur.withUnsafeBytes { htmlReadDoc($0.bindMemory(to: xmlChar.self).baseAddress!, url, charsetName, CInt(option)) }
         guard let docPtr = docPtr else {
             throw ParseError.EncodingMismatch
         }
