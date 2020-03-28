@@ -62,4 +62,3 @@ extension KannaHTMLModifyingTests {
         ]
     }
 }
-

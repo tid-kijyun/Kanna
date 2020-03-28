@@ -34,8 +34,8 @@ public enum ParseOption {
     case htmlParseUseLibxml(Libxml2HTMLParserOptions)
 }
 
-public let kDefaultXmlParseOption   = ParseOption.xmlParseUseLibxml([.RECOVER, .NOERROR, .NOWARNING])
-public let kDefaultHtmlParseOption  = ParseOption.htmlParseUseLibxml([.RECOVER, .NOERROR, .NOWARNING])
+public let kDefaultXmlParseOption  = ParseOption.xmlParseUseLibxml([.RECOVER, .NOERROR, .NOWARNING])
+public let kDefaultHtmlParseOption = ParseOption.htmlParseUseLibxml([.RECOVER, .NOERROR, .NOWARNING])
 
 public enum ParseError: Error {
     case Empty
@@ -118,19 +118,19 @@ public protocol Searchable {
     
     @param xpath
      */
-    func xpath(_ xpath: String, namespaces: [String:String]?) -> XPathObject
+    func xpath(_ xpath: String, namespaces: [String: String]?) -> XPathObject
     func xpath(_ xpath: String) -> XPathObject
-    func at_xpath(_ xpath: String, namespaces: [String:String]?) -> XMLElement?
+    func at_xpath(_ xpath: String, namespaces: [String: String]?) -> XMLElement?
     func at_xpath(_ xpath: String) -> XMLElement?
-    
+
     /**
     Search for node from current node by CSS selector.
     
     @param selector a CSS selector
     */
-    func css(_ selector: String, namespaces: [String:String]?) -> XPathObject
+    func css(_ selector: String, namespaces: [String: String]?) -> XPathObject
     func css(_ selector: String) -> XPathObject
-    func at_css(_ selector: String, namespaces: [String:String]?) -> XMLElement?
+    func at_css(_ selector: String, namespaces: [String: String]?) -> XMLElement?
     func at_css(_ selector: String) -> XMLElement?
 }
 
@@ -139,12 +139,12 @@ SearchableNode
 */
 public protocol SearchableNode: Searchable {
     var text: String? { get }
-    var toHTML:      String? { get }
-    var toXML:     String? { get }
+    var toHTML: String? { get }
+    var toXML: String? { get }
     var innerHTML: String? { get }
     var className: String? { get }
-    var tagName:   String? { get set }
-    var content:   String? { get set }
+    var tagName: String? { get set }
+    var content: String? { get set }
 }
 
 /**
@@ -182,7 +182,7 @@ XMLNodeSet
 */
 public final class XMLNodeSet {
     private var nodes: [XMLElement] = []
-    
+
     public var toHTML: String? {
         let html = nodes.reduce("") {
             if let text = $1.toHTML {
@@ -192,7 +192,7 @@ public final class XMLNodeSet {
         }
         return html.isEmpty == false ? html : nil
     }
-    
+
     public var innerHTML: String? {
         let html = nodes.reduce("") {
             if let text = $1.innerHTML {
@@ -202,7 +202,7 @@ public final class XMLNodeSet {
         }
         return html.isEmpty == false ? html : nil
     }
-    
+
     public var text: String? {
         let html = nodes.reduce("") {
             if let text = $1.text {
@@ -212,19 +212,19 @@ public final class XMLNodeSet {
         }
         return html
     }
-    
+
     public subscript(index: Int) -> XMLElement {
         nodes[index]
     }
-    
+
     public var count: Int { nodes.count }
-    
+
     init() {}
-    
+
     init(nodes: [XMLElement]) {
         self.nodes = nodes
     }
-    
+
     public func at(_ index: Int) -> XMLElement? {
         count > index ? nodes[index] : nil
     }
@@ -259,7 +259,6 @@ public struct Namespace {
 /**
 XPathObject
 */
-
 public enum XPathObject {
     case none
     case NodeSet(nodeset: XMLNodeSet)
@@ -278,7 +277,7 @@ extension XPathObject {
                 return
             }
 
-            var nodes : [XMLElement] = []
+            var nodes: [XMLElement] = []
             let size = Int((nodeSet?.pointee.nodeNr)!)
             for i in 0 ..< size {
                 let node: xmlNodePtr = nodeSet!.pointee.nodeTab[i]!
@@ -330,33 +329,33 @@ extension XPathObject {
         }
         return nil
     }
-    
+
     var number: Double? {
         if case let .Number(value) = self {
             return value
         }
         return nil
     }
-    
+
     var string: Swift.String? {
         if case let .String(value) = self {
             return value
         }
         return nil
     }
-    
+
     var nodeSetValue: XMLNodeSet {
         nodeSet ?? XMLNodeSet()
     }
-    
+
     var boolValue: Swift.Bool {
         bool ?? false
     }
-    
+
     var numberValue: Double {
         number ?? 0
     }
-    
+
     var stringValue: Swift.String {
         string ?? ""
     }
