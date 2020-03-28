@@ -24,14 +24,14 @@ It was inspired by [Nokogiri](https://github.com/sparklemotion/nokogiri)(鋸).
 Add the following to your `Podfile`:
 ```ruby
 use_frameworks!
-pod 'Kanna', '~> 5.2.1'
+pod 'Kanna', '~> 5.2.2'
 ```
 
 #### Carthage
 Add the following to your `Cartfile`:
 
 ```ogdl
-github "tid-kijyun/Kanna" ~> 5.2.1
+github "tid-kijyun/Kanna" ~> 5.2.2
 ```
 
 For xcode 11.3 and earlier, the following settings are required.
@@ -58,7 +58,7 @@ import PackageDescription
 let package = Package(
     name: "YourProject",
     dependencies: [
-        .package(url: "https://github.com/tid-kijyun/Kanna.git", from: "5.2.1"),
+        .package(url: "https://github.com/tid-kijyun/Kanna.git", from: "5.2.2"),
     ],
     targets: [
         .target(
