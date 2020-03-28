@@ -27,6 +27,7 @@ DerivedData
 #
 # Pods/
 
+.swiftpm
 .build
 Packages
 

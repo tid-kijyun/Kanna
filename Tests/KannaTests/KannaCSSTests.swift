@@ -89,7 +89,7 @@ class KannaCSSTests: XCTestCase {
 
     let invalidCSS = [
         "h2..foo",
-        "h1, h2..foo, h3",
+        "h1, h2..foo, h3"
     ]
 
     func testCSStoXPath() {
@@ -119,8 +119,8 @@ class KannaCSSTests: XCTestCase {
 
 extension KannaCSSTests {
     static var allTests: [(String, (KannaCSSTests) -> () throws -> Void)] {
-        return [
-            ("testCSStoXPath", testCSStoXPath),
+        [
+            ("testCSStoXPath", testCSStoXPath)
         ]
     }
 }
