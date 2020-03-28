@@ -33,4 +33,3 @@ XCTMain([
     testCase(KannaCSSTests.allTests),
     testCase(KannaTutorialsTests.allTests)
 ])
-
