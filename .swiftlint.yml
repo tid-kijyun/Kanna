@@ -1,0 +1,9 @@
+disabled_rules:
+- line_length
+- identifier_name
+- type_name
+- cyclomatic_complexity
+- function_body_length
+- unused_setter_value
+- orphaned_doc_comment
+

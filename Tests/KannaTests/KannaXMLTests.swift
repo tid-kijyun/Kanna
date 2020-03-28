@@ -30,13 +30,13 @@ import CoreFoundation
 class KannaXMLTests: XCTestCase {
     func testXml() {
         let filename = "test_XML_ExcelWorkbook"
-        guard let path = Bundle(for:KannaXMLTests.self).path(forResource: filename, ofType:"xml") else {
+        guard let path = Bundle(for: KannaXMLTests.self).path(forResource: filename, ofType: "xml") else {
             return
         }
         if let xml = try? Data(contentsOf: URL(fileURLWithPath: path)),
             let doc = try? XML(xml: xml, encoding: .utf8) {
             let namespaces = [
-                "o":  "urn:schemas-microsoft-com:office:office",
+                "o": "urn:schemas-microsoft-com:office:office",
                 "ss": "urn:schemas-microsoft-com:office:spreadsheet"
             ]
 
@@ -51,7 +51,6 @@ class KannaXMLTests: XCTestCase {
             } else {
                 XCTAssert(false, "Create date not found.")
             }
-
 
             for row in doc.xpath("//ss:Row", namespaces: namespaces) {
                 for cell in row.xpath("//ss:Data", namespaces: namespaces) {
@@ -69,7 +68,7 @@ class KannaXMLTests: XCTestCase {
 
     func testNamespaces() {
         let filename = "test_XML_ExcelWorkbook"
-        guard let path = Bundle(for:KannaXMLTests.self).path(forResource: filename, ofType:"xml") else {
+        guard let path = Bundle(for: KannaXMLTests.self).path(forResource: filename, ofType: "xml") else {
             return
         }
         if let xml = try? Data(contentsOf: URL(fileURLWithPath: path)),
@@ -89,7 +88,7 @@ extension KannaXMLTests {
     static var allTests: [(String, (KannaXMLTests) -> () throws -> Void)] {
         [
             //("testXml", testXml),
-            ("testXmlThrows", testXmlThrows),
+            ("testXmlThrows", testXmlThrows)
         ]
     }
 }

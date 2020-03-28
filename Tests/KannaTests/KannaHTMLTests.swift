@@ -34,10 +34,10 @@ class KannaHTMLTests: XCTestCase {
     func testHTML4() {
         // This is an example of a functional test case.
         let filename = "test_HTML4"
-        guard let path = Bundle(for:KannaHTMLTests.self).path(forResource: filename, ofType:"html") else {
+        guard let path = Bundle(for: KannaHTMLTests.self).path(forResource: filename, ofType: "html") else {
             return
         }
-        
+
         do {
             let html = try String(contentsOfFile: path, encoding: .utf8)
             guard let doc = try? HTML(html: html, encoding: .utf8) else {
@@ -54,13 +54,13 @@ class KannaHTMLTests: XCTestCase {
             for link in doc.xpath("//link") {
                 XCTAssert(link["href"] != nil)
             }
-            
+
             let repoName = ["Kanna", "Swift-HTML-Parser"]
             for (index, repo) in doc.xpath("//span[@class='repo']").enumerated() {
                 XCTAssert(repo["title"] == repoName[index])
                 XCTAssert(repo.text == repoName[index])
             }
-            
+
             if let snTable = doc.at_css("table[id='sequence number']") {
                 let alphabet = ["a", "b", "c"]
                 for (indexTr, tr) in snTable.css("tr").enumerated() {
@@ -69,7 +69,7 @@ class KannaHTMLTests: XCTestCase {
                     }
                 }
             }
-            
+
             if let starTable = doc.at_css("table[id='star table']"),
                    let allStarStr = starTable.at_css("tfoot > tr > td:nth-child(2)")?.text,
                    let allStar = Int(allStarStr) {
@@ -80,7 +80,7 @@ class KannaHTMLTests: XCTestCase {
                             count += star
                         }
                     }
-                    
+
                     XCTAssert(count == allStar)
             } else {
                 XCTAssert(false, "Star not found.")
@@ -100,19 +100,19 @@ class KannaHTMLTests: XCTestCase {
             XCTAssert(false, "File not found. name: (\(filename)), error: \(error)")
         }
     }
-    
+
     func testInnerHTML() {
         let filename = "test_HTML4"
-        guard let path = Bundle(for:KannaHTMLTests.self).path(forResource: filename, ofType:"html") else {
+        guard let path = Bundle(for: KannaHTMLTests.self).path(forResource: filename, ofType: "html") else {
             return
         }
-        
+
         do {
             let html = try String(contentsOfFile: path, encoding: .utf8)
             guard let doc = try? HTML(html: html, encoding: .utf8) else {
                 return
             }
-            
+
             XCTAssert(doc.at_css("div#inner")!.innerHTML == "\n        abc<div>def</div>hij<span>klmn</span>opq\n    ")
             XCTAssert(doc.at_css("#asd")!.innerHTML == "asd")
         } catch {
@@ -125,7 +125,7 @@ class KannaHTMLTests: XCTestCase {
         // https://github.com/apple/swift-corelibs-foundation/pull/1499
         #if !os(Linux) || swift(>=4.2)
         guard let url = URL(string: "https://en.wikipedia.org/wiki/Cat"),
-              let _ = try? HTML(url: url, encoding: .utf8) else {
+              (try? HTML(url: url, encoding: .utf8)) != nil else {
             XCTAssert(false)
             return
         }
@@ -136,7 +136,7 @@ class KannaHTMLTests: XCTestCase {
         let html = "<body><div>first</div><div>second</div><div>third</div></body>"
         guard let doc = try? HTML(html: html, encoding: .utf8),
             let node = doc.css("div:nth-child(2)").first else {
-            XCTFail()
+            XCTFail("Abnormal test data")
             return
         }
 
@@ -157,7 +157,7 @@ class KannaHTMLTests: XCTestCase {
         let html = "<body><div id='my.id'>target</div><div>second</div><div>third</div></body>"
         guard let doc = try? HTML(html: html, encoding: .utf8),
             let node = doc.css("div[id='my\\.id']").first else {
-                XCTFail()
+                XCTFail("Abnormal test data")
                 return
         }
 
@@ -166,7 +166,7 @@ class KannaHTMLTests: XCTestCase {
 
     func testOutOfDocument() {
         let filename = "test_HTML4"
-        guard let path = Bundle(for:KannaHTMLTests.self).path(forResource: filename, ofType:"html") else {
+        guard let path = Bundle(for: KannaHTMLTests.self).path(forResource: filename, ofType: "html") else {
             return
         }
 
@@ -199,7 +199,7 @@ class KannaHTMLTests: XCTestCase {
             let doc = try HTML(html: input, encoding: .utf8)
             XCTAssertNil(doc.body?.at_xpath("//style/child::text()")?.tagName)
         } catch {
-            XCTFail()
+            XCTFail("Abnormal test data")
         }
     }
 }
@@ -209,7 +209,7 @@ extension KannaHTMLTests {
         [
             //("testHTML4", testHTML4),
             //("testInnerHTML", testInnerHTML),
-            ("testNSURL", testNSURL),
+            ("testNSURL", testNSURL)
         ]
     }
 }

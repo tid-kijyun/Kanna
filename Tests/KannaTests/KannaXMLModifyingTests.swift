@@ -58,7 +58,7 @@ class KannaXMLModifyingTests: XCTestCase {
 extension KannaXMLModifyingTests {
     static var allTests: [(String, (KannaXMLModifyingTests) -> () throws -> Void)] {
         [
-            ("testXML_MovingNode", testXML_MovingNode),
+            ("testXML_MovingNode", testXML_MovingNode)
         ]
     }
 }

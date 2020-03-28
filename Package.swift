@@ -10,19 +10,19 @@ let pkgConfig = "libxml-2.0"
 
 #if swift(>=5.2)
 let provider: [SystemPackageProvider] = [
-    .apt(["libxml2-dev"]),
+    .apt(["libxml2-dev"])
 ]
 #else
 let provider: [SystemPackageProvider] = [
     .apt(["libxml2-dev"]),
-    .brew(["libxml2"]),
+    .brew(["libxml2"])
 ]
 #endif
 
 let package = Package(
     name: "Kanna",
     products: [
-      .library(name: "Kanna", targets: ["Kanna"]),
+      .library(name: "Kanna", targets: ["Kanna"])
     ],
     targets: [
         .systemLibrary(
