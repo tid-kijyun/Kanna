@@ -192,12 +192,8 @@ final class libxmlHTMLNode: XMLElement {
     }
 
     func css(_ selector: String, namespaces: [String: String]?) -> XPathObject {
-        if let xpath = try? CSS.toXPath(selector) {
-            if isRoot {
-                return self.xpath(xpath, namespaces: namespaces)
-            } else {
-                return self.xpath("." + xpath, namespaces: namespaces)
-            }
+        if let xpath = try? CSS.toXPath(selector, isRoot: isRoot) {
+            return self.xpath(xpath, namespaces: namespaces)
         }
         return .none
     }

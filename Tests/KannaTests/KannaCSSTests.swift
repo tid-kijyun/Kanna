@@ -101,6 +101,13 @@ class KannaCSSTests: XCTestCase {
                 XCTAssert(false, error.localizedDescription)
             }
         }
+        
+        do {
+            let xpath = try CSS.toXPath("form, a", isRoot: false)
+            XCTAssertEqual(xpath, ".//form | .//a")
+        } catch {
+            XCTAssert(false, error.localizedDescription)
+        }
     }
 
     func testInvalidCSStoXPath() {
