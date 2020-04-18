@@ -346,7 +346,7 @@ struct XPath {
             ctxt.pointee.node = node
         }
 
-        guard let result = xmlXPathEvalExpression(xpath, ctxt) else { return .none }
+        guard let result = xmlXPathEvalExpression(adoptXpath(xpath), ctxt) else { return .none }
         defer { xmlXPathFreeObject(result) }
 
         return XPathObject(document: doc, docPtr: docPtr, object: result.pointee)
@@ -357,6 +357,15 @@ struct XPath {
             return self.xpath(xpath, namespaces: namespaces)
         }
         return .none
+    }
+
+    private func adoptXpath(_ xpath: String) -> String {
+        guard !isRoot else { return xpath }
+        if xpath.hasPrefix("/") {
+            return "." + xpath
+        } else {
+            return xpath
+        }
     }
 }
 
