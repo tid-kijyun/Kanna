@@ -220,36 +220,14 @@ final class libxmlHTMLDocument: HTMLDocument {
     var head: XMLElement? { at_xpath("//head") }
     var body: XMLElement? { at_xpath("//body") }
 
-    func xpath(_ xpath: String, namespaces: [String: String]?) -> XPathObject {
-        rootNode?.xpath(xpath, namespaces: namespaces) ?? .none
+    func xpath(_ xpath: String, namespaces: [String: String]? = nil) -> XPathObject {
+        guard let docPtr = docPtr else { return .none }
+        return XPath(doc: self, docPtr: docPtr).xpath(xpath, namespaces: namespaces)
     }
 
-    func xpath(_ xpath: String) -> XPathObject {
-        self.xpath(xpath, namespaces: nil)
-    }
-
-    func at_xpath(_ xpath: String, namespaces: [String: String]?) -> XMLElement? {
-        rootNode?.at_xpath(xpath, namespaces: namespaces)
-    }
-
-    func at_xpath(_ xpath: String) -> XMLElement? {
-        self.at_xpath(xpath, namespaces: nil)
-    }
-
-    func css(_ selector: String, namespaces: [String: String]?) -> XPathObject {
-        rootNode?.css(selector, namespaces: namespaces) ?? .none
-    }
-
-    func css(_ selector: String) -> XPathObject {
-        self.css(selector, namespaces: nil)
-    }
-
-    func at_css(_ selector: String, namespaces: [String: String]?) -> XMLElement? {
-        rootNode?.at_css(selector, namespaces: namespaces)
-    }
-
-    func at_css(_ selector: String) -> XMLElement? {
-        self.at_css(selector, namespaces: nil)
+    func css(_ selector: String, namespaces: [String: String]? = nil) -> XPathObject {
+        guard let docPtr = docPtr else { return .none }
+        return XPath(doc: self, docPtr: docPtr).css(selector, namespaces: namespaces)
     }
 }
 
@@ -328,36 +306,57 @@ final class libxmlXMLDocument: XMLDocument {
         xmlFreeDoc(docPtr)
     }
 
-    func xpath(_ xpath: String, namespaces: [String: String]?) -> XPathObject {
-        rootNode?.xpath(xpath, namespaces: namespaces) ?? .none
+    func xpath(_ xpath: String, namespaces: [String: String]? = nil) -> XPathObject {
+        guard let docPtr = docPtr else { return .none }
+        return XPath(doc: self, docPtr: docPtr).xpath(xpath, namespaces: namespaces)
     }
 
-    func xpath(_ xpath: String) -> XPathObject {
-        self.xpath(xpath, namespaces: nil)
+    func css(_ selector: String, namespaces: [String: String]? = nil) -> XPathObject {
+        guard let docPtr = docPtr else { return .none }
+        return XPath(doc: self, docPtr: docPtr).css(selector, namespaces: namespaces)
+    }
+}
+
+struct XPath {
+    private let doc: XMLDocument
+    private var docPtr: xmlDocPtr
+    private var nodePtr: xmlNodePtr?
+    private var isRoot: Bool {
+        guard let nodePtr = nodePtr else { return true }
+        return xmlDocGetRootElement(docPtr) == nodePtr
     }
 
-    func at_xpath(_ xpath: String, namespaces: [String: String]?) -> XMLElement? {
-        rootNode?.at_xpath(xpath, namespaces: namespaces)
+    init(doc: XMLDocument, docPtr: xmlDocPtr, nodePtr: xmlNodePtr? = nil) {
+        self.doc = doc
+        self.docPtr = docPtr
+        self.nodePtr = nodePtr
     }
 
-    func at_xpath(_ xpath: String) -> XMLElement? {
-        self.at_xpath(xpath, namespaces: nil)
+    func xpath(_ xpath: String, namespaces: [String: String]? = nil) -> XPathObject {
+        guard let ctxt = xmlXPathNewContext(docPtr) else { return .none }
+        defer { xmlXPathFreeContext(ctxt) }
+
+        if let nsDictionary = namespaces {
+            for (ns, name) in nsDictionary {
+                xmlXPathRegisterNs(ctxt, ns, name)
+            }
+        }
+
+        if let node = nodePtr {
+            ctxt.pointee.node = node
+        }
+
+        guard let result = xmlXPathEvalExpression(xpath, ctxt) else { return .none }
+        defer { xmlXPathFreeObject(result) }
+
+        return XPathObject(document: doc, docPtr: docPtr, object: result.pointee)
     }
 
-    func css(_ selector: String, namespaces: [String: String]?) -> XPathObject {
-        rootNode?.css(selector, namespaces: namespaces) ?? .none
-    }
-
-    func css(_ selector: String) -> XPathObject {
-        self.css(selector, namespaces: nil)
-    }
-
-    func at_css(_ selector: String, namespaces: [String: String]?) -> XMLElement? {
-        rootNode?.at_css(selector, namespaces: namespaces)
-    }
-
-    func at_css(_ selector: String) -> XMLElement? {
-        self.at_css(selector, namespaces: nil)
+    func css(_ selector: String, namespaces: [String: String]? = nil) -> XPathObject {
+        if let xpath = try? CSS.toXPath(selector, isRoot: isRoot) {
+            return self.xpath(xpath, namespaces: namespaces)
+        }
+        return .none
     }
 }
 
