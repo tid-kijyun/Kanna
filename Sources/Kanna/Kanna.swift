@@ -119,9 +119,6 @@ public protocol Searchable {
     @param xpath
      */
     func xpath(_ xpath: String, namespaces: [String: String]?) -> XPathObject
-    func xpath(_ xpath: String) -> XPathObject
-    func at_xpath(_ xpath: String, namespaces: [String: String]?) -> XMLElement?
-    func at_xpath(_ xpath: String) -> XMLElement?
 
     /**
     Search for node from current node by CSS selector.
@@ -129,9 +126,24 @@ public protocol Searchable {
     @param selector a CSS selector
     */
     func css(_ selector: String, namespaces: [String: String]?) -> XPathObject
-    func css(_ selector: String) -> XPathObject
-    func at_css(_ selector: String, namespaces: [String: String]?) -> XMLElement?
-    func at_css(_ selector: String) -> XMLElement?
+}
+
+public extension Searchable {
+    func xpath(_ xpath: String, namespaces: [String: String]? = nil) -> XPathObject {
+        self.xpath(xpath, namespaces: namespaces)
+    }
+
+    func at_xpath(_ xpath: String, namespaces: [String: String]? = nil) -> XMLElement? {
+        self.xpath(xpath, namespaces: namespaces).nodeSetValue.first
+    }
+
+    func css(_ selector: String, namespaces: [String: String]? = nil) -> XPathObject {
+        self.css(selector, namespaces: namespaces)
+    }
+
+    func at_css(_ selector: String, namespaces: [String: String]? = nil) -> XMLElement? {
+        self.css(selector, namespaces: namespaces).nodeSetValue.first
+    }
 }
 
 /**
@@ -181,7 +193,7 @@ public protocol HTMLDocument: XMLDocument {
 XMLNodeSet
 */
 public final class XMLNodeSet {
-    private var nodes: [XMLElement] = []
+    private var nodes: [XMLElement]
 
     public var toHTML: String? {
         let html = nodes.reduce("") {
@@ -219,9 +231,7 @@ public final class XMLNodeSet {
 
     public var count: Int { nodes.count }
 
-    init() {}
-
-    init(nodes: [XMLElement]) {
+    init(nodes: [XMLElement] = []) {
         self.nodes = nodes
     }
 
@@ -271,16 +281,15 @@ extension XPathObject {
     init(document: XMLDocument?, docPtr: xmlDocPtr, object: xmlXPathObject) {
         switch object.type {
         case XPATH_NODESET:
-            let nodeSet = object.nodesetval
-            if nodeSet == nil || nodeSet?.pointee.nodeNr == 0 || nodeSet?.pointee.nodeTab == nil {
+            guard let nodeSet = object.nodesetval, nodeSet.pointee.nodeNr != 0, let nodeTab = nodeSet.pointee.nodeTab else {
                 self = .none
                 return
             }
 
             var nodes: [XMLElement] = []
-            let size = Int((nodeSet?.pointee.nodeNr)!)
+            let size = Int(nodeSet.pointee.nodeNr)
             for i in 0 ..< size {
-                let node: xmlNodePtr = nodeSet!.pointee.nodeTab[i]!
+                let node: xmlNodePtr = nodeTab[i]!
                 let htmlNode = libxmlHTMLNode(document: document, docPtr: docPtr, node: node)
                 nodes.append(htmlNode)
             }

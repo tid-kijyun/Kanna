@@ -202,6 +202,30 @@ class KannaHTMLTests: XCTestCase {
             XCTFail("Abnormal test data")
         }
     }
+
+    func testInnerXpath() {
+        let input = """
+                    <html>
+                    <head>
+                        <title>test title</title>
+                    </head>
+                    <body>
+                        <div id="1"><div><h1>test header 1</h1></div></div>
+                        <div id="2"><div><h1>test header 2</h1></div></div>
+                    </body>
+                    </html>
+                    """
+        do {
+            let doc = try HTML(html: input, encoding: .utf8)
+            XCTAssertNil(doc.at_xpath("//head")?.at_xpath("//h1"))
+            XCTAssertNil(doc.at_xpath("//head")?.at_xpath("//body"))
+            XCTAssertNil(doc.at_xpath("//body")?.at_xpath("//title"))
+            XCTAssertEqual(doc.at_xpath("//body/div[@id='2']//h1")?.text, "test header 2")
+            XCTAssertEqual(doc.at_xpath("//body/div[@id='2']")?.at_xpath("//h1")?.text, "test header 2")
+        } catch {
+            XCTFail("Abnormal test data")
+        }
+    }
 }
 
 extension KannaHTMLTests {
