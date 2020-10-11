@@ -40,7 +40,7 @@ let package = Package(
         ),
         .target(
             name: "Kanna",
-            dependencies: ["libxml2"],
+            dependencies: dependencies,
             path: "Sources",
             exclude: [
                 "Sources/Info.plist",
