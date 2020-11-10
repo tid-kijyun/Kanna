@@ -93,12 +93,16 @@ class KannaCSSTests: XCTestCase {
     ]
 
     func testCSStoXPath() {
-        for testCase in css2xpath {
-            do {
-                let xpath = try CSS.toXPath(testCase.css)
-                XCTAssert(xpath == testCase.xpath, "Create XPath = [\(xpath)] != [\(testCase.xpath)]")
-            } catch {
-                XCTAssert(false, error.localizedDescription)
+        self.measure {
+            (0..<100).forEach { _ in
+            for testCase in css2xpath {
+                do {
+                    let xpath = try CSS.toXPath(testCase.css)
+                    XCTAssert(xpath == testCase.xpath, "Create XPath = [\(xpath)] != [\(testCase.xpath)]")
+                } catch {
+                    XCTAssert(false, error.localizedDescription)
+                }
+            }
             }
         }
 

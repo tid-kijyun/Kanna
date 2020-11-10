@@ -103,10 +103,14 @@ public enum CSS {
     }
 }
 
+private var regexDict: [String: AKRegularExpression] = [:]
 private func firstMatch(_ pattern: String) -> (String) -> AKTextCheckingResult? {
     return { str in
         let length = str.utf16.count
-        guard let regex = try? AKRegularExpression(pattern: pattern, options: .caseInsensitive) else {
+        if regexDict[pattern] == nil {
+            regexDict[pattern] = try? AKRegularExpression(pattern: pattern, options: .caseInsensitive)
+        }
+        guard let regex = regexDict[pattern] else {
             return nil
         }
         if let result = regex.firstMatch(in: str, options: .reportProgress, range: NSRange(location: 0, length: length)) {
