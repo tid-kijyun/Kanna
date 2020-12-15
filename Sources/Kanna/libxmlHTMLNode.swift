@@ -216,9 +216,9 @@ private func libxmlGetNodeContent(_ nodePtr: xmlNodePtr) -> String? {
 }
 
 let entities = [
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;"
+    ("&", "&amp;"),
+    ("<", "&lt;"),
+    (">", "&gt;")
 ]
 
 private func escape(_ str: String) -> String {
