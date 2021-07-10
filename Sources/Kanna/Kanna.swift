@@ -176,7 +176,7 @@ public protocol XMLElement: SearchableNode {
 /**
 XMLDocument
 */
-public protocol XMLDocument: class, SearchableNode {
+public protocol XMLDocument: AnyObject, SearchableNode {
     var namespaces: [Namespace] { get }
 }
 
