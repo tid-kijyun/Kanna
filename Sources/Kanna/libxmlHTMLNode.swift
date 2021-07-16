@@ -138,16 +138,15 @@ final class libxmlHTMLNode: XMLElement {
         }
     }
 
-    init(document: XMLDocument?, docPtr: xmlDocPtr) {
+    init(document: XMLDocument?, docPtr: xmlDocPtr) throws {
         self.weakDocument = document
         self.docPtr       = docPtr
-        self.nodePtr      = xmlDocGetRootElement(docPtr)
-        if let x = xmlDocGetRootElement(docPtr) {
-            self.nodePtr = x
-        } else {
-            print("Is nil!")
+        guard let nodePtr = xmlDocGetRootElement(docPtr) else {
+            // Error handling is omitted, and will be added if necessary in the future.
+            // e.g: if let error = xmlGetLastError(), error.pointee.code == XML_ERR_DOCUMENT_EMPTY.rawValue
+            throw ParseError.Empty
         }
-
+        self.nodePtr = nodePtr
     }
 
     init(document: XMLDocument?, docPtr: xmlDocPtr, node: xmlNodePtr) {
