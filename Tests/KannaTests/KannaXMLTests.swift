@@ -63,7 +63,13 @@ class KannaXMLTests: XCTestCase {
     }
 
     func testXmlThrows() {
-        XCTAssertThrowsError(try XML(xml: "", encoding: .utf8))
+        XCTAssertThrowsError(try XML(xml: "", encoding: .utf8)) { error in
+            XCTAssertEqual(error as? ParseError, ParseError.Empty)
+        }
+
+        XCTAssertThrowsError(try XML(xml: " ", encoding: .utf8)) { error in
+            XCTAssertEqual(error as? ParseError, ParseError.Empty)
+        }
     }
 
     func testNamespaces() {

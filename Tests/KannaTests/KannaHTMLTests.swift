@@ -153,6 +153,16 @@ class KannaHTMLTests: XCTestCase {
         XCTAssert(previous.text == "first")
     }
 
+    func testEmptyHTML() {
+        XCTAssertThrowsError(try HTML(html: "", encoding: .utf8)) { error in
+            XCTAssertEqual(error as? ParseError, ParseError.Empty)
+        }
+
+        XCTAssertThrowsError(try HTML(html: " ", encoding: .utf8)) { error in
+            XCTAssertEqual(error as? ParseError, ParseError.Empty)
+        }
+    }
+
     func testEscapeId() {
         let html = "<body><div id='my.id'>target</div><div>second</div><div>third</div></body>"
         guard let doc = try? HTML(html: html, encoding: .utf8),

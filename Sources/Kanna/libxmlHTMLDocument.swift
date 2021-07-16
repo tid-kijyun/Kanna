@@ -209,7 +209,7 @@ final class libxmlHTMLDocument: HTMLDocument {
             throw ParseError.EncodingMismatch
         }
 
-        rootNode = libxmlHTMLNode(document: self, docPtr: docPtr)
+        rootNode = try libxmlHTMLNode(document: self, docPtr: docPtr)
     }
 
     deinit {
@@ -299,7 +299,7 @@ final class libxmlXMLDocument: XMLDocument {
         }
         let url: String = ""
         docPtr   = cur.withUnsafeBytes { xmlReadDoc($0.bindMemory(to: xmlChar.self).baseAddress!, url, charsetName, CInt(option)) }
-        rootNode = libxmlHTMLNode(document: self, docPtr: docPtr!)
+        rootNode = try libxmlHTMLNode(document: self, docPtr: docPtr!)
     }
 
     deinit {
