@@ -142,6 +142,12 @@ final class libxmlHTMLNode: XMLElement {
         self.weakDocument = document
         self.docPtr       = docPtr
         self.nodePtr      = xmlDocGetRootElement(docPtr)
+        if let x = xmlDocGetRootElement(docPtr) {
+            self.nodePtr = x
+        } else {
+            print("Is nil!")
+        }
+
     }
 
     init(document: XMLDocument?, docPtr: xmlDocPtr, node: xmlNodePtr) {
