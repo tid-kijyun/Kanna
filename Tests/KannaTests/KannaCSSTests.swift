@@ -113,6 +113,32 @@ class KannaCSSTests: XCTestCase {
             XCTAssert(false, error.localizedDescription)
         }
     }
+    
+    func testCSStoXPathAsyncMultiThreads() {
+        let exp = expectation(description: "exp")
+        var checkedCount = 0
+        let lock = NSLock()
+        let allCheckCount = 100 * css2xpath.count
+        (0..<100).forEach { _ in
+            for testCase in css2xpath {
+                DispatchQueue.global().async {
+                    do {
+                        let xpath = try CSS.toXPath(testCase.css)
+                        XCTAssert(xpath == testCase.xpath, "Create XPath = [\(xpath)] != [\(testCase.xpath)]")
+                    } catch {
+                        XCTAssert(false, error.localizedDescription)
+                    }
+                    lock.lock()
+                    checkedCount += 1
+                    if checkedCount == allCheckCount {
+                        exp.fulfill()
+                    }
+                    lock.unlock()
+                }
+            }
+        }
+        waitForExpectations(timeout: 10.0, handler: nil)
+    }
 
     func testInvalidCSStoXPath() {
         for css in invalidCSS {

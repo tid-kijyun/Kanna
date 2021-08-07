@@ -103,10 +103,15 @@ public enum CSS {
     }
 }
 
+private let lock = NSLock()
 private var regexDict: [String: AKRegularExpression] = [:]
 private func firstMatch(_ pattern: String) -> (String) -> AKTextCheckingResult? {
     return { str in
         let length = str.utf16.count
+        lock.lock()
+        defer {
+            lock.unlock()
+        }
         if regexDict[pattern] == nil {
             regexDict[pattern] = try? AKRegularExpression(pattern: pattern, options: .caseInsensitive)
         }
