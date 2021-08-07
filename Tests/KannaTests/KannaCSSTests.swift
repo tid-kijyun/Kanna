@@ -121,19 +121,23 @@ class KannaCSSTests: XCTestCase {
         let allCheckCount = 100 * css2xpath.count
         (0..<100).forEach { _ in
             for testCase in css2xpath {
-                DispatchQueue.global().async {
-                    do {
-                        let xpath = try CSS.toXPath(testCase.css)
-                        XCTAssert(xpath == testCase.xpath, "Create XPath = [\(xpath)] != [\(testCase.xpath)]")
-                    } catch {
-                        XCTAssert(false, error.localizedDescription)
+                if #available(macOS 10.10, *) {
+                    DispatchQueue.global().async {
+                        do {
+                            let xpath = try CSS.toXPath(testCase.css)
+                            XCTAssert(xpath == testCase.xpath, "Create XPath = [\(xpath)] != [\(testCase.xpath)]")
+                        } catch {
+                            XCTAssert(false, error.localizedDescription)
+                        }
+                        lock.lock()
+                        checkedCount += 1
+                        if checkedCount == allCheckCount {
+                            exp.fulfill()
+                        }
+                        lock.unlock()
                     }
-                    lock.lock()
-                    checkedCount += 1
-                    if checkedCount == allCheckCount {
-                        exp.fulfill()
-                    }
-                    lock.unlock()
+                } else {
+                    // Fallback on earlier versions
                 }
             }
         }
