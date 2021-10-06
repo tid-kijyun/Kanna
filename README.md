@@ -3,7 +3,7 @@ Kanna(鉋) is an XML/HTML parser for cross-platform(macOS, iOS, tvOS, watchOS an
 
 It was inspired by [Nokogiri](https://github.com/sparklemotion/nokogiri)(鋸).
 
-[![Build Status](https://travis-ci.org/tid-kijyun/Kanna.svg?branch=master)](https://travis-ci.org/tid-kijyun/Kanna)
+![Build Status](https://github.com/tid-kijyun/Kanna/actions/workflows/ci.yml/badge.svg)
 [![Platform](http://img.shields.io/badge/platform-ios_osx_watchos_tvos_linux-lightgrey.svg?style=flat)](https://developer.apple.com/resources/)
 [![Cocoapod](http://img.shields.io/cocoapods/v/Kanna.svg?style=flat)](http://cocoadocs.org/docsets/Kanna/)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)

@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+jobs:
+  mac:
+    runs-on: macos-11
+    strategy:
+      matrix:
+        xcode: [11.7, 12.5.1, 13.0_beta]
+      fail-fast: false
+    name: Xcode ${{ matrix.xcode }}
+    env:
+      DEVELOPER_DIR: "/Applications/Xcode_${{ matrix.xcode }}.app"
+    steps:
+      - uses: actions/checkout@v2
+      - name: xcode build and test
+        run: |
+          set -o pipefail
+          xcodebuild build-for-testing test-without-building -scheme Kanna -configuration Release ENABLE_TESTABILITY=YES | xcpretty -c
+          xcodebuild build-for-testing test-without-building -scheme Kanna -configuration Release -sdk iphonesimulator -destination "name=iPhone 8" ENABLE_TESTABILITY=YES | xcpretty -c
+          xcodebuild build-for-testing test-without-building -scheme Kanna -configuration Release -sdk appletvsimulator -destination "name=Apple TV" ENABLE_TESTABILITY=YES | xcpretty -c
+          xcodebuild -scheme Kanna -configuration Release -sdk watchsimulator -destination "name=Apple Watch Series 4 - 40mm"
+      - name: swiftpm build and test
+        run: |
+          swift build
+          swift test
+
+  linux:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: swiftpm build and test
+        run: |
+          swift build
+          swift test
+
