@@ -131,7 +131,7 @@ extension String.Encoding {
         guard let cfencstr = CFStringConvertEncodingToIANACharSetName(cfenc) else {
             return nil
         }
-        return String(describing: cfencstr)
+        return cfencstr as String
         #endif
     }
 }
