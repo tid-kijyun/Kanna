@@ -95,10 +95,13 @@ public func HTML(html: String, url: String? = nil, encoding: String.Encoding, op
 
 // NSData
 public func HTML(html: Data, url: String? = nil, encoding: String.Encoding, option: ParseOption = kDefaultHtmlParseOption) throws -> HTMLDocument {
-    guard let htmlStr = String(data: html, encoding: encoding) else {
+    if let htmlStr = String(data: html, encoding: encoding) {
+        return try HTML(html: htmlStr, url: url, encoding: encoding, option: option)
+    } else if let htmlStr = String(data: html, encoding: .ascii) {
+        return try HTML(html: htmlStr, url: url, encoding: encoding, option: option)
+    } else {
         throw ParseError.EncodingMismatch
     }
-    return try HTML(html: htmlStr, url: url, encoding: encoding, option: option)
 }
 
 // NSURL
