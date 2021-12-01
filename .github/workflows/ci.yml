@@ -10,7 +10,7 @@ jobs:
     runs-on: macos-11
     strategy:
       matrix:
-        xcode: [11.7, 12.5.1, 13.0_beta]
+        xcode: [11.7, 12.5.1, 13.1]
       fail-fast: false
     name: Xcode ${{ matrix.xcode }}
     env:
