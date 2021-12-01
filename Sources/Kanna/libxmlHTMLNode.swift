@@ -193,7 +193,7 @@ final class libxmlHTMLNode: XMLElement {
             return
         }
         xmlUnlinkNode(node.nodePtr)
-        xmlFree(node.nodePtr)
+        xmlFreeNode(node.nodePtr)
     }
 
     private func node(from ptr: xmlNodePtr?) -> XMLElement? {

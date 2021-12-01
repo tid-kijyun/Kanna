@@ -53,6 +53,22 @@ class KannaHTMLModifyingTests: XCTestCase {
             XCTAssert(doc.body!.toHTML == modifyNextHTML)
         }
     }
+
+    func testHTML_RemoveNode() {
+        let html = "<body><div>A love triangle.<h1>Three's Company</h1></div></body>"
+
+        let removedHTML = "<body><div>A love triangle.</div></body>"
+
+        do {
+            guard let doc = try? HTML(html: html, encoding: .utf8),
+                let h1 = doc.at_css("h1") else {
+                    return
+            }
+
+            doc.body?.removeChild(h1)
+            XCTAssert(doc.body!.toHTML == removedHTML)
+        }
+    }
 }
 
 extension KannaHTMLModifyingTests {
