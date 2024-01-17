@@ -115,17 +115,17 @@ final class libxmlHTMLNode: XMLElement {
         get {
             var attr = nodePtr.pointee.properties
             while attr != nil {
-                let mem = attr?.pointee
-                if let tagName = String(validatingUTF8: UnsafeRawPointer((mem?.name)!).assumingMemoryBound(to: CChar.self)) {
-                    if attributeName == tagName {
-                        if let children = mem?.children {
-                            return libxmlGetNodeContent(children)
-                        } else {
-                            return ""
-                        }
-                    }
-                }
-                attr = attr?.pointee.next
+                let mem = attr!.pointee
+                let prefix = mem.ns.flatMap { $0.pointee.prefix.string }
+                let tagName = [prefix, mem.name.string].compactMap { $0 }.joined(separator: ":")
+				if attributeName == tagName {
+					if let children = mem.children {
+						return libxmlGetNodeContent(children)
+					} else {
+						return ""
+					}
+				}
+                attr = attr!.pointee.next
             }
             return nil
         }
@@ -232,4 +232,11 @@ private func escape(_ str: String) -> String {
         newStr = newStr.replacingOccurrences(of: unesc, with: esc, options: .regularExpression, range: nil)
     }
     return newStr
+}
+
+fileprivate extension UnsafePointer<UInt8> {
+	var string: String? {
+		let string = String(validatingUTF8: UnsafePointer<CChar>(OpaquePointer(self)))
+		return string
+	}
 }
