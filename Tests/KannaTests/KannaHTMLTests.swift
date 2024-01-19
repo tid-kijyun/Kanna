@@ -34,7 +34,8 @@ class KannaHTMLTests: XCTestCase {
     func testHTML4() {
         // This is an example of a functional test case.
         let filename = "test_HTML4"
-        guard let path = Bundle(for: KannaHTMLTests.self).path(forResource: filename, ofType: "html") else {
+        guard let path = Bundle.testBundle(for: KannaHTMLTests.self).path(forResource: filename, ofType: "html") else {
+            XCTFail()
             return
         }
 
@@ -103,7 +104,8 @@ class KannaHTMLTests: XCTestCase {
 
     func testInnerHTML() {
         let filename = "test_HTML4"
-        guard let path = Bundle(for: KannaHTMLTests.self).path(forResource: filename, ofType: "html") else {
+        guard let path = Bundle.testBundle(for: KannaHTMLTests.self).path(forResource: filename, ofType: "html") else {
+            XCTFail()
             return
         }
 
@@ -176,7 +178,8 @@ class KannaHTMLTests: XCTestCase {
 
     func testOutOfDocument() {
         let filename = "test_HTML4"
-        guard let path = Bundle(for: KannaHTMLTests.self).path(forResource: filename, ofType: "html") else {
+        guard let path = Bundle.testBundle(for: KannaHTMLTests.self).path(forResource: filename, ofType: "html") else {
+            XCTFail()
             return
         }
 

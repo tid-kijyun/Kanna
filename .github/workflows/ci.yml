@@ -7,10 +7,10 @@ on:
 
 jobs:
   mac:
-    runs-on: macos-11
+    runs-on: macos-14
     strategy:
       matrix:
-        xcode: [11.7, 12.5.1, 13.1]
+        xcode: [14.3.1, 15.2]
       fail-fast: false
     name: Xcode ${{ matrix.xcode }}
     env:
@@ -21,9 +21,9 @@ jobs:
         run: |
           set -o pipefail
           xcodebuild build-for-testing test-without-building -scheme Kanna -configuration Release ENABLE_TESTABILITY=YES | xcpretty -c
-          xcodebuild build-for-testing test-without-building -scheme Kanna -configuration Release -sdk iphonesimulator -destination "name=iPhone 8" ENABLE_TESTABILITY=YES | xcpretty -c
+          xcodebuild build-for-testing test-without-building -scheme Kanna -configuration Release -sdk iphonesimulator -destination "name=iPhone 15" ENABLE_TESTABILITY=YES | xcpretty -c
           xcodebuild build-for-testing test-without-building -scheme Kanna -configuration Release -sdk appletvsimulator -destination "name=Apple TV" ENABLE_TESTABILITY=YES | xcpretty -c
-          xcodebuild -scheme Kanna -configuration Release -sdk watchsimulator -destination "name=Apple Watch Series 4 - 40mm"
+          xcodebuild -scheme Kanna -configuration Release -sdk watchsimulator -destination "name=Apple Watch Series 8 (45mm)"
       - name: swiftpm build and test
         run: |
           swift build
