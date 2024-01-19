@@ -307,6 +307,7 @@ final class libxmlXMLDocument: XMLDocument {
     }
 
     func xpath(_ xpath: String, namespaces: [String: String]? = nil) -> XPathObject {
+    	let namespaces = namespaces ?? self.namespaceDictionary
         guard let docPtr = docPtr else { return .none }
         return XPath(doc: self, docPtr: docPtr).xpath(xpath, namespaces: namespaces)
     }
@@ -336,6 +337,7 @@ struct XPath {
         guard let ctxt = xmlXPathNewContext(docPtr) else { return .none }
         defer { xmlXPathFreeContext(ctxt) }
 
+    	let namespaces = namespaces ?? self.doc.namespaceDictionary
         if let nsDictionary = namespaces {
             for (ns, name) in nsDictionary {
                 xmlXPathRegisterNs(ctxt, ns, name)

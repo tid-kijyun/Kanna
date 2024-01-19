@@ -88,6 +88,35 @@ class KannaXMLTests: XCTestCase {
             XCTAssertEqual(namespaces.sorted(), arry.sorted())
         }
     }
+    
+    func testNamespaces_multipleNamespaces() {
+    	// namespaces: "xmlns:a", "xmlns:r", "xmlns:p"
+    	let url = Bundle(for: KannaXMLTests.self).url(forResource: "pptx-presentation", withExtension: "xml")
+    	XCTAssertNotNil(url)
+    	let doc = try? XML(url: url!, encoding: .utf8)
+    	XCTAssertNotNil(doc)
+    	let nodes = Array(doc!.xpath("//p:sldId"))
+    	XCTAssert(nodes.count == 1)
+    	let sldId = nodes[0]
+    	XCTAssert(sldId.tagName == "sldId")
+    	XCTAssert(sldId["id"] == "256")
+    	XCTAssert(sldId["r:id"] == "rId2")
+    }
+
+    func testNamespaces_singleNamespace() {
+    	// namespaces: "xmlns"
+    	let url = Bundle(for: KannaXMLTests.self).url(forResource: "pptx-presentation", withExtension: "xml.rels")
+    	XCTAssertNotNil(url)
+    	let doc = try? XML(url: url!, encoding: .utf8)
+    	XCTAssertNotNil(doc)
+    	let nodes1 = Array(doc!.xpath("//Relationship"))
+    	XCTAssert(nodes1.count == 0)
+    	let nodes2 = Array(doc!.xpath("//xmlns:Relationship"))
+    	XCTAssert(nodes2.count == 6)
+    	let (relationship0, relationship1) = (nodes2[0], nodes2[1])
+    	XCTAssert(relationship0["Id"] == "rId3")
+    	XCTAssert(relationship1["Id"] == "rId2")
+    }
 }
 
 extension KannaXMLTests {

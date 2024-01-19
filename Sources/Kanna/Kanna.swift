@@ -180,6 +180,15 @@ public protocol XMLDocument: AnyObject, SearchableNode {
     var namespaces: [Namespace] { get }
 }
 
+public extension XMLDocument {
+	var namespaceDictionary: [String: String]? {
+		let dictionary = self.namespaces.reduce(into: [:]) {
+			// when prefix is blank, treat prefix "" as "xmlns", or xpath cannot specify "" as prefix
+			$0[$1.prefix == "" ? "xmlns": $1.prefix] = $1.name
+		}
+		return dictionary.count > 0 ? dictionary : nil
+	}
+}
 /**
 HTMLDocument
 */
