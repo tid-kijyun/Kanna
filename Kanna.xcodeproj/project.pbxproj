@@ -26,6 +26,8 @@
 		1EB4A01F204C1F240003D7A2 /* KannaCSSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB4A01E204C1F240003D7A2 /* KannaCSSTests.swift */; };
 		1EB4A021204C20760003D7A2 /* KannaXMLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB4A020204C20760003D7A2 /* KannaXMLTests.swift */; };
 		1EC805FA1FA2FB2F0067D3DA /* Deprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC805F91FA2FB2F0067D3DA /* Deprecated.swift */; };
+		CC02AE172B5A1A210075B74A /* pptx-presentation.xml.rels in Resources */ = {isa = PBXBuildFile; fileRef = CC02AE162B5A1A210075B74A /* pptx-presentation.xml.rels */; };
+		CC02AE192B5A1A480075B74A /* pptx-presentation.xml in Resources */ = {isa = PBXBuildFile; fileRef = CC02AE182B5A1A480075B74A /* pptx-presentation.xml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,8 @@
 		1EB4A01E204C1F240003D7A2 /* KannaCSSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KannaCSSTests.swift; sourceTree = "<group>"; };
 		1EB4A020204C20760003D7A2 /* KannaXMLTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KannaXMLTests.swift; sourceTree = "<group>"; };
 		1EC805F91FA2FB2F0067D3DA /* Deprecated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deprecated.swift; sourceTree = "<group>"; };
+		CC02AE162B5A1A210075B74A /* pptx-presentation.xml.rels */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "pptx-presentation.xml.rels"; sourceTree = "<group>"; };
+		CC02AE182B5A1A480075B74A /* pptx-presentation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "pptx-presentation.xml"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +175,8 @@
 				1E7ADC9C1DF5907F006E1815 /* sample.html */,
 				1E7ADC9D1DF5907F006E1815 /* test_HTML4.html */,
 				1E7ADC9E1DF5907F006E1815 /* test_XML_ExcelWorkbook.xml */,
+				CC02AE162B5A1A210075B74A /* pptx-presentation.xml.rels */,
+				CC02AE182B5A1A480075B74A /* pptx-presentation.xml */,
 				1E7ADC9F1DF5907F006E1815 /* versions.xml */,
 			);
 			name = Data;
@@ -282,9 +288,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC02AE172B5A1A210075B74A /* pptx-presentation.xml.rels in Resources */,
 				1E7ADCA21DF5907F006E1815 /* test_HTML4.html in Resources */,
 				1E7ADCA11DF5907F006E1815 /* sample.html in Resources */,
 				1E7ADCA01DF5907F006E1815 /* libraries.xml in Resources */,
+				CC02AE192B5A1A480075B74A /* pptx-presentation.xml in Resources */,
 				1E7ADCA41DF5907F006E1815 /* versions.xml in Resources */,
 				1E7ADCA31DF5907F006E1815 /* test_XML_ExcelWorkbook.xml in Resources */,
 			);
@@ -403,7 +411,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -411,8 +420,10 @@
 				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
 			};
 			name = Debug;
 		};
@@ -462,14 +473,17 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
 			};
 			name = Release;
 		};
@@ -487,12 +501,16 @@
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = Sources/Kanna/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tid.Kanna;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
 			};
 			name = Debug;
 		};
@@ -510,12 +528,16 @@
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = Sources/Kanna/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tid.Kanna;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
 			};
 			name = Release;
 		};
@@ -528,10 +550,12 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = DP9Q5R8635;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tid.KannaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 			};
 			name = Debug;
 		};
@@ -544,9 +568,11 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = DP9Q5R8635;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tid.KannaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 			};
 			name = Release;
 		};
