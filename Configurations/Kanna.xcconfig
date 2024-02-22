@@ -16,8 +16,8 @@ PRODUCT_BUNDLE_IDENTIFIER = com.tid.$(PRODUCT_NAME:rfc1034identifier)
 PRODUCT_NAME = $(PROJECT_NAME)
 SKIP_INSTALL = YES
 
-SUPPORTED_PLATFORMS = macosx iphoneos iphonesimulator watchos watchsimulator appletvos appletvsimulator
-TARGETED_DEVICE_FAMILY = 1,2,3,4
+SUPPORTED_PLATFORMS = appletvos appletvsimulator iphoneos iphonesimulator macosx watchos watchsimulator xros xrsimulator
+TARGETED_DEVICE_FAMILY = 1,2,3,4,7
 
 ENABLE_BITCODE[sdk=iphone*] = YES;
 ENABLE_BITCODE[sdk=watch*] = YES;
@@ -27,5 +27,6 @@ LD_RUNPATH_SEARCH_PATHS[sdk=macosx*] = $(inherited) @executable_path/../Framewor
 LD_RUNPATH_SEARCH_PATHS[sdk=iphone*] = $(inherited) @executable_path/Frameworks @loader_path/Frameworks
 LD_RUNPATH_SEARCH_PATHS[sdk=watch*] = $(inherited) @executable_path/Frameworks @loader_path/Frameworks
 LD_RUNPATH_SEARCH_PATHS[sdk=appletv*] = $(inherited) @executable_path/Frameworks @loader_path/Frameworks
+LD_RUNPATH_SEARCH_PATHS[sdk=visionos*] = $(inherited) @executable_path/Frameworks @loader_path/Frameworks
 
 APPLICATION_EXTENSION_API_ONLY = YES;
