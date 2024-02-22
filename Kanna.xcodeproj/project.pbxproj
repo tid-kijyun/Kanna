@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1E76C39D2B86F5EA009A89B9 /* Bundle+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E76C39C2B86F5EA009A89B9 /* Bundle+.swift */; };
+		1E76C39F2B86F907009A89B9 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 1E76C39E2B86F907009A89B9 /* PrivacyInfo.xcprivacy */; };
 		1E7ADC3D1DF4F3FC006E1815 /* Kanna.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E7ADC331DF4F3FC006E1815 /* Kanna.framework */; };
 		1E7ADC561DF4F567006E1815 /* CSS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7ADC4F1DF4F567006E1815 /* CSS.swift */; };
 		1E7ADC581DF4F567006E1815 /* Kanna.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E7ADC511DF4F567006E1815 /* Kanna.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -43,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		1E76C39C2B86F5EA009A89B9 /* Bundle+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+.swift"; sourceTree = "<group>"; };
+		1E76C39E2B86F907009A89B9 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		1E7ADC331DF4F3FC006E1815 /* Kanna.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Kanna.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E7ADC3C1DF4F3FC006E1815 /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E7ADC4F1DF4F567006E1815 /* CSS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSS.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				1E7ADC551DF4F567006E1815 /* libxmlParserOption.swift */,
 				1EC805F91FA2FB2F0067D3DA /* Deprecated.swift */,
 				1E7ADC501DF4F567006E1815 /* Info.plist */,
+				1E76C39E2B86F907009A89B9 /* PrivacyInfo.xcprivacy */,
 			);
 			path = Kanna;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E76C39F2B86F907009A89B9 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

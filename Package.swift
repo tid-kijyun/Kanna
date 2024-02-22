@@ -46,6 +46,9 @@ let package = Package(
                 "Kanna/Info.plist",
                 "Kanna/Kanna.h",
                 "../Tests/KannaTests/Data"
+            ],
+            resources: [
+                .copy("Kanna/PrivacyInfo.xcprivacy"),
             ]
         ),
         .testTarget(
