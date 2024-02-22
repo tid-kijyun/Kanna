@@ -30,7 +30,8 @@ import CoreFoundation
 class KannaXMLTests: XCTestCase {
     func testXml() {
         let filename = "test_XML_ExcelWorkbook"
-        guard let path = Bundle(for: KannaXMLTests.self).path(forResource: filename, ofType: "xml") else {
+        guard let path = Bundle.testBundle(for: KannaXMLTests.self).path(forResource: filename, ofType: "xml") else {
+            XCTFail()
             return
         }
         if let xml = try? Data(contentsOf: URL(fileURLWithPath: path)),
@@ -53,8 +54,7 @@ class KannaXMLTests: XCTestCase {
             }
 
             for row in doc.xpath("//ss:Row", namespaces: namespaces) {
-                for cell in row.xpath("//ss:Data", namespaces: namespaces) {
-                    print(cell.text!)
+                for _ in row.xpath("//ss:Data", namespaces: namespaces) {
                 }
             }
         } else {
@@ -74,7 +74,8 @@ class KannaXMLTests: XCTestCase {
 
     func testNamespaces() {
         let filename = "test_XML_ExcelWorkbook"
-        guard let path = Bundle(for: KannaXMLTests.self).path(forResource: filename, ofType: "xml") else {
+        guard let path = Bundle.testBundle(for: KannaXMLTests.self).path(forResource: filename, ofType: "xml") else {
+            XCTFail()
             return
         }
         if let xml = try? Data(contentsOf: URL(fileURLWithPath: path)),
@@ -91,9 +92,11 @@ class KannaXMLTests: XCTestCase {
     
     func testNamespaces_multipleNamespaces() {
     	// namespaces: "xmlns:a", "xmlns:r", "xmlns:p"
-    	let url = Bundle(for: KannaXMLTests.self).url(forResource: "pptx-presentation", withExtension: "xml")
-    	XCTAssertNotNil(url)
-    	let doc = try? XML(url: url!, encoding: .utf8)
+        guard let url = Bundle.testBundle(for: KannaXMLTests.self).url(forResource: "pptx-presentation", withExtension: "xml") else {
+            XCTFail()
+            return
+        }
+    	let doc = try? XML(url: url, encoding: .utf8)
     	XCTAssertNotNil(doc)
     	let nodes = Array(doc!.xpath("//p:sldId"))
     	XCTAssert(nodes.count == 1)
@@ -104,10 +107,11 @@ class KannaXMLTests: XCTestCase {
     }
 
     func testNamespaces_singleNamespace() {
-    	// namespaces: "xmlns"
-    	let url = Bundle(for: KannaXMLTests.self).url(forResource: "pptx-presentation", withExtension: "xml.rels")
-    	XCTAssertNotNil(url)
-    	let doc = try? XML(url: url!, encoding: .utf8)
+        guard let url = Bundle.testBundle(for: KannaXMLTests.self).url(forResource: "pptx-presentation", withExtension: "xml.rels") else {
+            XCTFail()
+            return
+        }
+    	let doc = try? XML(url: url, encoding: .utf8)
     	XCTAssertNotNil(doc)
     	let nodes1 = Array(doc!.xpath("//Relationship"))
     	XCTAssert(nodes1.count == 0)

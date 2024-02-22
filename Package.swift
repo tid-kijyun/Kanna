@@ -1,4 +1,4 @@
-// swift-tools-version:5.0
+// swift-tools-version:5.5
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 import PackageDescription
 
@@ -46,12 +46,20 @@ let package = Package(
                 "Kanna/Info.plist",
                 "Kanna/Kanna.h",
                 "../Tests/KannaTests/Data"
+            ],
+            resources: [
+                .copy("Kanna/PrivacyInfo.xcprivacy"),
             ]
         ),
         .testTarget(
             name: "KannaTests",
-            dependencies: ["Kanna"]
+            dependencies: ["Kanna"],
+            exclude: [
+                "Info.plist",
+            ],
+            resources: [
+                .process("Data"),
+            ]
         )
-    ],
-    swiftLanguageVersions: [.v5]
+    ]
 )

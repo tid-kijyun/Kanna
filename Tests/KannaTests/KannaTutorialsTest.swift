@@ -25,7 +25,8 @@ class KannaTutorialsTests: XCTestCase {
 
     func testParsingFromFile() {
         let filename = "test_HTML4"
-        guard let filePath = Bundle(for: KannaTutorialsTests.self).path(forResource: filename, ofType: "html") else {
+        guard let filePath = Bundle.testBundle(for: KannaTutorialsTests.self).path(forResource: filename, ofType: "html") else {
+            XCTFail()
             return
         }
         if let data = try? Data(contentsOf: URL(fileURLWithPath: filePath)),
@@ -76,7 +77,8 @@ class KannaTutorialsTests: XCTestCase {
             "iOS 8"
         ]
         let filename = "versions"
-        guard let filePath = Bundle(for: KannaTutorialsTests.self).path(forResource: filename, ofType: "xml") else {
+        guard let filePath = Bundle.testBundle(for: KannaTutorialsTests.self).path(forResource: filename, ofType: "xml") else {
+            XCTFail()
             return
         }
         if let xml = try? String(contentsOfFile: filePath, encoding: .utf8),
@@ -112,8 +114,9 @@ class KannaTutorialsTests: XCTestCase {
         ]
 
         let filename = "libraries"
-        guard let filePath = Bundle(for: KannaTutorialsTests.self).path(forResource: filename, ofType: "xml"),
+        guard let filePath = Bundle.testBundle(for: KannaTutorialsTests.self).path(forResource: filename, ofType: "xml"),
             let xml = try? String(contentsOfFile: filePath, encoding: .utf8) else {
+            XCTFail()
             return
         }
 
@@ -133,8 +136,9 @@ class KannaTutorialsTests: XCTestCase {
     func testModifyingChangingTextContents() {
         let TestModifyHTML = "<body>\n    <h1>Snap, Crackle &amp; Pop</h1>\n    <div>A love triangle.</div>\n</body>"
         let filename = "sample"
-        guard let filePath = Bundle(for: KannaTutorialsTests.self).path(forResource: filename, ofType: "html"),
+        guard let filePath = Bundle.testBundle(for: KannaTutorialsTests.self).path(forResource: filename, ofType: "html"),
             let html = try? String(contentsOfFile: filePath, encoding: .utf8) else {
+            XCTFail()
             return
         }
 
@@ -152,8 +156,9 @@ class KannaTutorialsTests: XCTestCase {
         let TestModifyHTML = "<body>\n    \n    <div>A love triangle.<h1>Three\'s Company</h1>\n</div>\n</body>"
         let TestModifyArrangeHTML = "<body>\n    \n    <div>A love triangle.</div>\n<h1>Three\'s Company</h1>\n</body>"
         let filename = "sample"
-        guard let filePath = Bundle(for: KannaTutorialsTests.self).path(forResource: filename, ofType: "html"),
+        guard let filePath = Bundle.testBundle(for: KannaTutorialsTests.self).path(forResource: filename, ofType: "html"),
             let html = try? String(contentsOfFile: filePath, encoding: .utf8) else {
+            XCTFail()
             return
         }
 
@@ -175,8 +180,9 @@ class KannaTutorialsTests: XCTestCase {
     func testModifyingNodesAndAttributes() {
         let TestModifyHTML = "<body>\n    <h2 class=\"show-title\">Three\'s Company</h2>\n    <div>A love triangle.</div>\n</body>"
         let filename = "sample"
-        guard let filePath = Bundle(for: KannaTutorialsTests.self).path(forResource: filename, ofType: "html"),
+        guard let filePath = Bundle.testBundle(for: KannaTutorialsTests.self).path(forResource: filename, ofType: "html"),
             let html = try? String(contentsOfFile: filePath, encoding: .utf8) else {
+            XCTFail()
             return
         }
 
