@@ -164,6 +164,7 @@ XMLElement
 */
 public protocol XMLElement: SearchableNode {
     var parent: XMLElement? { get set }
+    var attributes: [String: String?] { get }
     subscript(attr: String) -> String? { get set }
 
     func addPrevSibling(_ node: XMLElement)

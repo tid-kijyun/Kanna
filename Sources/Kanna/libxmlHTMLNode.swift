@@ -138,6 +138,25 @@ final class libxmlHTMLNode: XMLElement {
         }
     }
 
+    var attributes: [String : String?] {
+        var result: [String: String?] = [:]
+        var attribute = nodePtr.pointee.properties
+
+        while let attr = attribute {
+            let mem = attr.pointee
+            let prefix = mem.ns.flatMap { $0.pointee.prefix.string }
+            let attributeName = [prefix, mem.name.string].compactMap { $0 }.joined(separator: ":")
+
+            if let children = mem.children {
+                result[attributeName] = libxmlGetNodeContent(children)
+            }
+
+            attribute = attr.pointee.next
+        }
+
+        return result
+    }
+
     init(document: XMLDocument?, docPtr: xmlDocPtr) throws {
         self.weakDocument = document
         self.docPtr       = docPtr
