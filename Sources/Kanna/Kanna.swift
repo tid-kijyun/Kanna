@@ -34,6 +34,10 @@ public enum ParseOption {
     case htmlParseUseLibxml(Libxml2HTMLParserOptions)
 }
 
+#if swift(>=5.5)
+extension ParseOption: Sendable {}
+#endif
+
 public let kDefaultXmlParseOption  = ParseOption.xmlParseUseLibxml([.RECOVER, .NOERROR, .NOWARNING])
 public let kDefaultHtmlParseOption = ParseOption.htmlParseUseLibxml([.RECOVER, .NOERROR, .NOWARNING])
 
