@@ -113,7 +113,7 @@ class KannaCSSTests: XCTestCase {
             XCTAssert(false, error.localizedDescription)
         }
     }
-    
+
     func testCSStoXPathAsyncMultiThreads() {
         let exp = expectation(description: "exp")
         var checkedCount = 0

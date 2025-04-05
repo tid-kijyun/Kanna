@@ -6,4 +6,7 @@ disabled_rules:
 - function_body_length
 - unused_setter_value
 - orphaned_doc_comment
+- comment_spacing
+- xctfail_message
+- trailing_comma
 
