@@ -214,9 +214,15 @@ private func libxmlGetNodeContent(_ nodePtr: xmlNodePtr) -> String? {
         content?.deallocate(capacity: 1)
         #endif
     }
+#if swift(>=6.0)
+    if let result  = String(validatingCString: UnsafeRawPointer(content!).assumingMemoryBound(to: CChar.self)) {
+        return result
+    }
+#else
     if let result  = String(validatingUTF8: UnsafeRawPointer(content!).assumingMemoryBound(to: CChar.self)) {
         return result
     }
+#endif
     return nil
 }
 
@@ -236,7 +242,11 @@ private func escape(_ str: String) -> String {
 
 fileprivate extension UnsafePointer<UInt8> {
 	var string: String? {
-		let string = String(validatingUTF8: UnsafePointer<CChar>(OpaquePointer(self)))
+#if swift(>=6.0)
+        let string = String(validatingCString: UnsafePointer<CChar>(OpaquePointer(self)))
+#else
+        let string = String(validatingUTF8: UnsafePointer<CChar>(OpaquePointer(self)))
+#endif
 		return string
 	}
 }
