@@ -9,9 +9,9 @@ Pod::Spec.new do |s|
   s.social_media_url = 'https://twitter.com/_tid_'
   s.swift_versions   = ['5.0', '6.0']
 
-  s.ios.deployment_target = '15.0'
+  s.ios.deployment_target = '13.0'
   s.osx.deployment_target = '10.15'
-  s.tvos.deployment_target = "15.0"
+  s.tvos.deployment_target = "13.0"
   s.watchos.deployment_target = "10.0"
   s.visionos.deployment_target = "1.0"
   s.requires_arc = true
