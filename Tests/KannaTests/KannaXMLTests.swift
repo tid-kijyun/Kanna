@@ -89,7 +89,7 @@ class KannaXMLTests: XCTestCase {
             XCTAssertEqual(namespaces.sorted(), arry.sorted())
         }
     }
-    
+
     func testNamespaces_multipleNamespaces() {
     	// namespaces: "xmlns:a", "xmlns:r", "xmlns:p"
         guard let url = Bundle.testBundle(for: KannaXMLTests.self).url(forResource: "pptx-presentation", withExtension: "xml") else {

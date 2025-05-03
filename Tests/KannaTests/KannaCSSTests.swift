@@ -113,35 +113,48 @@ class KannaCSSTests: XCTestCase {
             XCTAssert(false, error.localizedDescription)
         }
     }
-    
-    func testCSStoXPathAsyncMultiThreads() {
+
+    func testCSStoXPathAsyncMultiThreads() async {
         let exp = expectation(description: "exp")
-        var checkedCount = 0
-        let lock = NSLock()
+        actor CheckedCounter {
+            private var value = 0
+
+            func increment() {
+                value += 1
+            }
+
+            func get() -> Int {
+                value
+            }
+        }
+        let checkedCount = CheckedCounter()
         let allCheckCount = 100 * css2xpath.count
-        (0..<100).forEach { _ in
-            for testCase in css2xpath {
-                if #available(macOS 10.10, *) {
-                    DispatchQueue.global().async {
-                        do {
-                            let xpath = try CSS.toXPath(testCase.css)
-                            XCTAssert(xpath == testCase.xpath, "Create XPath = [\(xpath)] != [\(testCase.xpath)]")
-                        } catch {
-                            XCTAssert(false, error.localizedDescription)
+
+        let css2xpath = css2xpath
+        await withTaskGroup(of: Void.self) { group in
+            (0..<100).forEach { _ in
+                group.addTask {
+                    for testCase in css2xpath {
+                        if #available(macOS 10.10, *) {
+                            do {
+                                let xpath = try CSS.toXPath(testCase.css)
+                                XCTAssert(xpath == testCase.xpath, "Create XPath = [\(xpath)] != [\(testCase.xpath)]")
+                            } catch {
+                                XCTAssert(false, error.localizedDescription)
+                            }
+                            await checkedCount.increment()
+                            if await checkedCount.get() == allCheckCount {
+                                exp.fulfill()
+                            }
+                        } else {
+                            // Fallback on earlier versions
                         }
-                        lock.lock()
-                        checkedCount += 1
-                        if checkedCount == allCheckCount {
-                            exp.fulfill()
-                        }
-                        lock.unlock()
                     }
-                } else {
-                    // Fallback on earlier versions
                 }
             }
         }
-        waitForExpectations(timeout: 10.0, handler: nil)
+
+        await fulfillment(of: [exp], timeout: 10.0)
     }
 
     func testInvalidCSStoXPath() {

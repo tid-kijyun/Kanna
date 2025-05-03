@@ -24,7 +24,11 @@ SOFTWARE.
 */
 import Foundation
 import CoreFoundation
+#if swift(>=5.6)
+@preconcurrency import libxml2
+#else
 import libxml2
+#endif
 
 extension String.Encoding {
     var IANACharSetName: String? {

@@ -52,6 +52,10 @@ public struct Libxml2HTMLParserOptions: OptionSet {
     public static let IGNORE_ENC = Libxml2HTMLParserOptions(HTML_PARSE_IGNORE_ENC)
 }
 
+#if swift(>=5.5)
+extension Libxml2HTMLParserOptions: Sendable {}
+#endif
+
 /*
 Libxml2XMLParserOptions
 */
@@ -91,3 +95,7 @@ public struct Libxml2XMLParserOptions: OptionSet {
     public static let IGNORE_ENC = Libxml2XMLParserOptions(XML_PARSE_IGNORE_ENC)
     public static let BIG_LINES  = Libxml2XMLParserOptions(XML_PARSE_BIG_LINES)
 }
+
+#if swift(>=5.5)
+extension Libxml2XMLParserOptions: Sendable {}
+#endif
