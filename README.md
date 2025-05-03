@@ -19,7 +19,10 @@ It was inspired by [Nokogiri](https://github.com/sparklemotion/nokogiri)(鋸).
 - [x] Support for namespaces
 - [x] Comprehensive test suite
 
-## Installation for Swift 5
+## Installation
+ℹ️ If you are using Swift 6, please use Kanna 6.0.0 or later.  
+ℹ️ The same applies if you set `Strict Concurrency Check` to `Targeted` or higher.
+
 #### CocoaPods
 Add the following to your `Podfile`:
 ```ruby
