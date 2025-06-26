@@ -9,4 +9,6 @@ disabled_rules:
 - comment_spacing
 - xctfail_message
 - trailing_comma
+- trailing_whitespace
+- file_length
 
