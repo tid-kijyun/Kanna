@@ -207,17 +207,22 @@ final class libxmlHTMLDocument: HTMLDocument {
         }
         
         // MEMORY SAFETY FIX: Convert string to Data to ensure memory persistence
-        // The previous code used cString(using:) with withUnsafeBytes, which created
-        // a temporary buffer that could be deallocated before libxml2 finished parsing
-        guard let xmlData = html.data(using: encoding) else {
+        // Using Data instead of cString to prevent premature deallocation
+        guard let htmlData = html.data(using: encoding) else {
             throw ParseError.EncodingMismatch
         }
         
         let url: String = ""
-        // Use Data.withUnsafeBytes to ensure memory remains valid during parsing
-        // libxml2 will copy the data internally during htmlReadDoc call
-        docPtr = xmlData.withUnsafeBytes { bytes in
-            return htmlReadDoc(bytes.bindMemory(to: xmlChar.self).baseAddress!, url, charsetName, CInt(option))
+        // Use htmlReadMemory (not htmlReadDoc) with proper memory binding and size
+        docPtr = htmlData.withUnsafeBytes { rawBytes in
+            let bytes = rawBytes.bindMemory(to: CChar.self)
+            return htmlReadMemory(
+                bytes.baseAddress,
+                CInt(htmlData.count),  // Include data size
+                url,
+                charsetName,
+                CInt(option)
+            )
         }
         
         guard let docPtr = docPtr else {
@@ -314,17 +319,26 @@ final class libxmlXMLDocument: XMLDocument {
         }
         
         // MEMORY SAFETY FIX: Convert string to Data to ensure memory persistence
-        // The previous code used cString(using:) with withUnsafeBytes, which created
-        // a temporary buffer that could be deallocated before libxml2 finished parsing
+        // Using Data instead of cString to prevent premature deallocation
         guard let xmlData = xml.data(using: encoding) else {
             throw ParseError.EncodingMismatch
         }
         
         let url: String = ""
-        // Use Data.withUnsafeBytes to ensure memory remains valid during parsing
-        // libxml2 will copy the data internally during xmlReadDoc call
-        docPtr = xmlData.withUnsafeBytes { bytes in
-            return xmlReadDoc(bytes.bindMemory(to: xmlChar.self).baseAddress!, url, charsetName, CInt(option))
+        // Use xmlReadMemory (not xmlReadDoc) with proper memory binding and size
+        docPtr = xmlData.withUnsafeBytes { rawBytes in
+            let bytes = rawBytes.bindMemory(to: CChar.self)
+            return xmlReadMemory(
+                bytes.baseAddress,
+                CInt(xmlData.count),  // Include data size
+                url,
+                charsetName,
+                CInt(option)
+            )
+        }
+        
+        guard docPtr != nil else {
+            throw ParseError.EncodingMismatch
         }
         
         rootNode = try libxmlHTMLNode(document: self, docPtr: docPtr!)
