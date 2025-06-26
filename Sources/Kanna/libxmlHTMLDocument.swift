@@ -1,27 +1,27 @@
 /**@file libxmlHTMLDocument.swift
-
-Kanna
-
-Copyright (c) 2015 Atsushi Kiwaki (@_tid_)
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-*/
+ 
+ Kanna
+ 
+ Copyright (c) 2015 Atsushi Kiwaki (@_tid_)
+ 
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+ 
+ The above copyright notice and this permission notice shall be included in all
+ copies or substantial portions of the Software.
+ 
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ SOFTWARE.
+ */
 import Foundation
 import CoreFoundation
 #if swift(>=5.6)
@@ -32,7 +32,7 @@ import libxml2
 
 extension String.Encoding {
     var IANACharSetName: String? {
-        #if os(Linux) && swift(>=4)
+#if os(Linux) && swift(>=4)
         switch self {
         case .ascii:
             return "us-ascii"
@@ -81,7 +81,7 @@ extension String.Encoding {
         default:
             return nil
         }
-        #elseif os(Linux) && swift(>=3)
+#elseif os(Linux) && swift(>=3)
         switch self {
         case String.Encoding.ascii:
             return "us-ascii"
@@ -130,28 +130,28 @@ extension String.Encoding {
         default:
             return nil
         }
-        #else
+#else
         let cfenc = CFStringConvertNSStringEncodingToEncoding(rawValue)
         guard let cfencstr = CFStringConvertEncodingToIANACharSetName(cfenc) else {
             return nil
         }
         return cfencstr as String
-        #endif
+#endif
     }
 }
 
 /*
-libxmlHTMLDocument
-*/
+ libxmlHTMLDocument
+ */
 final class libxmlHTMLDocument: HTMLDocument {
     private var docPtr: htmlDocPtr?
     private var rootNode: XMLElement?
     private var html: String
     private var url: String?
     private var encoding: String.Encoding
-
+    
     var text: String? { rootNode?.text }
-
+    
     var toHTML: String? {
         let buf       = xmlBufferCreate()
         let outputBuf = xmlOutputBufferCreateBuffer(buf, nil)
@@ -159,76 +159,88 @@ final class libxmlHTMLDocument: HTMLDocument {
             xmlOutputBufferClose(outputBuf)
             xmlBufferFree(buf)
         }
-
+        
         htmlDocContentDumpOutput(outputBuf, docPtr, nil)
         let html = String(cString: UnsafePointer(xmlOutputBufferGetContent(outputBuf)))
         return html
     }
-
+    
     var toXML: String? {
         var buf: UnsafeMutablePointer<xmlChar>?
         let size: UnsafeMutablePointer<Int32>? = nil
         defer {
             xmlFree(buf)
         }
-
+        
         xmlDocDumpMemory(docPtr, &buf, size)
         let html = String(cString: UnsafePointer<UInt8>(buf!))
         return html
     }
-
+    
     var innerHTML: String? { rootNode?.innerHTML }
-
+    
     var className: String? { nil }
-
+    
     var tagName: String? {
         get { nil }
         set {}
     }
-
+    
     var content: String? {
         get { text }
         set { rootNode?.content = newValue }
     }
-
+    
     var namespaces: [Namespace] { getNamespaces(docPtr: docPtr) }
-
+    
     init(html: String, url: String?, encoding: String.Encoding, option: UInt) throws {
         self.html     = html
         self.url      = url
         self.encoding = encoding
-
+        
         guard html.lengthOfBytes(using: encoding) > 0 else {
             throw ParseError.Empty
         }
-
-        guard let charsetName = encoding.IANACharSetName,
-            let cur = html.cString(using: encoding) else {
+        
+        guard let charsetName = encoding.IANACharSetName else {
             throw ParseError.EncodingMismatch
         }
-
+        
+        // MEMORY SAFETY FIX: Convert string to Data to ensure memory persistence
+        // The previous code used cString(using:) with withUnsafeBytes, which created
+        // a temporary buffer that could be deallocated before libxml2 finished parsing
+        guard let xmlData = html.data(using: encoding) else {
+            throw ParseError.EncodingMismatch
+        }
+        
         let url: String = ""
-        docPtr = cur.withUnsafeBytes { htmlReadDoc($0.bindMemory(to: xmlChar.self).baseAddress!, url, charsetName, CInt(option)) }
+        // Use Data.withUnsafeBytes to ensure memory remains valid during parsing
+        // libxml2 will copy the data internally during htmlReadDoc call
+        docPtr = xmlData.withUnsafeBytes { bytes in
+            return htmlReadDoc(bytes.bindMemory(to: xmlChar.self).baseAddress!, url, charsetName, CInt(option))
+        }
+        
         guard let docPtr = docPtr else {
             throw ParseError.EncodingMismatch
         }
-
+        
         rootNode = try libxmlHTMLNode(document: self, docPtr: docPtr)
     }
-
+    
+    
     deinit {
         xmlFreeDoc(docPtr)
     }
-
+    
     var title: String? { at_xpath("//title")?.text }
     var head: XMLElement? { at_xpath("//head") }
     var body: XMLElement? { at_xpath("//body") }
-
+    
     func xpath(_ xpath: String, namespaces: [String: String]? = nil) -> XPathObject {
         guard let docPtr = docPtr else { return .none }
         return XPath(doc: self, docPtr: docPtr).xpath(xpath, namespaces: namespaces)
     }
-
+    
     func css(_ selector: String, namespaces: [String: String]? = nil) -> XPathObject {
         guard let docPtr = docPtr else { return .none }
         return XPath(doc: self, docPtr: docPtr).css(selector, namespaces: namespaces)
@@ -236,17 +248,17 @@ final class libxmlHTMLDocument: HTMLDocument {
 }
 
 /*
-libxmlXMLDocument
-*/
+ libxmlXMLDocument
+ */
 final class libxmlXMLDocument: XMLDocument {
     private var docPtr: xmlDocPtr?
     private var rootNode: XMLElement?
     private var xml: String
     private var url: String?
     private var encoding: String.Encoding
-
+    
     var text: String? { rootNode?.text }
-
+    
     var toHTML: String? {
         let buf       = xmlBufferCreate()
         let outputBuf = xmlOutputBufferCreateBuffer(buf, nil)
@@ -254,68 +266,80 @@ final class libxmlXMLDocument: XMLDocument {
             xmlOutputBufferClose(outputBuf)
             xmlBufferFree(buf)
         }
-
+        
         htmlDocContentDumpOutput(outputBuf, docPtr, nil)
         let html = String(cString: UnsafePointer(xmlOutputBufferGetContent(outputBuf)))
         return html
     }
-
+    
     var toXML: String? {
         var buf: UnsafeMutablePointer<xmlChar>?
         let size: UnsafeMutablePointer<Int32>? = nil
         defer {
             xmlFree(buf)
         }
-
+        
         xmlDocDumpMemory(docPtr, &buf, size)
         let html = String(cString: UnsafePointer<UInt8>(buf!))
         return html
     }
-
+    
     var innerHTML: String? { rootNode?.innerHTML }
-
+    
     var className: String? { nil }
-
+    
     var tagName: String? {
         get { nil }
         set {}
     }
-
+    
     var content: String? {
         get { text }
         set { rootNode?.content = newValue }
     }
-
+    
     var namespaces: [Namespace] { getNamespaces(docPtr: docPtr) }
-
+    
     init(xml: String, url: String?, encoding: String.Encoding, option: UInt) throws {
         self.xml      = xml
         self.url      = url
         self.encoding = encoding
-
+        
         if xml.isEmpty {
             throw ParseError.Empty
         }
-
-        guard let charsetName = encoding.IANACharSetName,
-            let cur = xml.cString(using: encoding) else {
-                throw ParseError.EncodingMismatch
+        
+        guard let charsetName = encoding.IANACharSetName else {
+            throw ParseError.EncodingMismatch
         }
+        
+        // MEMORY SAFETY FIX: Convert string to Data to ensure memory persistence
+        // The previous code used cString(using:) with withUnsafeBytes, which created
+        // a temporary buffer that could be deallocated before libxml2 finished parsing
+        guard let xmlData = xml.data(using: encoding) else {
+            throw ParseError.EncodingMismatch
+        }
+        
         let url: String = ""
-        docPtr   = cur.withUnsafeBytes { xmlReadDoc($0.bindMemory(to: xmlChar.self).baseAddress!, url, charsetName, CInt(option)) }
+        // Use Data.withUnsafeBytes to ensure memory remains valid during parsing
+        // libxml2 will copy the data internally during xmlReadDoc call
+        docPtr = xmlData.withUnsafeBytes { bytes in
+            return xmlReadDoc(bytes.bindMemory(to: xmlChar.self).baseAddress!, url, charsetName, CInt(option))
+        }
+        
         rootNode = try libxmlHTMLNode(document: self, docPtr: docPtr!)
     }
-
+    
     deinit {
         xmlFreeDoc(docPtr)
     }
-
+    
     func xpath(_ xpath: String, namespaces: [String: String]? = nil) -> XPathObject {
-    	let namespaces = namespaces ?? self.namespaceDictionary
+        let namespaces = namespaces ?? self.namespaceDictionary
         guard let docPtr = docPtr else { return .none }
         return XPath(doc: self, docPtr: docPtr).xpath(xpath, namespaces: namespaces)
     }
-
+    
     func css(_ selector: String, namespaces: [String: String]? = nil) -> XPathObject {
         guard let docPtr = docPtr else { return .none }
         return XPath(doc: self, docPtr: docPtr).css(selector, namespaces: namespaces)
@@ -330,41 +354,41 @@ struct XPath {
         guard let nodePtr = nodePtr else { return true }
         return xmlDocGetRootElement(docPtr) == nodePtr
     }
-
+    
     init(doc: XMLDocument, docPtr: xmlDocPtr, nodePtr: xmlNodePtr? = nil) {
         self.doc = doc
         self.docPtr = docPtr
         self.nodePtr = nodePtr
     }
-
+    
     func xpath(_ xpath: String, namespaces: [String: String]? = nil) -> XPathObject {
         guard let ctxt = xmlXPathNewContext(docPtr) else { return .none }
         defer { xmlXPathFreeContext(ctxt) }
-
-    	let namespaces = namespaces ?? self.doc.namespaceDictionary
+        
+        let namespaces = namespaces ?? self.doc.namespaceDictionary
         if let nsDictionary = namespaces {
             for (ns, name) in nsDictionary {
                 xmlXPathRegisterNs(ctxt, ns, name)
             }
         }
-
+        
         if let node = nodePtr {
             ctxt.pointee.node = node
         }
-
+        
         guard let result = xmlXPathEvalExpression(adoptXpath(xpath), ctxt) else { return .none }
         defer { xmlXPathFreeObject(result) }
-
+        
         return XPathObject(document: doc, docPtr: docPtr, object: result.pointee)
     }
-
+    
     func css(_ selector: String, namespaces: [String: String]? = nil) -> XPathObject {
         if let xpath = try? CSS.toXPath(selector, isRoot: isRoot) {
             return self.xpath(xpath, namespaces: namespaces)
         }
         return .none
     }
-
+    
     private func adoptXpath(_ xpath: String) -> String {
         guard !isRoot else { return xpath }
         if xpath.hasPrefix("/") {
@@ -380,7 +404,7 @@ private func getNamespaces(docPtr: xmlDocPtr?) -> [Namespace] {
     guard let ns = xmlGetNsList(docPtr, rootNode) else {
         return []
     }
-
+    
     var result: [Namespace] = []
     var next = ns.pointee
     while next != nil {
