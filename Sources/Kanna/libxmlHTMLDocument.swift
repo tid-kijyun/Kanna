@@ -232,7 +232,6 @@ final class libxmlHTMLDocument: HTMLDocument {
         rootNode = try libxmlHTMLNode(document: self, docPtr: docPtr)
     }
     
-    
     deinit {
         xmlFreeDoc(docPtr)
     }
