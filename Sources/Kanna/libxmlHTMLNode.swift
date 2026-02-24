@@ -259,7 +259,7 @@ let entities = [
 private func escape(_ str: String) -> String {
     var newStr = str
     for (unesc, esc) in entities {
-        newStr = newStr.replacingOccurrences(of: unesc, with: esc, options: .regularExpression, range: nil)
+        newStr = newStr.replacingOccurrences(of: unesc, with: esc, options: .literal, range: nil)
     }
     return newStr
 }
