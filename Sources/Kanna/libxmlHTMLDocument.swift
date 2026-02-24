@@ -417,7 +417,8 @@ private func getNamespaces(docPtr: xmlDocPtr?) -> [Namespace] {
     guard let ns = xmlGetNsList(docPtr, rootNode) else {
         return []
     }
-    
+    defer { xmlFree(ns) }
+
     var result: [Namespace] = []
     var next = ns.pointee
     while next != nil {
