@@ -211,15 +211,14 @@ final class libxmlHTMLDocument: HTMLDocument {
         guard let htmlData = html.data(using: encoding) else {
             throw ParseError.EncodingMismatch
         }
-        
-        let url: String = ""
+
         // Use htmlReadMemory (not htmlReadDoc) with proper memory binding and size
         docPtr = htmlData.withUnsafeBytes { rawBytes in
             let bytes = rawBytes.bindMemory(to: CChar.self)
             return htmlReadMemory(
                 bytes.baseAddress,
                 CInt(htmlData.count),  // Include data size
-                url,
+                url ?? "",
                 charsetName,
                 CInt(option)
             )
@@ -323,14 +322,13 @@ final class libxmlXMLDocument: XMLDocument {
             throw ParseError.EncodingMismatch
         }
         
-        let url: String = ""
         // Use xmlReadMemory (not xmlReadDoc) with proper memory binding and size
         docPtr = xmlData.withUnsafeBytes { rawBytes in
             let bytes = rawBytes.bindMemory(to: CChar.self)
             return xmlReadMemory(
                 bytes.baseAddress,
                 CInt(xmlData.count),  // Include data size
-                url,
+                url ?? "",
                 charsetName,
                 CInt(option)
             )
