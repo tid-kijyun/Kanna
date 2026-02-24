@@ -34,18 +34,30 @@ final class libxmlHTMLNode: XMLElement {
     }
 
     var toHTML: String? {
-        let buf = xmlBufferCreate()
+        guard let buf = xmlBufferCreate() else {
+            return nil
+        }
+        defer { xmlBufferFree(buf) }
+
         htmlNodeDump(buf, docPtr, nodePtr)
-        let html = String(cString: UnsafePointer<UInt8>((buf?.pointee.content)!))
-        xmlBufferFree(buf)
+        guard let content = buf.pointee.content else {
+            return nil
+        }
+        let html = String(cString: UnsafePointer<UInt8>(content))
         return html
     }
 
     var toXML: String? {
-        let buf = xmlBufferCreate()
+        guard let buf = xmlBufferCreate() else {
+            return nil
+        }
+        defer { xmlBufferFree(buf) }
+
         xmlNodeDump(buf, docPtr, nodePtr, 0, 0)
-        let html = String(cString: UnsafePointer<UInt8>((buf?.pointee.content)!))
-        xmlBufferFree(buf)
+        guard let content = buf.pointee.content else {
+            return nil
+        }
+        let html = String(cString: UnsafePointer<UInt8>(content))
         return html
     }
 
