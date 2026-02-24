@@ -65,6 +65,8 @@ class KannaCSSTests: XCTestCase {
         ("div:last-of-type", "//div[position() = last()]"),
         ("div:only-of-type", "//div[last() = 1]"),
         ("div:empty", "//div[not(node())]"),
+        ("div:nth-child(-n+5)", "//div[(count(preceding-sibling::*) + 1) <= 5]"),
+        ("div:nth-child(-2n+5)", "//div[(count(preceding-sibling::*) + 1) <= 5 and ((((count(preceding-sibling::*) + 1)-5) mod 2) = 0)]"),
         ("div:nth-child(0)", "//div[count(preceding-sibling::*) = -1]"),
         ("div:nth-child(3)", "//div[count(preceding-sibling::*) = 2]"),
         ("div:nth-child(odd)", "//div[((count(preceding-sibling::*) + 1) >= 1) and ((((count(preceding-sibling::*) + 1)-1) mod 2) = 0)]"),

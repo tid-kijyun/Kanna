@@ -138,7 +138,7 @@ private func nth(prefix: String, a: Int, b: Int) -> String {
         return "((count(\(sibling)) + 1) mod \(a)) = 0"
     }
     let a = abs(a)
-    return "(count(\(sibling)) + 1) <= \(b)" + ((a != 1) ? " and ((((count(\(sibling)) + 1)-\(b)) mod \(a) = 0)" : "")
+    return "(count(\(sibling)) + 1) <= \(b)" + ((a != 1) ? " and ((((count(\(sibling)) + 1)-\(b)) mod \(a)) = 0)" : "")
 }
 
 // a(n) + b | a(n) - b
