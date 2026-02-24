@@ -69,6 +69,38 @@ class KannaHTMLModifyingTests: XCTestCase {
             XCTAssert(doc.body!.toHTML == removedHTML)
         }
     }
+
+    func testHTML_RemovedNodeIsStillAccessible() {
+        let html = "<body><div>A love triangle.<h1>Three's Company</h1></div></body>"
+
+        guard let doc = try? HTML(html: html, encoding: .utf8),
+              let h1 = doc.at_css("h1") else {
+            XCTFail()
+            return
+        }
+
+        doc.body?.removeChild(h1)
+
+        XCTAssertEqual(h1.tagName, "h1")
+        XCTAssertEqual(h1.text, "Three's Company")
+    }
+
+    func testHTML_RemovedNodeCanBeReattached() {
+        let html = "<body><div><h1>Title</h1><p>Text</p></div></body>"
+
+        guard let doc = try? HTML(html: html, encoding: .utf8),
+              let h1 = doc.at_css("h1"),
+              let p = doc.at_css("p") else {
+            XCTFail()
+            return
+        }
+
+        doc.at_css("div")?.removeChild(h1)
+        p.addNextSibling(h1)
+
+        XCTAssertNotNil(doc.at_css("h1"))
+        XCTAssertEqual(doc.at_css("h1")?.text, "Title")
+    }
 }
 
 extension KannaHTMLModifyingTests {
