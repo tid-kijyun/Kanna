@@ -119,6 +119,7 @@ final class libxmlHTMLNode: XMLElement {
     private var document: XMLDocument?
     private var docPtr: htmlDocPtr
     private var nodePtr: xmlNodePtr
+    private var isUnlinked = false
     private var doc: XMLDocument? {
         weakDocument ?? document
     }
@@ -167,6 +168,12 @@ final class libxmlHTMLNode: XMLElement {
         self.nodePtr  = node
     }
 
+    deinit {
+         if isUnlinked {
+             xmlFreeNode(nodePtr)
+         }
+     }
+
     // MARK: Searchable
     func xpath(_ xpath: String, namespaces: [String: String]? = nil) -> XPathObject {
         guard let doc = doc else { return .none }
@@ -183,6 +190,7 @@ final class libxmlHTMLNode: XMLElement {
             return
         }
         xmlAddPrevSibling(nodePtr, node.nodePtr)
+        node.isUnlinked = false
     }
 
     func addNextSibling(_ node: XMLElement) {
@@ -190,6 +198,7 @@ final class libxmlHTMLNode: XMLElement {
             return
         }
         xmlAddNextSibling(nodePtr, node.nodePtr)
+        node.isUnlinked = false
     }
 
     func addChild(_ node: XMLElement) {
@@ -198,6 +207,7 @@ final class libxmlHTMLNode: XMLElement {
         }
         xmlUnlinkNode(node.nodePtr)
         xmlAddChild(nodePtr, node.nodePtr)
+        node.isUnlinked = false
     }
 
     func removeChild(_ node: XMLElement) {
@@ -205,7 +215,7 @@ final class libxmlHTMLNode: XMLElement {
             return
         }
         xmlUnlinkNode(node.nodePtr)
-        xmlFreeNode(node.nodePtr)
+        node.isUnlinked = true
     }
 
     private func node(from ptr: xmlNodePtr?) -> XMLElement? {
