@@ -239,6 +239,20 @@ class KannaHTMLTests: XCTestCase {
             XCTFail("Abnormal test data")
         }
     }
+
+    func testHTML_UnlinkedNodeParent() {
+        guard let doc = try? HTML(html: "<body><div><p>hello</p></div></body>", encoding:
+    .utf8),
+              let div = doc.at_css("div"),
+              let p = doc.at_css("p") else {
+            XCTFail()
+            return
+        }
+
+        div.removeChild(p)
+
+        XCTAssertNil(p.parent)
+    }
 }
 
 extension KannaHTMLTests {

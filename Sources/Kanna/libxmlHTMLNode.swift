@@ -98,7 +98,7 @@ final class libxmlHTMLNode: XMLElement {
 
     var parent: XMLElement? {
         get {
-            libxmlHTMLNode(document: doc, docPtr: docPtr, node: nodePtr.pointee.parent)
+            node(from: nodePtr.pointee.parent)
         }
         set {
             if let node = newValue as? libxmlHTMLNode {
