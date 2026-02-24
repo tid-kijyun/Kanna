@@ -327,7 +327,7 @@ extension XPathObject {
     }
 
     public subscript(index: Int) -> XMLElement {
-        nodeSet![index]
+        nodeSetValue[index]
     }
 
     public var first: XMLElement? {
