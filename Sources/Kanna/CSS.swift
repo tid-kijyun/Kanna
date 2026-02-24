@@ -295,7 +295,7 @@ private func getAttribute(_ str: inout String, skip: Bool = true) -> String? {
                 } else if arg1 == "even" {
                     return nthFunc(2, 0)
                 } else {
-                    return nthFunc(0, Int(arg1)!)
+                    return nthFunc(0, Int(arg1) ?? 0)
                 }
             } else if let sub = firstMatch(matchSubNthChildN, text: one) {
                 let (nth, arg1, arg2) = (substringWithRangeAtIndex(sub, str: one, at: 1),
@@ -303,8 +303,8 @@ private func getAttribute(_ str: inout String, skip: Bool = true) -> String? {
                                          substringWithRangeAtIndex(sub, str: one, at: 3))
 
                 let nthFunc = (nth == "nth-child") ? nth_child : nth_last_child
-                let a: Int = (arg1 == "-") ? -1 : Int(arg1)!
-                let b: Int = (arg2.isEmpty) ? 0 : Int(arg2)!
+                let a: Int = (arg1 == "-") ? -1 : Int(arg1) ?? 0
+                let b: Int = (arg2.isEmpty) ? 0 : Int(arg2) ?? 0
                 return nthFunc(a, b)
             } else if let sub = firstMatch(matchSubNthOfType, text: one) {
                 let arg1   = substringWithRangeAtIndex(sub, str: one, at: 1)
