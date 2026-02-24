@@ -249,7 +249,7 @@ public final class XMLNodeSet {
     }
 
     public func at(_ index: Int) -> XMLElement? {
-        count > index ? nodes[index] : nil
+        (index >= 0) && (count > index) ? nodes[index] : nil
     }
 
     public var first: XMLElement? { at(0) }
