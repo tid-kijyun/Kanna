@@ -151,8 +151,8 @@ final class libxmlHTMLNode: XMLElement {
         }
     }
 
-    var attributes: [String : String?] {
-        var result: [String: String?] = [:]
+    var attributes: [String: String] {
+        var result: [String: String] = [:]
         var attribute = nodePtr.pointee.properties
 
         while let attr = attribute {
@@ -160,8 +160,11 @@ final class libxmlHTMLNode: XMLElement {
             let prefix = mem.ns.flatMap { $0.pointee.prefix.string }
             let attributeName = [prefix, mem.name.string].compactMap { $0 }.joined(separator: ":")
 
-            if let children = mem.children {
-                result[attributeName] = libxmlGetNodeContent(children)
+            if let children = mem.children,
+               let value = libxmlGetNodeContent(children) {
+                result[attributeName] = value
+            } else {
+                result[attributeName] = ""
             }
 
             attribute = attr.pointee.next

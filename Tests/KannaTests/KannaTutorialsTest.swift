@@ -197,17 +197,29 @@ class KannaTutorialsTests: XCTestCase {
         XCTAssert(doc.body?.toHTML == TestModifyHTML)
     }
 
-		func testListAttributes() throws {
-			let html = """
-			<body>
-				<h2 class="show-title" data-hello="world">Three's Company</h2>
-			</body>
-			"""
+    func testListAttributes() throws {
+        let html = """
+   <body>
+    <h2 class="show-title" data-hello="world">Three's Company</h2>
+   </body>
+   """
 
-			let document = try HTML(html: html, encoding: .utf8)
-			let h2 = document.at_css("h2")!
-			XCTAssertEqual(["class": "show-title", "data-hello": "world"], h2.attributes)
-		}
+        let document = try HTML(html: html, encoding: .utf8)
+        let h2 = document.at_css("h2")!
+        XCTAssertEqual(["class": "show-title", "data-hello": "world"], h2.attributes)
+    }
+
+    func testListAttributesWithBooleanAttribute() throws {
+        let html = """
+          <body>
+              <input type="text" disabled>
+          </body>
+          """
+
+        let document = try HTML(html: html, encoding: .utf8)
+        let input = document.at_css("input")!
+        XCTAssertEqual(input.attributes, ["type": "text", "disabled": "disabled"])
+    }
 }
 
 extension KannaTutorialsTests {
