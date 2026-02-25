@@ -294,6 +294,41 @@ class KannaHTMLTests: XCTestCase {
 
         XCTAssertNil(p.parent)
     }
+
+    func testHTML_CloneNode() {
+        let html = "<body><div class=\"hello\"><h1>Title</h1><p>Text</p></div></body>"
+
+        guard let doc = try? HTML(html: html, encoding: .utf8),
+              let div = doc.at_css("div") else {
+            XCTFail()
+            return
+        }
+
+        // deep copy (default)
+        guard var deepCloned = div.cloneNode() else {
+            XCTFail()
+            return
+        }
+
+        XCTAssertEqual(deepCloned.tagName, "div")
+        XCTAssertEqual(deepCloned["class"], "hello")
+        XCTAssertEqual(deepCloned.at_css("h1")?.text, "Title")
+        XCTAssertEqual(deepCloned.at_css("p")?.text, "Text")
+
+        deepCloned["class"] = "modified"
+        XCTAssertEqual(div["class"], "hello")
+
+        // shallow copy
+        guard let shallowCloned = div.cloneNode(deep: false) else {
+            XCTFail()
+            return
+        }
+
+        XCTAssertEqual(shallowCloned.tagName, "div")
+        XCTAssertEqual(shallowCloned["class"], "hello")
+        XCTAssertNil(shallowCloned.at_css("h1"))
+        XCTAssertNil(shallowCloned.at_css("p"))
+    }
 }
 
 extension KannaHTMLTests {

@@ -252,6 +252,15 @@ final class libxmlHTMLNode: XMLElement {
         node.isUnlinked = true
     }
 
+    func cloneNode(deep: Bool) -> XMLElement? {
+        guard let newNode = xmlCopyNode(nodePtr, deep ? 1 : 2) else {
+            return nil
+        }
+        let cloned = libxmlHTMLNode(document: doc, docPtr: docPtr, node: newNode)
+        cloned.isUnlinked = true
+        return cloned
+    }
+
     private func node(from ptr: xmlNodePtr?) -> XMLElement? {
         guard let doc = doc, let nodePtr = ptr else {
             return nil
