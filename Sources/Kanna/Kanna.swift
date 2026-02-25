@@ -175,9 +175,15 @@ public protocol XMLElement: SearchableNode {
     func addPrevSibling(_ node: XMLElement)
     func addNextSibling(_ node: XMLElement)
     func removeChild(_ node: XMLElement)
-    func cloneNode() -> XMLElement?
+    func cloneNode(deep: Bool) -> XMLElement?
     var nextSibling: XMLElement? { get }
     var previousSibling: XMLElement? { get }
+}
+
+public extension XMLElement {
+    func cloneNode(deep: Bool = true) -> XMLElement? {
+        return self.cloneNode(deep: deep)
+    }
 }
 
 /**
