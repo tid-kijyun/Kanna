@@ -168,6 +168,7 @@ XMLElement
 */
 public protocol XMLElement: SearchableNode {
     var parent: XMLElement? { get set }
+    var children: [XMLElement] { get }
     var attributes: [String: String] { get }
     subscript(attr: String) -> String? { get set }
 

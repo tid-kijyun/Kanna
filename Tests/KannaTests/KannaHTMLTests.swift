@@ -155,6 +155,47 @@ class KannaHTMLTests: XCTestCase {
         XCTAssert(previous.text == "first")
     }
 
+    func testChildren() {
+        let html = "<body><div><p>first</p><span>second</span><h1>third</h1></div></body>"
+
+        guard let doc = try? HTML(html: html, encoding: .utf8),
+              let div = doc.at_css("div") else {
+            XCTFail()
+            return
+        }
+
+        let children = div.children
+        XCTAssertEqual(children.count, 3)
+        XCTAssertEqual(children[0].tagName, "p")
+        XCTAssertEqual(children[1].tagName, "span")
+        XCTAssertEqual(children[2].tagName, "h1")
+    }
+
+    func testChildrenEmpty() {
+        let html = "<body><div></div></body>"
+
+        guard let doc = try? HTML(html: html, encoding: .utf8),
+              let div = doc.at_css("div") else {
+            XCTFail()
+            return
+        }
+
+        XCTAssertEqual(div.children.count, 0)
+    }
+
+    func testChildrenSkipsTextNodes() {
+        let html = "<body><div>text<p>child</p>more text</div></body>"
+
+        guard let doc = try? HTML(html: html, encoding: .utf8),
+              let div = doc.at_css("div") else {
+            XCTFail()
+            return
+        }
+
+        XCTAssertEqual(div.children.count, 1)
+        XCTAssertEqual(div.children[0].tagName, "p")
+    }
+
     func testEmptyHTML() {
         XCTAssertThrowsError(try HTML(html: "", encoding: .utf8)) { error in
             XCTAssertEqual(error as? ParseError, ParseError.Empty)

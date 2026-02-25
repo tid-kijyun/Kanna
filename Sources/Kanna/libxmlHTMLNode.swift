@@ -107,6 +107,18 @@ final class libxmlHTMLNode: XMLElement {
         }
     }
 
+    var children: [XMLElement] {
+        var result: [XMLElement] = []
+        var child = nodePtr.pointee.children
+        while let current = child {
+            if current.pointee.type == XML_ELEMENT_NODE {
+                result.append(libxmlHTMLNode(document: doc, docPtr: docPtr, node: current))
+            }
+            child = current.pointee.next
+        }
+        return result
+    }
+
     var nextSibling: XMLElement? {
         node(from: xmlNextElementSibling(nodePtr))
     }
